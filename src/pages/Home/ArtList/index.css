@@ -1,0 +1,84 @@
+.article-item {
+    background-color: #232324;
+    height: 220px;
+    border-radius: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.article-item:hover {
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
+    transform: scale(1.02);
+}
+
+.article-item-title {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.article-item-abstract {
+    margin: 0;
+    height: 80px;
+    text-indent: 2em;
+    color: rgb(223, 223, 223);
+    font-size: 18px;
+    padding: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.article-item-info {
+    position: relative;
+    height: 60px;
+}
+.article-item-date,
+.article-item-tag {
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    color: rgb(223, 223, 223);
+    height: 30px;
+    background-color: rgb(58, 58, 58);
+}
+.article-item-date {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'car';
+}
+.article-item-tags {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+    max-width: 800px;
+    height: 30px;
+}
+.article-item-tag {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.article-item-tag:hover,
+.article-item-date:hover {
+    box-shadow: 0 0 10px rgba(180, 180, 0, 0.8);
+    background-color: rgb(180, 180, 0);
+    color: rgb(88, 88, 88);
+}

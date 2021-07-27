@@ -1,0 +1,39 @@
+.BlogCard-box {
+    margin: 20px;
+    border-radius: 20px;
+    background-color: #232324;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.BlogCard-box:hover {
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
+    transform: scale(1.04);
+}
+
+.avatar {
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    height: 200px;
+    /* 图片不可拖动 */
+    -webkit-user-drag: none;
+}
+
+.BlogCard-text {
+    margin: 0;
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    font-size: 20px;
+    line-height: 34px;
+}
+
+.blogger-name,
+.blog-name {
+    color: rgb(180, 180, 0);
+    font-weight: 700;
+}

@@ -1,0 +1,9 @@
+.Content-box {
+    min-height: calc(100vh - 60px - 100px);
+}
+
+.content-center {
+    min-height: calc(100vh - 60px - 100px);
+    width: 1300px;
+    margin: auto;
+}

@@ -1,0 +1,31 @@
+.TagCard-box {
+    background-color: #232324;
+    margin: 20px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    user-select: none;
+    padding: 12px;
+}
+
+.TagCard-box:hover {
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
+    transform: scale(1.04);
+}
+
+.theTag {
+    display: inline-block;
+    padding: 0 10px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    user-select: none;
+    transition: all 0.2s;
+    color: #fff;
+    border-radius: 12px;
+}
+.theTag:hover {
+    background-color: rgb(180, 180, 0);
+    color: rgb(88, 88, 88);
+    font-weight: 700;
+}

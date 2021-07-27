@@ -1,0 +1,73 @@
+.PageNav-box {
+    height: 50px;
+    /* background-color: #fff; */
+    /* background-color: #232324; */
+    user-select: none;
+    text-align: center;
+}
+
+.ant-pagination {
+    color: #fff;
+    height: 100%;
+}
+
+.ant-pagination .ant-pagination-prev,
+.ant-pagination .ant-pagination-next {
+    width: 50px;
+    height: 50px;
+}
+
+.ant-pagination .ant-pagination-item-link,
+.ant-pagination .ant-pagination-item,
+.ant-pagination .ant-pagination-jump-prev,
+.ant-pagination .ant-pagination-jump-next {
+    background-color: rgb(68, 63, 63);
+    border: none;
+    border-radius: 10px;
+    cursor: default;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    transition: all 0.2s !important;
+}
+
+.ant-pagination .ant-pagination-item a {
+    transition: all 0.2s !important;
+    cursor: default;
+    color: #fff;
+}
+.ant-pagination .ant-pagination-item a:hover {
+    color: rgb(88, 88, 88) !important;
+}
+
+.ant-pagination .ant-pagination-item-link:hover,
+.ant-pagination .ant-pagination-item:hover,
+.ant-pagination-item-active:hover,
+.ant-pagination .ant-pagination-jump-prev:hover,
+.ant-pagination .ant-pagination-jump-next:hover {
+    background-color: rgb(180, 180, 0) !important;
+    color: rgb(88, 88, 88) !important;
+}
+
+.ant-pagination-item-active {
+    background-color: rgb(180, 180, 0) !important;
+}
+.ant-pagination-item-active a {
+    color: rgb(88, 88, 88) !important;
+}
+.ant-pagination-item-link-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: rgb(88, 88, 88);
+}
+
+.ant-pagination-item-ellipsis {
+    color: #fff !important;
+}
+
+/* .ant-pagination .ant-pagination-jump-prev,
+.ant-pagination .ant-pagination-jump-next {
+    display: none;
+} */

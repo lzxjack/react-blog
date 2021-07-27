@@ -1,0 +1,9 @@
+.Blog-box {
+    min-height: calc(100vh - 60px - 100px);
+    position: relative;
+    font-family: 'NSC';
+    background-color: #000;
+    /* font-family: 'STH'; */
+    /* font-weight: 700; */
+    /* background-color: rgb(76, 99, 230); */
+}

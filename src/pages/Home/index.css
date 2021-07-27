@@ -1,0 +1,19 @@
+.Home-box {
+    display: flex;
+}
+
+.home-main {
+    width: 1000px;
+    min-height: calc(100vh - 60px - 100px);
+}
+
+.home-aside {
+    width: 300px;
+    color: #fff;
+}
+
+.aside-fixed {
+    position: fixed;
+    top: -660px;
+    right: calc((100vw - 1300px) / 2);
+}

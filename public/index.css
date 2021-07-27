@@ -1,0 +1,96 @@
+div {
+    padding: 0;
+    margin: 0;
+}
+
+/* li {
+    list-style: none;
+} */
+
+/* body {
+    overflow-y: overlay;
+} */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    background: none;
+    outline: none;
+    border: 0px;
+    border-radius: 0;
+}
+
+div,
+input {
+    box-sizing: border-box;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    text-decoration: none !important;
+}
+
+@font-face {
+    font-family: 'FiraCode';
+    src: url(./FiraCode-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yu100';
+    src: url(./yu100.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'yu400';
+    src: url(./yu400.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* -------- */
+
+@font-face {
+    font-family: 'NSC';
+    src: url(./NotoSansCJK-DemiLight-4.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'STH';
+    src: url(./STHeiti-Light-3.ttc);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'car';
+    src: url(./car.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wow {
+    visibility: hidden;
+}
+
+html {
+    background-color: #000;
+}
