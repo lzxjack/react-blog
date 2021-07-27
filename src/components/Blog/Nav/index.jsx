@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
+import { blogAdminUrl } from '../../../utils/constant';
 import DarkBtn from './DarkBtn';
 import './index.css';
 
@@ -14,12 +15,7 @@ const Nav = () => (
             <div className="dark-btn">
                 <DarkBtn />
             </div>
-            <a
-                className="admin-btn"
-                href="https://blog-5gk8ag1mcc84bf9b-1304393382.tcloudbaseapp.com"
-                target="_blank"
-                rel="noreferrer"
-            >
+            <a className="admin-btn" href={blogAdminUrl} target="_blank" rel="noreferrer">
                 <SettingOutlined />
             </a>
 
