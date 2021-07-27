@@ -1,3 +1,6 @@
+// 博客的云环境ID
+export const env = 'blog-5gk8ag1mcc84bf9b';
+
 export const twikooUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/js/twikoo.all.min.js';
 export const twikooConfigUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/js/twikooConfig.js';
 
