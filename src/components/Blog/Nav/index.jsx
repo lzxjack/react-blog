@@ -7,7 +7,7 @@ import './index.css';
 const Nav = () => (
     <nav>
         <div className="nav-content">
-            <NavLink className="navlink" to="/home">
+            <NavLink className="navlink" to="/">
                 <div className="home-btn">
                     <HomeOutlined />
                 </div>
