@@ -97,6 +97,7 @@
     user-select: none !important;
     padding: 0 12px !important;
     transition: all 0.2s !important;
+    height: 36px !important;
 }
 .el-input-group__prepend:hover {
     background-color: rgb(180, 180, 0) !important;
@@ -107,6 +108,10 @@
     border-radius: 10px !important;
     background-color: #313131 !important;
     font-size: 16px !important;
+    height: 36px !important;
+}
+.el-input__inner {
+    height: 36px !important;
 }
 /* 评论区 */
 .el-textarea__inner {
@@ -135,7 +140,7 @@
 }
 .el-button {
     border: none !important;
-    height: 34px !important;
+    height: 36px !important;
     width: 70px !important;
     border-radius: 10px !important;
     font-size: 14px !important;
