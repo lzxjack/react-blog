@@ -8,6 +8,7 @@ import ArticleContent from './ArticleContent';
 import ArticleTags from './ArticleTags';
 import Divider from './Divider';
 import Comments from './Comments';
+import ArticleAside from './ArticleAside';
 import qs from 'qs';
 import moment from 'moment';
 import './index.css';
@@ -65,7 +66,7 @@ const Article = props => {
                         <Comments />
                     </div>
                 </div>
-                <div className="standard-aside-box">Article</div>
+                <ArticleAside />
             </div>
         </div>
     );

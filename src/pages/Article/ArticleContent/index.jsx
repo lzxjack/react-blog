@@ -20,6 +20,7 @@ const ArticleContent = props => {
     });
     return (
         <div
+            // id="post"
             className="standard-page-main-content markdownStyle"
             dangerouslySetInnerHTML={{
                 __html: marked(props.content).replace(/<pre>/g, "<pre id='hljs'>"),
