@@ -1,0 +1,21 @@
+.standard-page-tags {
+    margin-top: 60px;
+    width: 60%;
+}
+
+.tag {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    height: 36px;
+    line-height: 36px;
+    background-color: #0d1117;
+    padding: 0 10px;
+    border-radius: 12px;
+    user-select: none;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+.tag:hover {
+    background-color: rgb(180, 180, 0);
+    color: rgb(88, 88, 88);
+}

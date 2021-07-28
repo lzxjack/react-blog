@@ -10,6 +10,7 @@
         "@testing-library/user-event": "^12.1.10",
         "antd": "^4.16.7",
         "babel-plugin-import": "^1.13.3",
+        "copy-to-clipboard": "^3.3.1",
         "customize-cra": "^1.0.0",
         "highlight.js": "^11.1.0",
         "jinrishici": "^1.0.6",

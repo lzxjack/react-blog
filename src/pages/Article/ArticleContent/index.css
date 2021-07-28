@@ -1,0 +1,50 @@
+.standard-page-main-content {
+    font-size: 20px;
+    color: #fff;
+}
+
+/* ——————————————————————————————显示区markdown样式—————————————————————————————— */
+/* 表格 */
+.markdownStyle table {
+    margin: 20px auto;
+    border: 2px solid rgb(120, 120, 120);
+    background-color: #0d1117;
+    border-spacing: 0; /*去掉单元格间隙*/
+}
+.markdownStyle table th,
+.markdownStyle table td {
+    padding: 6px 14px;
+    border: 1px solid rgb(120, 120, 120);
+}
+/* h1 h2 h3 h4 h5 h6 p */
+.markdownStyle h1,
+.markdownStyle h2,
+.markdownStyle h3,
+.markdownStyle h4,
+.markdownStyle h5,
+.markdownStyle h6 {
+    color: #fff;
+    font-weight: 700;
+}
+/* 行内代码 */
+.markdownStyle code {
+    color: rgb(241, 241, 151);
+    background-color: #3f3f3f;
+    padding: 0 6px;
+}
+
+/* 图片 */
+.markdownStyle p img {
+    display: block;
+    max-width: 100%;
+    margin: 14px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    -webkit-user-drag: none;
+}
+
+.markdownStyle strong {
+    color: rgb(0, 171, 184);
+    text-decoration: underline;
+}
+/* ———————————————————————————————————————————————————————————— */
