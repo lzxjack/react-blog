@@ -38,15 +38,16 @@ const Article = props => {
 
     return (
         <div className="Article-box">
-            <div className="standard-page-title">
-                <div
-                    className="turn-back-btn animated bounceInDown"
-                    onClick={() => window.history.go(-1)}
-                >
-                    <SwapLeftOutlined />
-                </div>
-                <span className="article-title">{title}</span>
-                <div className="wow bounceInDown" data-wow-duration="0.8s">
+            <div
+                className="turn-back-btn animated bounceInDown"
+                onClick={() => props.history.push('/')}
+            >
+                <SwapLeftOutlined />
+            </div>
+            <div className="wow bounceInDown" data-wow-duration="0.8s">
+                <div className="standard-page-title">
+                    <span className="article-title">{title}</span>
+
                     <div className="article-info-box">
                         <span className="article-class">{classes}</span>
                         <span className="article-date">
@@ -56,18 +57,18 @@ const Article = props => {
                 </div>
             </div>
 
-            <div className="standard-page-body">
-                <div className="wow bounceInLeft" data-wow-duration="0.8s">
-                    <div className="standard-page-box">
-                        <ArticleContent content={content} />
-                        <ArticleTags tags={tags} />
-                        <Copyright title={title} url={url} />
-                        <Divider />
-                        <Comments />
-                    </div>
+            {/* <div className="standard-page-body"> */}
+            <div className="wow bounceInLeft" data-wow-duration="0.8s">
+                <div className="standard-page-box">
+                    <ArticleContent content={content} />
+                    <ArticleTags tags={tags} />
+                    <Copyright title={title} url={url} />
+                    <Divider />
+                    <Comments />
                 </div>
-                <ArticleAside />
             </div>
+            <ArticleAside content={content} />
+            {/* </div> */}
         </div>
     );
 };

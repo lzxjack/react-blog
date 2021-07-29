@@ -58,6 +58,7 @@ const App = props => {
             .then(res => {
                 switch (dbName) {
                     case 'articles': {
+                        res.data.sort((a, b) => b.date - a.date);
                         props.getArticles(res.data);
                         break;
                     }

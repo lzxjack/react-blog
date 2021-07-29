@@ -11,9 +11,3 @@
     width: 300px;
     color: #fff;
 }
-
-.aside-fixed {
-    position: fixed;
-    top: -660px;
-    right: calc((100vw - 1300px) / 2);
-}

@@ -1,0 +1,69 @@
+.standard-aside-box {
+    background-color: #232324;
+    user-select: none;
+    transition: all 0.6s;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 280px;
+    padding: 80px 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+/* 设置滚动条的样式 */
+.standard-aside-box::-webkit-scrollbar {
+    width: 12px;
+}
+/* 滚动槽 */
+.standard-aside-box::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5); */
+    background-color: rgba(0, 0, 0, 0);
+}
+/* 滚动条滑块 */
+.standard-aside-box::-webkit-scrollbar-thumb {
+    background: #535353;
+    border-radius: 6px;
+}
+
+.standard-aside-box li {
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.tocPadding24 {
+    padding-left: 24px;
+}
+.tocPadding48 {
+    padding-left: 48px;
+}
+.tocPadding72 {
+    padding-left: 72px;
+}
+
+.standard-aside-box li:last-child {
+    margin-bottom: 0;
+}
+
+.tocLink {
+    display: inline-block;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 6px 10px;
+    background-color: #080808;
+    color: rgb(235, 235, 235);
+    cursor: default;
+    transition: all 0.2s;
+}
+
+.tocLink:hover {
+    background-color: rgb(180, 180, 0);
+    color: rgb(88, 88, 88);
+}
+
+.aside-fixed {
+    top: 70px;
+}

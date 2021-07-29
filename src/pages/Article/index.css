@@ -3,8 +3,8 @@
 }
 
 .standard-page-title {
-    width: 100%;
-    height: 260px;
+    width: 1100px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,20 +30,15 @@
     color: rgb(88, 88, 88);
 }
 
-.standard-page-body {
+/* .standard-page-body {
     display: flex;
-}
+} */
 
 .standard-page-box {
-    width: 1000px;
+    width: 1100px;
     background-color: #232324;
     border-radius: 20px;
     padding: 40px;
-}
-
-.standard-aside-box {
-    width: 300px;
-    padding: 0 20px;
 }
 
 .article-title {
