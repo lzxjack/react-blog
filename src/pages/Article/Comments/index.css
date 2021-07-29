@@ -194,3 +194,11 @@
 .tk-nick {
     color: rgb(180, 180, 0) !important;
 }
+
+.tk-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+.tk-icon svg path {
+    fill: #fff !important;
+}
