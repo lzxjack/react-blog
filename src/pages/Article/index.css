@@ -3,7 +3,8 @@
 }
 
 .standard-page-title {
-    width: 1100px;
+    width: 1000px;
+    margin: 0 auto;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -35,7 +36,8 @@
 } */
 
 .standard-page-box {
-    width: 1100px;
+    width: 1000px;
+    margin: 0 auto;
     background-color: #232324;
     border-radius: 20px;
     padding: 40px;

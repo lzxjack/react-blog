@@ -6,10 +6,15 @@ nav,
 
 nav {
     position: fixed;
+    top: 0;
     z-index: 9;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* background-color: rgba(212, 202, 202, 0.7); */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgb(0, 0, 0); */
     user-select: none;
+    transition: all 0.3s;
+}
+#hiddenNav {
+    top: -60px;
 }
 
 .nav-content {

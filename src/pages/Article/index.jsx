@@ -57,7 +57,6 @@ const Article = props => {
                 </div>
             </div>
 
-            {/* <div className="standard-page-body"> */}
             <div className="wow bounceInLeft" data-wow-duration="0.8s">
                 <div className="standard-page-box">
                     <ArticleContent content={content} />
@@ -68,7 +67,6 @@ const Article = props => {
                 </div>
             </div>
             <ArticleAside content={content} />
-            {/* </div> */}
         </div>
     );
 };

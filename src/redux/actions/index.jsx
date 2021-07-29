@@ -12,6 +12,7 @@ import {
     GET_LOGS,
     GET_SITE_COUNT,
     GET_CUR_PAGE,
+    SET_NAV_SHOW,
 } from '../constant';
 
 // 登录
@@ -74,5 +75,9 @@ export const getSiteCount = data => ({
 });
 export const getCurPage = data => ({
     type: GET_CUR_PAGE,
+    data,
+});
+export const setNavShow = data => ({
+    type: SET_NAV_SHOW,
     data,
 });
