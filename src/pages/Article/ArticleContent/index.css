@@ -47,4 +47,16 @@
     color: rgb(0, 171, 184);
     text-decoration: underline;
 }
+
+.markdownStyle blockquote {
+    background-color: #111111;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #ccc;
+    border: 2px rgb(105, 105, 105) dashed;
+}
+.markdownStyle blockquote p {
+    margin: 0;
+}
 /* ———————————————————————————————————————————————————————————— */
