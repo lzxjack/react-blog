@@ -1,0 +1,13 @@
+.PageTitle-box {
+    /* background-color: #fff; */
+    width: 1000px;
+    margin: 0 auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-family: 'FiraCode', 'yu400';
+    color: #fff;
+    user-select: none;
+}

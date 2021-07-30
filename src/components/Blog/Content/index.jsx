@@ -21,7 +21,6 @@ const Content = () => (
             {/* 通栏 */}
             <div className="content-center">
                 <Switch>
-                    <Route path="/" exact component={Home} />
                     <Route path="/articles" component={Articles} />
                     <Route path="/article" component={Article} />
                     <Route path="/gallery" component={Gallery} />
@@ -31,6 +30,7 @@ const Content = () => (
                     <Route path="/show" component={Show} />
                     <Route path="/about" component={About} />
                     <Route path="/log" component={Log} />
+                    <Route path="/" component={Home} />
                     <Redirect to="/" />
                 </Switch>
             </div>

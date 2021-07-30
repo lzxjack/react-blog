@@ -9,7 +9,7 @@ import ArticleTags from './ArticleTags';
 import Divider from './Divider';
 import Comments from './Comments';
 import ArticleAside from './ArticleAside';
-import qs from 'qs';
+// import qs from 'qs';
 import moment from 'moment';
 import './index.css';
 
@@ -23,8 +23,10 @@ const Article = props => {
     const [content, setContent] = useState('');
     const [url, setUrl] = useState('');
     useEffect(() => {
-        const param = qs.parse(props.location.search.slice(1)).title;
-        const theArticle = props.articles.filter(item => item.titleEng === param)[0];
+        // const param = qs.parse(props.location.search.slice(1)).title;
+        const Title = props.location.search.split('?title=')[1];
+        // console.log(Title);
+        const theArticle = props.articles.filter(item => item.titleEng === Title)[0];
         if (theArticle) {
             const { date, tags, title, content, classes, url } = theArticle;
             setTitle(title);
