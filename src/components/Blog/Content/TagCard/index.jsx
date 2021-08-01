@@ -32,7 +32,7 @@ const TagCard = props => {
             <div className="TagCard-box">
                 {props.tags.map((item, index) => (
                     <span
-                        className="theTag"
+                        className="theTag common-hover"
                         // style={{ color: tagColor[(index + 1) % colorLen] }}
                         // onDoubleClick={() => openEditModal(item._id, item.tag)}
                         key={item._id}

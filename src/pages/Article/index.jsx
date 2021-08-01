@@ -41,8 +41,8 @@ const Article = props => {
     return (
         <div className="Article-box">
             <div
-                className="turn-back-btn animated bounceInDown"
-                onClick={() => props.history.push('/')}
+                className="turn-back-btn common-hover animated bounceInDown"
+                onClick={() => props.history.push('/home')}
             >
                 <SwapLeftOutlined />
             </div>
@@ -51,8 +51,8 @@ const Article = props => {
                     <span className="article-title">{title}</span>
 
                     <div className="article-info-box">
-                        <span className="article-class">{classes}</span>
-                        <span className="article-date">
+                        <span className="article-class common-hover">{classes}</span>
+                        <span className="article-date common-hover">
                             {moment(date).format('YYYY-MM-DD HH:mm:ss')}
                         </span>
                     </div>

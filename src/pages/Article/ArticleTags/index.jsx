@@ -4,7 +4,7 @@ const ArticleTags = props => {
     return (
         <div className="standard-page-tags">
             {props.tags.map(item => (
-                <span className="tag" key={item}>
+                <span className="tag common-hover" key={item}>
                     {item}
                 </span>
             ))}

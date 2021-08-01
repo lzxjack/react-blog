@@ -59,9 +59,6 @@
     align-items: center;
     transition: all 0.2s;
 }
-.copy-icon-btn:hover {
-    background-color: rgb(180, 180, 0);
-}
 .copy-icon {
     width: 16px;
     height: 16px;
@@ -89,10 +86,6 @@
     border-radius: 8px;
     color: #fff;
     cursor: default;
-}
-.copyright-name:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
 }
 
 .copyed-success {

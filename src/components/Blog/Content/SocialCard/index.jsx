@@ -22,7 +22,7 @@ const SocialCard = () => {
         <div className="wow bounceInRight" data-wow-duration="0.8s">
             <div className="SocialCard-box">
                 <a
-                    className="social-btn"
+                    className="social-btn common-hover"
                     href="https://github.com/lzxjack"
                     target="_blank"
                     rel="noreferrer"
@@ -30,7 +30,7 @@ const SocialCard = () => {
                     <GithubOutlined />
                 </a>
                 <a
-                    className="social-btn csdn-btn"
+                    className="social-btn common-hover csdn-btn"
                     href="https://blog.csdn.net/Jack_lzx"
                     target="_blank"
                     rel="noreferrer"
@@ -38,7 +38,7 @@ const SocialCard = () => {
                     <CsdnIcon />
                 </a>
                 <Popover
-                    className="social-btn"
+                    className="social-btn common-hover"
                     color="rgb(180, 180, 0)"
                     content={weChat}
                     overlayClassName="social-btn-card"
@@ -47,7 +47,7 @@ const SocialCard = () => {
                 </Popover>
 
                 <Popover
-                    className="social-btn"
+                    className="social-btn common-hover"
                     color="rgb(180, 180, 0)"
                     content={QQ}
                     overlayClassName="social-btn-card"

@@ -44,14 +44,6 @@ nav {
     color: #fff;
     transition: all 0.2s;
 }
-.nav-btn:hover,
-.home-btn:hover,
-.admin-btn:hover,
-.dark-btn:hover {
-    /* box-shadow: 0 0 10px rgba(180, 180, 0, 0.8); */
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
 
 .margin-0 {
     margin-right: 0;

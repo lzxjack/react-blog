@@ -27,11 +27,6 @@
     transition: all 0.2s;
 }
 
-.site-data-item:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
-
 .site-data-key {
     margin-left: 10px;
 }

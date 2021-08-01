@@ -25,7 +25,5 @@
     border-radius: 12px;
 }
 .theTag:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
     font-weight: 700;
 }

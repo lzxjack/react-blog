@@ -28,11 +28,6 @@
     transition: all 0.2s;
 }
 
-.blogData:hover {
-    /* box-shadow: 0 0 10px rgba(180, 180, 0, 0.8); */
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
 .type-name,
 .type-num {
     flex: 1;

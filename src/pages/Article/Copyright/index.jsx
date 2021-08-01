@@ -29,7 +29,7 @@ const Copyright = props => {
                     <div className="copyright-title">{props.title}</div>
                     <div className="copyright-url" id="copyright-url-text">
                         {props.url}
-                        <div className="copy-icon-btn" onClick={copyUrl}>
+                        <div className="copy-icon-btn common-hover" onClick={copyUrl}>
                             <CopyIcon />
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const Copyright = props => {
                         <a
                             href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
                             target="_blank"
-                            className="copyright-name"
+                            className="copyright-name common-hover"
                             rel="noreferrer"
                         >
                             CC BY-NC-SA 4.0
@@ -47,7 +47,7 @@ const Copyright = props => {
                         <a
                             href="https://lzxjack.top/"
                             target="_blank"
-                            className="copyright-name"
+                            className="copyright-name common-hover"
                             rel="noreferrer"
                         >
                             飞鸟

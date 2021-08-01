@@ -30,8 +30,8 @@ const Content = () => (
                     <Route path="/show" component={Show} />
                     <Route path="/about" component={About} />
                     <Route path="/log" component={Log} />
-                    <Route path="/" component={Home} />
-                    <Redirect to="/" />
+                    <Route path="/home" component={Home} />
+                    <Redirect to="/home" />
                 </Switch>
             </div>
         </div>

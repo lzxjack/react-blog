@@ -16,11 +16,11 @@ const SiteCard = props => {
     return (
         <div className="wow bounceInRight" data-wow-duration="0.8s">
             <div className="SiteCard-box">
-                <div className="site-data-item">
+                <div className="site-data-item common-hover">
                     <span className="site-data-key">总浏览量</span>
                     <span className="site-data-value">{props.siteCount}次</span>
                 </div>
-                <div className="site-data-item">
+                <div className="site-data-item common-hover">
                     <span className="site-data-key">运行时间</span>
                     <span className="site-data-value">{runTime}天</span>
                 </div>

@@ -9,7 +9,7 @@
 }
 
 .article-item:hover {
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
+    /* box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6); */
     transform: scale(1.02);
 }
 
@@ -74,11 +74,4 @@
     text-align: center;
     line-height: 30px;
     font-size: 18px;
-}
-
-.article-item-tag:hover,
-.article-item-date:hover {
-    box-shadow: 0 0 10px rgba(180, 180, 0, 0.8);
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
 }

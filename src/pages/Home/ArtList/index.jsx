@@ -19,12 +19,12 @@ const ArtList = props => {
                             <div className="article-item-title">{item.title}</div>
                             <p className="article-item-abstract">{item.content}</p>
                             <div className="article-item-info">
-                                <span className="article-item-date">
+                                <span className="article-item-date common-hover">
                                     {moment(item.date).format('YYYY-MM-DD')}
                                 </span>
                                 <div className="article-item-tags">
                                     {item.tags.map(tag => (
-                                        <span className="article-item-tag" key={tag}>
+                                        <span className="article-item-tag common-hover" key={tag}>
                                             {tag}
                                         </span>
                                     ))}

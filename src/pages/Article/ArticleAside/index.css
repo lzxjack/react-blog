@@ -63,11 +63,6 @@
     transition: all 0.2s;
 }
 
-.tocLink:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
-
 .aside-fixed {
     top: 70px;
 }

@@ -15,7 +15,3 @@
     font-size: 16px;
     transition: all 0.2s;
 }
-.tag:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}

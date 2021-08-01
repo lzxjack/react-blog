@@ -32,11 +32,6 @@
     transition: all 0.2s;
 }
 
-.social-btn:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
-
 .csdn-icon path {
     fill: #fff;
     transition: all 0.2s;

@@ -36,7 +36,7 @@ const ArticleAside = props => {
                             }
                         >
                             <a
-                                className="tocLink"
+                                className="tocLink common-hover"
                                 onClick={() => {
                                     props.setNavShow(false);
                                 }}
