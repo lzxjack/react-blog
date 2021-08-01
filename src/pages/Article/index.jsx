@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import useScript from '../../hooks/useScript';
-import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
 import { connect } from 'react-redux';
 import { SwapLeftOutlined } from '@ant-design/icons';
 import Copyright from './Copyright';
@@ -14,8 +12,6 @@ import moment from 'moment';
 import './index.css';
 
 const Article = props => {
-    useScript(twikooUrl, twikooConfigUrl);
-
     const [classes, setClasses] = useState('');
     const [date, setDate] = useState(null);
     const [tags, setTags] = useState([]);
