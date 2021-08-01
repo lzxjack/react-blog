@@ -1,14 +1,40 @@
-// import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
+import { avatarUrl } from '../../utils/constant';
+import moment from 'moment';
 import './index.css';
 
-const Say = () => {
+const Say = props => {
     return (
         <>
             <PageTitle title="自言自语" />
-            <div className="standard-page-box">123</div>
+            <div className="standard-page-box">
+                {props.says.map(item => (
+                    <div className="say-item" key={item._id}>
+                        <div className="say-avatar-box animated bounceInLeft">
+                            <img src={avatarUrl} alt="avatar" className="say-avatar" />
+                        </div>
+
+                        <div className="say-content-box">
+                            <div className="animated bounceInRight">
+                                <div className="say-content">
+                                    {item.content}
+                                    <span className="say-content-date common-hover">
+                                        {moment(item.date).format('YYYY-MM-DD HH:mm:ss')}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </>
     );
 };
 
-export default Say;
+export default connect(
+    state => ({
+        says: state.says,
+    }),
+    {}
+)(Say);

@@ -1,0 +1,56 @@
+.say-item {
+    min-height: 90px;
+    display: flex;
+    margin-bottom: 20px;
+}
+.say-item:last-child {
+    margin-bottom: 0;
+}
+
+.say-avatar-box,
+.say-avatar {
+    width: 60px;
+    height: 60px;
+}
+.say-avatar {
+    border-radius: 14px;
+    -webkit-user-drag: none;
+}
+
+.say-content-box {
+    margin-left: 20px;
+    flex: 1;
+}
+.say-content {
+    background-color: #0f0f0f;
+    border-radius: 14px;
+    display: flex;
+    min-height: 90px;
+    justify-content: flex-start;
+    align-items: center;
+    word-break: break-all;
+    padding: 20px 20px 44px 20px;
+    position: relative;
+    transition: all 0.2s;
+}
+.say-content:hover {
+    transform: scale(1.02);
+}
+
+.say-content-date {
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    color: rgb(223, 223, 223);
+    height: 30px;
+    background-color: rgb(58, 58, 58);
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'car';
+    user-select: none;
+}
