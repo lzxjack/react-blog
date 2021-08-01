@@ -90,3 +90,7 @@
     background-color: rgb(180, 180, 0) !important;
     color: rgb(88, 88, 88) !important;
 }
+
+.ant-select-selection-item-remove svg path {
+    fill: #fff !important;
+}
