@@ -7,7 +7,7 @@ const Show = props => (
     <>
         <PageTitle title="小作品" />
         <div className="standard-page-box gallery-page-box">
-            <ul className="galleryUl">
+            <ul className="galleryUl animated bounceInUp">
                 {props.shows.map(item => (
                     <li key={item._id} style={{ backgroundImage: `url(${item.cover})` }}>
                         <a href={item.link} rel="noreferrer" target="_blank" className="showLink">

@@ -82,52 +82,49 @@ const Search = props => {
                 </div>
             </div>
 
-            <div className="search-class-tag-box">
-                <div className="animated bounceInLeft">
-                    <Select
-                        showSearch
-                        size="large"
-                        bordered={false}
-                        style={{ width: '360px' }}
-                        placeholder="请选择文章分类"
-                        value={searchClass}
-                        onChange={value => {
-                            searchByClass(value);
-                            setSearchClass(value);
-                        }}
-                        className="select-class"
-                        dropdownClassName="select-dropdown"
-                    >
-                        {props.classes.map(item => (
-                            <Option key={item.class}>{item.class}</Option>
-                        ))}
-                    </Select>
-                </div>
+            <div className="search-class-tag-box animated bounceInLeft">
+                <Select
+                    showSearch
+                    size="large"
+                    bordered={false}
+                    style={{ width: '360px' }}
+                    placeholder="请选择文章分类"
+                    value={searchClass}
+                    onChange={value => {
+                        searchByClass(value);
+                        setSearchClass(value);
+                    }}
+                    className="select-class"
+                    dropdownClassName="select-dropdown"
+                >
+                    {props.classes.map(item => (
+                        <Option key={item.class}>{item.class}</Option>
+                    ))}
+                </Select>
 
                 <div className="blank"></div>
-                <div className="animated bounceInRight">
-                    <Select
-                        mode="multiple"
-                        showSearch
-                        showArrow
-                        size="large"
-                        maxTagCount={4}
-                        bordered={false}
-                        style={{ width: '500px' }}
-                        placeholder="请选择文章标签"
-                        value={searchTag}
-                        onChange={value => {
-                            searchByTag(value);
-                            setSearchTag(value);
-                        }}
-                        className="select-tag"
-                        dropdownClassName="select-dropdown"
-                    >
-                        {props.tags.map(item => (
-                            <Option key={item.tag}>{item.tag}</Option>
-                        ))}
-                    </Select>
-                </div>
+
+                <Select
+                    mode="multiple"
+                    showSearch
+                    showArrow
+                    size="large"
+                    maxTagCount={4}
+                    bordered={false}
+                    style={{ width: '500px' }}
+                    placeholder="请选择文章标签"
+                    value={searchTag}
+                    onChange={value => {
+                        searchByTag(value);
+                        setSearchTag(value);
+                    }}
+                    className="select-tag"
+                    dropdownClassName="select-dropdown"
+                >
+                    {props.tags.map(item => (
+                        <Option key={item.tag}>{item.tag}</Option>
+                    ))}
+                </Select>
             </div>
         </div>
     );

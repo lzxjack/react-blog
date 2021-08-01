@@ -3,7 +3,7 @@
 } */
 
 .search-input-box {
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,7 @@
 
 .search-input {
     background-color: #0f0f0f;
-    height: 40px;
+    height: 50px;
     flex: 1;
     border-radius: 12px;
     padding: 20px;
@@ -20,7 +20,7 @@
 
 .clear-btn {
     background-color: #0f0f0f;
-    height: 40px;
+    height: 50px;
     width: 60px;
     display: flex;
     justify-content: center;
@@ -32,7 +32,7 @@
 }
 
 .search-class-tag-box {
-    height: 60px;
+    height: 64px;
     /* background-color: #fff; */
     display: flex;
     justify-content: space-between;
@@ -56,9 +56,11 @@
 
 .select-class {
     flex: 2;
+    /* height: 50px; */
 }
 .select-tag {
     flex: 3;
+    /* height: 50px; */
 }
 .select-tag .ant-select-selection-item {
     background-color: #3b3b3b !important;
