@@ -11,7 +11,6 @@ import {
     GET_ABOUT,
     GET_LOGS,
     GET_SITE_COUNT,
-    GET_CUR_PAGE,
     SET_NAV_SHOW,
 } from '../constant';
 
@@ -71,10 +70,6 @@ export const getLogs = data => ({
 });
 export const getSiteCount = data => ({
     type: GET_SITE_COUNT,
-    data,
-});
-export const getCurPage = data => ({
-    type: GET_CUR_PAGE,
     data,
 });
 export const setNavShow = data => ({

@@ -19,7 +19,9 @@ export const count_id = 'cd045e756100126d005169f014931c65';
 export const time = '2020-12-16 14:00:00';
 
 // 首页每页显示多少篇文章
-export const pageSize = 8;
+export const homePageSize = 8;
+// 文章页每页显示多少篇文章
+export const articlesPageSize = 10;
 
 // wow.js和配置
 export const wowUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/wow.js';

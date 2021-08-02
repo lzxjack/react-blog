@@ -1,7 +1,7 @@
 .art-show-item {
     background-color: #0f0f0f;
     border-radius: 20px;
-    margin-top: 14px;
+    margin-bottom: 16px;
     overflow: hidden;
     user-select: none;
     transition: all 0.2s;

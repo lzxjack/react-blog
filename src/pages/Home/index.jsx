@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ArtList from './ArtList';
 import PageNav from './PageNav';
 import BlogCard from '../../components/Blog/Content/BlogCard';
@@ -9,11 +10,12 @@ import SiteCard from '../../components/Blog/Content/SiteCard';
 import './index.css';
 
 const Home = () => {
+    const [curPage, setCurPage] = useState(1);
     return (
         <div className="Home-box">
             <div className="home-main">
-                <ArtList />
-                <PageNav />
+                <ArtList curPage={curPage} />
+                <PageNav curPage={curPage} setCurPage={setCurPage} />
             </div>
             <div className="home-aside">
                 <BlogCard />

@@ -1,8 +1,7 @@
-// import { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { pageSize } from '../../../utils/constant';
+import { homePageSize } from '../../../utils/constant';
 import './index.css';
 
 const ArtList = props => {
@@ -12,7 +11,7 @@ const ArtList = props => {
     return (
         <>
             {props.articles
-                .slice((props.curPage - 1) * pageSize, props.curPage * pageSize)
+                .slice((props.curPage - 1) * homePageSize, props.curPage * homePageSize)
                 .map(item => (
                     <div key={item._id} className="wow bounceInLeft" data-wow-duration="0.8s">
                         <div className="article-item" onClick={() => showOneArticle(item.titleEng)}>
@@ -41,7 +40,6 @@ export default withRouter(
     connect(
         state => ({
             articles: state.articles,
-            curPage: state.curPage,
         }),
         {}
     )(ArtList)

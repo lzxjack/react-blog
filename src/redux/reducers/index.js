@@ -14,7 +14,6 @@ import shows from './shows';
 import about from './about';
 
 import siteCount from './siteCount';
-import curPage from './curPage';
 
 import navShow from './navShow';
 
@@ -31,6 +30,5 @@ export default combineReducers({
     shows,
     about,
     siteCount,
-    curPage,
     navShow,
 });
