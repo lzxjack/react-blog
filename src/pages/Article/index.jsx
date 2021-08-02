@@ -5,8 +5,10 @@ import Copyright from './Copyright';
 import ArticleContent from './ArticleContent';
 import ArticleTags from './ArticleTags';
 import Divider from './Divider';
-import Comments from './Comments';
+// import Comments from './Comments';
 import ArticleAside from './ArticleAside';
+// import useScript from '../../hooks/useScript';
+// import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
 // import qs from 'qs';
 import moment from 'moment';
 import './index.css';
@@ -18,6 +20,7 @@ const Article = props => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [url, setUrl] = useState('');
+    // useScript(twikooUrl, twikooConfigUrl);
     useEffect(() => {
         // const param = qs.parse(props.location.search.slice(1)).title;
         const Title = props.location.search.split('?title=')[1];
@@ -61,7 +64,7 @@ const Article = props => {
                     <ArticleTags tags={tags} />
                     <Copyright title={title} url={url} />
                     <Divider />
-                    <Comments />
+                    {/* <Comments /> */}
                 </div>
             </div>
             <ArticleAside content={content} />
