@@ -1,0 +1,21 @@
+.about-title-box {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 36px;
+    font-family: 'yu400';
+    user-select: none;
+    margin-bottom: 20px;
+}
+
+.about-site {
+    margin-right: 20px;
+}
+.about-me {
+    margin-left: 20px;
+}
+
+.title-off {
+    color: rgb(105, 105, 105);
+}

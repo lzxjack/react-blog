@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@ant-design/charts": "^1.2.5",
         "@ant-design/icons": "^4.6.2",
         "@cloudbase/js-sdk": "^1.6.0",
         "@testing-library/jest-dom": "^5.11.4",

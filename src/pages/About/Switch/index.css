@@ -1,0 +1,26 @@
+.Switch-box {
+    height: 36px;
+    width: 70px;
+    background-color: rgb(85, 84, 84);
+    border-radius: 20px;
+    position: relative;
+}
+.Switch-box:hover .switch-btn {
+    background-color: rgb(180, 180, 0);
+}
+
+.switch-btn {
+    height: 36px;
+    width: 36px;
+    background-color: rgb(143, 141, 141);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    transition: all 0.3s;
+}
+
+.is-me {
+    left: 34px;
+}

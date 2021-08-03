@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { db, auth, _ } from './utils/cloudBase';
 import moment from 'moment';
@@ -39,6 +39,23 @@ const App = props => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const [done, setDone] = useState(false);
+    useEffect(() => {
+        if (!props.tags.length) return;
+        if (!props.classes.length) return;
+        if (!props.articles.length) return;
+        if (JSON.stringify(props.poem) === '{}') return;
+        if (!props.galleries.length) return;
+        if (!props.links.length) return;
+        if (!props.logs.length) return;
+        if (!props.says.length) return;
+        if (!props.shows.length) return;
+        if (!props.about.length) return;
+        if (!props.siteCount) return;
+        setDone(true);
+    }, [props]);
+
     // 每日诗句
     const getDailyPoem = () => {
         require('jinrishici').load(res => {
@@ -130,21 +147,37 @@ const App = props => {
         getDataFromDB('shows');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.loginState]);
-    return <>{props.loginState ? <Blog /> : <Loading />}</>;
-    // return <>{false ? <Blog /> : <Loading />}</>;
+    // return <>{props.loginState ? <Blog /> : <Loading />}</>;
+    return <>{done ? <Blog /> : <Loading />}</>;
 };
 
-export default connect(state => ({ loginState: state.loginState }), {
-    login,
-    getClasses,
-    getTags,
-    getPoem,
-    getArticles,
-    getGalleries,
-    getSays,
-    getLinks,
-    getShows,
-    getAbout,
-    getLogs,
-    getSiteCount,
-})(App);
+export default connect(
+    state => ({
+        loginState: state.loginState,
+        tags: state.tags,
+        classes: state.classes,
+        articles: state.articles,
+        poem: state.poem,
+        galleries: state.galleries,
+        links: state.links,
+        logs: state.logs,
+        says: state.says,
+        shows: state.shows,
+        about: state.about,
+        siteCount: state.siteCount,
+    }),
+    {
+        login,
+        getClasses,
+        getTags,
+        getPoem,
+        getArticles,
+        getGalleries,
+        getSays,
+        getLinks,
+        getShows,
+        getAbout,
+        getLogs,
+        getSiteCount,
+    }
+)(App);
