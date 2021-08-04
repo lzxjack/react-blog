@@ -1,0 +1,67 @@
+.time-line-item {
+    position: relative;
+    border-left: 6px solid rgb(110, 110, 110);
+}
+
+.time-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    left: -18px;
+    top: 14px;
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.time-dot-in {
+    width: 14px;
+    height: 14px;
+    background-color: rgb(156, 156, 156);
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.time-line-time {
+    height: 58px;
+    width: 170px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 30px;
+    user-select: none;
+    font-family: 'car';
+    color: #ccc;
+    transition: all 0.2s;
+}
+.time-line-time:hover {
+    color: rgb(180, 180, 0);
+}
+.time-line-time:hover .time-dot-in {
+    width: 22px;
+    height: 22px;
+    background-color: rgb(180, 180, 0);
+}
+.time-line-content {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    margin: 0 16px;
+    border-radius: 14px;
+    padding: 10px 16px;
+    transition: all 0.2s;
+}
+.time-line-content:hover {
+    transform: scale(1.02);
+}
+
+.time-line-content li {
+    margin-bottom: 6px;
+    /* background-color: rgb(133, 130, 130); */
+}
+.time-line-content li:last-child {
+    margin-bottom: 0;
+}

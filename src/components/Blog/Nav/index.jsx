@@ -21,10 +21,8 @@ const Nav = props => {
     return (
         <nav id={props.navShow ? '' : 'hiddenNav'}>
             <div className="nav-content">
-                <NavLink className="navlink" to="/home">
-                    <div className="home-btn common-hover">
-                        <HomeOutlined />
-                    </div>
+                <NavLink className="navlink home-btn common-hover" to="/home">
+                    <HomeOutlined />
                 </NavLink>
                 <div className="dark-btn common-hover">
                     <DarkBtn />
@@ -38,29 +36,29 @@ const Nav = props => {
                     <SettingOutlined />
                 </a>
 
-                <NavLink className="navlink" to="/articles">
-                    <div className="nav-btn common-hover">文章</div>
+                <NavLink className="navlink nav-btn common-hover" to="/articles">
+                    文章
                 </NavLink>
-                <NavLink className="navlink" to="/gallery">
-                    <div className="nav-btn common-hover">图库</div>
+                <NavLink className="navlink nav-btn common-hover" to="/gallery">
+                    图库
                 </NavLink>
-                <NavLink className="navlink" to="/say">
-                    <div className="nav-btn common-hover">说说</div>
+                <NavLink className="navlink nav-btn common-hover" to="/say">
+                    说说
                 </NavLink>
-                <NavLink className="navlink" to="/msg">
-                    <div className="nav-btn common-hover">留言</div>
+                <NavLink className="navlink nav-btn common-hover" to="/msg">
+                    留言
                 </NavLink>
-                <NavLink className="navlink" to="/link">
-                    <div className="nav-btn common-hover">友链</div>
+                <NavLink className="navlink nav-btn common-hover" to="/link">
+                    友链
                 </NavLink>
-                <NavLink className="navlink" to="/show">
-                    <div className="nav-btn common-hover">作品</div>
+                <NavLink className="navlink nav-btn common-hover" to="/show">
+                    作品
                 </NavLink>
-                <NavLink className="navlink" to="/log">
-                    <div className="nav-btn common-hover">建站</div>
+                <NavLink className="navlink nav-btn common-hover" to="/log">
+                    建站
                 </NavLink>
-                <NavLink className="navlink" to="/about">
-                    <div className="nav-btn common-hover margin-0">关于</div>
+                <NavLink className="navlink nav-btn common-hover margin-0" to="/about">
+                    关于
                 </NavLink>
             </div>
         </nav>
