@@ -13,7 +13,7 @@ import ArticleAside from './ArticleAside';
 import moment from 'moment';
 import './index.css';
 
-const Article = props => {
+const Post = props => {
     const [classes, setClasses] = useState('');
     const [date, setDate] = useState(null);
     const [tags, setTags] = useState([]);
@@ -77,4 +77,4 @@ export default connect(
         articles: state.articles,
     }),
     {}
-)(Article);
+)(Post);

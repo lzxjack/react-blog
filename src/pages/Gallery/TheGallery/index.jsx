@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../../components/Blog/Content/PageTitle';
+import { SwapLeftOutlined } from '@ant-design/icons';
 import { Image } from 'antd';
 import './index.css';
 
@@ -20,6 +21,12 @@ const TheGallery = props => {
         <>
             <PageTitle title={title} />
             <div className="standard-page-box one-gallery-page-box">
+                <div
+                    className="turn-back-btn common-hover animated bounceInDown"
+                    onClick={() => props.history.go(-1)}
+                >
+                    <SwapLeftOutlined />
+                </div>
                 <Image.PreviewGroup>
                     {pics.map(item => (
                         <Image width={440} src={item} />

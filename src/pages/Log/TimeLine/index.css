@@ -51,7 +51,7 @@
     background-color: #0f0f0f;
     margin: 0 16px;
     border-radius: 14px;
-    padding: 10px 16px;
+    padding: 10px 20px;
     transition: all 0.2s;
 }
 .time-line-content:hover {
@@ -60,7 +60,6 @@
 
 .time-line-content li {
     margin-bottom: 6px;
-    /* background-color: rgb(133, 130, 130); */
 }
 .time-line-content li:last-child {
     margin-bottom: 0;

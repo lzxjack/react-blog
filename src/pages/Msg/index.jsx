@@ -1,6 +1,6 @@
 import PageTitle from '../../components/Blog/Content/PageTitle';
 // import Comments from '../Article/Comments';
-import Divider from '../Article/Divider';
+import Divider from '../Post/Divider';
 // import useScript from '../../hooks/useScript';
 // import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
 import './index.css';

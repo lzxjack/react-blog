@@ -2,7 +2,7 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import About from '../../../pages/About';
 import Articles from '../../../pages/Articles';
-import Article from '../../../pages/Article';
+import Post from '../../../pages/Post';
 import Gallery from '../../../pages/Gallery';
 import Home from '../../../pages/Home';
 import Link from '../../../pages/Link';
@@ -22,7 +22,7 @@ const Content = () => (
             <div className="content-center">
                 <Switch>
                     <Route path="/articles" component={Articles} />
-                    <Route path="/article" component={Article} />
+                    <Route path="/post" component={Post} />
                     <Route path="/gallery" component={Gallery} />
                     <Route path="/say" component={Say} />
                     <Route path="/msg" component={Msg} />
@@ -30,8 +30,8 @@ const Content = () => (
                     <Route path="/show" component={Show} />
                     <Route path="/about" component={About} />
                     <Route path="/log" component={Log} />
-                    <Route path="/home" component={Home} />
-                    <Redirect to="/home" />
+                    <Route path="/" exact component={Home} />
+                    <Redirect to="/" />
                 </Switch>
             </div>
         </div>

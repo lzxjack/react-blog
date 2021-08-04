@@ -21,7 +21,7 @@ const Nav = props => {
     return (
         <nav id={props.navShow ? '' : 'hiddenNav'}>
             <div className="nav-content">
-                <NavLink className="navlink home-btn common-hover" to="/home">
+                <NavLink className="navlink home-btn common-hover" to="/">
                     <HomeOutlined />
                 </NavLink>
                 <div className="dark-btn common-hover">

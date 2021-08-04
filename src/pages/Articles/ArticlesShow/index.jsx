@@ -5,7 +5,7 @@ import './index.css';
 
 const ArticlesShow = props => {
     const turnToArticle = title => {
-        props.history.push(`/article?title=${title}`);
+        props.history.push(`/post?title=${title}`);
     };
     return (
         <>

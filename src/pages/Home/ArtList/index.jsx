@@ -6,7 +6,7 @@ import './index.css';
 
 const ArtList = props => {
     const showOneArticle = title => {
-        props.history.push(`/article?title=${title}`);
+        props.history.push(`/post?title=${title}`);
     };
     return (
         <>
