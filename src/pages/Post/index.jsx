@@ -45,7 +45,7 @@ const Post = props => {
             >
                 <SwapLeftOutlined />
             </div>
-            <div className="wow bounceInDown" data-wow-duration="0.8s">
+            <div className="animated bounceInDown">
                 <div className="standard-page-title">
                     <span className="article-title">{title}</span>
 
@@ -58,7 +58,7 @@ const Post = props => {
                 </div>
             </div>
 
-            <div className="wow bounceInLeft" data-wow-duration="0.8s">
+            <div className="animated bounceInLeft">
                 <div className="standard-page-box">
                     <ArticleContent content={content} />
                     <ArticleTags tags={tags} />

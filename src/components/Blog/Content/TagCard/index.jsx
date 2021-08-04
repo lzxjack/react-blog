@@ -28,7 +28,7 @@ const TagCard = props => {
     // ];
     // const colorLen = tagColor.length;
     return (
-        <div className="wow bounceInRight" data-wow-duration="0.8s">
+        <div className="animated bounceInRight">
             <div className="TagCard-box">
                 {props.tags.map((item, index) => (
                     <span

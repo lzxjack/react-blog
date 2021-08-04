@@ -30,7 +30,7 @@ const ClockCard = () => {
     };
 
     return (
-        <div className="wow bounceInRight" data-wow-duration="0.8s">
+        <div className="animated bounceInRight">
             <div className="ClockCard-box">
                 <div className="dial"></div>
                 <div className="zero"></div>

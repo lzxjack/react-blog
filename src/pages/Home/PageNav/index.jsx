@@ -4,7 +4,7 @@ import { homePageSize } from '../../../utils/constant';
 import './index.css';
 
 const PageNav = props => (
-    <div className="PageNav-box wow bounceInLeft" data-wow-duration="0.8s">
+    <div className="PageNav-box wow bounceInLeft">
         <Pagination
             current={props.curPage}
             total={props.articleNum}

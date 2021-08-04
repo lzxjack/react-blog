@@ -14,7 +14,7 @@ const SiteCard = props => {
     }, []);
 
     return (
-        <div className="wow bounceInRight" data-wow-duration="0.8s">
+        <div className="animated bounceInRight">
             <div className="SiteCard-box">
                 <div className="site-data-item common-hover">
                     <span className="site-data-key">总浏览量</span>

@@ -19,7 +19,7 @@ const SocialCard = () => {
         />
     );
     return (
-        <div className="wow bounceInRight" data-wow-duration="0.8s">
+        <div className="animated bounceInRight">
             <div className="SocialCard-box">
                 <a
                     className="social-btn common-hover"

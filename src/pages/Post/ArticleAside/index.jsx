@@ -18,7 +18,7 @@ const ArticleAside = props => {
         setTocArr(toc);
     }, [props]);
     return (
-        // <div className="wow bounceInRight">
+        // <div className="animated bounceInRight">
         <div className="aside-box">
             <ul className="aside-ul wow bounceInRight">
                 {tocArr.map((item, index) => {

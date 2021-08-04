@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import './index.css';
 
 const BlogData = props => (
-    <div className="wow bounceInRight" data-wow-duration="0.8s">
+    <div className="animated bounceInRight">
         <div className="BlogData-box">
             <div className="blogData common-hover">
                 <div className="type-name">文章</div>

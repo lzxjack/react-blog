@@ -1,12 +1,12 @@
 import Footer from './Footer';
 import Content from './Content';
 import Nav from './Nav';
-import useScript from '../../hooks/useScript';
-import { wowUrl, wowConfigUrl } from '../../utils/constant';
+// import useScript from '../../hooks/useScript';
+// import { wowUrl, wowConfigUrl } from '../../utils/constant';
 import './index.css';
 
 const Blog = () => {
-    useScript(wowUrl, wowConfigUrl);
+    // useScript(wowUrl, wowConfigUrl);
     return (
         <div className="Blog-box">
             <Nav />

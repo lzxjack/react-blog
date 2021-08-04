@@ -22,7 +22,7 @@ const BlogCard = () => {
         setTimeText(timeText);
     }, []);
     return (
-        <div className="wow bounceInRight" data-wow-duration="0.8s">
+        <div className="animated bounceInRight">
             <div className="BlogCard-box">
                 <p className="BlogCard-text">
                     {timeText}, <br />
