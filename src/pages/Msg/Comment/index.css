@@ -1,0 +1,140 @@
+.comment-edit-box {
+    height: 300px;
+    background-color: rgb(77, 76, 76);
+    display: flex;
+}
+
+.comment-edit-avatar-box {
+    width: 70px;
+}
+
+.comment-edit-input-box {
+    flex: 1;
+}
+
+.comment-edit-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+    -webkit-user-drag: none;
+}
+
+.comment-input-box {
+    height: 50px;
+    display: flex;
+}
+
+.comment-input-info {
+    height: 40px;
+    background-color: #0f0f0f;
+    margin-left: 20px;
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+}
+.flex3 {
+    flex: 3;
+}
+.flex2 {
+    flex: 2;
+}
+.comment-input-key {
+    width: 80px;
+    height: 100%;
+    background-color: #585858;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+.comment-input-value {
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.comment-textarea-box {
+    height: 100px;
+}
+.comment-textarea {
+    margin-left: 20px;
+    resize: none;
+    width: calc(100% - 20px);
+    border: none;
+    outline: none;
+    background-color: #0f0f0f;
+    padding: 8px 16px;
+    height: 100px;
+    border-radius: 14px;
+}
+
+.comment-btns {
+    position: relative;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.comment-preview-btn,
+.comment-send-btn {
+    position: absolute;
+    width: 70px;
+    height: 40px;
+    background-color: #585858;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    bottom: 0;
+    border-radius: 14px;
+}
+
+.comment-send-btn {
+    right: 0;
+}
+
+.comment-preview-btn {
+    right: 90px;
+}
+
+/* 预览对话框 */
+.preview-box {
+    position: fixed;
+    height: 200px;
+    width: 600px;
+    background-color: rgb(105, 105, 105);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s;
+    z-index: 99;
+}
+.preview-in {
+    left: 50%;
+}
+.preview-out {
+    left: -400px;
+}
+
+.comment-preview {
+    flex: 1;
+    background-color: rgb(65, 62, 62);
+    padding: 10px;
+}
+
+.close-preview-btn {
+    width: 70px;
+    height: 40px;
+    background-color: #2e2e2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 14px;
+    margin: 0 auto;
+}

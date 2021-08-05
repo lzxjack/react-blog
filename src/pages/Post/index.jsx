@@ -37,6 +37,9 @@ const Post = props => {
         }
     }, [props]);
 
+    // useEffect(() => {
+    //     console.log(window.location.search);
+    // });
     return (
         <div className="Article-box">
             <div

@@ -3,6 +3,7 @@ import PageTitle from '../../components/Blog/Content/PageTitle';
 import Divider from '../Post/Divider';
 // import useScript from '../../hooks/useScript';
 // import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
+import Comment from './Comment';
 import './index.css';
 
 const Msg = () => {
@@ -17,7 +18,7 @@ const Msg = () => {
                     <span>交换友链。</span>
                 </div>
                 <Divider />
-                {/* <Comments /> */}
+                <Comment />
             </div>
         </>
     );

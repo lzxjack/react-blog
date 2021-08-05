@@ -99,6 +99,9 @@ html {
     background-color: #000;
 }
 
+.common-hover {
+    transition: all 0.2s;
+}
 .common-hover:hover {
     background-color: rgb(180, 180, 0);
     color: rgb(88, 88, 88);
