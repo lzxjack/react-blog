@@ -1,18 +1,49 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../../utils/cloudBase';
+import { defaultCommentAvatar, pushplusToken, pushplusUrl } from '../../../utils/constant';
+import axios from 'axios';
+import marked from 'marked';
+import useMarkdown from '../../../hooks/useMarkdown';
+import { message } from 'antd';
 import './index.css';
 
 const Comment = () => {
+    useMarkdown();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [link, setLink] = useState('');
     const [comment, setComment] = useState('');
     const [avatar, setAvatar] = useState('');
     const [showPreview, setShowPreview] = useState(false);
-    // useEffect(() => {
-    //     console.log(window.location.search.);
-    // });
+    // const [pushTitleText, setPushTitleText] = useState('');
+    const [isMsg, setIsMsg] = useState(false);
+    // 获取URL信息
+    useEffect(() => {
+        if (!window.location.search) {
+            setIsMsg(true);
+            // setPushTitleText('留言板');
+            return;
+        }
+    });
+    const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    // 发布评论
     const sendMsg = () => {
+        if (!name) {
+            message.info('请输入昵称！');
+            return;
+        }
+        if (!email) {
+            message.info('请输入邮箱地址！');
+            return;
+        }
+        if (!regEmail.test(email)) {
+            message.info('请输入正确的邮箱地址！');
+            return;
+        }
+        if (!comment) {
+            message.info('请输入评论内容！');
+            return;
+        }
         db.collection('comments')
             .add({
                 name,
@@ -20,19 +51,46 @@ const Comment = () => {
                 link,
                 comment,
                 date: new Date().getTime(),
-                avatar: '',
+                avatar,
                 title: '',
                 replyId: '',
             })
-            .then(res => {
-                console.log(res);
+            .then(() => {
+                message.success('发布评论成功！');
+                const title = isMsg ? '留言板有新留言啦!' : '';
+                axios({
+                    url: pushplusUrl,
+                    method: 'get',
+                    params: {
+                        token: pushplusToken,
+                        title,
+                        content: comment,
+                    },
+                })
+                    .then(res => {
+                        console.log(res);
+                        setComment('');
+                    })
+                    .catch(err => console.error(err));
             });
     };
-    // http://q1.qlogo.cn/g?b=qq&nk=1450619802&s=640
+    const reg_qq = /[1-9][0-9]{3,11}/;
+    // 获取QQ头像
+    const getQQAvatar = () => {
+        if (!reg_qq.test(name)) return;
+        const avatarUrl = `http://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
+        setAvatar(avatarUrl);
+        setName('');
+    };
     return (
         <div className="Comment-box">
             <div className={showPreview ? 'preview-box preview-in' : 'preview-box preview-out'}>
-                <div className="comment-preview"></div>
+                <div
+                    className="preview-content"
+                    dangerouslySetInnerHTML={{
+                        __html: marked(comment).replace(/<pre>/g, "<pre id='hljs'>"),
+                    }}
+                ></div>
                 <div
                     className="close-preview-btn common-hover"
                     onClick={() => setShowPreview(false)}
@@ -40,10 +98,11 @@ const Comment = () => {
                     关闭
                 </div>
             </div>
+            <div className={showPreview ? 'preview-mask' : 'preview-mask preview-mask-none'}></div>
             <div className="comment-edit-box">
                 <div className="comment-edit-avatar-box">
                     <img
-                        src="https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg"
+                        src={avatar === '' ? defaultCommentAvatar : avatar}
                         alt="avatar"
                         className="comment-edit-avatar"
                     />
@@ -57,7 +116,11 @@ const Comment = () => {
                                 className="comment-input-value"
                                 value={name}
                                 onChange={e => setName(e.target.value)}
+                                onKeyUp={e => {
+                                    if (e.keyCode === 13) getQQAvatar();
+                                }}
                                 placeholder="必填"
+                                onBlur={getQQAvatar}
                             />
                         </div>
                         <div className="comment-input-info flex3">
@@ -102,7 +165,24 @@ const Comment = () => {
                     </div>
                 </div>
             </div>
-            <div className="comment-show-box"></div>
+            <div className="comment-show-box">
+                <div className="comment-show-item">
+                    <div className="comment-show-avatar-box">
+                        <img
+                            src={defaultCommentAvatar}
+                            alt="avatar"
+                            className="comment-edit-avatar"
+                        />
+                    </div>
+                    <div className="comment-show-content-box">
+                        <div className="comment-show-usrInfo">
+                            <div className="comment-show-name">飞鸟</div>
+                            <div className="comment-show-date">2021-8-4</div>
+                        </div>
+                        <div className="comment-show-content"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

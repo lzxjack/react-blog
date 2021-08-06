@@ -1,7 +1,8 @@
 .comment-edit-box {
-    height: 300px;
-    background-color: rgb(77, 76, 76);
+    height: 270px;
+    /* background-color: rgb(77, 76, 76); */
     display: flex;
+    border-bottom: 4px solid #ccc;
 }
 
 .comment-edit-avatar-box {
@@ -17,6 +18,7 @@
     height: 70px;
     border-radius: 14px;
     -webkit-user-drag: none;
+    background-color: rgb(119, 119, 119);
 }
 
 .comment-input-box {
@@ -56,7 +58,7 @@
 }
 
 .comment-textarea-box {
-    height: 100px;
+    height: 140px;
 }
 .comment-textarea {
     margin-left: 20px;
@@ -66,7 +68,7 @@
     outline: none;
     background-color: #0f0f0f;
     padding: 8px 16px;
-    height: 100px;
+    height: 140px;
     border-radius: 14px;
 }
 
@@ -101,18 +103,20 @@
 /* 预览对话框 */
 .preview-box {
     position: fixed;
-    height: 200px;
+    height: 180px;
     width: 600px;
-    background-color: rgb(105, 105, 105);
-    box-shadow: 0 0 14px rgba(255, 255, 255, 0.5);
+    background-color: rgb(61, 61, 61);
     border-radius: 20px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+    padding: 20px;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.4s;
     z-index: 99;
+}
+.preview-content {
+    /* background-color: rgb(59, 56, 56); */
+    width: 100%;
+    height: 100%;
 }
 .preview-in {
     left: 50%;
@@ -121,13 +125,11 @@
     left: -400px;
 }
 
-.comment-preview {
-    flex: 1;
-    background-color: rgb(65, 62, 62);
-    padding: 10px;
-}
-
 .close-preview-btn {
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translate(-50%, 0);
     width: 70px;
     height: 40px;
     background-color: #2e2e2e;
@@ -137,4 +139,38 @@
     user-select: none;
     border-radius: 14px;
     margin: 0 auto;
+}
+
+.preview-mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    z-index: 98;
+}
+
+.preview-mask-none {
+    display: none;
+}
+
+.comment-show-item {
+    display: flex;
+}
+
+.comment-show-avatar-box {
+    width: 70px;
+}
+
+.comment-show-content-box {
+    flex: 1;
+}
+
+.comment-show-usrInfo {
+    height: 40px;
+    background-color: rgb(148, 134, 134);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }

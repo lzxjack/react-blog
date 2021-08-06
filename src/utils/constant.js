@@ -26,3 +26,12 @@ export const articlesPageSize = 10;
 // wow.js和配置
 export const wowUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/wow.js';
 export const wowConfigUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/wow-config.js';
+
+export const defaultCommentAvatar =
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210806155440.png';
+
+// pushplus的token
+export const pushplusToken = 'a748f65e6913459998a357480f6a74eb';
+
+// pushplus的Url
+export const pushplusUrl = 'https://pushplus.hxtrip.com/send';
