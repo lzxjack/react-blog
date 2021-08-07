@@ -12,6 +12,7 @@ import {
     GET_LOGS,
     GET_SITE_COUNT,
     SET_NAV_SHOW,
+    GET_COMMENTS,
 } from '../constant';
 
 // 登录
@@ -58,6 +59,10 @@ export const getLinks = data => ({
 });
 export const getShows = data => ({
     type: GET_SHOWS,
+    data,
+});
+export const getComments = data => ({
+    type: GET_COMMENTS,
     data,
 });
 export const getAbout = data => ({

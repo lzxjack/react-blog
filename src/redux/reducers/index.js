@@ -11,6 +11,7 @@ import links from './links';
 import logs from './logs';
 import says from './says';
 import shows from './shows';
+import comments from './comments';
 import about from './about';
 
 import siteCount from './siteCount';
@@ -28,6 +29,7 @@ export default combineReducers({
     logs,
     says,
     shows,
+    comments,
     about,
     siteCount,
     navShow,

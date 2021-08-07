@@ -2,11 +2,12 @@
     height: 270px;
     /* background-color: rgb(77, 76, 76); */
     display: flex;
-    border-bottom: 4px solid #ccc;
+    /* border-bottom: 4px solid #ccc; */
+    margin-top: 10px;
 }
 
 .comment-edit-avatar-box {
-    width: 70px;
+    width: 80px;
 }
 
 .comment-edit-input-box {
@@ -18,21 +19,25 @@
     height: 70px;
     border-radius: 14px;
     -webkit-user-drag: none;
-    background-color: rgb(119, 119, 119);
+    background-color: rgb(105, 105, 105);
+    transition: all 0.2s;
 }
 
 .comment-input-box {
-    height: 50px;
+    height: 46px;
     display: flex;
 }
 
 .comment-input-info {
-    height: 40px;
+    height: 36px;
     background-color: #0f0f0f;
-    margin-left: 20px;
+    margin-right: 10px;
     display: flex;
     border-radius: 14px;
     overflow: hidden;
+}
+.comment-input-info:last-child {
+    margin-right: 0;
 }
 .flex3 {
     flex: 3;
@@ -48,6 +53,7 @@
     justify-content: center;
     align-items: center;
     user-select: none;
+    font-size: 18px;
 }
 .comment-input-value {
     height: 100%;
@@ -61,9 +67,8 @@
     height: 140px;
 }
 .comment-textarea {
-    margin-left: 20px;
     resize: none;
-    width: calc(100% - 20px);
+    width: 100%;
     border: none;
     outline: none;
     background-color: #0f0f0f;
@@ -74,15 +79,16 @@
 
 .comment-btns {
     position: relative;
-    height: 50px;
+    height: 46px;
     margin-left: 20px;
 }
 
 .comment-preview-btn,
-.comment-send-btn {
+.comment-send-btn,
+.comment-cancel-btn {
     position: absolute;
     width: 70px;
-    height: 40px;
+    height: 36px;
     background-color: #585858;
     display: flex;
     justify-content: center;
@@ -90,14 +96,17 @@
     user-select: none;
     bottom: 0;
     border-radius: 14px;
+    font-size: 18px;
 }
 
+.comment-cancel-btn {
+    right: 160px;
+}
 .comment-send-btn {
     right: 0;
 }
-
 .comment-preview-btn {
-    right: 90px;
+    right: 80px;
 }
 
 /* 预览对话框 */
@@ -105,13 +114,13 @@
     position: fixed;
     height: 180px;
     width: 600px;
-    background-color: rgb(61, 61, 61);
+    background-color: rgb(37, 37, 37);
     border-radius: 20px;
     padding: 20px;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.4s;
-    z-index: 99;
+    z-index: 100;
 }
 .preview-content {
     /* background-color: rgb(59, 56, 56); */
@@ -141,26 +150,31 @@
     margin: 0 auto;
 }
 
-.preview-mask {
+.comment-mask {
     width: 100vw;
     height: 100vh;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
-    z-index: 98;
+    z-index: 99;
 }
 
-.preview-mask-none {
+.comment-mask-none {
     display: none;
 }
 
 .comment-show-item {
     display: flex;
+    margin-top: 20px;
+    position: relative;
 }
 
 .comment-show-avatar-box {
-    width: 70px;
+    width: 80px;
+}
+.comment-show-avatar-box a {
+    cursor: default;
 }
 
 .comment-show-content-box {
@@ -169,8 +183,78 @@
 
 .comment-show-usrInfo {
     height: 40px;
-    background-color: rgb(148, 134, 134);
+    /* background-color: rgb(148, 134, 134); */
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    user-select: none;
+}
+.comment-show-name {
+    /* margin-left: 10px; */
+    color: rgb(180, 180, 0);
+    cursor: default;
+    padding: 0 10px;
+    border-radius: 12px;
+}
+
+.comment-show-date {
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: 'car';
+}
+.comment-show-content {
+    background-color: rgb(58, 58, 58);
+    padding: 10px 20px;
+    border-radius: 14px;
+    font-size: 18px;
+}
+.comment-show-content p {
+    margin: 0;
+    padding: 0;
+}
+.comment-show-content ul {
+    /* list-style: none; */
+    margin: 0;
+    padding: 0;
+}
+.comment-show-content li {
+    margin-left: 20px;
+}
+
+.comment-show-reply {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    /* background-color: rgb(82, 67, 67); */
+    height: 28px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/* 回复框 */
+.comment-reply-box {
+    position: fixed;
+    height: 300px;
+    width: 1000px;
+    background-color: rgb(61, 61, 61);
+    border-radius: 20px;
+    padding: 20px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    transition: all 0.4s;
+    z-index: 98;
+}
+.reply-in {
+    right: 50%;
+}
+.reply-out {
+    right: -1600px;
+}
+
+.reply-mask {
+    z-index: 97;
 }

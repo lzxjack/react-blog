@@ -15,6 +15,7 @@ import {
     getAbout,
     getLogs,
     getSiteCount,
+    getComments,
 } from './redux/actions';
 import { count_id } from './utils/constant';
 import Loading from './components/Loading';
@@ -51,6 +52,7 @@ const App = props => {
         if (!props.logs.length) return;
         if (!props.says.length) return;
         if (!props.shows.length) return;
+        if (!props.comments.length) return;
         if (!props.about.length) return;
         if (!props.siteCount) return;
         setDone(true);
@@ -112,6 +114,11 @@ const App = props => {
                         props.getShows(res.data);
                         break;
                     }
+                    case 'comments': {
+                        res.data.sort((a, b) => b.date - a.date);
+                        props.getComments(res.data);
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -146,6 +153,7 @@ const App = props => {
         getDataFromDB('logs');
         getDataFromDB('says');
         getDataFromDB('shows');
+        getDataFromDB('comments');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.loginState]);
     // return <>{props.loginState ? <Blog /> : <Loading />}</>;
@@ -166,6 +174,7 @@ export default connect(
         shows: state.shows,
         about: state.about,
         siteCount: state.siteCount,
+        comments: state.comments,
     }),
     {
         login,
@@ -180,5 +189,6 @@ export default connect(
         getAbout,
         getLogs,
         getSiteCount,
+        getComments,
     }
 )(App);

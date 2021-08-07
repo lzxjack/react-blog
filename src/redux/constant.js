@@ -25,6 +25,9 @@ export const GET_LINKS = 'getLinks';
 // 作品
 export const GET_SHOWS = 'getShows';
 
+// 作品
+export const GET_COMMENTS = 'getComments';
+
 // 关于
 export const GET_ABOUT = 'getAbout';
 
