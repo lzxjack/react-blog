@@ -1,5 +1,5 @@
 .comment-edit-box {
-    height: 270px;
+    /* height: 270px; */
     /* background-color: rgb(77, 76, 76); */
     display: flex;
     /* border-bottom: 4px solid #ccc; */
@@ -65,16 +65,31 @@
 
 .comment-textarea-box {
     height: 140px;
+    padding: 8px 16px;
+    background-color: #0f0f0f;
+    border-radius: 14px;
 }
 .comment-textarea {
     resize: none;
     width: 100%;
+    height: 100%;
     border: none;
     outline: none;
     background-color: #0f0f0f;
-    padding: 8px 16px;
-    height: 140px;
-    border-radius: 14px;
+}
+/* 设置滚动条的样式 */
+.comment-textarea::-webkit-scrollbar {
+    width: 8px;
+}
+/* 滚动槽 */
+.comment-textarea::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5); */
+    background-color: rgba(0, 0, 0, 0);
+}
+/* 滚动条滑块 */
+.comment-textarea::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
 }
 
 .comment-btns {
@@ -123,9 +138,23 @@
     z-index: 100;
 }
 .preview-content {
-    /* background-color: rgb(59, 56, 56); */
     width: 100%;
     height: 100%;
+    overflow-y: auto;
+}
+/* 设置滚动条的样式 */
+.preview-content::-webkit-scrollbar {
+    width: 8px;
+}
+/* 滚动槽 */
+.preview-content::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5); */
+    background-color: rgba(0, 0, 0, 0);
+}
+/* 滚动条滑块 */
+.preview-content::-webkit-scrollbar-thumb {
+    background: #6d6d6d;
+    border-radius: 4px;
 }
 .preview-in {
     left: 50%;
@@ -203,7 +232,7 @@
 }
 .comment-show-content {
     background-color: rgb(58, 58, 58);
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 12px;
     font-size: 18px;
 }
@@ -237,7 +266,7 @@
 /* 回复框 */
 .comment-reply-box {
     position: fixed;
-    height: 300px;
+    /* height: 300px; */
     width: 1000px;
     background-color: rgb(61, 61, 61);
     border-radius: 20px;
@@ -256,4 +285,11 @@
 
 .reply-mask {
     z-index: 97;
+}
+
+/* 代码块 */
+.commentMarkDown #hljs {
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin: 0;
 }

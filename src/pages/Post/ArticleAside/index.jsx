@@ -18,38 +18,34 @@ const ArticleAside = props => {
         setTocArr(toc);
     }, [props]);
     return (
-        // <div className="animated bounceInRight">
         <div className="aside-box">
-            <ul className="aside-ul wow bounceInRight">
-                {tocArr.map((item, index) => {
-                    return (
-                        <li
-                            key={index}
-                            className={
-                                item.level === 2
-                                    ? 'tocPadding24'
-                                    : item.level === 3
-                                    ? 'tocPadding48'
-                                    : item.level === 4
-                                    ? 'tocPadding72'
-                                    : ''
-                            }
+            <ul className="aside-ul animated bounceInRight">
+                {tocArr.map((item, index) => (
+                    <li
+                        key={index}
+                        className={
+                            item.level === 2
+                                ? 'tocPadding24'
+                                : item.level === 3
+                                ? 'tocPadding48'
+                                : item.level === 4
+                                ? 'tocPadding72'
+                                : ''
+                        }
+                    >
+                        <a
+                            className="tocLink common-hover"
+                            onClick={() => {
+                                props.setNavShow(false);
+                            }}
+                            href={`#${item.title.split('. ')[0]}-${item.title.split(' ')[1]}`}
                         >
-                            <a
-                                className="tocLink common-hover"
-                                onClick={() => {
-                                    props.setNavShow(false);
-                                }}
-                                href={`#${item.title.split('. ')[0]}-${item.title.split(' ')[1]}`}
-                            >
-                                {item.title}
-                            </a>
-                        </li>
-                    );
-                })}
+                            {item.title}
+                        </a>
+                    </li>
+                ))}
             </ul>
         </div>
-        // </div>
     );
 };
 

@@ -148,12 +148,29 @@ const Comment = props => {
         setAvatar(avatarUrl);
         setName('');
     };
+    // 打开留言预览框
+    const openMsgPreview = () => {
+        if (!content) {
+            message.info('请写点什么再预览~');
+            return;
+        }
+        setShowPreview(true);
+    };
+    // 打开回复的预览框
+    const openReplyPreview = () => {
+        if (!replyContent) {
+            message.info('请写点什么再预览~');
+            return;
+        }
+        setIsReply(true);
+        setShowPreview(true);
+    };
     return (
         <div className="Comment-box">
             {/* 预览框：固定定位 */}
             <div className={showPreview ? 'preview-box preview-in' : 'preview-box preview-out'}>
                 <div
-                    className="preview-content markdownStyle"
+                    className="preview-content markdownStyle commentMarkDown"
                     dangerouslySetInnerHTML={{
                         __html: marked(isReply ? replyContent : content).replace(
                             /<pre>/g,
@@ -235,6 +252,7 @@ const Comment = props => {
                                 className="comment-textarea"
                                 value={replyContent}
                                 onChange={e => setReplyContent(e.target.value)}
+                                placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ，自动获取「头像」和「邮箱」~"
                             />
                         </div>
 
@@ -247,10 +265,7 @@ const Comment = props => {
                             </div>
                             <div
                                 className="comment-preview-btn common-hover"
-                                onClick={() => {
-                                    setIsReply(true);
-                                    setShowPreview(true);
-                                }}
+                                onClick={openReplyPreview}
                             >
                                 预览
                             </div>
@@ -312,13 +327,15 @@ const Comment = props => {
                             className="comment-textarea"
                             value={content}
                             onChange={e => setContent(e.target.value)}
+                            placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ，自动获取「头像」和「邮箱」~"
                         />
                     </div>
 
                     <div className="comment-btns">
                         <div
                             className="comment-preview-btn common-hover"
-                            onClick={() => setShowPreview(true)}
+                            // onClick={() => setShowPreview(true)}
+                            onClick={openMsgPreview}
                         >
                             预览
                         </div>
@@ -362,7 +379,7 @@ const Comment = props => {
                                 </span>
                             </div>
                             <div
-                                className="comment-show-content markdownStyle"
+                                className="comment-show-content markdownStyle commentMarkDown"
                                 dangerouslySetInnerHTML={{
                                     __html: marked(item.content).replace(
                                         /<pre>/g,
@@ -400,7 +417,7 @@ const Comment = props => {
                                                     </span>
                                                 </div>
                                                 <div
-                                                    className="comment-show-content markdownStyle"
+                                                    className="comment-show-content markdownStyle commentMarkDown"
                                                     dangerouslySetInnerHTML={{
                                                         __html: marked(replyItem.content).replace(
                                                             /<pre>/g,
