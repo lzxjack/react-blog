@@ -5,7 +5,7 @@ import { defaultCommentAvatar, pushplusToken, pushplusUrl } from '../../../utils
 import axios from 'axios';
 import marked from 'marked';
 import useMarkdown from '../../../hooks/useMarkdown';
-import { getComments } from '../../../redux/actions';
+import { getComments, getCommentsReply, getMsgs, getMsgsReply } from '../../../redux/actions';
 import { message } from 'antd';
 import { MessageOutlined } from '@ant-design/icons';
 import moment from 'moment';
@@ -18,7 +18,7 @@ const Comment = props => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [link, setLink] = useState('');
-    const [comment, setComment] = useState('');
+    const [content, setContent] = useState('');
     const [avatar, setAvatar] = useState('');
     const [showPreview, setShowPreview] = useState(false);
     const [showReply, setShowReply] = useState(false);
@@ -36,14 +36,24 @@ const Comment = props => {
     }, []);
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
-        db.collection('comments')
+        db.collection('allComments')
             .get()
             .then(res => {
-                res.data.sort((a, b) => b.date - a.date);
-                props.getComments(res.data);
+                const comments = res.data
+                    .filter(item => item.postTitle && !item.replyId)
+                    .sort((a, b) => b.date - a.date);
+                const commentsReply = res.data.filter(item => item.postTitle && item.replyId);
+                const msgs = res.data
+                    .filter(item => !item.postTitle && !item.replyId)
+                    .sort((a, b) => b.date - a.date);
+                const msgsReply = res.data.filter(item => !item.postTitle && item.replyId);
+                props.getComments(comments);
+                props.getCommentsReply(commentsReply);
+                props.getMsgs(msgs);
+                props.getMsgsReply(msgsReply);
             });
     };
-    // 发布评论
+    // 发布留言
     const sendMsg = () => {
         if (!name) {
             message.info('请输入昵称！');
@@ -57,23 +67,23 @@ const Comment = props => {
             message.info('请输入正确的邮箱地址！');
             return;
         }
-        if (!comment) {
-            message.info('请输入评论内容！');
+        if (!content) {
+            message.info('请输入留言内容！');
             return;
         }
-        db.collection('comments')
+        db.collection('allComments')
             .add({
                 name,
                 email,
                 link,
-                comment,
+                content,
                 date: new Date().getTime(),
                 avatar,
-                title: '',
+                postTitle: '',
                 replyId: '',
             })
             .then(() => {
-                message.success('发布评论成功！');
+                message.success('发布留言成功！');
                 getCommentsFromDB();
                 const title = isMsg ? '留言板有新留言啦!' : '';
                 axios({
@@ -82,12 +92,12 @@ const Comment = props => {
                     params: {
                         token: pushplusToken,
                         title,
-                        content: comment,
+                        content,
                     },
                 })
                     .then(res => {
                         console.log(res);
-                        setComment('');
+                        setContent('');
                     })
                     .catch(err => console.error(err));
             });
@@ -110,15 +120,15 @@ const Comment = props => {
             message.info('请输入回复内容！');
             return;
         }
-        db.collection('comments')
+        db.collection('allComments')
             .add({
                 name,
                 email,
                 link,
-                comment: replyContent,
+                content: replyContent,
                 date: new Date().getTime(),
                 avatar,
-                title: '',
+                postTitle: '',
                 replyId: Id,
             })
             .then(() => {
@@ -143,9 +153,9 @@ const Comment = props => {
             {/* 预览框：固定定位 */}
             <div className={showPreview ? 'preview-box preview-in' : 'preview-box preview-out'}>
                 <div
-                    className="preview-content"
+                    className="preview-content markdownStyle"
                     dangerouslySetInnerHTML={{
-                        __html: marked(isReply ? replyContent : comment).replace(
+                        __html: marked(isReply ? replyContent : content).replace(
                             /<pre>/g,
                             "<pre id='hljs'>"
                         ),
@@ -251,7 +261,7 @@ const Comment = props => {
                     </div>
                 </div>
             </div>
-            {/* 评论编辑框 */}
+            {/* 留言编辑框 */}
             <div className="comment-edit-box">
                 <div className="comment-edit-avatar-box">
                     <img
@@ -300,8 +310,8 @@ const Comment = props => {
                     <div className="comment-textarea-box">
                         <textarea
                             className="comment-textarea"
-                            value={comment}
-                            onChange={e => setComment(e.target.value)}
+                            value={content}
+                            onChange={e => setContent(e.target.value)}
                         />
                     </div>
 
@@ -318,9 +328,9 @@ const Comment = props => {
                     </div>
                 </div>
             </div>
-            {/* 评论列表区 */}
+            {/* 留言列表区 */}
             <div className="comment-show-box">
-                {props.comments.map(item => (
+                {props.msgs.map(item => (
                     <div className="comment-show-item" key={item._id}>
                         {/* 头像框 */}
                         <div className="comment-show-avatar-box">
@@ -347,14 +357,14 @@ const Comment = props => {
                                 >
                                     {item.name}
                                 </a>
-                                <div className="comment-show-date">
-                                    {moment(item.date).startOf('hour').fromNow()}
-                                </div>
+                                <span className="comment-show-date">
+                                    {moment(item.date).format('LLL')}
+                                </span>
                             </div>
                             <div
-                                className="comment-show-content"
+                                className="comment-show-content markdownStyle"
                                 dangerouslySetInnerHTML={{
-                                    __html: marked(item.comment).replace(
+                                    __html: marked(item.content).replace(
                                         /<pre>/g,
                                         "<pre id='hljs'>"
                                     ),
@@ -362,51 +372,45 @@ const Comment = props => {
                             ></div>
                             {/* 回复的消息 */}
                             <div className="comment-show-reply-box">
-                                <div className="comment-show-item" key={item._id}>
-                                    {/* 头像框 */}
-                                    <div className="comment-show-avatar-box">
-                                        <img
-                                            src={item.avatar}
-                                            alt="avatar"
-                                            className="comment-edit-avatar"
-                                        />
-                                    </div>
-                                    {/* 回复框显示按钮 */}
-                                    <div
-                                        className="comment-show-reply common-hover"
-                                        onClick={() => {
-                                            setShowReply(true);
-                                            setId(item._id);
-                                        }}
-                                    >
-                                        <MessageOutlined />
-                                    </div>
-                                    {/* 内容区 */}
-                                    <div className="comment-show-content-box">
-                                        <div className="comment-show-usrInfo">
-                                            <a
-                                                href={item.link}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="comment-show-name common-hover"
-                                            >
-                                                {item.name}
-                                            </a>
-                                            <div className="comment-show-date">
-                                                {moment(item.date).startOf('hour').fromNow()}
+                                {props.msgsReply
+                                    .filter(k => k.replyId === item._id)
+                                    .map(replyItem => (
+                                        <div className="comment-show-item" key={replyItem._id}>
+                                            {/* 头像框 */}
+                                            <div className="comment-show-avatar-box">
+                                                <img
+                                                    src={replyItem.avatar}
+                                                    alt="avatar"
+                                                    className="comment-edit-avatar"
+                                                />
+                                            </div>
+                                            {/* 内容区 */}
+                                            <div className="comment-show-content-box">
+                                                <div className="comment-show-usrInfo">
+                                                    <a
+                                                        href={replyItem.link}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="comment-show-name common-hover"
+                                                    >
+                                                        {replyItem.name}
+                                                    </a>
+                                                    <span className="comment-show-date">
+                                                        {moment(replyItem.date).format('LLL')}
+                                                    </span>
+                                                </div>
+                                                <div
+                                                    className="comment-show-content markdownStyle"
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: marked(replyItem.content).replace(
+                                                            /<pre>/g,
+                                                            "<pre id='hljs'>"
+                                                        ),
+                                                    }}
+                                                ></div>
                                             </div>
                                         </div>
-                                        <div
-                                            className="comment-show-content"
-                                            dangerouslySetInnerHTML={{
-                                                __html: marked(item.comment).replace(
-                                                    /<pre>/g,
-                                                    "<pre id='hljs'>"
-                                                ),
-                                            }}
-                                        ></div>
-                                    </div>
-                                </div>
+                                    ))}
                             </div>
                         </div>
                     </div>
@@ -418,7 +422,8 @@ const Comment = props => {
 
 export default connect(
     state => ({
-        comments: state.comments,
+        msgs: state.msgs,
+        msgsReply: state.msgsReply,
     }),
-    { getComments }
+    { getComments, getCommentsReply, getMsgs, getMsgsReply }
 )(Comment);

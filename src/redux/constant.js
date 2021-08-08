@@ -25,8 +25,15 @@ export const GET_LINKS = 'getLinks';
 // 作品
 export const GET_SHOWS = 'getShows';
 
-// 作品
+// 评论
 export const GET_COMMENTS = 'getComments';
+// 评论回复
+export const GET_COMMENTS_REPLY = 'getCommentsReply';
+
+// 留言
+export const GET_MSGS = 'getMsgs';
+// 留言回复
+export const GET_MSGS_REPLY = 'getMsgsReply';
 
 // 关于
 export const GET_ABOUT = 'getAbout';

@@ -182,7 +182,7 @@
 }
 
 .comment-show-usrInfo {
-    height: 40px;
+    height: 34px;
     /* background-color: rgb(148, 134, 134); */
     display: flex;
     justify-content: flex-start;
@@ -190,11 +190,10 @@
     user-select: none;
 }
 .comment-show-name {
-    /* margin-left: 10px; */
     color: rgb(180, 180, 0);
     cursor: default;
     padding: 0 10px;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .comment-show-date {
@@ -205,7 +204,7 @@
 .comment-show-content {
     background-color: rgb(58, 58, 58);
     padding: 10px 20px;
-    border-radius: 14px;
+    border-radius: 12px;
     font-size: 18px;
 }
 .comment-show-content p {

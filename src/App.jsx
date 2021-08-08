@@ -16,6 +16,9 @@ import {
     getLogs,
     getSiteCount,
     getComments,
+    getCommentsReply,
+    getMsgs,
+    getMsgsReply,
 } from './redux/actions';
 import { count_id } from './utils/constant';
 import Loading from './components/Loading';
@@ -52,7 +55,7 @@ const App = props => {
         if (!props.logs.length) return;
         if (!props.says.length) return;
         if (!props.shows.length) return;
-        if (!props.comments.length) return;
+        // if (!props.comments.length) return;
         if (!props.about.length) return;
         if (!props.siteCount) return;
         setDone(true);
@@ -114,9 +117,21 @@ const App = props => {
                         props.getShows(res.data);
                         break;
                     }
-                    case 'comments': {
-                        res.data.sort((a, b) => b.date - a.date);
-                        props.getComments(res.data);
+                    case 'allComments': {
+                        const comments = res.data
+                            .filter(item => item.postTitle && !item.replyId)
+                            .sort((a, b) => b.date - a.date);
+                        const commentsReply = res.data.filter(
+                            item => item.postTitle && item.replyId
+                        );
+                        const msgs = res.data
+                            .filter(item => !item.postTitle && !item.replyId)
+                            .sort((a, b) => b.date - a.date);
+                        const msgsReply = res.data.filter(item => !item.postTitle && item.replyId);
+                        props.getComments(comments);
+                        props.getCommentsReply(commentsReply);
+                        props.getMsgs(msgs);
+                        props.getMsgsReply(msgsReply);
                         break;
                     }
                     default:
@@ -153,7 +168,7 @@ const App = props => {
         getDataFromDB('logs');
         getDataFromDB('says');
         getDataFromDB('shows');
-        getDataFromDB('comments');
+        getDataFromDB('allComments');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.loginState]);
     // return <>{props.loginState ? <Blog /> : <Loading />}</>;
@@ -190,5 +205,8 @@ export default connect(
         getLogs,
         getSiteCount,
         getComments,
+        getCommentsReply,
+        getMsgs,
+        getMsgsReply,
     }
 )(App);

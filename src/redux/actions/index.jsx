@@ -13,6 +13,9 @@ import {
     GET_SITE_COUNT,
     SET_NAV_SHOW,
     GET_COMMENTS,
+    GET_MSGS,
+    GET_COMMENTS_REPLY,
+    GET_MSGS_REPLY,
 } from '../constant';
 
 // 登录
@@ -79,5 +82,20 @@ export const getSiteCount = data => ({
 });
 export const setNavShow = data => ({
     type: SET_NAV_SHOW,
+    data,
+});
+
+export const getMsgs = data => ({
+    type: GET_MSGS,
+    data,
+});
+
+export const getCommentsReply = data => ({
+    type: GET_COMMENTS_REPLY,
+    data,
+});
+
+export const getMsgsReply = data => ({
+    type: GET_MSGS_REPLY,
     data,
 });

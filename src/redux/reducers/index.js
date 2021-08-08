@@ -12,7 +12,10 @@ import logs from './logs';
 import says from './says';
 import shows from './shows';
 import comments from './comments';
+import msgs from './msgs';
 import about from './about';
+import msgsReply from './msgsReply';
+import commentsReply from './commentsReply';
 
 import siteCount from './siteCount';
 
@@ -33,4 +36,7 @@ export default combineReducers({
     about,
     siteCount,
     navShow,
+    msgs,
+    msgsReply,
+    commentsReply,
 });
