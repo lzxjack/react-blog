@@ -14,7 +14,9 @@ import './index.css';
 
 const Comment = props => {
     useMarkdown();
-    const [Id, setId] = useState('');
+    const [replyId, setReplyId] = useState('');
+    const [replyEmail, setReplyEmail] = useState('');
+    const [owner, setOwner] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [link, setLink] = useState('');
@@ -24,16 +26,7 @@ const Comment = props => {
     const [showReply, setShowReply] = useState(false);
     const [replyContent, setReplyContent] = useState('');
     const [isReply, setIsReply] = useState(false);
-    // const [pushTitleText, setPushTitleText] = useState('');
-    const [isMsg, setIsMsg] = useState(false);
-    // 获取URL信息
-    useEffect(() => {
-        if (!window.location.search) {
-            setIsMsg(true);
-            // setPushTitleText('留言板');
-            return;
-        }
-    }, []);
+
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
         db.collection('allComments')
@@ -85,7 +78,7 @@ const Comment = props => {
             .then(() => {
                 message.success('发布留言成功！');
                 getCommentsFromDB();
-                const title = isMsg ? '留言板有新留言啦!' : '';
+                const title = props.isMsg ? '留言板有新留言' : '文章有新评论';
                 axios({
                     url: pushplusUrl,
                     method: 'get',
@@ -95,8 +88,8 @@ const Comment = props => {
                         content,
                     },
                 })
-                    .then(res => {
-                        console.log(res);
+                    .then(() => {
+                        // console.log(res);
                         setContent('');
                     })
                     .catch(err => console.error(err));
@@ -129,13 +122,26 @@ const Comment = props => {
                 date: new Date().getTime(),
                 avatar,
                 postTitle: '',
-                replyId: Id,
+                replyId,
             })
             .then(() => {
                 getCommentsFromDB();
                 setShowReply(false);
                 setReplyContent('');
-                message.success('回复成功！');
+                //——————————————————————————————————————
+                axios({
+                    url: 'http://47.110.144.145:4000/email',
+                    method: 'get',
+                    params: {
+                        name,
+                        owner,
+                        email: replyEmail,
+                        search: 'msg',
+                    },
+                    withCredentials: true,
+                })
+                    .then(() => message.success('回复成功!'))
+                    .catch(err => console.error(err));
             });
     };
     const reg_qq = /[1-9][0-9]{3,11}/;
@@ -202,7 +208,7 @@ const Comment = props => {
             <div
                 className={showReply ? 'comment-reply-box reply-in' : 'comment-reply-box reply-out'}
             >
-                <div className="comment-edit-box" className="comment-edit-box">
+                <div className="comment-edit-box">
                     <div className="comment-edit-avatar-box">
                         <img
                             src={avatar === '' ? defaultCommentAvatar : avatar}
@@ -259,7 +265,12 @@ const Comment = props => {
                         <div className="comment-btns">
                             <div
                                 className="comment-cancel-btn common-hover"
-                                onClick={() => setShowReply(false)}
+                                onClick={() => {
+                                    setShowReply(false);
+                                    setReplyId('');
+                                    setReplyEmail('');
+                                    setOwner('');
+                                }}
                             >
                                 取消
                             </div>
@@ -358,7 +369,11 @@ const Comment = props => {
                             className="comment-show-reply common-hover"
                             onClick={() => {
                                 setShowReply(true);
-                                setId(item._id);
+                                setReplyId(item._id);
+                                const Eamil = props.msgs.filter(k => k._id === item._id)[0].email;
+                                setReplyEmail(Eamil);
+                                const owner = props.msgs.filter(k => k._id === item._id)[0].name;
+                                setOwner(owner);
                             }}
                         >
                             <MessageOutlined />

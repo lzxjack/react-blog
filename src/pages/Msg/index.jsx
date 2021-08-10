@@ -18,7 +18,7 @@ const Msg = () => {
                     <span>交换友链。</span>
                 </div>
                 <Divider />
-                <Comment />
+                <Comment isMsg={true} />
             </div>
         </>
     );

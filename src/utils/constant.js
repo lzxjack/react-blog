@@ -23,10 +23,6 @@ export const homePageSize = 8;
 // 文章页每页显示多少篇文章
 export const articlesPageSize = 10;
 
-// wow.js和配置
-export const wowUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/wow.js';
-export const wowConfigUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/wow-config.js';
-
 export const defaultCommentAvatar =
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
 
