@@ -26,6 +26,7 @@ const Comment = props => {
     const [showReply, setShowReply] = useState(false);
     const [replyContent, setReplyContent] = useState('');
     const [isReply, setIsReply] = useState(false);
+    const [adminBox, setAdminBox] = useState(false);
 
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
@@ -147,6 +148,11 @@ const Comment = props => {
     const reg_qq = /[1-9][0-9]{3,11}/;
     // 获取QQ头像和QQ邮箱
     const getQQAvatar = () => {
+        if (name === 'admin') {
+            setName('');
+            console.log(111);
+            return;
+        }
         if (!reg_qq.test(name)) return;
         const avatarUrl = `http://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
         const QQEmail = `${name}@qq.com`;
@@ -220,6 +226,9 @@ const Comment = props => {
                 className={showReply ? 'comment-reply-box reply-in' : 'comment-reply-box reply-out'}
             >
                 <div className="comment-edit-box">
+                    <div className="admin-box">
+                        1231212312123121231212312123121231212312123121231212312123121231212312123121231212312123121231212312
+                    </div>
                     <div className="comment-edit-avatar-box">
                         <img
                             src={avatar === '' ? defaultCommentAvatar : avatar}

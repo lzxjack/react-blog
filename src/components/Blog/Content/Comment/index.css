@@ -1,10 +1,15 @@
 .comment-edit-box {
-    /* height: 270px; */
-    /* background-color: rgb(77, 76, 76); */
     display: flex;
-    /* border-bottom: 4px solid #ccc; */
     margin-top: 10px;
+    position: relative;
 }
+/* .admin-box {
+    position: absolute;
+    height: 232px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 20;
+} */
 
 .comment-edit-avatar-box {
     width: 80px;
