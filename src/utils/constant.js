@@ -31,3 +31,10 @@ export const pushplusToken = 'a748f65e6913459998a357480f6a74eb';
 
 // pushplus的Url
 export const pushplusUrl = 'https://pushplus.hxtrip.com/send';
+
+// 管理员信息
+export const adminUid = '9bf44da2dbb8473da1fcf4f591cb82ff';
+export const adminName = '飞鸟';
+export const adminQQ = '965555169';
+export const adminQQEmail = '965555169@qq.com';
+export const adminUrl = 'lzxjack.top';

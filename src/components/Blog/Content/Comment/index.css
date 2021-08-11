@@ -2,14 +2,8 @@
     display: flex;
     margin-top: 10px;
     position: relative;
+    overflow: hidden;
 }
-/* .admin-box {
-    position: absolute;
-    height: 232px;
-    width: 100%;
-    background-color: #fff;
-    z-index: 20;
-} */
 
 .comment-edit-avatar-box {
     width: 80px;
@@ -25,7 +19,6 @@
     border-radius: 14px;
     -webkit-user-drag: none;
     background-color: rgb(105, 105, 105);
-    transition: all 0.2s;
 }
 
 .comment-input-box {
@@ -230,6 +223,14 @@
     border-radius: 10px;
 }
 
+.admin-flag {
+    font-size: 14px;
+    background-color: rgb(180, 180, 0);
+    padding: 0 4px;
+    border-radius: 8px;
+    color: #000;
+}
+
 .comment-show-date {
     margin-left: 10px;
     font-size: 16px;
@@ -297,4 +298,83 @@
     padding: 4px 10px;
     border-radius: 10px;
     margin: 0;
+}
+
+/* ——————————————————管理员登录框—————————————————— */
+.admin-box {
+    position: absolute;
+    height: 232px;
+    width: 100%;
+    background-color: #3a3a3a;
+    z-index: 10;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+.admin-box-in {
+    top: 0;
+}
+
+.admin-box-out {
+    top: 232px;
+}
+
+/* 邮箱盒子和密码盒子 */
+.admin-email-box,
+.admin-pwd-box,
+.admin-btns {
+    height: 40px;
+    width: 320px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.admin-btns {
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+/* 邮箱字、密码字 */
+.admin-email,
+.admin-pwd {
+    height: 100%;
+    width: 70px;
+    user-select: none;
+    background-color: rgb(88, 88, 88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* 邮箱输入框、密码输入框 */
+.admin-input-email,
+.admin-input-pwd {
+    width: 250px;
+    padding: 0 20px;
+    font-size: 20px;
+    background-color: #2e2e2e;
+}
+
+/* 登录按钮 */
+.admin-login-btn {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(88, 88, 88);
+    color: #fff;
+    /* border-radius: 30px; */
+    font-size: 20px;
+    user-select: none;
+    border-radius: 20px;
 }

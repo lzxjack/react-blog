@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { db } from '../../../../utils/cloudBase';
-import { defaultCommentAvatar, pushplusToken, pushplusUrl } from '../../../../utils/constant';
+import { db, auth } from '../../../../utils/cloudBase';
+import {
+    defaultCommentAvatar,
+    pushplusToken,
+    pushplusUrl,
+    adminUid,
+    adminName,
+    adminQQ,
+    adminQQEmail,
+    adminUrl,
+} from '../../../../utils/constant';
 import axios from 'axios';
 import marked from 'marked';
 import useMarkdown from '../../../../hooks/useMarkdown';
@@ -27,6 +36,8 @@ const Comment = props => {
     const [replyContent, setReplyContent] = useState('');
     const [isReply, setIsReply] = useState(false);
     const [adminBox, setAdminBox] = useState(false);
+    const [adminEmail, setAdminEmail] = useState('');
+    const [adminPwd, setAdminPwd] = useState('');
 
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
@@ -65,6 +76,17 @@ const Comment = props => {
             message.info('请输入留言内容！');
             return;
         }
+        if (auth.currentUser.uid !== adminUid) {
+            if (
+                name === adminQQ ||
+                name === adminName ||
+                email === adminQQEmail ||
+                link.indexOf(adminUrl) !== -1
+            ) {
+                message.warning('未登录不可以使用管理员账户哦~');
+                return;
+            }
+        }
         db.collection('allComments')
             .add({
                 name,
@@ -90,7 +112,6 @@ const Comment = props => {
                     },
                 })
                     .then(() => {
-                        // console.log(res);
                         setContent('');
                     })
                     .catch(err => console.error(err));
@@ -150,7 +171,11 @@ const Comment = props => {
     const getQQAvatar = () => {
         if (name === 'admin') {
             setName('');
-            console.log(111);
+            setAdminBox(true);
+            return;
+        }
+        if (auth.currentUser.uid !== adminUid && name === adminQQ) {
+            message.warning('未登录不可以使用管理员账户哦~');
             return;
         }
         if (!reg_qq.test(name)) return;
@@ -187,6 +212,27 @@ const Comment = props => {
         const owner = (props.postTitle ? props.comments : props.msgs).filter(k => k._id === ID)[0]
             .name;
         setOwner(owner);
+    };
+    // 取消管理员登录
+    const cancelAdminLogin = () => {
+        setAdminBox(false);
+        setAdminEmail('');
+        setAdminPwd('');
+    };
+    // 管理员登录
+    const adminLogin = () => {
+        auth.signInWithEmailAndPassword(adminEmail, adminPwd)
+            .then(() => {
+                if (auth.currentUser.uid === adminUid) {
+                    message.success('登陆成功！');
+                    setAdminBox(false);
+                } else {
+                    message.warning('登陆失败！');
+                }
+            })
+            .catch(() => {
+                message.warning('登陆失败！');
+            });
     };
     return (
         <div className="Comment-box">
@@ -226,9 +272,6 @@ const Comment = props => {
                 className={showReply ? 'comment-reply-box reply-in' : 'comment-reply-box reply-out'}
             >
                 <div className="comment-edit-box">
-                    <div className="admin-box">
-                        1231212312123121231212312123121231212312123121231212312123121231212312123121231212312123121231212312
-                    </div>
                     <div className="comment-edit-avatar-box">
                         <img
                             src={avatar === '' ? defaultCommentAvatar : avatar}
@@ -309,6 +352,34 @@ const Comment = props => {
             </div>
             {/* 留言编辑框 */}
             <div className="comment-edit-box">
+                <div className={adminBox ? 'admin-box admin-box-in' : 'admin-box admin-box-out'}>
+                    <div className="admin-email-box">
+                        <div className="admin-email common-hover">邮箱</div>
+                        <input
+                            type="text"
+                            className="admin-input-email"
+                            value={adminEmail}
+                            onChange={e => setAdminEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="admin-pwd-box">
+                        <div className="admin-pwd common-hover">密码</div>
+                        <input
+                            type="password"
+                            className="admin-input-pwd"
+                            value={adminPwd}
+                            onChange={e => setAdminPwd(e.target.value)}
+                        />
+                    </div>
+                    <div className="admin-btns">
+                        <div className="admin-login-btn common-hover" onClick={cancelAdminLogin}>
+                            取消
+                        </div>
+                        <div className="admin-login-btn common-hover" onClick={adminLogin}>
+                            登录
+                        </div>
+                    </div>
+                </div>
                 <div className="comment-edit-avatar-box">
                     <img
                         src={avatar === '' ? defaultCommentAvatar : avatar}
@@ -385,7 +456,11 @@ const Comment = props => {
                     <div className="comment-show-item" key={item._id}>
                         {/* 头像框 */}
                         <div className="comment-show-avatar-box">
-                            <img src={item.avatar} alt="avatar" className="comment-edit-avatar" />
+                            <img
+                                src={item.avatar ? item.avatar : defaultCommentAvatar}
+                                alt="avatar"
+                                className="comment-edit-avatar"
+                            />
                         </div>
                         {/* 回复框显示按钮 */}
                         <div
@@ -405,6 +480,7 @@ const Comment = props => {
                                 >
                                     {item.name}
                                 </a>
+                                <span className="admin-flag">站长</span>
                                 <span className="comment-show-date">
                                     {moment(item.date).format('LLL')}
                                 </span>
