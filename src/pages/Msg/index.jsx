@@ -1,13 +1,9 @@
 import PageTitle from '../../components/Blog/Content/PageTitle';
-// import Comments from '../Article/Comments';
 import Divider from '../Post/Divider';
-// import useScript from '../../hooks/useScript';
-// import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
-import Comment from './Comment';
+import Comment from '../../components/Blog/Content/Comment';
 import './index.css';
 
 const Msg = () => {
-    // useScript(twikooUrl, twikooConfigUrl);
     return (
         <>
             <PageTitle title="留言板" />
@@ -18,7 +14,7 @@ const Msg = () => {
                     <span>交换友链。</span>
                 </div>
                 <Divider />
-                <Comment isMsg={true} />
+                <Comment isMsg={true} postTitle="" />
             </div>
         </>
     );

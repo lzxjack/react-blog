@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
-import { db } from '../../../utils/cloudBase';
-import { defaultCommentAvatar, pushplusToken, pushplusUrl } from '../../../utils/constant';
+import { db } from '../../../../utils/cloudBase';
+import { defaultCommentAvatar, pushplusToken, pushplusUrl } from '../../../../utils/constant';
 import axios from 'axios';
 import marked from 'marked';
-import useMarkdown from '../../../hooks/useMarkdown';
-import { getComments, getCommentsReply, getMsgs, getMsgsReply } from '../../../redux/actions';
+import useMarkdown from '../../../../hooks/useMarkdown';
+import { getComments, getCommentsReply, getMsgs, getMsgsReply } from '../../../../redux/actions';
 import { message } from 'antd';
 import { MessageOutlined } from '@ant-design/icons';
 import moment from 'moment';
@@ -72,7 +72,7 @@ const Comment = props => {
                 content,
                 date: new Date().getTime(),
                 avatar,
-                postTitle: '',
+                postTitle: props.postTitle,
                 replyId: '',
             })
             .then(() => {
@@ -121,7 +121,7 @@ const Comment = props => {
                 content: replyContent,
                 date: new Date().getTime(),
                 avatar,
-                postTitle: '',
+                postTitle: props.postTitle,
                 replyId,
             })
             .then(() => {
@@ -136,7 +136,7 @@ const Comment = props => {
                         name,
                         owner,
                         email: replyEmail,
-                        search: 'msg',
+                        search: props.postTitle,
                     },
                     withCredentials: true,
                 })
@@ -170,6 +170,17 @@ const Comment = props => {
         }
         setIsReply(true);
         setShowPreview(true);
+    };
+    // 打开评论回复框
+    const openReplyBox = ID => {
+        setShowReply(true);
+        setReplyId(ID);
+        const Eamil = (props.postTitle ? props.comments : props.msgs).filter(k => k._id === ID)[0]
+            .email;
+        setReplyEmail(Eamil);
+        const owner = (props.postTitle ? props.comments : props.msgs).filter(k => k._id === ID)[0]
+            .name;
+        setOwner(owner);
     };
     return (
         <div className="Comment-box">
@@ -358,7 +369,10 @@ const Comment = props => {
             </div>
             {/* 留言列表区 */}
             <div className="comment-show-box">
-                {props.msgs.map(item => (
+                {(props.postTitle
+                    ? props.comments.filter(item => item.postTitle === props.postTitle)
+                    : props.msgs
+                ).map(item => (
                     <div className="comment-show-item" key={item._id}>
                         {/* 头像框 */}
                         <div className="comment-show-avatar-box">
@@ -367,14 +381,7 @@ const Comment = props => {
                         {/* 回复框显示按钮 */}
                         <div
                             className="comment-show-reply common-hover"
-                            onClick={() => {
-                                setShowReply(true);
-                                setReplyId(item._id);
-                                const Eamil = props.msgs.filter(k => k._id === item._id)[0].email;
-                                setReplyEmail(Eamil);
-                                const owner = props.msgs.filter(k => k._id === item._id)[0].name;
-                                setOwner(owner);
-                            }}
+                            onClick={() => openReplyBox(item._id)}
                         >
                             <MessageOutlined />
                         </div>
@@ -404,7 +411,7 @@ const Comment = props => {
                             ></div>
                             {/* 回复的消息 */}
                             <div className="comment-show-reply-box">
-                                {props.msgsReply
+                                {(props.postTitle ? props.commentsReply : props.msgsReply)
                                     .filter(k => k.replyId === item._id)
                                     .map(replyItem => (
                                         <div className="comment-show-item" key={replyItem._id}>
@@ -456,6 +463,8 @@ export default connect(
     state => ({
         msgs: state.msgs,
         msgsReply: state.msgsReply,
+        comments: state.comments,
+        commentsReply: state.commentsReply,
     }),
     { getComments, getCommentsReply, getMsgs, getMsgsReply }
 )(Comment);

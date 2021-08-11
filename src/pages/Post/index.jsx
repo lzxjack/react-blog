@@ -5,11 +5,8 @@ import Copyright from './Copyright';
 import ArticleContent from './ArticleContent';
 import ArticleTags from './ArticleTags';
 import Divider from './Divider';
-// import Comments from './Comments';
 import ArticleAside from './ArticleAside';
-// import useScript from '../../hooks/useScript';
-// import { twikooUrl, twikooConfigUrl } from '../../utils/constant';
-// import qs from 'qs';
+import Comment from '../../components/Blog/Content/Comment';
 import moment from 'moment';
 import './index.css';
 
@@ -20,11 +17,9 @@ const Post = props => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [url, setUrl] = useState('');
-    // useScript(twikooUrl, twikooConfigUrl);
+
     useEffect(() => {
-        // const param = qs.parse(props.location.search.slice(1)).title;
         const Title = props.location.search.split('?title=')[1];
-        // console.log(Title);
         const theArticle = props.articles.filter(item => item.titleEng === Title)[0];
         if (theArticle) {
             const { date, tags, title, content, classes, url } = theArticle;
@@ -36,10 +31,6 @@ const Post = props => {
             setUrl(url);
         }
     }, [props]);
-
-    // useEffect(() => {
-    //     console.log(window.location.search);
-    // });
     return (
         <div className="Article-box">
             <div
@@ -61,15 +52,15 @@ const Post = props => {
                 </div>
             </div>
 
-            <div className="animated bounceInLeft">
-                <div className="standard-page-box">
-                    <ArticleContent content={content} />
-                    <ArticleTags tags={tags} />
-                    <Copyright title={title} url={url} />
-                    <Divider />
-                    {/* <Comments /> */}
-                </div>
+            {/* <div className="animated bounceInLeft"> */}
+            <div className="standard-page-box">
+                <ArticleContent content={content} />
+                <ArticleTags tags={tags} />
+                <Copyright title={title} url={url} />
+                <Divider />
+                <Comment isMsg={false} postTitle={props.location.search.split('?title=')[1]} />
             </div>
+            {/* </div> */}
             <ArticleAside content={content} />
         </div>
     );

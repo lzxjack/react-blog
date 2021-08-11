@@ -7,7 +7,7 @@ const ArticleContent = props => {
     useMarkdown();
     return (
         <div
-            className="markdownStyle"
+            className="markdownStyle animated bounceInUp"
             dangerouslySetInnerHTML={{
                 __html: marked(props.content).replace(/<pre>/g, "<pre id='hljs'>"),
             }}
