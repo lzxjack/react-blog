@@ -135,6 +135,17 @@ const Comment = props => {
             message.info('请输入回复内容！');
             return;
         }
+        if (auth.currentUser.uid !== adminUid) {
+            if (
+                name === adminQQ ||
+                name === adminName ||
+                email === adminQQEmail ||
+                link.indexOf(adminUrl) !== -1
+            ) {
+                message.warning('未登录不可以使用管理员账户哦~');
+                return;
+            }
+        }
         db.collection('allComments')
             .add({
                 name,
@@ -480,7 +491,9 @@ const Comment = props => {
                                 >
                                     {item.name}
                                 </a>
-                                <span className="admin-flag">站长</span>
+                                {item.name === '飞鸟' ? (
+                                    <span className="admin-flag">站长</span>
+                                ) : null}
                                 <span className="comment-show-date">
                                     {moment(item.date).format('LLL')}
                                 </span>
@@ -503,7 +516,11 @@ const Comment = props => {
                                             {/* 头像框 */}
                                             <div className="comment-show-avatar-box">
                                                 <img
-                                                    src={replyItem.avatar}
+                                                    src={
+                                                        replyItem.avatar
+                                                            ? replyItem.avatar
+                                                            : defaultCommentAvatar
+                                                    }
                                                     alt="avatar"
                                                     className="comment-edit-avatar"
                                                 />
@@ -519,6 +536,9 @@ const Comment = props => {
                                                     >
                                                         {replyItem.name}
                                                     </a>
+                                                    {replyItem.name === '飞鸟' ? (
+                                                        <span className="admin-flag">站长</span>
+                                                    ) : null}
                                                     <span className="comment-show-date">
                                                         {moment(replyItem.date).format('LLL')}
                                                     </span>

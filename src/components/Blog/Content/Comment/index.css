@@ -219,8 +219,10 @@
 .comment-show-name {
     color: rgb(180, 180, 0);
     cursor: default;
-    padding: 0 10px;
+    padding: 0 6px;
     border-radius: 10px;
+    font-size: 18px;
+    margin-right: 4px;
 }
 
 .admin-flag {
