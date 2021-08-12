@@ -20,8 +20,10 @@ const Footer = props => {
                 {props.content}——《{props.title}》
             </span>
             <span>
-                {arr.map(item => (
-                    <span className="site-frame common-hover">{item}</span>
+                {arr.map((item, index) => (
+                    <span className="site-frame common-hover" key={index}>
+                        {item}
+                    </span>
                 ))}
             </span>
         </footer>

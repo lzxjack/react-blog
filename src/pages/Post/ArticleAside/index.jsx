@@ -16,6 +16,7 @@ const ArticleAside = props => {
             });
         }
         setTocArr(toc);
+        console.log(toc);
     }, [props]);
     return (
         <div className="aside-box">
@@ -38,7 +39,10 @@ const ArticleAside = props => {
                             onClick={() => {
                                 props.setNavShow(false);
                             }}
-                            href={`#${item.title.split('. ')[0]}-${item.title.split(' ')[1]}`}
+                            href={`#${item.title.split('. ')[0]}-${item.title
+                                .split('. ')[1]
+                                .toLowerCase()
+                                .replace(' / ', '--')}`}
                         >
                             {item.title}
                         </a>
