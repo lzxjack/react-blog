@@ -4,7 +4,7 @@
 
 .home-main {
     width: 1000px;
-    min-height: calc(100vh - 60px - 100px);
+    min-height: calc(100vh - 60px - 120px);
 }
 
 .home-aside {

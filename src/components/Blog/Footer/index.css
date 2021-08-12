@@ -1,11 +1,12 @@
 footer {
-    height: 100px;
-    /* background-color: rgb(130, 255, 151); */
+    height: 120px;
+    /* background-color: rgb(100, 102, 100); */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     color: #fff;
+    font-size: 16px;
 }
 
 .icp {
@@ -14,4 +15,15 @@ footer {
 }
 .icp:hover {
     color: rgb(180, 180, 0);
+}
+
+.site-frame {
+    background-color: #232324;
+    padding: 2px 8px;
+    margin-right: 10px;
+    border-radius: 6px;
+    user-select: none;
+}
+.site-frame:last-child {
+    margin-right: 0;
 }

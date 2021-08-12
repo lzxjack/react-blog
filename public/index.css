@@ -91,6 +91,13 @@ a:focus {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'ma';
+    src: url(./MaShanZheng-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     background-color: #000;
 }

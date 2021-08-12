@@ -1,20 +1,37 @@
-// import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import './index.css';
 
-const Footer = () => (
-    <footer>
-        <span>©2020 - 2021 By 飞鸟</span>
-        <span>
-            <a
-                href="https://beian.miit.gov.cn/#/Integrated/index"
-                target="_blank"
-                rel="noreferrer"
-                className="icp"
-            >
-                浙ICP备2020043821号-1
-            </a>
-        </span>
-    </footer>
-);
+const Footer = props => {
+    const arr = ['React', 'CloudBase', 'AntD'];
+    return (
+        <footer>
+            <span>©2020 - 2021 By 飞鸟</span>
+            <span>
+                <a
+                    href="https://beian.miit.gov.cn/#/Integrated/index"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icp"
+                >
+                    浙ICP备2020043821号-1
+                </a>
+            </span>
+            <span>
+                {props.content}——《{props.title}》
+            </span>
+            <span>
+                {arr.map(item => (
+                    <span className="site-frame common-hover">{item}</span>
+                ))}
+            </span>
+        </footer>
+    );
+};
 
-export default Footer;
+export default connect(
+    state => ({
+        content: state.poem.content,
+        title: state.poem.title,
+    }),
+    {}
+)(Footer);
