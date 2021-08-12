@@ -10,6 +10,7 @@ import {
     adminQQ,
     adminQQEmail,
     adminUrl,
+    avatarUrl,
 } from '../../../../utils/constant';
 import axios from 'axios';
 import marked from 'marked';
@@ -190,11 +191,18 @@ const Comment = props => {
             return;
         }
         if (!reg_qq.test(name)) return;
-        const avatarUrl = `http://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
-        const QQEmail = `${name}@qq.com`;
-        setEmail(QQEmail);
-        setAvatar(avatarUrl);
-        setName('');
+        if (name === adminQQ) {
+            setAvatar(avatarUrl);
+            setName(adminName);
+            setEmail(adminQQEmail);
+            setLink(adminUrl);
+        } else {
+            const avatarUrl = `http://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
+            const QQEmail = `${name}@qq.com`;
+            setEmail(QQEmail);
+            setAvatar(avatarUrl);
+            setName('');
+        }
     };
     // 打开留言预览框
     const openMsgPreview = () => {
@@ -485,7 +493,8 @@ const Comment = props => {
                             <div className="comment-show-usrInfo">
                                 <a
                                     href={item.link}
-                                    target="_blank"
+                                    onClick={item.link ? () => {} : e => e.preventDefault()}
+                                    target={item.link ? '_blank' : '_self'}
                                     rel="noreferrer"
                                     className="comment-show-name common-hover"
                                 >
@@ -530,7 +539,12 @@ const Comment = props => {
                                                 <div className="comment-show-usrInfo">
                                                     <a
                                                         href={replyItem.link}
-                                                        target="_blank"
+                                                        onClick={
+                                                            replyItem.link
+                                                                ? () => {}
+                                                                : e => e.preventDefault()
+                                                        }
+                                                        target={replyItem.link ? '_blank' : '_self'}
                                                         rel="noreferrer"
                                                         className="comment-show-name common-hover"
                                                     >

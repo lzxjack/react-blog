@@ -17,7 +17,7 @@ const Footer = props => {
                 </a>
             </span>
             <span>
-                {props.content}——《{props.title}》
+                {props.content}——&nbsp;{props.author}
             </span>
             <span>
                 {arr.map((item, index) => (
@@ -33,7 +33,7 @@ const Footer = props => {
 export default connect(
     state => ({
         content: state.poem.content,
-        title: state.poem.title,
+        author: state.poem.author,
     }),
     {}
 )(Footer);

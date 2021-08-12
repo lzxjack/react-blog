@@ -66,7 +66,7 @@ const App = props => {
         require('jinrishici').load(res => {
             const obj = {
                 content: res.data.content,
-                title: res.data.origin.title,
+                author: res.data.origin.author,
                 ip: res.ipAddress,
                 date: moment().format('YYYY-MM-DD'),
             };

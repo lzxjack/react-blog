@@ -36,9 +36,23 @@ const Nav = props => {
                     <SettingOutlined />
                 </a>
 
-                <NavLink className="navlink nav-btn common-hover" to="/articles">
+                {/* <NavLink className="navlink nav-btn common-hover" to="/articles">
                     文章
-                </NavLink>
+                </NavLink> */}
+                <div className="navlink nav-btn common-hover articles-btn">
+                    <div className="articels-second">
+                        <NavLink className="articels-second-item common-hover" to="/articles">
+                            找文章
+                        </NavLink>
+                        <NavLink className="articels-second-item common-hover" to="/classes">
+                            分类
+                        </NavLink>
+                        <NavLink className="articels-second-item common-hover" to="/tags">
+                            标签
+                        </NavLink>
+                    </div>
+                    文章
+                </div>
                 <NavLink className="navlink nav-btn common-hover" to="/gallery">
                     图库
                 </NavLink>

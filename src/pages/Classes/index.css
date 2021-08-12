@@ -1,0 +1,29 @@
+.class-item {
+    position: relative;
+    user-select: none;
+    background-color: #0f0f0f;
+    height: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 22px;
+    border-radius: 16px;
+    transition: all 0.2s;
+    padding: 0 30px;
+    margin-bottom: 14px;
+    cursor: default;
+    color: #fff;
+}
+.class-item:last-child {
+    margin-bottom: 0;
+}
+.class-item:hover {
+    transform: scale(1.03);
+    color: #fff;
+}
+.class-count {
+    position: absolute;
+    right: 20px;
+}

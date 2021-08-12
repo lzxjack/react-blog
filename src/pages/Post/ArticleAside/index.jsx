@@ -16,7 +16,6 @@ const ArticleAside = props => {
             });
         }
         setTocArr(toc);
-        console.log(toc);
     }, [props]);
     return (
         <div className="aside-box">

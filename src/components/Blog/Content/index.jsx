@@ -10,6 +10,9 @@ import Log from '../../../pages/Log';
 import Msg from '../../../pages/Msg';
 import Say from '../../../pages/Say';
 import Show from '../../../pages/Show';
+import Classes from '../../../pages/Classes';
+import Tags from '../../../pages/Tags';
+import SomeArticles from '../../../pages/SomeArticles';
 
 import './index.css';
 
@@ -22,6 +25,9 @@ const Content = () => (
             <div className="content-center">
                 <Switch>
                     <Route path="/articles" component={Articles} />
+                    <Route path="/someArticles" component={SomeArticles} />
+                    <Route path="/classes" component={Classes} />
+                    <Route path="/tags" component={Tags} />
                     <Route path="/post" component={Post} />
                     <Route path="/gallery" component={Gallery} />
                     <Route path="/say" component={Say} />

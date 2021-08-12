@@ -9,9 +9,6 @@ export const blogAdminUrl =
 export const twikooUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/twikoo.js';
 export const twikooConfigUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/twikoo-config.js';
 
-// 头像
-export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
-
 // siteCount ID
 export const count_id = 'cd045e756100126d005169f014931c65';
 
@@ -37,4 +34,6 @@ export const adminUid = '9bf44da2dbb8473da1fcf4f591cb82ff';
 export const adminName = '飞鸟';
 export const adminQQ = '965555169';
 export const adminQQEmail = '965555169@qq.com';
-export const adminUrl = 'lzxjack.top';
+export const adminUrl = 'https://lzxjack.top';
+// 头像
+export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';

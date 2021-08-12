@@ -8,8 +8,7 @@ nav {
     position: fixed;
     top: 0;
     z-index: 9;
-    background-color: rgba(0, 0, 0, 0.8);
-    /* background-color: rgb(0, 0, 0); */
+    background-color: rgba(0, 0, 0, 0.6);
     user-select: none;
     transition: all 0.3s;
 }
@@ -87,4 +86,33 @@ nav {
 }
 .dark-btn:hover .dark-icon path {
     fill: rgb(88, 88, 88);
+}
+
+.articles-btn {
+    position: relative;
+}
+
+.articels-second {
+    position: absolute;
+    z-index: -10;
+    top: -130px;
+    height: 100px;
+    width: 100%;
+    transition: all 0.3s;
+}
+.articles-btn:hover .articels-second {
+    top: 50px;
+}
+.articels-second-item {
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 34px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    user-select: none;
+    color: #fff;
+    cursor: default;
 }
