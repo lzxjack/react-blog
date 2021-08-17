@@ -24,9 +24,9 @@ const Nav = props => {
                 <NavLink className="navlink home-btn common-hover" to="/">
                     <HomeOutlined />
                 </NavLink>
-                <div className="dark-btn common-hover">
+                {/* <div className="dark-btn common-hover">
                     <DarkBtn />
-                </div>
+                </div> */}
                 <a
                     className="admin-btn common-hover"
                     href={blogAdminUrl}
