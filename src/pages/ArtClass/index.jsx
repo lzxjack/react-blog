@@ -7,7 +7,7 @@ import { articlesPageSize } from '../../utils/constant';
 
 import './index.css';
 
-const SomeArticles = props => {
+const ArtClass = props => {
     const [curPage, setCurPage] = useState(1);
     const turnToArticle = title => {
         props.history.push(`/post?title=${title}`);
@@ -58,4 +58,4 @@ export default connect(
         articles: state.articles,
     }),
     {}
-)(SomeArticles);
+)(ArtClass);

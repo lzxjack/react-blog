@@ -5,7 +5,7 @@ import './index.css';
 
 const Classes = props => {
     const toSomeArts = myClass => {
-        props.history.push(`/someArticles?class=${myClass}`);
+        props.history.push(`/artClass?class=${myClass}`);
     };
     return (
         <>

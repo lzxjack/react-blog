@@ -12,7 +12,8 @@ import Say from '../../../pages/Say';
 import Show from '../../../pages/Show';
 import Classes from '../../../pages/Classes';
 import Tags from '../../../pages/Tags';
-import SomeArticles from '../../../pages/SomeArticles';
+import ArtClass from '../../../pages/ArtClass';
+import ArtTag from '../../../pages/ArtTag';
 
 import './index.css';
 
@@ -26,7 +27,8 @@ const Content = () => {
                 <div className="content-center">
                     <Switch>
                         <Route path="/articles" component={Articles} />
-                        <Route path="/someArticles" component={SomeArticles} />
+                        <Route path="/artClass" component={ArtClass} />
+                        <Route path="/artTag" component={ArtTag} />
                         <Route path="/classes" component={Classes} />
                         <Route path="/tags" component={Tags} />
                         <Route path="/post" component={Post} />

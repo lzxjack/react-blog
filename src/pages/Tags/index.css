@@ -1,0 +1,12 @@
+.tags-box {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tags-item {
+    font-size: 24px;
+    padding: 0 14px;
+}
