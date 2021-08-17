@@ -1,26 +1,54 @@
-// import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 import PageTitle from '../../components/Blog/Content/PageTitle';
+import { Pagination } from 'antd';
+import { articlesPageSize } from '../../utils/constant';
 
 import './index.css';
 
 const SomeArticles = props => {
+    const [curPage, setCurPage] = useState(1);
+    const turnToArticle = title => {
+        props.history.push(`/post?title=${title}`);
+    };
+
+    const [myClass, setMyClass] = useState('');
+    useEffect(() => {
+        setMyClass(decodeURI(props.location.search.split('?class=')[1]));
+    }, [props]);
+
     return (
         <>
-            <PageTitle title={props.location.search.split('?class=')[1]} />
+            <PageTitle title={myClass} />
             <div className="standard-page-box animated bounceInLeft">
                 {props.articles
-                    .filter(item => item.classes === props.location.search.split('?class=')[1])
+                    .filter(item => item.classes === myClass)
+                    .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)
                     .map(item => (
-                        <NavLink
-                            className="class-item"
-                            key={item._id}
-                            to={`/post?title=${item.titleEng}`}
-                        >
-                            {item.title}
-                        </NavLink>
+                        <div className="animated bounceInUp" key={item._id}>
+                            <div
+                                className="art-show-item"
+                                onClick={() => turnToArticle(item.titleEng)}
+                            >
+                                <div className="art-show-title">{item.title}</div>
+                                <span className="art-show-date common-hover">
+                                    {moment(item.date).format('YYYY-MM-DD')}
+                                </span>
+                            </div>
+                        </div>
                     ))}
+                <div className="PageNav-box">
+                    <Pagination
+                        current={curPage}
+                        total={props.articles.filter(item => item.classes === myClass).length}
+                        defaultPageSize={articlesPageSize}
+                        showSizeChanger={false}
+                        showTitle={false}
+                        // hideOnSinglePage={true}
+                        onChange={page => setCurPage(page)}
+                    />
+                </div>
             </div>
         </>
     );
