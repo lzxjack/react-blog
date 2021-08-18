@@ -1,7 +1,6 @@
-import { connect } from 'react-redux';
 import './index.css';
 
-const Footer = props => {
+const Footer = () => {
     const arr = ['React', 'CloudBase', 'AntD'];
     return (
         <footer>
@@ -17,9 +16,6 @@ const Footer = props => {
                 </a>
             </span>
             <span>
-                {props.content}——&nbsp;{props.author}
-            </span>
-            <span>
                 {arr.map((item, index) => (
                     <span className="site-frame common-hover" key={index}>
                         {item}
@@ -30,10 +26,4 @@ const Footer = props => {
     );
 };
 
-export default connect(
-    state => ({
-        content: state.poem.content,
-        author: state.poem.author,
-    }),
-    {}
-)(Footer);
+export default Footer;

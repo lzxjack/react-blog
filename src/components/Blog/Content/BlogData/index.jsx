@@ -3,7 +3,7 @@ import './index.css';
 
 const BlogData = props => (
     <div className="animated bounceInRight">
-        <div className="BlogData-box">
+        <div className="BlogData-box transparent-box">
             <div className="blogData common-hover">
                 <div className="type-name">文章</div>
                 <div className="type-num">{props.articleNum}</div>

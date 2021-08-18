@@ -14,7 +14,10 @@ const ArtList = props => {
                 .slice((props.curPage - 1) * homePageSize, props.curPage * homePageSize)
                 .map(item => (
                     <div key={item._id} className="animated bounceInLeft">
-                        <div className="article-item" onClick={() => showOneArticle(item.titleEng)}>
+                        <div
+                            className="article-item transparent-box"
+                            onClick={() => showOneArticle(item.titleEng)}
+                        >
                             <div className="article-item-title">{item.title}</div>
                             <p className="article-item-abstract">{item.content}</p>
                             <div className="article-item-info">

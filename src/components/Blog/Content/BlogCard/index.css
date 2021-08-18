@@ -10,7 +10,6 @@
 }
 
 .BlogCard-box:hover {
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
     transform: scale(1.04);
 }
 

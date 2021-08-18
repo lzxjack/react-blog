@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import ArtList from './ArtList';
 import PageNav from './PageNav';
 import BlogCard from '../../components/Blog/Content/BlogCard';
@@ -9,24 +10,38 @@ import TagCard from '../../components/Blog/Content/TagCard';
 import SiteCard from '../../components/Blog/Content/SiteCard';
 import './index.css';
 
-const Home = () => {
+const Home = props => {
     const [curPage, setCurPage] = useState(1);
     return (
         <div className="Home-box">
-            <div className="home-main">
-                <ArtList curPage={curPage} />
-                <PageNav curPage={curPage} setCurPage={setCurPage} />
+            <div className="home-top-img">
+                <span className="home-top-title">飞鸟小站</span>
+                <span className="home-top-poem">
+                    {props.content}——&nbsp;{props.author}
+                </span>
             </div>
-            <div className="home-aside">
-                <BlogCard />
-                <SocialCard />
-                <BlogData />
-                <ClockCard />
-                <TagCard />
-                <SiteCard />
+            <div className="home-body">
+                <div className="home-main">
+                    <ArtList curPage={curPage} />
+                    <PageNav curPage={curPage} setCurPage={setCurPage} />
+                </div>
+                <div className="home-aside">
+                    <BlogCard />
+                    <SocialCard />
+                    <BlogData />
+                    <ClockCard />
+                    <TagCard />
+                    <SiteCard />
+                </div>
             </div>
         </div>
     );
 };
 
-export default Home;
+export default connect(
+    state => ({
+        content: state.poem.content,
+        author: state.poem.author,
+    }),
+    {}
+)(Home);

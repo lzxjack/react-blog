@@ -29,8 +29,8 @@ const TagCard = props => {
     // const colorLen = tagColor.length;
     return (
         <div className="animated bounceInRight">
-            <div className="TagCard-box">
-                {props.tags.map((item, index) => (
+            <div className="TagCard-box transparent-box">
+                {props.tags.map(item => (
                     <span
                         className="theTag common-hover"
                         // style={{ color: tagColor[(index + 1) % colorLen] }}

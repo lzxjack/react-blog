@@ -98,9 +98,9 @@ a:focus {
     font-style: normal;
 }
 
-html {
-    background-color: #000;
-}
+/* html { */
+/* background-color: #000; */
+/* } */
 
 .common-hover {
     transition: all 0.2s;
@@ -108,4 +108,8 @@ html {
 .common-hover:hover {
     background-color: rgb(180, 180, 0);
     color: rgb(88, 88, 88);
+}
+
+.transparent-box {
+    background-color: rgba(35, 35, 36, 0.6) !important;
 }

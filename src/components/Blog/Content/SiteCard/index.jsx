@@ -15,7 +15,7 @@ const SiteCard = props => {
 
     return (
         <div className="animated bounceInRight">
-            <div className="SiteCard-box">
+            <div className="SiteCard-box transparent-box">
                 <div className="site-data-item common-hover">
                     <span className="site-data-key">总浏览量</span>
                     <span className="site-data-value">{props.siteCount}次</span>

@@ -12,7 +12,6 @@
 }
 
 .BlogData-box:hover {
-    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.6);
     transform: scale(1.04);
 }
 
@@ -37,8 +36,4 @@
 }
 .type-num {
     color: rgb(180, 180, 0);
-}
-
-.blogData:hover .type-num {
-    color: rgb(88, 88, 88);
 }

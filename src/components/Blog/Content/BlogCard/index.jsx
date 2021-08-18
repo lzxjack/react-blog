@@ -23,7 +23,7 @@ const BlogCard = () => {
     }, []);
     return (
         <div className="animated bounceInRight">
-            <div className="BlogCard-box">
+            <div className="BlogCard-box transparent-box">
                 <p className="BlogCard-text">
                     {timeText}, <br />
                     我叫<span className="blogger-name">飞鸟</span>,<br />

@@ -8,7 +8,7 @@ nav {
     position: fixed;
     top: 0;
     z-index: 9;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(35, 35, 36, 0.8);
     user-select: none;
     transition: all 0.3s;
 }

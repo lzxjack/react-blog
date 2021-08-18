@@ -2,8 +2,10 @@
     min-height: calc(100vh - 60px - 120px);
     position: relative;
     font-family: 'NSC';
-    background-color: #000;
+    /* background-color: #000; */
     /* font-family: 'STH'; */
     /* font-weight: 700; */
     /* background-color: rgb(76, 99, 230); */
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }

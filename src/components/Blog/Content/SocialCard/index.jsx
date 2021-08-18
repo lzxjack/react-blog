@@ -20,7 +20,7 @@ const SocialCard = () => {
     );
     return (
         <div className="animated bounceInRight">
-            <div className="SocialCard-box">
+            <div className="SocialCard-box transparent-box">
                 <a
                     className="social-btn common-hover"
                     href="https://github.com/lzxjack"

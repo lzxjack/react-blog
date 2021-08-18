@@ -19,6 +19,7 @@ const Chart = props => {
             content: '{name} {percentage}',
             style: {
                 fontSize: 16,
+                fill: '#fff',
             },
         },
         interactions: [

@@ -37,3 +37,6 @@ export const adminQQEmail = '965555169@qq.com';
 export const adminUrl = 'https://lzxjack.top';
 // 头像
 export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
+
+// 背景图选择
+export const imgNum = 1;

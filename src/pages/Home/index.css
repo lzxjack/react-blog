@@ -1,4 +1,8 @@
-.Home-box {
+/* .Home-box { */
+/* display: flex; */
+/* } */
+
+.home-body {
     display: flex;
 }
 
@@ -10,4 +14,25 @@
 .home-aside {
     width: 300px;
     color: #fff;
+}
+
+.home-top-img {
+    height: 600px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+}
+
+.home-top-title {
+    font-size: 56px;
+    font-family: 'yu400';
+    font-weight: 700;
+}
+
+.home-top-poem {
+    font-size: 32px;
+    font-family: 'ma';
 }
