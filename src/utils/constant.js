@@ -5,10 +5,6 @@ export const env = 'blog-admin-7gys9jfy3a4d43aa';
 export const blogAdminUrl =
     'https://blog-admin-7gys9jfy3a4d43aa-1304393382.ap-shanghai.app.tcloudbase.com/';
 
-// 评论模块和配置
-export const twikooUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/twikoo.js';
-export const twikooConfigUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn@1.0.0/js/twikoo-config.js';
-
 // siteCount ID
 export const count_id = 'cd045e756100126d005169f014931c65';
 
@@ -20,6 +16,7 @@ export const homePageSize = 8;
 // 文章页每页显示多少篇文章
 export const articlesPageSize = 10;
 
+// 默认评论头像
 export const defaultCommentAvatar =
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
 
