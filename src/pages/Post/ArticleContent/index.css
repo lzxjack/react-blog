@@ -10,12 +10,17 @@
     border: 2px solid rgb(120, 120, 120);
     background-color: #0d1117;
     border-spacing: 0; /*去掉单元格间隙*/
+    text-align: center;
 }
 .markdownStyle table th,
 .markdownStyle table td {
     padding: 6px 14px;
     border: 1px solid rgb(120, 120, 120);
 }
+.markdownStyle table th {
+    color: rgb(180, 180, 0);
+}
+
 /* h1 h2 h3 h4 h5 h6 p */
 .markdownStyle h1,
 .markdownStyle h2,
@@ -39,7 +44,7 @@
     max-width: 100%;
     margin: 14px auto;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); */
     -webkit-user-drag: none;
 }
 

@@ -41,7 +41,8 @@ const ArticleAside = props => {
                             href={`#${item.title.split('. ')[0]}-${item.title
                                 .split('. ')[1]
                                 .toLowerCase()
-                                .replace(' / ', '--')}`}
+                                .replace(' / ', '--')
+                                .replace('+', '')}`}
                         >
                             {item.title}
                         </a>

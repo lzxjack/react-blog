@@ -110,6 +110,7 @@ const App = props => {
                         break;
                     }
                     case 'says': {
+                        res.data.sort((a, b) => b.date - a.date);
                         props.getSays(res.data);
                         break;
                     }
