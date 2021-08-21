@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import './index.css';
 
 const TagCard = props => {
@@ -27,6 +28,9 @@ const TagCard = props => {
     //     '#108ee9',
     // ];
     // const colorLen = tagColor.length;
+    const toSomeArts = tag => {
+        props.history.push(`/artTag?tag=${tag}`);
+    };
     return (
         <div className="animated bounceInRight">
             <div className="TagCard-box transparent-box">
@@ -34,8 +38,8 @@ const TagCard = props => {
                     <span
                         className="theTag common-hover"
                         // style={{ color: tagColor[(index + 1) % colorLen] }}
-                        // onDoubleClick={() => openEditModal(item._id, item.tag)}
                         key={item._id}
+                        onClick={() => toSomeArts(item.tag)}
                     >
                         {item.tag}
                     </span>
@@ -45,9 +49,11 @@ const TagCard = props => {
     );
 };
 
-export default connect(
-    state => ({
-        tags: state.tags,
-    }),
-    {}
-)(TagCard);
+export default withRouter(
+    connect(
+        state => ({
+            tags: state.tags,
+        }),
+        {}
+    )(TagCard)
+);

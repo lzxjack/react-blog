@@ -31,6 +31,9 @@ const Post = props => {
             setUrl(url);
         }
     }, [props]);
+    const toSomeArts = myClass => {
+        props.history.push(`/artClass?class=${myClass}`);
+    };
     return (
         <div className="Article-box">
             <div
@@ -44,7 +47,12 @@ const Post = props => {
                     <span className="article-title">{title}</span>
 
                     <div className="article-info-box">
-                        <span className="article-class common-hover">{classes}</span>
+                        <span
+                            className="article-class common-hover"
+                            onClick={() => toSomeArts(classes)}
+                        >
+                            {classes}
+                        </span>
                         <span className="article-date common-hover">
                             {moment(date).format('YYYY-MM-DD HH:mm:ss')}
                         </span>

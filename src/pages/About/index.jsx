@@ -30,6 +30,7 @@ const About = props => {
                     ></div>
                 ) : (
                     <div className="about-site-box">
+                        <div className="articles-outline">文章分布</div>
                         <div className="site-articles-data">
                             <Chart />
                         </div>
