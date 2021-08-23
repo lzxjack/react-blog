@@ -24,7 +24,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 14px;
-    transition: all 0.2s;
 }
 
 .type-name,
@@ -36,4 +35,9 @@
 }
 .type-num {
     color: rgb(180, 180, 0);
+    transition: all 0.2s;
+}
+
+.blogData:hover .type-num {
+    color: rgb(88, 88, 88) !important;
 }
