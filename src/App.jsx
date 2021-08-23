@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { db, auth, _ } from './utils/cloudBase';
-import moment from 'moment';
+// import moment from 'moment';
 import { login } from './redux/actions';
 import {
     getClasses,
@@ -55,7 +55,10 @@ const App = props => {
         if (!props.logs.length) return;
         if (!props.says.length) return;
         if (!props.shows.length) return;
-        // if (!props.comments.length) return;
+        if (!props.comments.length) return;
+        if (!props.commentsReply.length) return;
+        if (!props.msgs.length) return;
+        if (!props.msgsReply.length) return;
         if (!props.about.length) return;
         if (!props.siteCount) return;
         setDone(true);
@@ -66,9 +69,8 @@ const App = props => {
         require('jinrishici').load(res => {
             const obj = {
                 content: res.data.content,
-                author: res.data.origin.author,
                 ip: res.ipAddress,
-                date: moment().format('YYYY-MM-DD'),
+                // date: moment().format('YYYY-MM-DD'),
             };
             props.getPoem(obj);
         });
@@ -172,7 +174,6 @@ const App = props => {
         getDataFromDB('allComments');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.loginState]);
-    // return <>{props.loginState ? <Blog /> : <Loading />}</>;
     return <>{done ? <Blog /> : <Loading />}</>;
 };
 
@@ -191,6 +192,9 @@ export default connect(
         about: state.about,
         siteCount: state.siteCount,
         comments: state.comments,
+        commentsReply: state.commentsReply,
+        msgs: state.msgs,
+        msgsReply: state.msgsReply,
     }),
     {
         login,

@@ -16,9 +16,7 @@ const Home = props => {
         <div className="Home-box">
             <div className="home-top-img">
                 <span className="home-top-title">飞鸟小站</span>
-                <span className="home-top-poem">
-                    {props.content}——&nbsp;{props.author}
-                </span>
+                <span className="home-top-poem">{props.content}</span>
             </div>
             <div className="home-body">
                 <div className="home-main">
@@ -41,7 +39,6 @@ const Home = props => {
 export default connect(
     state => ({
         content: state.poem.content,
-        author: state.poem.author,
     }),
     {}
 )(Home);
