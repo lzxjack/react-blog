@@ -98,9 +98,9 @@ a:focus {
     font-style: normal;
 }
 
-/* html { */
-/* background-color: #000; */
-/* } */
+html {
+    background-color: #0b0a06;
+}
 
 .common-hover {
     transition: all 0.2s;
