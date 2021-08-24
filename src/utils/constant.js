@@ -31,7 +31,7 @@ export const adminUid = '9bf44da2dbb8473da1fcf4f591cb82ff';
 export const adminName = '飞鸟';
 export const adminQQ = '965555169';
 export const adminQQEmail = '965555169@qq.com';
-export const adminUrl = 'https://lzxjack.top';
+export const adminUrl = 'https://lzxjack.top/';
 // 头像
 export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 

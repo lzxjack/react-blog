@@ -344,7 +344,7 @@ const Comment = props => {
                                     className="comment-input-value"
                                     value={link}
                                     onChange={e => setLink(e.target.value)}
-                                    placeholder="选填"
+                                    placeholder="选填,请加上https/http"
                                 />
                             </div>
                         </div>
@@ -452,7 +452,7 @@ const Comment = props => {
                                 className="comment-input-value"
                                 value={link}
                                 onChange={e => setLink(e.target.value)}
-                                placeholder="选填"
+                                placeholder="选填,请加上https/http"
                             />
                         </div>
                     </div>
