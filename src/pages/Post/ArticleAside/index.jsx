@@ -42,6 +42,7 @@ const ArticleAside = props => {
                                 .split('. ')[1]
                                 .toLowerCase()
                                 .replace(' / ', '--')
+                                .replace('.', '')
                                 .replace('+', '')}`}
                         >
                             {item.title}
