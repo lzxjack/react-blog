@@ -177,7 +177,7 @@ const Comment = props => {
                 setReplyContent('');
                 //——————————————————————————————————————
                 axios({
-                    url: 'https://47.110.144.145:443/email',
+                    url: 'https://lzxjack.top:444/email',
                     method: 'get',
                     params: {
                         name,
