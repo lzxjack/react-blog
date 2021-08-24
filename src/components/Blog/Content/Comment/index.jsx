@@ -177,7 +177,7 @@ const Comment = props => {
                 setReplyContent('');
                 //——————————————————————————————————————
                 axios({
-                    url: 'http://47.110.144.145:4000/email',
+                    url: 'https://47.110.144.145:4000/email',
                     method: 'get',
                     params: {
                         name,
@@ -210,7 +210,7 @@ const Comment = props => {
             setEmail(adminQQEmail);
             setLink(adminUrl);
         } else {
-            const avatarUrl = `http://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
+            const avatarUrl = `https://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
             const QQEmail = `${name}@qq.com`;
             setEmail(QQEmail);
             setAvatar(avatarUrl);
