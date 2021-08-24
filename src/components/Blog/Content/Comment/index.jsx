@@ -178,7 +178,7 @@ const Comment = props => {
                 //——————————————————————————————————————
                 axios({
                     url: 'http://47.110.144.145:4000/email',
-                    method: 'get',
+                    method: 'post',
                     params: {
                         name,
                         owner,
