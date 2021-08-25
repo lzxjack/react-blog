@@ -1,3 +1,5 @@
+> 这是个人博客系统的**前台展示页面**，**后台管理页面**仓库见<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>。
+
 # 1. 前言
 
 之前我使用`hexo`搭建过个人博客。`hexo`很强大，渲染页面速度快，支持`markdown`语法，可以一键部署，还可以扩展各种插件。
