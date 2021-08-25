@@ -37,3 +37,9 @@ export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/2020
 
 // 背景图选择
 export const imgNum = 1;
+
+// 个人友链信息
+export const myName = '飞鸟';
+export const myLink = 'https://lzxjack.top/';
+export const myAvatar = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
+export const myDescr = '一只平凡的鸟罢了。';
