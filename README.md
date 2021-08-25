@@ -1,4 +1,4 @@
-> 这是个人博客系统的**前台展示页面**，**后台管理页面**仓库见<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>。
+> 这是个人博客系统的**博客展示页面**，**后台管理页面**仓库见<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>。
 
 # 1. 前言
 
