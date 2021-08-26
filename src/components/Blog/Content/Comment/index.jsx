@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { db, auth } from '../../../../utils/cloudBase';
 import {
     defaultCommentAvatar,
+    defaultCommentAvatarArr,
     pushplusToken,
     pushplusUrl,
     adminUid,
@@ -12,6 +13,7 @@ import {
     adminUrl,
     avatarUrl,
 } from '../../../../utils/constant';
+import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
 import marked from 'marked';
 import hljs from 'highlight.js';
@@ -52,6 +54,8 @@ const Comment = props => {
     const [adminBox, setAdminBox] = useState(false);
     const [adminEmail, setAdminEmail] = useState('');
     const [adminPwd, setAdminPwd] = useState('');
+
+    const avatarArrLen = defaultCommentAvatarArr.length;
 
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
@@ -479,7 +483,7 @@ const Comment = props => {
                     </div>
                 </div>
             </div>
-            {/* 留言列表区 */}
+            {/* 留言展示区 */}
             <div className="comment-show-box">
                 {(props.postTitle
                     ? props.comments.filter(item => item.postTitle === props.postTitle)
@@ -489,7 +493,11 @@ const Comment = props => {
                         {/* 头像框 */}
                         <div className="comment-show-avatar-box">
                             <img
-                                src={item.avatar ? item.avatar : defaultCommentAvatar}
+                                src={
+                                    item.avatar
+                                        ? item.avatar
+                                        : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)]
+                                }
                                 alt="avatar"
                                 className="comment-edit-avatar"
                             />
@@ -542,7 +550,9 @@ const Comment = props => {
                                                     src={
                                                         replyItem.avatar
                                                             ? replyItem.avatar
-                                                            : defaultCommentAvatar
+                                                            : defaultCommentAvatarArr[
+                                                                  getRandomNum(0, avatarArrLen - 1)
+                                                              ]
                                                     }
                                                     alt="avatar"
                                                     className="comment-edit-avatar"

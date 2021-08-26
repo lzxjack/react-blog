@@ -16,10 +16,6 @@ export const homePageSize = 8;
 // 文章页每页显示多少篇文章
 export const articlesPageSize = 10;
 
-// 默认评论头像
-export const defaultCommentAvatar =
-    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
-
 // pushplus的token
 export const pushplusToken = 'a748f65e6913459998a357480f6a74eb';
 
@@ -43,3 +39,20 @@ export const myName = '飞鸟';
 export const myLink = 'https://lzxjack.top/';
 export const myAvatar = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 export const myDescr = '一只平凡的鸟罢了。';
+
+// 默认评论头像（空头像）
+export const defaultCommentAvatar =
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
+// 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
+export const defaultCommentAvatarArr = [
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221909.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221910.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221911.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221912.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221913.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221914.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221915.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221916.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221917.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221918.jpg',
+];
