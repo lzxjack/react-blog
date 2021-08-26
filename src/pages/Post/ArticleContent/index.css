@@ -21,6 +21,17 @@
     color: rgb(180, 180, 0);
 }
 
+/* a链接 */
+.markdownStyle a {
+    font-weight: 700;
+    margin: 0 4px;
+    color: rgb(28, 186, 248);
+    transition: all 0.2s;
+}
+.markdownStyle a:hover {
+    color: rgb(248, 28, 120);
+}
+
 /* h1 h2 h3 h4 h5 h6 p */
 .markdownStyle h1,
 .markdownStyle h2,
@@ -34,7 +45,7 @@
 /* 行内代码 */
 .markdownStyle code {
     color: rgb(241, 241, 151);
-    background-color: #3f3f3f;
+    background-color: #5c5c5c;
     padding: 0 6px;
 }
 
