@@ -6,6 +6,7 @@
     user-select: none;
     transition: all 0.2s;
     position: relative;
+    cursor: pointer;
 }
 
 .art-show-item:hover {

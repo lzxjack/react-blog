@@ -24,7 +24,7 @@
     background-color: rgba(61, 61, 61, 0.6);
     border: none;
     border-radius: 10px;
-    cursor: default;
+    /* cursor: default; */
     color: #fff;
     width: 50px;
     height: 50px;

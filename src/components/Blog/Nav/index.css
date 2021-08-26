@@ -25,9 +25,7 @@ nav {
     justify-content: center;
     align-items: center;
 }
-.navlink {
-    cursor: default;
-}
+
 .nav-btn,
 .home-btn,
 .admin-btn,
@@ -64,7 +62,7 @@ nav {
     transform: translate(0, -50%);
     font-size: 26px;
     width: 60px;
-    cursor: default;
+    /* cursor: default; */
 }
 
 .dark-btn {
@@ -114,5 +112,4 @@ nav {
     border-radius: 10px;
     user-select: none;
     color: #fff;
-    cursor: default;
 }

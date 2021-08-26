@@ -2,7 +2,7 @@
     position: relative;
     user-select: none;
     background-color: #0f0f0f;
-    height: 50px;
+    height: 60px;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -13,8 +13,8 @@
     transition: all 0.2s;
     padding: 0 30px;
     margin-bottom: 14px;
-    cursor: default;
     color: #fff;
+    cursor: pointer;
 }
 .class-item:last-child {
     margin-bottom: 0;

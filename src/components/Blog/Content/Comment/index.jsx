@@ -510,6 +510,7 @@ const Comment = props => {
                                     target={item.link ? '_blank' : '_self'}
                                     rel="noreferrer"
                                     className="comment-show-name common-hover"
+                                    style={{ cursor: item.link ? 'pointer' : 'default' }}
                                 >
                                     {item.name}
                                 </a>
@@ -560,6 +561,11 @@ const Comment = props => {
                                                         target={replyItem.link ? '_blank' : '_self'}
                                                         rel="noreferrer"
                                                         className="comment-show-name common-hover"
+                                                        style={{
+                                                            cursor: replyItem.link
+                                                                ? 'pointer'
+                                                                : 'default',
+                                                        }}
                                                     >
                                                         {replyItem.name}
                                                     </a>

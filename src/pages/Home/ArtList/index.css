@@ -10,6 +10,7 @@
 
 .article-item:hover {
     transform: scale(1.02);
+    cursor: pointer;
 }
 
 .article-item-title {
@@ -17,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 700;
     color: #fff;
 }

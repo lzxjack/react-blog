@@ -29,6 +29,7 @@
     transition: all 0.2s;
     user-select: none;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 .search-class-tag-box {

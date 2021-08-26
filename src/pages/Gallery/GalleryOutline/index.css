@@ -17,6 +17,7 @@
     border-radius: 20px;
     user-select: none;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .galleryUl li:hover {

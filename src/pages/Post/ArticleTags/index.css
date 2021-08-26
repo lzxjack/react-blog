@@ -13,5 +13,5 @@
     border-radius: 12px;
     user-select: none;
     font-size: 16px;
-    transition: all 0.2s;
+    cursor: pointer;
 }
