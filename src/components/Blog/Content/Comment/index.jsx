@@ -112,7 +112,9 @@ const Comment = props => {
                 link,
                 content,
                 date: new Date().getTime(),
-                avatar,
+                avatar: avatar
+                    ? avatar
+                    : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)],
                 postTitle: props.postTitle,
                 replyId: '',
             })
@@ -171,7 +173,9 @@ const Comment = props => {
                 link,
                 content: replyContent,
                 date: new Date().getTime(),
-                avatar,
+                avatar: avatar
+                    ? avatar
+                    : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)],
                 postTitle: props.postTitle,
                 replyId,
             })
@@ -492,15 +496,7 @@ const Comment = props => {
                     <div className="comment-show-item" key={item._id}>
                         {/* 头像框 */}
                         <div className="comment-show-avatar-box">
-                            <img
-                                src={
-                                    item.avatar
-                                        ? item.avatar
-                                        : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)]
-                                }
-                                alt="avatar"
-                                className="comment-edit-avatar"
-                            />
+                            <img src={item.avatar} alt="avatar" className="comment-edit-avatar" />
                         </div>
                         {/* 回复框显示按钮 */}
                         <div
@@ -547,13 +543,7 @@ const Comment = props => {
                                             {/* 头像框 */}
                                             <div className="comment-show-avatar-box">
                                                 <img
-                                                    src={
-                                                        replyItem.avatar
-                                                            ? replyItem.avatar
-                                                            : defaultCommentAvatarArr[
-                                                                  getRandomNum(0, avatarArrLen - 1)
-                                                              ]
-                                                    }
+                                                    src={replyItem.avatar}
                                                     alt="avatar"
                                                     className="comment-edit-avatar"
                                                 />
