@@ -31,6 +31,12 @@ export const adminUrl = 'https://lzxjack.top/';
 // 头像
 export const avatarUrl = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 
+// 博客背景图片
+export const blogBackGroundImgs = [
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111500.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111501.png',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111502.jpg',
+];
 // 背景图选择
 export const imgNum = 1;
 

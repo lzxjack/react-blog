@@ -9,3 +9,15 @@
     background-size: 100% 100%;
     background-attachment: fixed;
 }
+
+.back-top-btn {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(35, 35, 36, 0.6);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
