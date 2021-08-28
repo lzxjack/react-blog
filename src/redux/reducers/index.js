@@ -20,6 +20,7 @@ import commentsReply from './commentsReply';
 import siteCount from './siteCount';
 
 import navShow from './navShow';
+import notice from './notice';
 
 export default combineReducers({
     loginState,
@@ -39,4 +40,5 @@ export default combineReducers({
     msgs,
     msgsReply,
     commentsReply,
+    notice,
 });

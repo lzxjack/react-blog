@@ -46,3 +46,6 @@ export const GET_SITE_COUNT = 'getSiteCount';
 
 // 显示/隐藏导航栏
 export const SET_NAV_SHOW = 'setNavShow';
+
+// 公告
+export const GET_NOTICE = 'getNotice';

@@ -16,6 +16,7 @@ import {
     GET_MSGS,
     GET_COMMENTS_REPLY,
     GET_MSGS_REPLY,
+    GET_NOTICE,
 } from '../constant';
 
 // 登录
@@ -97,5 +98,10 @@ export const getCommentsReply = data => ({
 
 export const getMsgsReply = data => ({
     type: GET_MSGS_REPLY,
+    data,
+});
+
+export const getNotice = data => ({
+    type: GET_NOTICE,
     data,
 });

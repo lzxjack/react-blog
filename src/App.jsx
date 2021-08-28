@@ -19,6 +19,7 @@ import {
     getCommentsReply,
     getMsgs,
     getMsgsReply,
+    getNotice,
 } from './redux/actions';
 import { count_id } from './utils/constant';
 import Loading from './components/Loading';
@@ -61,6 +62,7 @@ const App = props => {
         if (!props.msgsReply.length) return;
         if (!props.about.length) return;
         if (!props.siteCount) return;
+        if (!props.notice) return;
         setDone(true);
     }, [props]);
 
@@ -137,6 +139,10 @@ const App = props => {
                         props.getMsgsReply(msgsReply);
                         break;
                     }
+                    case 'notice': {
+                        props.getNotice(res.data[0].notice);
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -172,6 +178,7 @@ const App = props => {
         getDataFromDB('says');
         getDataFromDB('shows');
         getDataFromDB('allComments');
+        getDataFromDB('notice');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.loginState]);
     return <>{done ? <Blog /> : <Loading />}</>;
@@ -195,6 +202,7 @@ export default connect(
         commentsReply: state.commentsReply,
         msgs: state.msgs,
         msgsReply: state.msgsReply,
+        notice: state.notice,
     }),
     {
         login,
@@ -213,5 +221,6 @@ export default connect(
         getCommentsReply,
         getMsgs,
         getMsgsReply,
+        getNotice,
     }
 )(App);

@@ -8,6 +8,7 @@ import SocialCard from '../../components/Blog/Content/SocialCard';
 import ClockCard from '../../components/Blog/Content/ClockCard';
 import TagCard from '../../components/Blog/Content/TagCard';
 import SiteCard from '../../components/Blog/Content/SiteCard';
+import MyNotice from '../../components/Blog/Content/MyNotice';
 import './index.css';
 
 const Home = props => {
@@ -27,6 +28,7 @@ const Home = props => {
                     <BlogCard />
                     <SocialCard />
                     <BlogData />
+                    <MyNotice />
                     <ClockCard />
                     <TagCard />
                     <SiteCard />

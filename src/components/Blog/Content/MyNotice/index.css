@@ -1,0 +1,19 @@
+.MyNotice-box {
+    background-color: #232324;
+    margin: 20px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    padding: 20px;
+    user-select: none;
+}
+
+.MyNotice-box:hover {
+    transform: scale(1.04);
+}
+
+.notice {
+    border-radius: 20px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.8) inset;
+    padding: 14px;
+    font-size: 16px;
+}
