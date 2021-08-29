@@ -32,6 +32,11 @@
 
 演示地址：<a href="https://blog-admin-7gys9jfy3a4d43aa-1304393382.ap-shanghai.app.tcloudbase.com/" target="_blank">「飞鸟小站后台」</a>
 
+游客帐号：
+
+- 邮箱：`490878306@qq.com`
+- 密码：`asd123456`
+
 仓库地址：<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>
 
 ![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210825092820.png)
