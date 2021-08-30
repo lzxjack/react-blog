@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import Divider from '../Post/Divider';
 import Comment from '../../components/Blog/Content/Comment';
 import { myName, myLink, myAvatar, myDescr } from '../../utils/constant';
+import { setNavShow } from '../../redux/actions';
 import './index.css';
 
-const Msg = () => {
+const Msg = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const [timeText, setTimeText] = useState('');
     useEffect(() => {
         const hour = new Date().getHours();
@@ -61,4 +68,4 @@ const Msg = () => {
     );
 };
 
-export default Msg;
+export default connect(() => ({}), { setNavShow })(Msg);

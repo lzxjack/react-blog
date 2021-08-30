@@ -1,10 +1,17 @@
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { avatarUrl } from '../../utils/constant';
+import { setNavShow } from '../../redux/actions';
 import moment from 'moment';
 import './index.css';
 
 const Say = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     return (
         <>
             <PageTitle title="自言自语" />
@@ -36,5 +43,5 @@ export default connect(
     state => ({
         says: state.says,
     }),
-    {}
+    { setNavShow }
 )(Say);

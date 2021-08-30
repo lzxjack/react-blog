@@ -5,13 +5,11 @@ import './index.css';
 
 const Gallery = props => {
     return (
-        <>
-            <Switch>
-                <Route path="/gallery/one" component={TheGallery} />
-                <Route path="/gallery" component={GalleryOutline} />
-                <Redirect to="/gallery" />
-            </Switch>
-        </>
+        <Switch>
+            <Route path="/gallery/one" component={TheGallery} />
+            <Route path="/gallery" component={GalleryOutline} />
+            <Redirect to="/gallery" />
+        </Switch>
     );
 };
 

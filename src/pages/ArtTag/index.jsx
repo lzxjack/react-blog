@@ -4,10 +4,15 @@ import moment from 'moment';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { Pagination } from 'antd';
 import { articlesPageSize } from '../../utils/constant';
-
+import { setNavShow } from '../../redux/actions';
 import './index.css';
 
 const ArtTag = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const [curPage, setCurPage] = useState(1);
     const turnToArticle = title => {
         props.history.push(`/post?title=${title}`);
@@ -59,5 +64,5 @@ export default connect(
     state => ({
         articles: state.articles,
     }),
-    {}
+    { setNavShow }
 )(ArtTag);

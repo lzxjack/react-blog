@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
-
+import { setNavShow } from '../../redux/actions';
 import './index.css';
 
 const Tags = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const toSomeArts = tag => {
         props.history.push(`/artTag?tag=${tag}`);
     };
@@ -29,5 +35,5 @@ export default connect(
     state => ({
         tags: state.tags,
     }),
-    {}
+    { setNavShow }
 )(Tags);

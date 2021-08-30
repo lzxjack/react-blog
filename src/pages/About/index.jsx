@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
+import { setNavShow } from '../../redux/actions';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import Switch from './Switch';
@@ -8,6 +9,11 @@ import Chart from './Chart';
 import './index.css';
 
 const About = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     // 配置highlight
     hljs.configure({
         tabReplace: '',
@@ -66,5 +72,5 @@ export default connect(
     state => ({
         about: state.about,
     }),
-    {}
+    { setNavShow }
 )(About);

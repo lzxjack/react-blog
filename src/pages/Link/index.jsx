@@ -2,9 +2,15 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { getLinks } from '../../redux/actions';
+import { setNavShow } from '../../redux/actions';
 import './index.css';
 
 const Link = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     useEffect(() => {
         const sum = props.links.length;
         const Num = sum % 3;
@@ -53,5 +59,5 @@ export default connect(
     state => ({
         links: state.links,
     }),
-    { getLinks }
+    { getLinks, setNavShow }
 )(Link);

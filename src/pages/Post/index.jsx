@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { SwapLeftOutlined } from '@ant-design/icons';
+// import { SwapLeftOutlined } from '@ant-design/icons';
 import Copyright from './Copyright';
 import ArticleContent from './ArticleContent';
 import ArticleTags from './ArticleTags';
 import Divider from './Divider';
 import ArticleAside from './ArticleAside';
 import Comment from '../../components/Blog/Content/Comment';
+import { setNavShow } from '../../redux/actions';
 import moment from 'moment';
 import './index.css';
 
@@ -17,6 +18,12 @@ const Post = props => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [url, setUrl] = useState('');
+
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
 
     useEffect(() => {
         const Title = props.location.search.split('?title=')[1];
@@ -36,12 +43,12 @@ const Post = props => {
     };
     return (
         <div className="Article-box">
-            <div
+            {/* <div
                 className="turn-back-btn common-hover animated bounceInDown"
                 onClick={() => props.history.push('/home')}
             >
                 <SwapLeftOutlined />
-            </div>
+            </div> */}
             <div className="animated bounceInDown">
                 <div className="standard-page-title">
                     <span className="article-title">{title}</span>
@@ -78,5 +85,5 @@ export default connect(
     state => ({
         articles: state.articles,
     }),
-    {}
+    { setNavShow }
 )(Post);

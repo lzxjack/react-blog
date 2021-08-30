@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../../components/Blog/Content/PageTitle';
+import { setNavShow } from '../../../redux/actions';
 import './index.css';
 
 const GalleryOutline = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const turnOne = id => {
         props.history.push(`/gallery/one?id=${id}`);
     };
@@ -34,5 +41,5 @@ export default connect(
     state => ({
         galleries: state.galleries,
     }),
-    {}
+    { setNavShow }
 )(GalleryOutline);

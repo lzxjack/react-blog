@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { setNavShow } from '../../redux/actions';
 import ArtList from './ArtList';
 import PageNav from './PageNav';
 import BlogCard from '../../components/Blog/Content/BlogCard';
@@ -12,6 +13,11 @@ import MyNotice from '../../components/Blog/Content/MyNotice';
 import './index.css';
 
 const Home = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const [curPage, setCurPage] = useState(1);
     return (
         <div className="Home-box">
@@ -42,5 +48,5 @@ export default connect(
     state => ({
         content: state.poem.content,
     }),
-    {}
+    { setNavShow }
 )(Home);

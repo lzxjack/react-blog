@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
-
+import { setNavShow } from '../../redux/actions';
 import './index.css';
 
 const Classes = props => {
+    // 返回顶部
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        props.setNavShow(true);
+    }, []);
     const toSomeArts = myClass => {
         props.history.push(`/artClass?class=${myClass}`);
     };
@@ -32,5 +38,5 @@ export default connect(
     state => ({
         classes: state.classes,
     }),
-    {}
+    { setNavShow }
 )(Classes);
