@@ -46,6 +46,7 @@
 .markdownStyle code {
     color: rgb(241, 241, 151);
     background-color: #5c5c5c;
+    font-family: 'yu100';
     padding: 0 6px;
 }
 
@@ -60,8 +61,8 @@
 }
 
 .markdownStyle strong {
-    color: rgb(0, 171, 184);
-    text-decoration: underline;
+    color: rgb(82, 179, 2);
+    font-family: 'yu400';
 }
 
 .markdownStyle blockquote {

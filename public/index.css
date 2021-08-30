@@ -47,6 +47,23 @@ a:focus {
     text-decoration: none !important;
 }
 
+html {
+    background-color: #0b0a06;
+}
+
+.common-hover {
+    transition: all 0.2s;
+}
+.common-hover:hover {
+    background-color: rgb(180, 180, 0);
+    color: rgb(88, 88, 88);
+}
+
+.transparent-box {
+    background-color: rgba(35, 35, 36, 0.6) !important;
+}
+
+/* ————————————————————字体—————————————————————— */
 @font-face {
     font-family: 'FiraCode';
     src: url(./FiraCode-Regular.ttf);
@@ -68,48 +85,9 @@ a:focus {
     font-style: normal;
 }
 
-/* -------- */
-
-@font-face {
-    font-family: 'NSC';
-    src: url(./NotoSansCJK-DemiLight-4.otf);
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'STH';
-    src: url(./STHeiti-Light-3.ttc);
-    font-weight: normal;
-    font-style: normal;
-}
-
 @font-face {
     font-family: 'car';
     src: url(./car.ttf);
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'ma';
-    src: url(./MaShanZheng-Regular.ttf);
-    font-weight: normal;
-    font-style: normal;
-}
-
-html {
-    background-color: #0b0a06;
-}
-
-.common-hover {
-    transition: all 0.2s;
-}
-.common-hover:hover {
-    background-color: rgb(180, 180, 0);
-    color: rgb(88, 88, 88);
-}
-
-.transparent-box {
-    background-color: rgba(35, 35, 36, 0.6) !important;
 }

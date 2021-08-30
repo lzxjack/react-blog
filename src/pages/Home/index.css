@@ -7,7 +7,8 @@
 }
 
 .home-main {
-    width: 1000px;
+    /* width: 1000px; */
+    width: 900px;
     min-height: calc(100vh - 60px - 120px);
 }
 
@@ -33,6 +34,6 @@
 }
 
 .home-top-poem {
-    font-size: 32px;
-    font-family: 'ma';
+    font-size: 28px;
+    font-family: 'yu100';
 }

@@ -1,11 +1,9 @@
 .Blog-box {
     min-height: calc(100vh - 60px - 120px);
     position: relative;
-    font-family: 'NSC';
-    /* background-color: #000; */
-    /* font-family: 'STH'; */
+    font-family: 'yu100';
+    /* font-family: 'dengxian'; */
     /* font-weight: 700; */
-    /* background-color: rgb(76, 99, 230); */
     background-size: 100% 100%;
     background-attachment: fixed;
 }

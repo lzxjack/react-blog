@@ -36,7 +36,7 @@ const TheGallery = props => {
                 </div>
                 <Image.PreviewGroup>
                     {pics.map((item, index) => (
-                        <Image width={380} src={item} key={index} />
+                        <Image width={360} src={item} key={index} />
                     ))}
                 </Image.PreviewGroup>
             </div>
