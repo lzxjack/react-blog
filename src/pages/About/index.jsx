@@ -13,7 +13,7 @@ const About = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     // 配置highlight
     hljs.configure({
         tabReplace: '',

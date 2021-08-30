@@ -13,7 +13,7 @@ const ArtClass = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const [curPage, setCurPage] = useState(1);
     const turnToArticle = title => {
         props.history.push(`/post?title=${title}`);

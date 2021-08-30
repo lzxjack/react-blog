@@ -9,7 +9,7 @@ const Tags = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const toSomeArts = tag => {
         props.history.push(`/artTag?tag=${tag}`);
     };

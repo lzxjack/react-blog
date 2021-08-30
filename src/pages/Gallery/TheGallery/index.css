@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-around;
+    width: 1300px;
 }
 
 .one-gallery-page-box .ant-image {

@@ -12,7 +12,7 @@ const Articles = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     // 需要展示文章的state
     const [articlesShow, setArticlesShow] = useState([]);
     const [curPage, setCurPage] = useState(1);

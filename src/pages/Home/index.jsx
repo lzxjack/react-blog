@@ -17,7 +17,7 @@ const Home = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const [curPage, setCurPage] = useState(1);
     return (
         <div className="Home-box">

@@ -10,7 +10,7 @@ const Link = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     useEffect(() => {
         const sum = props.links.length;
         const Num = sum % 3;

@@ -12,7 +12,7 @@ const Msg = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const [timeText, setTimeText] = useState('');
     useEffect(() => {
         const hour = new Date().getHours();

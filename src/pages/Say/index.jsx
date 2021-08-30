@@ -11,7 +11,7 @@ const Say = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     return (
         <>
             <PageTitle title="自言自语" />

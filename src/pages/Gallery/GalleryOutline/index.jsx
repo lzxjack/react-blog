@@ -9,7 +9,7 @@ const GalleryOutline = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const turnOne = id => {
         props.history.push(`/gallery/one?id=${id}`);
     };

@@ -4,6 +4,7 @@ import PageTitle from '../../../components/Blog/Content/PageTitle';
 import { SwapLeftOutlined } from '@ant-design/icons';
 import { setNavShow } from '../../../redux/actions';
 import { Image } from 'antd';
+// import LazyLoad from 'react-lazyload';
 import './index.css';
 
 const TheGallery = props => {
@@ -11,7 +12,7 @@ const TheGallery = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const [title, setitle] = useState('');
     const [pics, sePics] = useState([]);
     useEffect(() => {
@@ -34,8 +35,8 @@ const TheGallery = props => {
                     <SwapLeftOutlined />
                 </div>
                 <Image.PreviewGroup>
-                    {pics.map(item => (
-                        <Image width={440} src={item} />
+                    {pics.map((item, index) => (
+                        <Image width={380} src={item} key={index} />
                     ))}
                 </Image.PreviewGroup>
             </div>

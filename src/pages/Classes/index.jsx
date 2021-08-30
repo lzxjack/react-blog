@@ -9,7 +9,7 @@ const Classes = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     const toSomeArts = myClass => {
         props.history.push(`/artClass?class=${myClass}`);
     };

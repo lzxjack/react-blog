@@ -10,7 +10,7 @@ const Log = props => {
     useEffect(() => {
         window.scrollTo(0, 0);
         props.setNavShow(true);
-    }, []);
+    }, [props]);
     return (
         <>
             <PageTitle title="建站日志" />
