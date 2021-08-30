@@ -84,10 +84,3 @@ html {
     font-weight: normal;
     font-style: normal;
 }
-
-@font-face {
-    font-family: 'car';
-    src: url(./car.ttf);
-    font-weight: normal;
-    font-style: normal;
-}

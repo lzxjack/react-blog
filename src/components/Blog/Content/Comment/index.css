@@ -225,6 +225,7 @@
     border-radius: 10px;
     font-size: 18px;
     margin-right: 4px;
+    font-weight: 700;
 }
 
 .admin-flag {
@@ -238,7 +239,6 @@
 .comment-show-date {
     margin-left: 10px;
     font-size: 16px;
-    font-family: 'car';
 }
 .comment-show-content {
     background-color: rgb(58, 58, 58);

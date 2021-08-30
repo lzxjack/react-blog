@@ -25,14 +25,13 @@
 
 .time-line-time {
     height: 58px;
-    width: 170px;
+    width: 190px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding-left: 20px;
-    font-size: 30px;
+    font-size: 28px;
     user-select: none;
-    font-family: 'car';
     color: #ccc;
     transition: all 0.2s;
 }

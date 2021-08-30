@@ -50,7 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    font-family: 'car';
+    font-size: 18px;
     user-select: none;
 }
