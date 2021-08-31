@@ -12,6 +12,7 @@ import {
     adminQQEmail,
     adminUrl,
     avatarUrl,
+    emailApiUrl,
 } from '../../../../utils/constant';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
@@ -185,7 +186,7 @@ const Comment = props => {
                 setReplyContent('');
                 //——————————————————————————————————————
                 axios({
-                    url: 'https://lzxjack.top:444/email',
+                    url: `${emailApiUrl}/email`,
                     method: 'get',
                     params: {
                         name,

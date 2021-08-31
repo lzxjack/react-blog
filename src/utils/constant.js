@@ -62,3 +62,6 @@ export const defaultCommentAvatarArr = [
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221917.jpg',
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221918.jpg',
 ];
+
+// 评论回复时，发送邮件提醒的API地址
+export const emailApiUrl = 'https://lzxapi.top:444';
