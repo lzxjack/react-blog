@@ -80,6 +80,7 @@ const App = props => {
     // 向数据库获取各类数据
     const getDataFromDB = dbName => {
         db.collection(dbName)
+            .limit(1000)
             .get()
             .then(res => {
                 switch (dbName) {
