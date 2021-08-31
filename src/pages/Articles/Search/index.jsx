@@ -19,14 +19,16 @@ const Search = props => {
     const searchByWords = () => {
         setSearchClass(null);
         setSearchTag([]);
-        const keyWords = searchWords.current.value;
+        const keyWords = searchWords.current.value.toLowerCase();
         // 如果输入框内容为空，则展示所有文章
         if (!keyWords) {
             props.getArticle(props.articles);
             return;
         }
         // 过滤出搜索到的文章
-        const newArticlesShow = props.articles.filter(item => item.title.indexOf(keyWords) !== -1);
+        const newArticlesShow = props.articles.filter(
+            item => item.title.toLowerCase().indexOf(keyWords) !== -1
+        );
         // 将搜索到的文章，放入要显示的state
         props.getArticle(newArticlesShow);
     };
