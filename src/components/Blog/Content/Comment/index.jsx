@@ -60,6 +60,7 @@ const Comment = props => {
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const getCommentsFromDB = () => {
         db.collection('allComments')
+            .limit(1000)
             .get()
             .then(res => {
                 const comments = res.data
