@@ -22,8 +22,8 @@ const Post = props => {
     // 返回顶部
     useEffect(() => {
         window.scrollTo(0, 0);
-        props.setNavShow(true);
-    }, [props]);
+        // props.setNavShow(true);
+    }, []);
 
     useEffect(() => {
         const Title = props.location.search.split('?title=')[1];
