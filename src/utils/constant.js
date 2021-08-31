@@ -16,12 +16,6 @@ export const homePageSize = 8;
 // 文章页每页显示多少篇文章
 export const articlesPageSize = 10;
 
-// pushplus的token
-export const pushplusToken = 'a748f65e6913459998a357480f6a74eb';
-
-// pushplus的Url
-export const pushplusUrl = 'https://pushplus.hxtrip.com/send';
-
 // 管理员信息
 export const adminUid = '9bf44da2dbb8473da1fcf4f591cb82ff';
 export const adminName = '飞鸟';
@@ -64,4 +58,4 @@ export const defaultCommentAvatarArr = [
 ];
 
 // 评论回复时，发送邮件提醒的API地址
-export const emailApiUrl = 'https://lzxapi.top:444';
+export const APIUrl = 'https://lzxapi.top:444';

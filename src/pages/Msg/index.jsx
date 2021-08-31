@@ -62,7 +62,7 @@ const Msg = props => {
                     <span className="link-value">{myDescr}</span>
                 </div>
                 <Divider />
-                <Comment isMsg={true} postTitle="" />
+                <Comment isMsg={true} postTitle="" title="留言板" />
             </div>
         </>
     );

@@ -4,15 +4,13 @@ import { db, auth } from '../../../../utils/cloudBase';
 import {
     defaultCommentAvatar,
     defaultCommentAvatarArr,
-    pushplusToken,
-    pushplusUrl,
     adminUid,
     adminName,
     adminQQ,
     adminQQEmail,
     adminUrl,
     avatarUrl,
-    emailApiUrl,
+    APIUrl,
 } from '../../../../utils/constant';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
@@ -40,6 +38,7 @@ const Comment = props => {
         tables: true, //默认为true。 允许支持表格语法。该选项要求 gfm 为true。
         breaks: true, //默认为false。 允许回车换行。该选项要求 gfm 为true。
     });
+
     const [replyId, setReplyId] = useState('');
     const [replyEmail, setReplyEmail] = useState('');
     const [owner, setOwner] = useState('');
@@ -120,23 +119,28 @@ const Comment = props => {
                 replyId: '',
             })
             .then(() => {
-                message.success('发布留言成功！');
+                // message.success('发布留言成功！');
+                setContent('');
                 getCommentsFromDB();
-                const title = props.isMsg ? '留言板有新留言' : '文章有新评论';
-                axios({
-                    url: pushplusUrl,
-                    method: 'get',
-                    params: {
-                        token: pushplusToken,
-                        title,
-                        content,
-                    },
-                })
-                    .then(() => {
-                        setContent('');
-                    })
-                    .catch(err => console.error(err));
+                sendNewEmail();
             });
+    };
+    // 提醒站长有新评论了
+    const sendNewEmail = () => {
+        axios({
+            url: `${APIUrl}/email`,
+            method: 'get',
+            params: {
+                isReply: '',
+                name,
+                search: props.postTitle,
+                content,
+                title: props.title,
+            },
+            withCredentials: true,
+        })
+            .then(res => res.status === 200 && message.success('发布成功！'))
+            .catch(err => console.error(err));
     };
     // 发布回复
     const sendReply = () => {
@@ -184,21 +188,27 @@ const Comment = props => {
                 getCommentsFromDB();
                 setShowReply(false);
                 setReplyContent('');
-                //——————————————————————————————————————
-                axios({
-                    url: `${emailApiUrl}/email`,
-                    method: 'get',
-                    params: {
-                        name,
-                        owner,
-                        email: replyEmail,
-                        search: props.postTitle,
-                    },
-                    withCredentials: true,
-                })
-                    .then(() => message.success('回复成功!'))
-                    .catch(err => console.error(err));
+                sendReplyEmail();
             });
+    };
+    // 提醒原评论人有人回复
+    const sendReplyEmail = () => {
+        axios({
+            url: `${APIUrl}/email`,
+            method: 'get',
+            params: {
+                isReply: '1',
+                name,
+                owner,
+                email: replyEmail,
+                search: props.postTitle,
+                content: replyContent,
+                title: props.title,
+            },
+            withCredentials: true,
+        })
+            .then(res => res.status === 200 && message.success('回复成功!'))
+            .catch(err => console.error(err));
     };
     const reg_qq = /[1-9][0-9]{3,11}/;
     // 获取QQ头像和QQ邮箱

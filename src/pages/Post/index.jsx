@@ -73,7 +73,11 @@ const Post = props => {
                 <ArticleTags tags={tags} />
                 <Copyright title={title} url={url} />
                 <Divider />
-                <Comment isMsg={false} postTitle={props.location.search.split('?title=')[1]} />
+                <Comment
+                    isMsg={false}
+                    postTitle={props.location.search.split('?title=')[1]}
+                    title={title}
+                />
             </div>
             {/* </div> */}
             <ArticleAside content={content} />
