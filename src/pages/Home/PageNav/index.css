@@ -71,3 +71,22 @@
 .ant-pagination .ant-pagination-jump-next {
     display: none;
 } */
+
+@media all and (max-width: 1240px) {
+    .ant-pagination .ant-pagination-prev,
+    .ant-pagination .ant-pagination-next {
+        display: none;
+    }
+    .ant-pagination .ant-pagination-item-link,
+    .ant-pagination .ant-pagination-item,
+    .ant-pagination .ant-pagination-jump-prev,
+    .ant-pagination .ant-pagination-jump-next {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .PageNav-box {
+        height: 24px;
+    }
+}

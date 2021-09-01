@@ -5,3 +5,10 @@
     background-size: 28px 3px;
     background-repeat: repeat-x;
 }
+
+@media all and (max-width: 1240px) {
+    .Divider {
+        margin: 16px 0;
+        height: 2px;
+    }
+}

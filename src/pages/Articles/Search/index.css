@@ -95,3 +95,25 @@
 .ant-select-selection-item-remove svg path {
     fill: #fff !important;
 }
+
+@media all and (max-width: 1240px) {
+    .search-input-box {
+        height: 34px;
+        margin-bottom: 10px;
+    }
+
+    .search-input {
+        height: 34px;
+        padding: 0;
+        flex: 1;
+        font-size: 18px;
+    }
+    .clear-btn {
+        height: 34px;
+        width: 34px;
+        margin-left: 10px;
+    }
+    .search-class-tag-box {
+        display: none;
+    }
+}

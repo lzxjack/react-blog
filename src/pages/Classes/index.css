@@ -27,3 +27,18 @@
     position: absolute;
     right: 20px;
 }
+
+@media all and (max-width: 1240px) {
+    .class-item {
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        font-size: 16px;
+        height: 34px;
+        border-radius: 12px;
+    }
+    .class-count {
+        font-size: 14px;
+        right: 12px;
+    }
+}

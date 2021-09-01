@@ -48,3 +48,19 @@
     align-items: center;
     font-size: 18px;
 }
+
+@media all and (max-width: 1240px) {
+    .art-show-item {
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+    .art-show-title {
+        font-size: 16px;
+        padding: 6px 14px;
+        width: 100%;
+        min-height: 0;
+    }
+    .art-show-date {
+        display: none;
+    }
+}

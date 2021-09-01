@@ -44,22 +44,24 @@ const Msg = props => {
                     <div>可以在这里留言、吐槽，</div>
                     <div className="green">交换友链。</div>
                 </div>
-                <div className="my-link">本站链接：</div>
-                <div>
-                    <span className="link-key">name:</span>
-                    <span className="link-value">{myName}</span>
-                </div>
-                <div>
-                    <span className="link-key">link:</span>
-                    <span className="link-value">{myLink}</span>
-                </div>
-                <div>
-                    <span className="link-key">avatar:</span>
-                    <span className="link-value">{myAvatar}</span>
-                </div>
-                <div>
-                    <span className="link-key">descr:</span>
-                    <span className="link-value">{myDescr}</span>
+                <div className="site-link">
+                    <div className="my-link">本站链接：</div>
+                    <div>
+                        <span className="link-key">name:</span>
+                        <span className="link-value">{myName}</span>
+                    </div>
+                    <div>
+                        <span className="link-key">link:</span>
+                        <span className="link-value">{myLink}</span>
+                    </div>
+                    <div>
+                        <span className="link-key">avatar:</span>
+                        <span className="link-value">{myAvatar}</span>
+                    </div>
+                    <div>
+                        <span className="link-key">descr:</span>
+                        <span className="link-value">{myDescr}</span>
+                    </div>
                 </div>
                 <Divider />
                 <Comment isMsg={true} postTitle="" title="留言板" />

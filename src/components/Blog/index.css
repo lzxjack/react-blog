@@ -19,3 +19,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media all and (max-width: 1240px) {
+    .BackTop {
+        display: none;
+    }
+}

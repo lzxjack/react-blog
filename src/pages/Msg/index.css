@@ -29,3 +29,12 @@
     font-family: 'yu100';
     font-size: 20px;
 }
+
+@media all and (max-width: 1240px) {
+    .msg-info {
+        font-size: 20px;
+    }
+    .site-link {
+        display: none;
+    }
+}

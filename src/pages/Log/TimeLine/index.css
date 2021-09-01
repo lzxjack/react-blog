@@ -63,3 +63,14 @@
 .time-line-content li:last-child {
     margin-bottom: 0;
 }
+
+@media all and (max-width: 1240px) {
+    .time-line-time {
+        font-size: 20px;
+    }
+    .time-line-content {
+        margin: 0 14px;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+}

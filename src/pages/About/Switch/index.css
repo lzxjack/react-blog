@@ -24,3 +24,26 @@
 .is-me {
     left: 34px;
 }
+
+@media all and (max-width: 1240px) {
+    .Switch-box {
+        height: 26px;
+        width: 50px;
+        border-radius: 20px;
+    }
+
+    .switch-btn {
+        height: 26px;
+        width: 26px;
+        border-radius: 50%;
+        top: 50%;
+        left: 0;
+    }
+
+    .is-me {
+        left: 34px;
+    }
+    .is-me {
+        left: 24px;
+    }
+}

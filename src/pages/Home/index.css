@@ -7,7 +7,8 @@
 }
 
 .home-main {
-    flex: 1;
+    /* flex: 1; */
+    width: 100%;
     min-height: calc(100vh - 60px - 120px);
     padding-right: 20px;
 }
@@ -36,4 +37,23 @@
 .home-top-poem {
     font-size: 28px;
     font-family: 'yu100';
+}
+
+@media all and (max-width: 1240px) {
+    .home-top-img {
+        height: 400px;
+    }
+    .home-top-title {
+        font-size: 28px;
+    }
+    .home-top-poem {
+        font-size: 20px;
+    }
+    .home-aside {
+        display: none;
+    }
+    .home-main {
+        /* padding-left: 20px; */
+        padding-right: 0;
+    }
 }

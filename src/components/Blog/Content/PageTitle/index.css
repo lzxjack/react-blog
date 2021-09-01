@@ -11,3 +11,11 @@
     color: #fff;
     user-select: none;
 }
+
+@media all and (max-width: 1240px) {
+    .PageTitle-box {
+        height: 200px;
+        font-size: 26px;
+        width: 100%;
+    }
+}

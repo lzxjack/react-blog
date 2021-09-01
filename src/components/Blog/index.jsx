@@ -14,7 +14,12 @@ const Blog = props => {
             <Nav />
             <Content />
             <Footer />
-            <BackTop duration={700} visibilityHeight={300} onClick={() => props.setNavShow(true)}>
+            <BackTop
+                duration={700}
+                visibilityHeight={300}
+                onClick={() => props.setNavShow(true)}
+                className="BackTop"
+            >
                 <div className="back-top-btn common-hover">
                     <VerticalAlignTopOutlined />
                 </div>

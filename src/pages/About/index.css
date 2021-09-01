@@ -24,3 +24,21 @@
     font-size: 24px;
     font-weight: 700;
 }
+
+@media all and (max-width: 1240px) {
+    .about-title-box {
+        height: 32px;
+    }
+    .articles-outline,
+    .site-articles-data {
+        display: none;
+    }
+    .about-site {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .about-me {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+}

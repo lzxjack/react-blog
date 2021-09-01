@@ -53,3 +53,28 @@
     font-size: 18px;
     user-select: none;
 }
+
+@media all and (max-width: 1240px) {
+    .say-avatar-box,
+    .say-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    .say-content-box {
+        margin-left: 10px;
+    }
+    .say-content {
+        font-size: 14px;
+        border-radius: 12px;
+        min-height: 0;
+        padding: 10px;
+    }
+    .say-content-date {
+        display: none;
+    }
+    .say-item {
+        min-height: 0;
+        margin-bottom: 10px;
+    }
+}

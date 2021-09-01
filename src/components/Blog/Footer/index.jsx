@@ -15,7 +15,6 @@ const Footer = () => {
                     「源代码」
                 </a>
             </span>
-            <span>© 2020 - 2021 By 飞鸟</span>
             <span>
                 <a
                     href="https://beian.miit.gov.cn/#/Integrated/index"
