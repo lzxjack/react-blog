@@ -1,14 +1,5 @@
 .MyNotice-box {
-    background-color: #232324;
-    margin: 20px;
-    border-radius: 20px;
-    transition: all 0.2s;
     padding: 20px;
-    user-select: none;
-}
-
-.MyNotice-box:hover {
-    transform: scale(1.04);
 }
 
 .notice {

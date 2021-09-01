@@ -7,18 +7,18 @@
 }
 
 .home-main {
-    /* width: 1000px; */
-    width: 900px;
+    flex: 1;
     min-height: calc(100vh - 60px - 120px);
+    padding-right: 20px;
 }
 
 .home-aside {
-    width: 300px;
+    width: 260px;
     color: #fff;
 }
 
 .home-top-img {
-    height: 600px;
+    height: 660px;
     color: #fff;
     display: flex;
     justify-content: center;

@@ -1,16 +1,18 @@
-.BlogCard-box {
-    margin: 20px;
+.aside-card {
+    margin-bottom: 20px;
     border-radius: 20px;
     background-color: #232324;
-    height: 200px;
     overflow: hidden;
-    position: relative;
     user-select: none;
     transition: all 0.2s;
 }
-
-.BlogCard-box:hover {
+.aside-card:hover {
     transform: scale(1.04);
+}
+
+.BlogCard-box {
+    height: 200px;
+    position: relative;
 }
 
 .avatar {

@@ -2,7 +2,7 @@
     background-color: #232324;
     height: 220px;
     border-radius: 20px;
-    margin: 20px 0;
+    margin-bottom: 20px;
     overflow: hidden;
     user-select: none;
     transition: all 0.2s;

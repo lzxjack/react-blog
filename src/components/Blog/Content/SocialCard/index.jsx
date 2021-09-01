@@ -1,26 +1,15 @@
 import { GithubOutlined, WechatOutlined, QqOutlined } from '@ant-design/icons';
 import CsdnIcon from './CsdnIcon';
 import { Popover } from 'antd';
+import { weChatQRCode, QQ_QRCode } from '../../../../utils/constant';
 import './index.css';
 
 const SocialCard = () => {
-    const weChat = (
-        <img
-            src="https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719213208.jpg"
-            alt="weChat"
-            className="QR-code"
-        />
-    );
-    const QQ = (
-        <img
-            src="https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719214515.jpg"
-            alt="QQ"
-            className="QR-code"
-        />
-    );
+    const weChat = <img src={weChatQRCode} alt="weChat" className="QR-code" />;
+    const QQ = <img src={QQ_QRCode} alt="QQ" className="QR-code" />;
     return (
         <div className="animated bounceInRight">
-            <div className="SocialCard-box transparent-box">
+            <div className="aside-card SocialCard-box transparent-box">
                 <a
                     className="social-btn common-hover"
                     href="https://github.com/lzxjack"

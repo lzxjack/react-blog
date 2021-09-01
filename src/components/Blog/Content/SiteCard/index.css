@@ -1,18 +1,9 @@
 .SiteCard-box {
-    background-color: #232324;
-    margin: 20px;
-    border-radius: 20px;
-    transition: all 0.2s;
     height: 110px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    user-select: none;
-}
-
-.SiteCard-box:hover {
-    transform: scale(1.04);
 }
 
 .site-data-item {

@@ -1,14 +1,5 @@
 .TagCard-box {
-    background-color: #232324;
-    margin: 20px;
-    border-radius: 20px;
-    transition: all 0.2s;
-    user-select: none;
     padding: 12px;
-}
-
-.TagCard-box:hover {
-    transform: scale(1.04);
 }
 
 .theTag {

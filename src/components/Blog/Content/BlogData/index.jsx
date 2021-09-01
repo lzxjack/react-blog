@@ -8,7 +8,7 @@ const BlogData = props => {
     const turnTags = () => props.history.push('/tags');
     return (
         <div className="animated bounceInRight">
-            <div className="BlogData-box transparent-box">
+            <div className="aside-card BlogData-box transparent-box">
                 <div className="blogData common-hover" onClick={turnArticles}>
                     <div className="type-name">文章</div>
                     <div className="type-num">{props.articleNum}</div>

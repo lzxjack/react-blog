@@ -3,15 +3,7 @@
     height: 260px;
     align-items: center;
     justify-content: center;
-    background-color: #232324;
     position: relative;
-    margin: 20px;
-    border-radius: 20px;
-    transition: all 0.2s;
-}
-
-.ClockCard-box:hover {
-    transform: scale(1.04);
 }
 
 .dial {

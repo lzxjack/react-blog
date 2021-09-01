@@ -59,3 +59,9 @@ export const defaultCommentAvatarArr = [
 
 // 评论回复时，发送邮件提醒的API地址
 export const APIUrl = 'https://lzxapi.top:444';
+
+// 微信二维码地址
+export const weChatQRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719213208.jpg';
+
+// QQ二维码地址
+export const QQ_QRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719214515.jpg';
