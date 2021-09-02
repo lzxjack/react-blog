@@ -406,7 +406,7 @@
     }
     .comment-input-key {
         width: 50px;
-        font-size: 14px;
+        font-size: 12px;
     }
     .comment-input-value {
         height: 100%;
@@ -417,7 +417,7 @@
 
     .comment-textarea-box {
         height: 90px;
-        padding: 8px 16px;
+        padding: 6px 10px;
         border-radius: 12px;
     }
     .comment-textarea {
@@ -427,7 +427,7 @@
         border: none;
         outline: none;
         background-color: #0f0f0f;
-        font-size: 14px;
+        font-size: 12px;
     }
     /* 设置滚动条的样式 */
     .comment-textarea::-webkit-scrollbar {
@@ -445,7 +445,7 @@
         width: 40px;
         height: 26px;
         border-radius: 8px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .comment-cancel-btn {
@@ -454,154 +454,75 @@
     .comment-preview-btn {
         right: 50px;
     }
-    /* ———————————————————————————————————————————————————————————————————————————————————————————————————— */
+
     /* 预览对话框 */
     .preview-box {
-        height: 180px;
-        width: 600px;
-        background-color: rgb(37, 37, 37);
-        border-radius: 20px;
-        padding: 20px;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: all 0.4s;
-        z-index: 100;
-    }
-    .preview-content {
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
+        width: 90%;
+        font-size: 14px;
     }
     /* 设置滚动条的样式 */
     .preview-content::-webkit-scrollbar {
-        width: 8px;
-    }
-    /* 滚动槽 */
-    .preview-content::-webkit-scrollbar-track {
-        /* -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5); */
-        background-color: rgba(0, 0, 0, 0);
-    }
-    /* 滚动条滑块 */
-    .preview-content::-webkit-scrollbar-thumb {
-        background: #6d6d6d;
-        border-radius: 4px;
-    }
-    .preview-in {
-        left: 50%;
+        width: 6px;
     }
     .preview-out {
-        left: -400px;
+        left: -1000px;
     }
 
     .close-preview-btn {
-        position: absolute;
-        left: 50%;
-        bottom: -50px;
-        transform: translate(-50%, 0);
-        width: 70px;
-        height: 40px;
-        background-color: #2e2e2e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        border-radius: 14px;
-        margin: 0 auto;
-        cursor: pointer;
-    }
-
-    .comment-mask {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        background-color: rgba(0, 0, 0, 0.7);
-        top: 0;
-        left: 0;
-        z-index: 99;
-    }
-
-    .comment-mask-none {
-        display: none;
+        font-size: 14px;
+        bottom: -34px;
+        width: 40px;
+        height: 26px;
+        border-radius: 8px;
     }
 
     .comment-show-item {
-        display: flex;
-        margin-top: 20px;
-        position: relative;
+        margin-top: 10px;
     }
 
     .comment-show-avatar-box {
-        width: 80px;
+        width: 50px;
     }
-    .comment-show-avatar-box a {
-        cursor: default;
-    }
-
-    .comment-show-content-box {
-        flex: 1;
-    }
-
     .comment-show-usrInfo {
-        height: 34px;
-        /* background-color: rgb(148, 134, 134); */
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        user-select: none;
+        height: 24px;
     }
     .comment-show-name {
-        color: rgb(180, 180, 0);
-        cursor: default;
-        padding: 0 6px;
-        border-radius: 10px;
-        font-size: 18px;
-        margin-right: 4px;
-        font-weight: 700;
+        border-radius: 8px;
+        font-size: 14px;
+        margin-right: 2px;
+        font-weight: 400;
     }
 
     .admin-flag {
-        font-size: 14px;
-        background-color: rgb(180, 180, 0);
-        padding: 0 4px;
-        border-radius: 8px;
-        color: #000;
+        font-size: 12px;
+        border-radius: 6px;
     }
 
     .comment-show-date {
-        margin-left: 10px;
-        font-size: 16px;
+        margin-left: 2px;
+        font-size: 12px;
     }
     .comment-show-content {
-        background-color: rgb(58, 58, 58);
-        padding: 10px 16px;
-        border-radius: 12px;
-        font-size: 18px;
-    }
-    .comment-show-content p {
-        margin: 0;
-        padding: 0;
-    }
-    .comment-show-content ul {
-        /* list-style: none; */
-        margin: 0;
-        padding: 0;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 12px;
     }
     .comment-show-content li {
-        margin-left: 20px;
+        margin-left: 14px;
     }
-
+    /* —————————————————————————————————————————————————————————————— */
     .comment-show-reply {
         position: absolute;
-        top: 6px;
+        top: 3px;
         right: 0;
         /* background-color: rgb(82, 67, 67); */
-        height: 28px;
-        width: 36px;
+        height: 20px;
+        width: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 16px;
-        border-radius: 10px;
+        font-size: 12px;
+        border-radius: 6px;
         cursor: pointer;
     }
 

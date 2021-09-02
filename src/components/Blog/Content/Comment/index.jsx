@@ -534,7 +534,7 @@ const Comment = props => {
                                     <span className="admin-flag">站长</span>
                                 ) : null}
                                 <span className="comment-show-date">
-                                    {moment(item.date).format('LLL')}
+                                    {moment(item.date).startOf('hour').fromNow()}
                                 </span>
                             </div>
                             <div
@@ -585,7 +585,9 @@ const Comment = props => {
                                                         <span className="admin-flag">站长</span>
                                                     ) : null}
                                                     <span className="comment-show-date">
-                                                        {moment(replyItem.date).format('LLL')}
+                                                        {moment(replyItem.date)
+                                                            .startOf('hour')
+                                                            .fromNow()}
                                                     </span>
                                                 </div>
                                                 <div

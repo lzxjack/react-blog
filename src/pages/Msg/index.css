@@ -32,7 +32,7 @@
 
 @media all and (max-width: 1240px) {
     .msg-info {
-        font-size: 20px;
+        font-size: 16px;
     }
     .site-link {
         display: none;
