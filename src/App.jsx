@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { db, auth, _ } from './utils/cloudBase';
+import { db, _ } from './utils/cloudBase';
 // import moment from 'moment';
 import { login } from './redux/actions';
 import {
@@ -26,25 +26,6 @@ import Loading from './components/Loading';
 import Blog from './components/Blog';
 
 const App = props => {
-    // 匿名登录函数
-    const anonymousLogin = async () => {
-        await auth.anonymousAuthProvider().signIn();
-        const anonymousLoginState = await auth.getLoginState();
-        // 匿名登录状态给redux
-        props.login(anonymousLoginState.isAnonymousAuth);
-    };
-    // 匿名登录
-    useEffect(() => {
-        // 检验是否已经匿名登录
-        if (auth.hasLoginState()) {
-            props.login(true);
-        } else {
-            // 未登录，执行登录流程
-            anonymousLogin();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
     const [done, setDone] = useState(false);
     useEffect(() => {
         if (!props.tags.length) return;
@@ -166,7 +147,7 @@ const App = props => {
     };
     // 获取各类数据
     useEffect(() => {
-        if (!props.loginState) return;
+        // if (!props.loginState) return;
         getSiteCountFromDB();
         getDailyPoem();
         getDataFromDB('articles');
@@ -181,7 +162,7 @@ const App = props => {
         getDataFromDB('allComments');
         getDataFromDB('notice');
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.loginState]);
+    }, []);
     return <>{done ? <Blog /> : <Loading />}</>;
 };
 

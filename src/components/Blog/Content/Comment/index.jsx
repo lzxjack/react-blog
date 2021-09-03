@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { db, auth } from '../../../../utils/cloudBase';
 import {
@@ -9,6 +9,7 @@ import {
     adminQQ,
     adminQQEmail,
     adminUrl,
+    adminUrlCheck,
     avatarUrl,
     APIUrl,
 } from '../../../../utils/constant';
@@ -57,7 +58,34 @@ const Comment = props => {
 
     const avatarArrLen = defaultCommentAvatarArr.length;
 
+    // 返回是否是管理员
+    const adminLogined = () => {
+        if (!auth.hasLoginState()) return false;
+        if (auth.currentUser.uid === adminUid) return true;
+        return false;
+    };
+
+    // 从localStorage获取用户评论信息
+    useEffect(() => {
+        if (adminLogined()) {
+            // 管理员已登录
+            setName(adminName);
+            setEmail(adminQQEmail);
+            setLink(adminUrl);
+            setAvatar(avatarUrl);
+            return;
+        }
+        const uname = localStorage.getItem('name');
+        const uemail = localStorage.getItem('email');
+        const ulink = localStorage.getItem('link');
+        const uavatar = localStorage.getItem('avatar');
+        uname && uname !== adminName && setName(uname);
+        uemail && uemail !== adminQQEmail && setEmail(uemail);
+        ulink && ulink.indexOf(adminUrlCheck) === -1 && setLink(ulink);
+        uavatar && setAvatar(uavatar);
+    }, []);
     const regEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    // 从数据库获取评论
     const getCommentsFromDB = () => {
         db.collection('allComments')
             .limit(1000)
@@ -95,17 +123,18 @@ const Comment = props => {
             message.info('请输入留言内容！');
             return;
         }
-        if (auth.currentUser.uid !== adminUid) {
+        if (!adminLogined()) {
             if (
                 name === adminQQ ||
                 name === adminName ||
                 email === adminQQEmail ||
-                link.indexOf(adminUrl) !== -1
+                link.indexOf(adminUrlCheck) !== -1
             ) {
                 message.warning('未登录不可以使用管理员账户哦~');
                 return;
             }
         }
+        const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
         db.collection('allComments')
             .add({
                 name,
@@ -113,9 +142,7 @@ const Comment = props => {
                 link,
                 content,
                 date: new Date().getTime(),
-                avatar: avatar
-                    ? avatar
-                    : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)],
+                avatar: Avatar,
                 postTitle: props.postTitle,
                 replyId: '',
             })
@@ -161,17 +188,18 @@ const Comment = props => {
             message.info('请输入回复内容！');
             return;
         }
-        if (auth.currentUser.uid !== adminUid) {
+        if (!adminLogined()) {
             if (
                 name === adminQQ ||
                 name === adminName ||
                 email === adminQQEmail ||
-                link.indexOf(adminUrl) !== -1
+                link.indexOf(adminUrlCheck) !== -1
             ) {
                 message.warning('未登录不可以使用管理员账户哦~');
                 return;
             }
         }
+        const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
         db.collection('allComments')
             .add({
                 name,
@@ -179,9 +207,7 @@ const Comment = props => {
                 link,
                 content: replyContent,
                 date: new Date().getTime(),
-                avatar: avatar
-                    ? avatar
-                    : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)],
+                avatar: Avatar,
                 postTitle: props.postTitle,
                 replyId,
             })
@@ -219,11 +245,14 @@ const Comment = props => {
             setAdminBox(true);
             return;
         }
-        if (auth.currentUser.uid !== adminUid && name === adminQQ) {
+        if (!adminLogined() && name === adminQQ) {
             message.warning('未登录不可以使用管理员账户哦~');
             return;
         }
-        if (!reg_qq.test(name)) return;
+        if (!reg_qq.test(name)) {
+            localStorage.setItem('name', name);
+            return;
+        }
         if (name === adminQQ) {
             setAvatar(avatarUrl);
             setName(adminName);
@@ -234,8 +263,18 @@ const Comment = props => {
             const QQEmail = `${name}@qq.com`;
             setEmail(QQEmail);
             setAvatar(avatarUrl);
+            localStorage.setItem('email', QQEmail);
+            localStorage.setItem('avatar', avatarUrl);
             setName('');
         }
+    };
+    // 存邮箱到本地
+    const saveEmail = () => {
+        localStorage.setItem('email', email);
+    };
+    // 存个人网址到本地
+    const saveLink = () => {
+        localStorage.setItem('link', link);
     };
     // 打开留言预览框
     const openMsgPreview = () => {
@@ -275,8 +314,12 @@ const Comment = props => {
     const adminLogin = () => {
         auth.signInWithEmailAndPassword(adminEmail, adminPwd)
             .then(() => {
-                if (auth.currentUser.uid === adminUid) {
+                if (adminLogined()) {
                     message.success('登陆成功！');
+                    setName(adminName);
+                    setEmail(adminQQEmail);
+                    setLink(adminUrl);
+                    setAvatar(avatarUrl);
                     setAdminBox(false);
                 } else {
                     message.warning('登陆失败！');
@@ -463,6 +506,7 @@ const Comment = props => {
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder="必填"
+                                onBlur={saveEmail}
                             />
                         </div>
                         <div className="comment-input-info flex3">
@@ -473,6 +517,7 @@ const Comment = props => {
                                 value={link}
                                 onChange={e => setLink(e.target.value)}
                                 placeholder="选填"
+                                onBlur={saveLink}
                             />
                         </div>
                     </div>
