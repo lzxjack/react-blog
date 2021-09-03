@@ -5,8 +5,8 @@
 .search-input-box {
     height: 50px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
 }
 
 .search-input {
@@ -98,20 +98,20 @@
 
 @media all and (max-width: 1240px) {
     .search-input-box {
-        height: 34px;
+        height: 30px;
         margin-bottom: 10px;
     }
 
     .search-input {
-        height: 34px;
+        height: 30px;
         padding: 0;
         flex: 1;
-        font-size: 18px;
+        font-size: 16px;
     }
     .clear-btn {
-        height: 34px;
-        width: 34px;
-        margin-left: 10px;
+        height: 30px;
+        width: 30px;
+        margin-left: 6px;
     }
     .search-class-tag-box {
         display: none;

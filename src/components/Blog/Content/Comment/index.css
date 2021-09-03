@@ -386,7 +386,7 @@
 
 @media all and (max-width: 1240px) {
     .comment-edit-avatar-box {
-        width: 50px;
+        width: 46px;
     }
 
     .comment-edit-avatar {
@@ -396,11 +396,11 @@
     }
 
     .comment-input-box {
-        height: 34px;
+        height: 28px;
     }
 
     .comment-input-info {
-        height: 26px;
+        height: 22px;
         margin-right: 6px;
         border-radius: 8px;
     }
@@ -435,7 +435,7 @@
     }
     .comment-btns {
         position: relative;
-        height: 34px;
+        height: 30px;
         margin-left: 20px;
     }
 
@@ -443,7 +443,7 @@
     .comment-send-btn,
     .comment-cancel-btn {
         width: 40px;
-        height: 26px;
+        height: 24px;
         border-radius: 8px;
         font-size: 12px;
     }
@@ -469,10 +469,10 @@
     }
 
     .close-preview-btn {
-        font-size: 14px;
-        bottom: -34px;
+        font-size: 12px;
+        bottom: -30px;
         width: 40px;
-        height: 26px;
+        height: 24px;
         border-radius: 8px;
     }
 
@@ -481,7 +481,7 @@
     }
 
     .comment-show-avatar-box {
-        width: 50px;
+        width: 46px;
     }
     .comment-show-usrInfo {
         height: 24px;
