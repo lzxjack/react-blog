@@ -1,10 +1,12 @@
 .Content-box {
-    min-height: calc(100vh - 60px - 120px);
+    /* min-height: calc(100vh - 60px - 120px); */
+    min-height: calc(100vh - 120px);
     margin-bottom: 40px;
 }
 
 .content-center {
-    min-height: calc(100vh - 60px - 120px);
+    /* min-height: calc(100vh - 60px - 120px); */
+    min-height: calc(100vh - 120px);
     /* width: 1300px; */
     width: 1200px;
     margin: auto;

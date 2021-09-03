@@ -4,15 +4,12 @@ import PageTitle from '../../../components/Blog/Content/PageTitle';
 import { SwapLeftOutlined } from '@ant-design/icons';
 import { setNavShow } from '../../../redux/actions';
 import { Image } from 'antd';
-// import LazyLoad from 'react-lazyload';
+import useToTop from '../../../hooks/useToTop';
 import './index.css';
 
 const TheGallery = props => {
     // 返回顶部
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        props.setNavShow(true);
-    }, [props]);
+    useToTop(props, true);
     const [title, setitle] = useState('');
     const [pics, sePics] = useState([]);
     useEffect(() => {

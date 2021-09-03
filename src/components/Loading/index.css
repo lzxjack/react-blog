@@ -40,3 +40,13 @@
         transform: rotate(360deg);
     }
 }
+
+@media all and (max-width: 1240px) {
+    .half-circle-spinner {
+        width: 80px;
+        height: 80px;
+    }
+    .half-circle-spinner .circle {
+        border: 10px solid transparent;
+    }
+}

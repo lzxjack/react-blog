@@ -66,11 +66,29 @@
 
 @media all and (max-width: 1240px) {
     .time-line-time {
-        font-size: 20px;
+        height: 36px;
+        width: 130px;
+        padding-left: 12px;
+        font-size: 18px;
     }
     .time-line-content {
-        margin: 0 14px;
-        border-radius: 12px;
+        border-radius: 10px;
         font-size: 14px;
+        margin: 0 10px;
+        padding: 8px 14px;
+    }
+    .time-dot {
+        width: 20px;
+        height: 20px;
+        left: -13px;
+        top: 8px;
+    }
+    .time-dot-in {
+        width: 10px;
+        height: 10px;
+    }
+    .time-line-time:hover .time-dot-in {
+        width: 14px;
+        height: 14px;
     }
 }

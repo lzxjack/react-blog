@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { setNavShow } from '../../redux/actions';
@@ -6,14 +6,12 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import Switch from './Switch';
 import Chart from './Chart';
+import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const About = props => {
     // 返回顶部
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        props.setNavShow(true);
-    }, [props]);
+    useToTop(props, true);
     // 配置highlight
     hljs.configure({
         tabReplace: '',
@@ -33,14 +31,14 @@ const About = props => {
         <>
             <PageTitle title="关于" />
             <div className="standard-page-box">
-                <div className="about-title-box">
+                <div className="about-title-box animated bounceInDown">
                     <div className={isMe ? 'about-site title-off' : 'about-site'}>关于本站</div>
                     <Switch isMe={isMe} setIsMe={setIsMe} />
                     <div className={isMe ? 'about-me' : 'about-me title-off'}>关于我</div>
                 </div>
                 {isMe ? (
                     <div
-                        className="about-me-box markdownStyle"
+                        className="about-me-box markdownStyle animated bounceInRight"
                         dangerouslySetInnerHTML={{
                             __html: marked(
                                 props.about.filter(item => item.isMe)[0].content
@@ -48,7 +46,7 @@ const About = props => {
                         }}
                     ></div>
                 ) : (
-                    <div className="about-site-box">
+                    <div className="about-site-box animated bounceInLeft">
                         <div className="articles-outline">文章分布</div>
                         <div className="site-articles-data">
                             <Chart />

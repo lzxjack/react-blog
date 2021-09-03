@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import { setNavShow } from '../../redux/actions';
 import ArtList from './ArtList';
@@ -10,14 +10,12 @@ import ClockCard from '../../components/Blog/Content/ClockCard';
 import TagCard from '../../components/Blog/Content/TagCard';
 import SiteCard from '../../components/Blog/Content/SiteCard';
 import MyNotice from '../../components/Blog/Content/MyNotice';
+import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Home = props => {
     // 返回顶部
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        props.setNavShow(true);
-    }, [props]);
+    useToTop(props, true);
     const [curPage, setCurPage] = useState(1);
     return (
         <div className="Home-box">

@@ -20,7 +20,7 @@ import './index.css';
 const Content = () => {
     return (
         <>
-            <div className="nav-bottm"></div>
+            {/* <div className="nav-bottm"></div> */}
             {/* 整个页面 */}
             <div className="Content-box">
                 {/* 通栏 */}

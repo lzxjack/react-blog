@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-// import { SwapLeftOutlined } from '@ant-design/icons';
 import Copyright from './Copyright';
 import ArticleContent from './ArticleContent';
 import ArticleTags from './ArticleTags';
@@ -9,6 +8,7 @@ import ArticleAside from './ArticleAside';
 import Comment from '../../components/Blog/Content/Comment';
 import { setNavShow } from '../../redux/actions';
 import moment from 'moment';
+import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Post = props => {
@@ -17,13 +17,9 @@ const Post = props => {
     const [tags, setTags] = useState([]);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [url, setUrl] = useState('');
+    const [url, setUrl] = useState(''); // 返回顶部
 
-    // 返回顶部
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        // props.setNavShow(true);
-    }, []);
+    useToTop(props, false);
 
     useEffect(() => {
         const Title = props.location.search.split('?title=')[1];

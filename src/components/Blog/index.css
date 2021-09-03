@@ -1,10 +1,10 @@
 .Blog-box {
-    min-height: calc(100vh - 60px - 120px);
+    /* min-height: calc(100vh - 60px - 120px); */
+    min-height: calc(100vh - 120px);
     position: relative;
     font-family: 'yu100';
-    /* font-family: 'dengxian'; */
-    /* font-weight: 700; */
-    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
@@ -20,8 +20,27 @@
     align-items: center;
 }
 
+.nav-btn-mobile {
+    display: none;
+}
+
 @media all and (max-width: 1240px) {
     .BackTop {
         display: none;
+    }
+    .nav-btn-mobile {
+        display: block;
+        position: fixed;
+        width: 38px;
+        height: 38px;
+        color: #fff;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 18px;
+        user-select: none;
     }
 }

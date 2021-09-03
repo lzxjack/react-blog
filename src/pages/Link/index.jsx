@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { getLinks } from '../../redux/actions';
 import { setNavShow } from '../../redux/actions';
+import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Link = props => {
     // 返回顶部
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        props.setNavShow(true);
-    }, [props]);
+    useToTop(props, true);
     useEffect(() => {
         const sum = props.links.length;
         const Num = sum % 3;
