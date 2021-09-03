@@ -114,3 +114,120 @@ nav {
     user-select: none;
     color: #fff;
 }
+
+@media all and (max-width: 1240px) {
+    .nav-bottm {
+        display: none;
+    }
+
+    nav {
+        position: fixed;
+        height: 100%;
+        /* width: 200px; */
+        top: 0;
+        right: 0;
+        z-index: 9;
+    }
+    #hiddenNav {
+        top: 0;
+    }
+
+    .nav-content {
+        position: relative;
+        /* width: 1300px; */
+        width: 200px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-btn,
+    .home-btn,
+    .admin-btn,
+    .dark-btn {
+        height: 44px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin-right: 20px;
+        border-radius: 14px;
+        color: #fff;
+        transition: all 0.2s;
+    }
+
+    .margin-0 {
+        margin-right: 0;
+    }
+
+    .home-btn {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        font-size: 26px;
+        width: 60px;
+    }
+
+    .admin-btn {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        font-size: 26px;
+        width: 60px;
+        /* cursor: default; */
+    }
+
+    .dark-btn {
+        position: absolute;
+        top: 50%;
+        right: 70px;
+        transform: translate(0, -50%);
+        width: 60px;
+    }
+
+    .dark-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .dark-icon path {
+        fill: #fff;
+        transition: all 0.2s;
+    }
+    .dark-btn:hover .dark-icon path {
+        fill: rgb(88, 88, 88);
+    }
+
+    .articles-btn {
+        position: relative;
+    }
+
+    .articels-second {
+        position: absolute;
+        z-index: -10;
+        top: -130px;
+        height: 100px;
+        width: 100%;
+        transition: all 0.3s;
+    }
+    .articles-btn:hover .articels-second {
+        top: 50px;
+    }
+    .articels-second-item {
+        background-color: rgb(58, 58, 58);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        height: 34px;
+        margin-bottom: 6px;
+        border-radius: 10px;
+        user-select: none;
+        color: #fff;
+    }
+}

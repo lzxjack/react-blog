@@ -1,40 +1,27 @@
 .Copyright-box {
     position: relative;
     width: 100%;
-    height: 120px;
     border-radius: 20px;
     background-color: #0f0f0f;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    font-family: 'yu400';
+    padding: 14px;
     overflow: hidden;
-    /* box-shadow: 0 0 14px rgb(0, 0, 0) inset; */
     color: #ccc;
 }
 .copyright-icon {
     position: absolute;
     right: 40px;
-    width: 140px;
-    height: 140px;
+    width: 128px;
+    height: 128px;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 .copyright-icon path {
     fill: rgb(88, 88, 88);
 }
-.copyright-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    height: 100px;
-}
 
 .copyright-title {
-    font-size: 22px;
-    margin-left: 20px;
-    font-weight: 700;
-    font-family: 'yu100';
+    font-size: 20px;
+    font-family: 'yu400';
 }
 
 .copyright-url {
@@ -42,8 +29,6 @@
     display: inline-block;
     font-size: 16px;
     color: #ccc;
-    margin-left: 20px;
-    height: 24px;
 }
 
 .copy-icon-btn {
@@ -51,6 +36,7 @@
     top: 0;
     right: -30px;
     height: 24px;
+    display: inline-block;
     width: 24px;
     border-radius: 8px;
     display: flex;
@@ -72,19 +58,16 @@
 }
 .copyright-text {
     font-size: 16px;
-    margin-left: 20px;
-    height: 24px;
 }
 .copyright-name {
     display: inline-block;
     padding: 0 4px;
     height: 24px;
     line-height: 24px;
-    font-weight: 700;
+    font-family: 'yu400';
     transition: all 0.2s;
     border-radius: 8px;
     color: #fff;
-    /* cursor: default; */
 }
 
 .copyed-success {
@@ -106,4 +89,53 @@
 
 .show-copyed-success {
     bottom: 10px;
+}
+
+@media all and (max-width: 1240px) {
+    .Copyright-box {
+        border-radius: 12px;
+        padding: 8px;
+    }
+    .copyright-icon {
+        display: none;
+    }
+
+    .copyright-title {
+        font-size: 14px;
+    }
+
+    .copyright-url {
+        font-size: 12px;
+    }
+
+    .copy-icon-btn {
+        right: -20px;
+        height: 18px;
+        width: 18px;
+        border-radius: 6px;
+    }
+    .copy-icon {
+        width: 12px;
+        height: 12px;
+    }
+    .copyright-text {
+        font-size: 12px;
+    }
+    .copyright-name {
+        padding: 0 2px;
+        border-radius: 6px;
+    }
+
+    .copyed-success {
+        left: 4px;
+        bottom: -50px;
+        width: 120px;
+        height: 36px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .show-copyed-success {
+        bottom: 4px;
+    }
 }

@@ -77,3 +77,30 @@
     margin: 0;
 }
 /* ———————————————————————————————————————————————————————————— */
+
+@media all and (max-width: 1240px) {
+    /* 表格 */
+    .markdownStyle table {
+        margin: 10px auto;
+        border: 1px solid rgb(120, 120, 120);
+    }
+    .markdownStyle table th,
+    .markdownStyle table td {
+        padding: 4px 6px;
+        border: 1px solid rgb(120, 120, 120);
+    }
+    /* 图片 */
+    .markdownStyle p img {
+        margin: 8px auto;
+        border-radius: 12px;
+    }
+    .markdownStyle blockquote {
+        padding: 6px 16px;
+        font-size: 14px;
+        border-radius: 12px;
+        border: 1px rgb(105, 105, 105) dashed;
+    }
+    #hljs code {
+        font-size: 12px;
+    }
+}

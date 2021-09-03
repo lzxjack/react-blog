@@ -1,6 +1,5 @@
 .standard-page-tags {
     margin-top: 60px;
-    width: 60%;
 }
 
 .tag {
@@ -14,4 +13,19 @@
     user-select: none;
     font-size: 16px;
     cursor: pointer;
+}
+
+@media all and (max-width: 1240px) {
+    .standard-page-tags {
+        margin-top: 30px;
+    }
+
+    .tag {
+        margin: 0 5px 5px 0;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 8px;
+        border-radius: 10px;
+        font-size: 12px;
+    }
 }

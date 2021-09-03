@@ -67,7 +67,6 @@ const Post = props => {
                 </div>
             </div>
 
-            {/* <div className="animated bounceInLeft"> */}
             <div className="standard-page-box">
                 <ArticleContent content={content} />
                 <ArticleTags tags={tags} />
@@ -79,7 +78,7 @@ const Post = props => {
                     title={title}
                 />
             </div>
-            {/* </div> */}
+
             <ArticleAside content={content} />
         </div>
     );

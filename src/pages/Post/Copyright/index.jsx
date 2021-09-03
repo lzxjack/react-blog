@@ -25,36 +25,36 @@ const Copyright = props => {
             </div>
             <div className="Copyright-box">
                 <CopyrightIcon />
-                <div className="copyright-center">
-                    <div className="copyright-title">{props.title}</div>
-                    <div className="copyright-url" id="copyright-url-text">
-                        {props.url}
-                        <div className="copy-icon-btn common-hover" onClick={copyUrl}>
-                            <CopyIcon />
-                        </div>
-                    </div>
-                    <div className="copyright-text">
-                        本博客所有文章除特别声明外，均采用
-                        <a
-                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-                            target="_blank"
-                            className="copyright-name common-hover"
-                            rel="noreferrer"
-                        >
-                            CC BY-NC-SA 4.0
-                        </a>
-                        许可协议，转载请注明来自
-                        <a
-                            href="https://lzxjack.top/"
-                            target="_blank"
-                            className="copyright-name common-hover"
-                            rel="noreferrer"
-                        >
-                            飞鸟
-                        </a>
-                        。
+                {/* <div className="copyright-center"> */}
+                <div className="copyright-title">{props.title}</div>
+                <div className="copyright-url" id="copyright-url-text">
+                    {props.url}
+                    <div className="copy-icon-btn common-hover" onClick={copyUrl}>
+                        <CopyIcon />
                     </div>
                 </div>
+                <div className="copyright-text">
+                    本站所有文章除特别声明外，均采用
+                    <a
+                        href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                        target="_blank"
+                        className="copyright-name common-hover"
+                        rel="noreferrer"
+                    >
+                        CC BY-NC-SA 4.0
+                    </a>
+                    许可协议，转载请注明来自
+                    <a
+                        href="https://lzxjack.top/"
+                        target="_blank"
+                        className="copyright-name common-hover"
+                        rel="noreferrer"
+                    >
+                        飞鸟
+                    </a>
+                    。
+                </div>
+                {/* </div> */}
             </div>
         </>
     );

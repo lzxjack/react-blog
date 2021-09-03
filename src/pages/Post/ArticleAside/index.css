@@ -68,3 +68,9 @@
 .aside-fixed {
     top: 70px;
 }
+
+@media all and (max-width: 1240px) {
+    .aside-box {
+        display: none;
+    }
+}

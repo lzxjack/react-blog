@@ -512,127 +512,70 @@
     }
     /* —————————————————————————————————————————————————————————————— */
     .comment-show-reply {
-        position: absolute;
         top: 3px;
-        right: 0;
-        /* background-color: rgb(82, 67, 67); */
         height: 20px;
         width: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 12px;
         border-radius: 6px;
-        cursor: pointer;
     }
 
     /* 回复框 */
     .comment-reply-box {
-        position: fixed;
-        /* height: 300px; */
-        width: 1000px;
-        background-color: rgb(61, 61, 61);
-        border-radius: 20px;
-        padding: 20px;
-        top: 50%;
-        transform: translate(50%, -50%);
-        transition: all 0.4s;
-        z-index: 98;
-    }
-    .reply-in {
-        right: 50%;
+        width: 90%;
+        border-radius: 12px;
+        padding: 0 10px 10px 10px;
     }
     .reply-out {
-        right: -1600px;
+        right: -2000px;
     }
-
-    .reply-mask {
-        z-index: 97;
-    }
-
     /* 代码块 */
     .commentMarkDown #hljs {
-        padding: 4px 10px;
-        border-radius: 10px;
-        margin: 0;
+        padding: 2px 8px;
+        border-radius: 8px;
     }
 
     /* ——————————————————管理员登录框—————————————————— */
     .admin-box {
-        position: absolute;
-        height: 232px;
+        height: 158px;
         width: 100%;
-        background-color: #3a3a3a;
-        z-index: 10;
-        border-radius: 14px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s;
+        border-radius: 8px;
     }
-    .admin-box-in {
-        top: 0;
-    }
-
     .admin-box-out {
-        top: 232px;
+        top: 158px;
     }
 
     /* 邮箱盒子和密码盒子 */
     .admin-email-box,
     .admin-pwd-box,
     .admin-btns {
-        height: 40px;
-        width: 320px;
+        height: 30px;
+        width: 90%;
         border-radius: 20px;
-        display: flex;
-        flex-direction: row;
-        overflow: hidden;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
-
     .admin-btns {
-        justify-content: space-evenly;
-        align-items: center;
         margin-bottom: 0;
     }
-
     /* 邮箱字、密码字 */
     .admin-email,
     .admin-pwd {
         height: 100%;
         width: 70px;
-        user-select: none;
-        background-color: rgb(88, 88, 88);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        color: #fff;
+        font-size: 14px;
     }
 
     /* 邮箱输入框、密码输入框 */
     .admin-input-email,
     .admin-input-pwd {
-        width: 250px;
-        padding: 0 20px;
-        font-size: 20px;
-        background-color: #2e2e2e;
+        width: 100%;
+        padding: 0 10px;
+        font-size: 14px;
     }
 
     /* 登录按钮 */
     .admin-login-btn {
-        width: 80px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(88, 88, 88);
-        color: #fff;
-        /* border-radius: 30px; */
-        font-size: 20px;
-        user-select: none;
-        border-radius: 20px;
+        width: 50px;
+        height: 25px;
+        font-size: 14px;
     }
 }
