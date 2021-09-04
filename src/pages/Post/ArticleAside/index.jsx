@@ -18,7 +18,7 @@ const ArticleAside = props => {
         setTocArr(toc);
     }, [props]);
     return (
-        <div className="aside-box theme-color">
+        <div className="aside-box">
             <ul className="aside-ul animated bounceInRight">
                 {tocArr.map((item, index) => (
                     <li
