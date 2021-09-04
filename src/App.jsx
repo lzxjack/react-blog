@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { db, _ } from './utils/cloudBase';
+import { db, auth, _ } from './utils/cloudBase';
 // import moment from 'moment';
 import { login } from './redux/actions';
 import {
@@ -21,32 +21,21 @@ import {
     getMsgsReply,
     getNotice,
 } from './redux/actions';
-import { count_id } from './utils/constant';
+import { count_id, adminUid } from './utils/constant';
 import Loading from './components/Loading';
 import Blog from './components/Blog';
 
 const App = props => {
-    const [done, setDone] = useState(false);
     useEffect(() => {
-        if (!props.tags.length) return;
-        if (!props.classes.length) return;
-        if (!props.articles.length) return;
-        if (JSON.stringify(props.poem) === '{}') return;
-        if (!props.galleries.length) return;
-        if (!props.links.length) return;
-        if (!props.logs.length) return;
-        if (!props.says.length) return;
-        if (!props.shows.length) return;
-        if (!props.comments.length) return;
-        if (!props.commentsReply.length) return;
-        if (!props.msgs.length) return;
-        if (!props.msgsReply.length) return;
-        if (!props.about.length) return;
-        if (!props.siteCount) return;
-        if (!props.notice) return;
-        setDone(true);
-    }, [props]);
-
+        if (auth.hasLoginState() && auth.currentUser.uid !== adminUid) {
+            localStorage.removeItem('login_type_blog-admin-7gys9jfy3a4d43aa');
+            localStorage.removeItem('refresh_token_blog-admin-7gys9jfy3a4d43aa');
+            localStorage.removeItem('access_token_blog-admin-7gys9jfy3a4d43aa');
+            localStorage.removeItem('access_token_expire_blog-admin-7gys9jfy3a4d43aa');
+            localStorage.removeItem('user_info_blog-admin-7gys9jfy3a4d43aa');
+            localStorage.removeItem('x-tcb-trace_blog-admin-7gys9jfy3a4d43aa');
+        }
+    }, []);
     // 每日诗句
     const getDailyPoem = () => {
         require('jinrishici').load(res => {
@@ -163,6 +152,26 @@ const App = props => {
         getDataFromDB('notice');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    const [done, setDone] = useState(false);
+    useEffect(() => {
+        if (!props.tags.length) return;
+        if (!props.classes.length) return;
+        if (!props.articles.length) return;
+        if (JSON.stringify(props.poem) === '{}') return;
+        if (!props.galleries.length) return;
+        if (!props.links.length) return;
+        if (!props.logs.length) return;
+        if (!props.says.length) return;
+        if (!props.shows.length) return;
+        if (!props.comments.length) return;
+        if (!props.commentsReply.length) return;
+        if (!props.msgs.length) return;
+        if (!props.msgsReply.length) return;
+        if (!props.about.length) return;
+        if (!props.siteCount) return;
+        if (!props.notice) return;
+        setDone(true);
+    }, [props]);
     return <>{done ? <Blog /> : <Loading />}</>;
 };
 
