@@ -33,7 +33,7 @@ export const blogBackGroundImgs = [
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111502.jpg',
 ];
 // 背景图选择
-export const imgNum = 1;
+export const imgNum = 2;
 
 // 个人友链信息
 export const myName = '飞鸟';

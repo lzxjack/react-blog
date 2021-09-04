@@ -20,7 +20,7 @@
 .ant-pagination .ant-pagination-jump-prev,
 .ant-pagination .ant-pagination-jump-next {
     /* 这里是主题色 */
-    background-color: rgba(35, 35, 36, 0.8);
+    background-color: rgb(35, 35, 44);
     border: none;
     border-radius: 10px;
     /* cursor: default; */
