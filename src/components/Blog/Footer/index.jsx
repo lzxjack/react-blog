@@ -27,7 +27,7 @@ const Footer = () => {
             </span>
             <span>
                 {arr.map((item, index) => (
-                    <span className="site-frame common-hover" key={index}>
+                    <span className="site-frame theme-color common-hover" key={index}>
                         {item}
                     </span>
                 ))}

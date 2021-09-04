@@ -21,7 +21,7 @@ const Link = props => {
     return (
         <>
             <PageTitle title="友情链接" />
-            <div className="standard-page-box link-page">
+            <div className="standard-page-box theme-color link-page">
                 <ul className="links-box animated bounceInRight">
                     {props.links.map(item => {
                         if (JSON.stringify(item) !== '{}') {

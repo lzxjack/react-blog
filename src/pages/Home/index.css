@@ -19,7 +19,7 @@
 }
 
 .home-top-img {
-    height: 660px;
+    height: 100vh;
     color: #fff;
     display: flex;
     justify-content: center;

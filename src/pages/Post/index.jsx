@@ -63,7 +63,7 @@ const Post = props => {
                 </div>
             </div>
 
-            <div className="standard-page-box">
+            <div className="standard-page-box theme-color">
                 <ArticleContent content={content} />
                 <ArticleTags tags={tags} />
                 <Copyright title={title} url={url} />

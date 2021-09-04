@@ -13,7 +13,7 @@ const Classes = props => {
     return (
         <>
             <PageTitle title="分类" />
-            <div className="standard-page-box animated bounceInLeft">
+            <div className="standard-page-box theme-color animated bounceInLeft">
                 {props.classes
                     .filter(item => item.count > 0)
                     .map(item => (

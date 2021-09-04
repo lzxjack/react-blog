@@ -13,7 +13,7 @@ const Tags = props => {
     return (
         <>
             <PageTitle title="标签" />
-            <div className="standard-page-box tags-box animated bounceInLeft">
+            <div className="standard-page-box theme-color tags-box animated bounceInLeft">
                 {props.tags.map(item => (
                     <span
                         className="theTag tags-item common-hover"

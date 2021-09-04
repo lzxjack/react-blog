@@ -11,7 +11,7 @@ const Log = props => {
     return (
         <>
             <PageTitle title="建站日志" />
-            <div className="standard-page-box">
+            <div className="standard-page-box theme-color">
                 <TimeLine />
             </div>
         </>

@@ -13,7 +13,7 @@ const GalleryOutline = props => {
     return (
         <>
             <PageTitle title="我的图库" />
-            <div className="standard-page-box gallery-page-box">
+            <div className="standard-page-box theme-color gallery-page-box">
                 <ul className="galleryUl animated bounceInUp">
                     {props.galleries.map(item => (
                         <li

@@ -4,13 +4,11 @@
     transform: translate(0, -50%);
     right: 10px;
     width: 320px;
-    /* background-color: #232324; */
     border-radius: 20px;
 }
 .aside-ul {
     user-select: none;
     padding: 14px;
-    /* max-height: 600px; */
     max-height: 700px;
     overflow-y: auto;
     margin: 10px;
@@ -59,7 +57,7 @@
     height: 100%;
     padding: 6px 10px;
     /* background-color: #232324; */
-    background-color: rgba(35, 35, 36, 0.6);
+    /* background-color: rgba(35, 35, 36, 0.6); */
     color: rgb(235, 235, 235);
     cursor: default;
     transition: all 0.2s;

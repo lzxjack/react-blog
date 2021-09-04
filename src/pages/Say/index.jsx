@@ -12,7 +12,7 @@ const Say = props => {
     return (
         <>
             <PageTitle title="自言自语" />
-            <div className="standard-page-box">
+            <div className="standard-page-box theme-color">
                 {props.says.map(item => (
                     <div className="say-item" key={item._id}>
                         <div className="say-avatar-box animated bounceInLeft">

@@ -25,7 +25,7 @@ const ArtClass = props => {
     return (
         <>
             <PageTitle title={myClass} />
-            <div className="standard-page-box animated bounceInLeft">
+            <div className="standard-page-box theme-color animated bounceInLeft">
                 {props.articles
                     .filter(item => item.classes === myClass)
                     .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)

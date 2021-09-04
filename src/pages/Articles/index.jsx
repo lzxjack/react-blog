@@ -17,7 +17,7 @@ const Articles = props => {
     return (
         <>
             <PageTitle title="所有文章" />
-            <div className="standard-page-box articles">
+            <div className="standard-page-box articles theme-color">
                 <Search getArticle={setArticlesShow} />
                 <ArticlesShow articles={articlesShow} curPage={curPage} />
                 <ArticlesNav

@@ -10,7 +10,7 @@ const Show = props => {
     return (
         <>
             <PageTitle title="小作品" />
-            <div className="standard-page-box gallery-page-box">
+            <div className="standard-page-box theme-color gallery-page-box">
                 <ul className="galleryUl animated bounceInUp">
                     {props.shows.map(item => (
                         <li key={item._id} style={{ backgroundImage: `url(${item.cover})` }}>

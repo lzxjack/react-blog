@@ -7,13 +7,13 @@ import { connect } from 'react-redux';
 import { setNavShow } from '../../redux/actions';
 import { BackTop } from 'antd';
 import { VerticalAlignTopOutlined, MenuOutlined } from '@ant-design/icons';
-import { blogBackGroundImgs, imgNum } from '../../utils/constant';
+// import { blogBackGroundImgs, imgNum } from '../../utils/constant';
 import './index.css';
 
 const Blog = props => {
     const [drawerShow, setDrawerShow] = useState(false);
     return (
-        <div className="Blog-box" style={{ backgroundImage: `url(${blogBackGroundImgs[imgNum]})` }}>
+        <div className="Blog-box">
             {/* 正常文档流 */}
             <Nav />
             <Content />
@@ -25,7 +25,7 @@ const Blog = props => {
                 onClick={() => props.setNavShow(true)}
                 className="BackTop"
             >
-                <div className="back-top-btn common-hover">
+                <div className="back-top-btn theme-color common-hover">
                     <VerticalAlignTopOutlined />
                 </div>
             </BackTop>

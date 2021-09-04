@@ -34,7 +34,7 @@ const ArticleAside = props => {
                         }
                     >
                         <a
-                            className="tocLink common-hover"
+                            className="tocLink theme-color common-hover"
                             onClick={() => {
                                 props.setNavShow(false);
                             }}

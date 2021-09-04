@@ -22,6 +22,8 @@ import {
 import { count_id, adminUid } from './utils/constant';
 import Loading from './components/Loading';
 import Blog from './components/Blog';
+import { blogBackGroundImgs, imgNum } from './utils/constant';
+import './App.css';
 
 const App = props => {
     useEffect(() => {
@@ -170,7 +172,11 @@ const App = props => {
         if (!props.notice) return;
         setDone(true);
     }, [props]);
-    return <>{done ? <Blog /> : <Loading />}</>;
+    return (
+        <div className="App-box" style={{ backgroundImage: `url(${blogBackGroundImgs[imgNum]})` }}>
+            {done ? <Blog /> : <Loading />}
+        </div>
+    );
 };
 
 export default connect(

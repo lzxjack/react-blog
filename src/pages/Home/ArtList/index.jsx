@@ -15,7 +15,7 @@ const ArtList = props => {
                 .map(item => (
                     <div key={item._id} className="animated bounceInLeft">
                         <div
-                            className="article-item transparent-box"
+                            className="article-item theme-color"
                             onClick={() => showOneArticle(item.titleEng)}
                         >
                             <div className="article-item-title">{item.title}</div>

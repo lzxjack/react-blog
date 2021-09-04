@@ -1,7 +1,5 @@
 .PageNav-box {
     height: 50px;
-    /* background-color: #fff; */
-    /* background-color: #232324; */
     user-select: none;
     text-align: center;
 }
@@ -21,7 +19,8 @@
 .ant-pagination .ant-pagination-item,
 .ant-pagination .ant-pagination-jump-prev,
 .ant-pagination .ant-pagination-jump-next {
-    background-color: rgba(61, 61, 61, 0.6);
+    /* 这里是主题色 */
+    background-color: rgba(35, 35, 36, 0.8);
     border: none;
     border-radius: 10px;
     /* cursor: default; */

@@ -33,7 +33,7 @@ const Msg = props => {
     return (
         <>
             <PageTitle title="留言板" />
-            <div className="standard-page-box">
+            <div className="standard-page-box theme-color">
                 <div className="msg-info animated bounceInLeft">
                     <div>
                         {timeText}，我叫<span className="green">飞鸟</span>,

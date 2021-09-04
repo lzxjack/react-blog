@@ -1,7 +1,7 @@
 .aside-card {
     margin-bottom: 20px;
     border-radius: 20px;
-    background-color: #232324;
+    /* background-color: #232324; */
     overflow: hidden;
     user-select: none;
     transition: all 0.2s;

@@ -30,7 +30,7 @@ const About = props => {
     return (
         <>
             <PageTitle title="关于" />
-            <div className="standard-page-box">
+            <div className="standard-page-box theme-color">
                 <div className="about-title-box animated bounceInDown">
                     <div className={isMe ? 'about-site title-off' : 'about-site'}>关于本站</div>
                     <Switch isMe={isMe} setIsMe={setIsMe} />

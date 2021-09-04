@@ -24,7 +24,7 @@ const ArtTag = props => {
     return (
         <>
             <PageTitle title={myTag} />
-            <div className="standard-page-box animated bounceInLeft">
+            <div className="standard-page-box theme-color animated bounceInLeft">
                 {props.articles
                     .filter(item => item.tags.indexOf(myTag) !== -1)
                     .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)

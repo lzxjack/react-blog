@@ -24,7 +24,7 @@ const TheGallery = props => {
     return (
         <>
             <PageTitle title={title} />
-            <div className="standard-page-box one-gallery-page-box">
+            <div className="standard-page-box theme-color one-gallery-page-box">
                 <div
                     className="turn-back-btn common-hover animated bounceInDown"
                     onClick={() => props.history.go(-1)}

@@ -3,16 +3,15 @@
     min-height: calc(100vh - 120px);
     position: relative;
     font-family: 'yu100';
-    background-position: center 0;
+    /* background-position: center 0;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 .back-top-btn {
     height: 50px;
     width: 50px;
-    background-color: rgba(35, 35, 36, 0.6);
     border-radius: 14px;
     color: #fff;
     font-size: 24px;

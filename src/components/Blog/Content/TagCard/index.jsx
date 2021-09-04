@@ -8,7 +8,7 @@ const TagCard = props => {
     };
     return (
         <div className="animated bounceInRight">
-            <div className="aside-card TagCard-box transparent-box">
+            <div className="aside-card TagCard-box theme-color">
                 {props.tags.map(item => (
                     <span
                         className="theTag common-hover"

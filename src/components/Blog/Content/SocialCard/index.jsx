@@ -9,7 +9,7 @@ const SocialCard = () => {
     const QQ = <img src={QQ_QRCode} alt="QQ" className="QR-code" />;
     return (
         <div className="animated bounceInRight">
-            <div className="aside-card SocialCard-box transparent-box">
+            <div className="aside-card SocialCard-box theme-color">
                 <a
                     className="social-btn common-hover"
                     href="https://github.com/lzxjack"

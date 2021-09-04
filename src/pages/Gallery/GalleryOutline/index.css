@@ -24,6 +24,9 @@
 .galleryUl li:hover {
     transform: scale(1.04);
 }
+.galleryUl li:last-child {
+    margin-bottom: 30px;
+}
 
 .galleryTitleBox {
     box-sizing: content-box;

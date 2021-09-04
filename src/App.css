@@ -1,0 +1,7 @@
+.App-box {
+    min-height: calc(100vh - 120px);
+    background-position: center 0;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+}

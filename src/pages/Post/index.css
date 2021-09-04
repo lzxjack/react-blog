@@ -12,9 +12,6 @@
 .standard-page-box {
     width: 1000px;
     margin: 0 auto;
-    /* background-color: #232324; */
-    /* background-color: rgba(0, 0, 0, 0.7); */
-    background-color: rgba(35, 35, 36, 0.6) !important;
     border-radius: 20px;
     padding: 40px;
     font-size: 20px;

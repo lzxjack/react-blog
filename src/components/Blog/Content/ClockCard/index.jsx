@@ -31,7 +31,7 @@ const ClockCard = () => {
 
     return (
         <div className="animated bounceInRight">
-            <div className="aside-card ClockCard-box transparent-box">
+            <div className="aside-card ClockCard-box theme-color">
                 <div className="dial"></div>
                 <div className="zero"></div>
                 <div className="six"></div>

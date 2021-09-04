@@ -59,8 +59,10 @@ html {
     color: rgb(88, 88, 88);
 }
 
-.transparent-box {
-    background-color: rgba(35, 35, 36, 0.6) !important;
+/* 主题主色 */
+.theme-color {
+    background-color: rgba(35, 35, 36, 0.8);
+    /* background-color: rgb(39, 194, 241); */
 }
 
 /* ————————————————————字体—————————————————————— */
