@@ -39,6 +39,7 @@
     border-radius: 14px;
     color: #fff;
     transition: all 0.2s;
+    user-select: none;
 }
 
 .margin-0 {
