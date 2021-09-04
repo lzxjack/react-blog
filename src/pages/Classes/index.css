@@ -1,7 +1,6 @@
 .class-item {
     position: relative;
     user-select: none;
-    background-color: #0f0f0f;
     height: 60px;
     width: 80%;
     display: flex;

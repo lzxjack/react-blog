@@ -18,12 +18,14 @@ const Copyright = props => {
         <>
             <div
                 className={
-                    showCopySuccess ? 'copyed-success show-copyed-success' : 'copyed-success'
+                    showCopySuccess
+                        ? 'copyed-success theme-color show-copyed-success'
+                        : 'copyed-success theme-color'
                 }
             >
                 复制成功！
             </div>
-            <div className="Copyright-box">
+            <div className="Copyright-box theme-color-1">
                 <CopyrightIcon />
                 {/* <div className="copyright-center"> */}
                 <div className="copyright-title">{props.title}</div>

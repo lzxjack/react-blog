@@ -332,7 +332,22 @@ const Comment = props => {
     return (
         <div className="Comment-box">
             {/* 预览框：固定定位 */}
-            <div className={showPreview ? 'preview-box preview-in' : 'preview-box preview-out'}>
+            <div
+                className={
+                    showPreview
+                        ? 'preview-box theme-color preview-in'
+                        : 'preview-box theme-color preview-out'
+                }
+            >
+                <div
+                    className="close-preview-btn theme-color-1 common-hover"
+                    onClick={() => {
+                        setShowPreview(false);
+                        setIsReply(false);
+                    }}
+                >
+                    ×
+                </div>
                 <div
                     className="preview-content markdownStyle commentMarkDown"
                     dangerouslySetInnerHTML={{
@@ -342,15 +357,6 @@ const Comment = props => {
                         ),
                     }}
                 ></div>
-                <div
-                    className="close-preview-btn common-hover"
-                    onClick={() => {
-                        setShowPreview(false);
-                        setIsReply(false);
-                    }}
-                >
-                    关闭
-                </div>
             </div>
             {/* 预览框的mask */}
             <div className={showPreview ? 'comment-mask' : 'comment-mask comment-mask-none'}></div>
@@ -364,7 +370,11 @@ const Comment = props => {
             ></div>
             {/* 回复框：固定定位 */}
             <div
-                className={showReply ? 'comment-reply-box reply-in' : 'comment-reply-box reply-out'}
+                className={
+                    showReply
+                        ? 'comment-reply-box theme-color reply-in'
+                        : 'comment-reply-box theme-color reply-out'
+                }
             >
                 <div className="comment-edit-box">
                     <div className="comment-edit-avatar-box">
@@ -376,8 +386,10 @@ const Comment = props => {
                     </div>
                     <div className="comment-edit-input-box">
                         <div className="comment-input-box">
-                            <div className="comment-input-info flex2">
-                                <div className="comment-input-key common-hover">昵称</div>
+                            <div className="comment-input-info theme-color-1 flex2">
+                                <div className="comment-input-key theme-color-2 common-hover">
+                                    昵称
+                                </div>
                                 <input
                                     type="text"
                                     className="comment-input-value"
@@ -390,8 +402,10 @@ const Comment = props => {
                                     onBlur={getQQAvatar}
                                 />
                             </div>
-                            <div className="comment-input-info flex3">
-                                <div className="comment-input-key common-hover">邮箱</div>
+                            <div className="comment-input-info theme-color-1 flex3">
+                                <div className="comment-input-key theme-color-2 common-hover">
+                                    邮箱
+                                </div>
                                 <input
                                     type="text"
                                     className="comment-input-value"
@@ -400,8 +414,10 @@ const Comment = props => {
                                     placeholder="必填"
                                 />
                             </div>
-                            <div className="comment-input-info flex3">
-                                <div className="comment-input-key common-hover">网址</div>
+                            <div className="comment-input-info theme-color-1 flex3">
+                                <div className="comment-input-key theme-color-2 common-hover">
+                                    网址
+                                </div>
                                 <input
                                     type="text"
                                     className="comment-input-value"
@@ -411,9 +427,9 @@ const Comment = props => {
                                 />
                             </div>
                         </div>
-                        <div className="comment-textarea-box">
+                        <div className="comment-textarea-box theme-color-1">
                             <textarea
-                                className="comment-textarea"
+                                className="comment-textarea theme-color-1"
                                 value={replyContent}
                                 onChange={e => setReplyContent(e.target.value)}
                                 placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ，自动获取「头像」和「邮箱」~"
@@ -422,7 +438,7 @@ const Comment = props => {
 
                         <div className="comment-btns">
                             <div
-                                className="comment-cancel-btn common-hover"
+                                className="comment-cancel-btn theme-color-2 common-hover"
                                 onClick={() => {
                                     setShowReply(false);
                                     setReplyId('');
@@ -433,12 +449,15 @@ const Comment = props => {
                                 取消
                             </div>
                             <div
-                                className="comment-preview-btn common-hover"
+                                className="comment-preview-btn theme-color-2 common-hover"
                                 onClick={openReplyPreview}
                             >
                                 预览
                             </div>
-                            <div className="comment-send-btn common-hover" onClick={sendReply}>
+                            <div
+                                className="comment-send-btn theme-color-2 common-hover"
+                                onClick={sendReply}
+                            >
                                 发送
                             </div>
                         </div>
@@ -484,8 +503,8 @@ const Comment = props => {
                 </div>
                 <div className="comment-edit-input-box">
                     <div className="comment-input-box">
-                        <div className="comment-input-info flex2">
-                            <div className="comment-input-key common-hover">昵称</div>
+                        <div className="comment-input-info theme-color-1 flex2">
+                            <div className="comment-input-key theme-color-2 common-hover">昵称</div>
                             <input
                                 type="text"
                                 className="comment-input-value"
@@ -498,8 +517,8 @@ const Comment = props => {
                                 onBlur={getQQAvatar}
                             />
                         </div>
-                        <div className="comment-input-info flex3">
-                            <div className="comment-input-key common-hover">邮箱</div>
+                        <div className="comment-input-info theme-color-1 flex3">
+                            <div className="comment-input-key theme-color-2 common-hover">邮箱</div>
                             <input
                                 type="text"
                                 className="comment-input-value"
@@ -509,8 +528,8 @@ const Comment = props => {
                                 onBlur={saveEmail}
                             />
                         </div>
-                        <div className="comment-input-info flex3">
-                            <div className="comment-input-key common-hover">网址</div>
+                        <div className="comment-input-info theme-color-1 flex3">
+                            <div className="comment-input-key theme-color-2 common-hover">网址</div>
                             <input
                                 type="text"
                                 className="comment-input-value"
@@ -521,9 +540,9 @@ const Comment = props => {
                             />
                         </div>
                     </div>
-                    <div className="comment-textarea-box">
+                    <div className="comment-textarea-box theme-color-1">
                         <textarea
-                            className="comment-textarea"
+                            className="comment-textarea theme-color-1"
                             value={content}
                             onChange={e => setContent(e.target.value)}
                             placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ，自动获取「头像」和「邮箱」~"
@@ -532,13 +551,16 @@ const Comment = props => {
 
                     <div className="comment-btns">
                         <div
-                            className="comment-preview-btn common-hover"
+                            className="comment-preview-btn theme-color-2 common-hover"
                             // onClick={() => setShowPreview(true)}
                             onClick={openMsgPreview}
                         >
                             预览
                         </div>
-                        <div className="comment-send-btn common-hover" onClick={sendMsg}>
+                        <div
+                            className="comment-send-btn theme-color-2 common-hover"
+                            onClick={sendMsg}
+                        >
                             发送
                         </div>
                     </div>
@@ -583,7 +605,7 @@ const Comment = props => {
                                 </span>
                             </div>
                             <div
-                                className="comment-show-content markdownStyle commentMarkDown"
+                                className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
                                 dangerouslySetInnerHTML={{
                                     __html: marked(item.content).replace(
                                         /<pre>/g,
@@ -636,7 +658,7 @@ const Comment = props => {
                                                     </span>
                                                 </div>
                                                 <div
-                                                    className="comment-show-content markdownStyle commentMarkDown"
+                                                    className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
                                                     dangerouslySetInnerHTML={{
                                                         __html: marked(replyItem.content).replace(
                                                             /<pre>/g,

@@ -1,5 +1,4 @@
 .art-show-item {
-    background-color: #0f0f0f;
     border-radius: 20px;
     margin-bottom: 16px;
     overflow: hidden;
@@ -38,7 +37,6 @@
     transition: all 0.2s;
     color: rgb(223, 223, 223);
     height: 30px;
-    background-color: rgb(58, 58, 58);
     position: absolute;
     right: 20px;
     top: 50%;

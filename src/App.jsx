@@ -173,9 +173,6 @@ const App = props => {
     return <>{done ? <Blog /> : <Loading />}</>;
 };
 
-{
-    /* <div className="App-box" style={{ backgroundImage: `url(${blogBackGroundImgs[imgNum]})` }}></div> */
-}
 export default connect(
     state => ({
         loginState: state.loginState,

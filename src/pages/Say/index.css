@@ -22,7 +22,6 @@
     flex: 1;
 }
 .say-content {
-    background-color: #0f0f0f;
     border-radius: 14px;
     display: flex;
     min-height: 90px;
@@ -43,7 +42,6 @@
     transition: all 0.2s;
     color: rgb(223, 223, 223);
     height: 30px;
-    background-color: rgb(58, 58, 58);
     position: absolute;
     right: 10px;
     bottom: 10px;

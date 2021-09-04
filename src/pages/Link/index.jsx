@@ -26,7 +26,7 @@ const Link = props => {
                     {props.links.map(item => {
                         if (JSON.stringify(item) !== '{}') {
                             return (
-                                <li className="link-item" key={item._id}>
+                                <li className="link-item theme-color-1" key={item._id}>
                                     <a
                                         href={item.link}
                                         rel="noreferrer"

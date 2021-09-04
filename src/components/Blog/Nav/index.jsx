@@ -20,7 +20,7 @@ const Nav = props => {
     }, [props]);
     return (
         <>
-            <nav className="nav-pc" id={props.navShow ? '' : 'hiddenNav'}>
+            <nav className="nav-pc theme-color" id={props.navShow ? '' : 'hiddenNav'}>
                 <div className="nav-content">
                     <NavLink className="home-btn common-hover" to="/">
                         <HomeOutlined />
@@ -36,13 +36,22 @@ const Nav = props => {
 
                     <div className="nav-btn common-hover articles-btn">
                         <div className="articels-second">
-                            <NavLink className="articels-second-item common-hover" to="/articles">
+                            <NavLink
+                                className="articels-second-item theme-color common-hover"
+                                to="/articles"
+                            >
                                 找文章
                             </NavLink>
-                            <NavLink className="articels-second-item common-hover" to="/classes">
+                            <NavLink
+                                className="articels-second-item theme-color common-hover"
+                                to="/classes"
+                            >
                                 分类
                             </NavLink>
-                            <NavLink className="articels-second-item common-hover" to="/tags">
+                            <NavLink
+                                className="articels-second-item theme-color common-hover"
+                                to="/tags"
+                            >
                                 标签
                             </NavLink>
                         </div>

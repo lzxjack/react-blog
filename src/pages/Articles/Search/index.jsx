@@ -72,13 +72,13 @@ const Search = props => {
             <div className="animated bounceInDown">
                 <div className="search-input-box">
                     <input
-                        className="search-input"
+                        className="search-input theme-color-1"
                         type="text"
                         ref={searchWords}
                         placeholder="搜索文章..."
                         onChange={searchByWords}
                     />
-                    <div className="clear-btn common-hover" onClick={resetSearch}>
+                    <div className="clear-btn theme-color-1 common-hover" onClick={resetSearch}>
                         <RedoOutlined />
                     </div>
                 </div>
@@ -96,8 +96,8 @@ const Search = props => {
                         searchByClass(value);
                         setSearchClass(value);
                     }}
-                    className="select-class"
-                    dropdownClassName="select-dropdown"
+                    className="select-class theme-color-1"
+                    dropdownClassName="select-dropdown theme-color-1"
                 >
                     {props.classes.map(item => (
                         <Option key={item.class}>{item.class}</Option>
@@ -120,8 +120,8 @@ const Search = props => {
                         searchByTag(value);
                         setSearchTag(value);
                     }}
-                    className="select-tag"
-                    dropdownClassName="select-dropdown"
+                    className="select-tag theme-color-1"
+                    dropdownClassName="select-dropdown theme-color-1"
                 >
                     {props.tags.map(item => (
                         <Option key={item.tag}>{item.tag}</Option>

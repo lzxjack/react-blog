@@ -1,7 +1,8 @@
 #hljs {
     padding: 10px 20px;
     color: #c9d1d9;
-    background: #0d1117;
+    /* 副色1 */
+    background-color: rgb(19, 19, 26);
     border-radius: 20px;
     box-shadow: 0 0 14px rgb(0, 0, 0) inset;
 }
@@ -16,7 +17,8 @@
 }
 /* 滚动条滑块 */
 #hljs::-webkit-scrollbar-thumb {
-    background: #383838;
+    /* 副色2 */
+    background-color: rgb(69, 69, 88);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }

@@ -2,7 +2,6 @@
     position: relative;
     width: 100%;
     border-radius: 20px;
-    background-color: #0f0f0f;
     padding: 14px;
     overflow: hidden;
     color: #ccc;
@@ -76,7 +75,6 @@
     bottom: -50px;
     width: 200px;
     height: 50px;
-    background-color: #232324;
     color: #fff;
     display: flex;
     justify-content: space-evenly;

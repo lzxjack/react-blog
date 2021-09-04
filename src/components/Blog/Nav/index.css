@@ -7,12 +7,12 @@
     position: fixed;
     top: 0;
     z-index: 9;
-    background-color: rgba(35, 35, 36, 0.8);
-    user-select: none;
+    box-shadow: 0 0 18px #000;
     transition: all 0.3s;
 }
 #hiddenNav {
     top: -60px;
+    box-shadow: none;
 }
 
 .nav-content {
@@ -89,7 +89,6 @@
     top: 50px;
 }
 .articels-second-item {
-    background-color: rgb(58, 58, 58);
     display: flex;
     justify-content: center;
     align-items: center;

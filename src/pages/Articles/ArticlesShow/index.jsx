@@ -17,11 +17,11 @@ const ArticlesShow = props => {
                     .map(item => (
                         <div className="animated bounceInUp" key={item._id}>
                             <div
-                                className="art-show-item"
+                                className="art-show-item theme-color-1"
                                 onClick={() => turnToArticle(item.titleEng)}
                             >
                                 <div className="art-show-title">{item.title}</div>
-                                <span className="art-show-date common-hover">
+                                <span className="art-show-date theme-color-2 common-hover">
                                     {moment(item.date).format('YYYY-MM-DD')}
                                 </span>
                             </div>

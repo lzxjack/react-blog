@@ -19,8 +19,8 @@
 .ant-pagination .ant-pagination-item,
 .ant-pagination .ant-pagination-jump-prev,
 .ant-pagination .ant-pagination-jump-next {
-    /* 这里是主题色 */
-    background-color: rgb(35, 35, 44);
+    /* 副色1 */
+    background-color: rgb(19, 19, 26);
     border: none;
     border-radius: 10px;
     /* cursor: default; */

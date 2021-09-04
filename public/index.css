@@ -59,10 +59,18 @@ html {
     color: rgb(88, 88, 88);
 }
 
-/* 主题主色 */
+/* 主色 */
 .theme-color {
-    background-color: rgb(35, 35, 44);
-    /* background-color: rgb(39, 194, 241); */
+    background-color: rgba(35, 35, 44, 1);
+}
+/* 副色1 */
+.theme-color-1 {
+    background-color: rgb(19, 19, 26);
+}
+/* 副色2 */
+.theme-color-2 {
+    background-color: rgb(69, 69, 88);
+    /* background-color: rgb(83, 88, 69); */
 }
 
 /* ————————————————————字体—————————————————————— */

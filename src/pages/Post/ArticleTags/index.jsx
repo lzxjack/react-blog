@@ -8,7 +8,11 @@ const ArticleTags = props => {
     return (
         <div className="standard-page-tags">
             {props.tags.map(item => (
-                <span className="tag common-hover" key={item} onClick={() => toSomeArts(item)}>
+                <span
+                    className="tag theme-color-1 common-hover"
+                    key={item}
+                    onClick={() => toSomeArts(item)}
+                >
                     {item}
                 </span>
             ))}

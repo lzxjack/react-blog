@@ -18,7 +18,7 @@ const ArticleAside = props => {
         setTocArr(toc);
     }, [props]);
     return (
-        <div className="aside-box">
+        <div className="aside-box theme-color">
             <ul className="aside-ul animated bounceInRight">
                 {tocArr.map((item, index) => (
                     <li
@@ -34,7 +34,7 @@ const ArticleAside = props => {
                         }
                     >
                         <a
-                            className="tocLink theme-color common-hover"
+                            className="tocLink theme-color-1 common-hover"
                             onClick={() => {
                                 props.setNavShow(false);
                             }}

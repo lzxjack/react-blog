@@ -13,7 +13,6 @@
 }
 .nav-mobile {
     display: none;
-    background-color: rgba(75, 75, 75, 0.85);
     position: fixed;
     height: 100%;
     width: 100px;
@@ -56,7 +55,8 @@
 }
 .nav-mobile-active,
 .nav-mobile-item:hover {
-    background-color: rgb(43, 43, 43);
+    /* 副色1 */
+    background-color: rgb(19, 19, 26);
 }
 
 .nav-nobile-bottom {

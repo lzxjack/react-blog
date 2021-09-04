@@ -39,24 +39,18 @@ const Post = props => {
     };
     return (
         <div className="Article-box">
-            {/* <div
-                className="turn-back-btn common-hover animated bounceInDown"
-                onClick={() => props.history.push('/home')}
-            >
-                <SwapLeftOutlined />
-            </div> */}
             <div className="animated bounceInDown">
                 <div className="standard-page-title">
                     <span className="article-title">{title}</span>
 
                     <div className="article-info-box">
                         <span
-                            className="article-class common-hover"
+                            className="article-class theme-color common-hover"
                             onClick={() => toSomeArts(classes)}
                         >
                             {classes}
                         </span>
-                        <span className="article-date common-hover">
+                        <span className="article-date theme-color common-hover">
                             {moment(date).format('YYYY-MM-DD HH:mm:ss')}
                         </span>
                     </div>

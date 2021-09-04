@@ -3,7 +3,6 @@ import PageTitle from '../../components/Blog/Content/PageTitle';
 import TimeLine from './TimeLine';
 import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
-import './index.css';
 
 const Log = props => {
     // 返回顶部

@@ -21,9 +21,9 @@ const Say = props => {
 
                         <div className="say-content-box">
                             <div className="animated bounceInRight">
-                                <div className="say-content">
+                                <div className="say-content theme-color-1">
                                     {item.content}
-                                    <span className="say-content-date common-hover">
+                                    <span className="say-content-date theme-color-2 common-hover">
                                         {moment(item.date).format('YYYY-MM-DD HH:mm:ss')}
                                     </span>
                                 </div>

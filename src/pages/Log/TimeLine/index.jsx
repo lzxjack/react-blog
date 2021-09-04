@@ -15,7 +15,7 @@ const TimeLine = props => (
                         {moment(item.date).format('YYYY-MM-DD')}
                     </div>
                     <div key={item._id} className="animated bounceInRight">
-                        <ul className="time-line-content">
+                        <ul className="time-line-content theme-color-1">
                             {item.logContent.map(log => (
                                 <li key={nanoid()}>{log}</li>
                             ))}

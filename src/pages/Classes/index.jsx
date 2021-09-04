@@ -18,7 +18,7 @@ const Classes = props => {
                     .filter(item => item.count > 0)
                     .map(item => (
                         <div
-                            className="class-item"
+                            className="class-item theme-color-1"
                             key={item._id}
                             onClick={() => toSomeArts(item.class)}
                         >

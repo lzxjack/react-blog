@@ -8,7 +8,7 @@
 }
 .aside-ul {
     user-select: none;
-    padding: 14px;
+    padding: 10px;
     max-height: 700px;
     overflow-y: auto;
     margin: 10px;
@@ -24,7 +24,8 @@
 }
 /* 滚动条滑块 */
 .aside-ul::-webkit-scrollbar-thumb {
-    background: #535353;
+    /* 副色2 */
+    background-color: rgb(69, 69, 88);
     border-radius: 6px;
 }
 

@@ -31,7 +31,7 @@ const ArtTag = props => {
                     .map(item => (
                         <div className="animated bounceInUp" key={item._id}>
                             <div
-                                className="art-show-item"
+                                className="art-show-item theme-color-1"
                                 onClick={() => turnToArticle(item.titleEng)}
                             >
                                 <div className="art-show-title">{item.title}</div>

@@ -28,7 +28,6 @@
 
 .comment-input-info {
     height: 36px;
-    background-color: #0f0f0f;
     margin-right: 10px;
     display: flex;
     border-radius: 14px;
@@ -46,7 +45,6 @@
 .comment-input-key {
     width: 80px;
     height: 100%;
-    background-color: #585858;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +62,6 @@
 .comment-textarea-box {
     height: 140px;
     padding: 8px 16px;
-    background-color: #0f0f0f;
     border-radius: 14px;
 }
 .comment-textarea {
@@ -73,7 +70,6 @@
     height: 100%;
     border: none;
     outline: none;
-    background-color: #0f0f0f;
 }
 /* 设置滚动条的样式 */
 .comment-textarea::-webkit-scrollbar {
@@ -86,7 +82,8 @@
 }
 /* 滚动条滑块 */
 .comment-textarea::-webkit-scrollbar-thumb {
-    background: #333333;
+    /* 副色2 */
+    background-color: rgb(69, 69, 88);
     border-radius: 4px;
 }
 
@@ -102,7 +99,6 @@
     position: absolute;
     width: 70px;
     height: 36px;
-    background-color: #585858;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,13 +124,13 @@
     position: fixed;
     height: 180px;
     width: 600px;
-    background-color: rgb(37, 37, 37);
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px 46px;
     top: 50%;
     transform: translate(-50%, -50%);
     transition: all 0.4s;
     z-index: 100;
+    box-shadow: 0 0 18px #000;
 }
 .preview-content {
     width: 100%;
@@ -153,7 +149,8 @@
 }
 /* 滚动条滑块 */
 .preview-content::-webkit-scrollbar-thumb {
-    background: #6d6d6d;
+    /* 副色2 */
+    background-color: rgb(69, 69, 88);
     border-radius: 4px;
 }
 .preview-in {
@@ -165,18 +162,15 @@
 
 .close-preview-btn {
     position: absolute;
-    left: 50%;
-    bottom: -50px;
-    transform: translate(-50%, 0);
-    width: 70px;
-    height: 40px;
-    background-color: #2e2e2e;
+    right: 6px;
+    top: 6px;
+    width: 36px;
+    height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
-    border-radius: 14px;
-    margin: 0 auto;
+    border-radius: 50%;
     cursor: pointer;
 }
 
@@ -242,7 +236,6 @@
     font-size: 16px;
 }
 .comment-show-content {
-    background-color: rgb(58, 58, 58);
     padding: 10px 16px;
     border-radius: 12px;
     font-size: 18px;
@@ -264,7 +257,6 @@
     position: absolute;
     top: 6px;
     right: 0;
-    /* background-color: rgb(82, 67, 67); */
     height: 28px;
     width: 36px;
     display: flex;
@@ -280,13 +272,13 @@
     position: fixed;
     /* height: 300px; */
     width: 1000px;
-    background-color: rgb(61, 61, 61);
     border-radius: 20px;
     padding: 20px;
     top: 50%;
     transform: translate(50%, -50%);
     transition: all 0.4s;
     z-index: 98;
+    box-shadow: 0 0 18px #000;
 }
 .reply-in {
     right: 50%;
@@ -459,6 +451,7 @@
     .preview-box {
         width: 90%;
         font-size: 14px;
+        padding: 10px 40px;
     }
     /* 设置滚动条的样式 */
     .preview-content::-webkit-scrollbar {
@@ -469,11 +462,10 @@
     }
 
     .close-preview-btn {
-        font-size: 12px;
-        bottom: -30px;
-        width: 40px;
-        height: 24px;
-        border-radius: 8px;
+        right: 6px;
+        top: 6px;
+        width: 28px;
+        height: 28px;
     }
 
     .comment-show-item {

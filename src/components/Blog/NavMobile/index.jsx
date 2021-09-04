@@ -29,7 +29,13 @@ const NavMobile = props => {
                 }
                 onClick={() => props.setDrawerShow(false)}
             ></div>
-            <div className={props.drawerShow ? 'nav-mobile nav-mobile-in' : 'nav-mobile'}>
+            <div
+                className={
+                    props.drawerShow
+                        ? 'nav-mobile theme-color nav-mobile-in'
+                        : 'nav-mobile theme-color'
+                }
+            >
                 <div className="nav-mobile-avatar-box">
                     <img src={avatarUrl} alt="avatar" className="nav-mobile-avatar" />
                 </div>
