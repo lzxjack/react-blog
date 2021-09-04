@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-import loginState from './loginState';
 import tags from './tags';
 import classes from './classes';
 import articles from './articles';
@@ -23,7 +22,6 @@ import navShow from './navShow';
 import notice from './notice';
 
 export default combineReducers({
-    loginState,
     tags,
     classes,
     articles,

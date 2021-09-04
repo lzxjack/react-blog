@@ -1,7 +1,6 @@
 import {
     GET_ARTICLES,
     GET_CLASSES,
-    LOGIN,
     GET_POEM,
     GET_TAGS,
     GET_GALLERIES,
@@ -18,12 +17,6 @@ import {
     GET_MSGS_REPLY,
     GET_NOTICE,
 } from '../constant';
-
-// 登录
-export const login = data => ({
-    type: LOGIN,
-    data,
-});
 
 // 获得所有文章
 export const getArticles = data => ({

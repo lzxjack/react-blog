@@ -1,6 +1,3 @@
-// loginState
-export const LOGIN = 'login';
-
 // tags
 export const GET_TAGS = 'getTags';
 

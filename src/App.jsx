@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { db, auth, _ } from './utils/cloudBase';
-// import moment from 'moment';
-import { login } from './redux/actions';
 import {
     getClasses,
     getTags,
@@ -196,7 +194,6 @@ export default connect(
         notice: state.notice,
     }),
     {
-        login,
         getClasses,
         getTags,
         getPoem,
