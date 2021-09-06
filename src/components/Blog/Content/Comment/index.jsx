@@ -376,6 +376,9 @@ const Comment = props => {
                         : 'comment-reply-box theme-color reply-out'
                 }
             >
+                <div className="reply-who">
+                    回复给「<span>{owner}</span>」：
+                </div>
                 <div className="comment-edit-box">
                     <div className="comment-edit-avatar-box">
                         <img

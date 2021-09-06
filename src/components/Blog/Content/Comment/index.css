@@ -280,6 +280,12 @@
     z-index: 98;
     box-shadow: 0 0 18px #000;
 }
+.reply-who {
+    user-select: none;
+}
+.reply-who span {
+    color: rgb(180, 180, 0);
+}
 .reply-in {
     right: 50%;
 }
@@ -515,7 +521,10 @@
     .comment-reply-box {
         width: 90%;
         border-radius: 12px;
-        padding: 0 10px 10px 10px;
+        padding: 10px;
+    }
+    .reply-who {
+        font-size: 12px;
     }
     .reply-out {
         right: -2000px;
