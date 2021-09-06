@@ -12,7 +12,9 @@ import {
     adminUrlCheck,
     avatarUrl,
     APIUrl,
+    QMsgUrl,
 } from '../../../../utils/constant';
+import { Q_MSG_KEY } from '../../../../utils/secret';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
 import marked from 'marked';
@@ -215,8 +217,25 @@ const Comment = props => {
                 getCommentsFromDB();
                 setShowReply(false);
                 setReplyContent('');
-                sendReplyEmail();
+                // 回复者和被回复的对象不是同一个人，才发送邮件提醒被回复对象
+                if (email !== replyEmail) {
+                    sendReplyEmail();
+                } else {
+                    message.success('回复成功!');
+                }
+                informAdminByQMsg();
             });
+    };
+    // 提醒管理员，有评论收到回复
+    const informAdminByQMsg = () => {
+        axios({
+            url: `${QMsgUrl}/${Q_MSG_KEY}`,
+            method: 'get',
+            params: {
+                msg: `「${props.title}」中「${owner}」的评论收到「${name}」的新回复！\n回复内容：${replyContent}`,
+            },
+            withCredentials: true,
+        });
     };
     // 提醒原评论人有人回复
     const sendReplyEmail = () => {
