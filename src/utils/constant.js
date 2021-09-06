@@ -1,5 +1,3 @@
-import { Q_MSG_KEY } from './secret';
-
 // 博客的云环境ID
 export const env = 'blog-admin-7gys9jfy3a4d43aa';
 
@@ -71,3 +69,4 @@ export const QQ_QRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/2021
 
 // QMsg酱接口
 export const QMsgUrl = 'https://qmsg.zendee.cn/send';
+export const QMsgKey = '1cb445e8137aea6daff673a7e07cbc11';

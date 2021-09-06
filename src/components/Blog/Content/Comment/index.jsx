@@ -13,8 +13,8 @@ import {
     avatarUrl,
     APIUrl,
     QMsgUrl,
+    QMsgKey,
 } from '../../../../utils/constant';
-import { Q_MSG_KEY } from '../../../../utils/secret';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
 import marked from 'marked';
@@ -229,7 +229,7 @@ const Comment = props => {
     // 提醒管理员，有评论收到回复
     const informAdminByQMsg = () => {
         axios({
-            url: `${QMsgUrl}/${Q_MSG_KEY}`,
+            url: `${QMsgUrl}/${QMsgKey}`,
             method: 'get',
             params: {
                 msg: `「${props.title}」中「${owner}」的评论收到「${name}」的新回复！\n回复内容：${replyContent}`,
