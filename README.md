@@ -1,4 +1,4 @@
-> 这是个人博客系统的**博客展示页面**，**后台管理页面**仓库见<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>。
+> 这是个人博客系统的**博客展示页面**，**后台管理页面**仓库见<a href="https://github.com/lzxjack/react-blog-admin" target="_blank">「react-blog-admin」</a>。
 
 # 0. 看这里 ✔️
 
@@ -20,11 +20,11 @@
 
 ## 1. 博客展示页面
 
-演示地址：<a href="https://lzxjack.top/" target="_blank">「飞鸟」</a>
+演示地址：<a href="https://lzxjack.top/" target="_blank">「飞鸟小站」</a>
 
-仓库地址：<a href="https://github.com/lzxjack/blog-show" target="_blank">「GitHub」</a>
+仓库地址：<a href="https://github.com/lzxjack/react-blog" target="_blank">「GitHub」</a>
 
-![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210825092652.png)
+![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210907102912.png)
 
 ## 2. 后台管理页面
 
@@ -35,9 +35,9 @@
 -   邮箱：`490878306@qq.com`
 -   密码：`asd123456`
 
-仓库地址：<a href="https://github.com/lzxjack/blog-admin" target="_blank">「GitHub」</a>
+仓库地址：<a href="https://github.com/lzxjack/react-blog-admin" target="_blank">「GitHub」</a>
 
-![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210825092820.png)
+![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210907102952.png)
 
 # 3. 用到的技术/工具
 
@@ -67,8 +67,8 @@
 
 -   评论回复的邮箱提醒`API`，使用`Node.js`编写，运行在自己的**阿里云服务器**上
 -   已配置**SSL 证书**，开启**HTTPS**访问
--   博客展示页面部署在**阿里云服务器**
--   图床使用**阿里云 OSS**
+-   博客展示页面托管于**腾讯云开发静态文件托管**
+-   图床使用**阿里云OSS**
 -   `Webify`：应用托管，自动部署**后台管理页面**
 
 # 4. 主要功能
