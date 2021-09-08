@@ -30,10 +30,7 @@
 
 演示地址：<a href="https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/" target="_blank">「飞鸟小站后台」</a>
 
-游客帐号：
-
--   邮箱：`490878306@qq.com`
--   密码：`asd123456`
+> 点击`游客`按钮即可使用**游客**身份浏览！
 
 仓库地址：<a href="https://github.com/lzxjack/react-blog-admin" target="_blank">「GitHub」</a>
 
