@@ -1,9 +1,9 @@
 // 博客的云环境ID
-export const env = 'blog-admin-7gys9jfy3a4d43aa';
+export const env = 'react-blog-admin-8fo571wf24c87f9';
 
 // 博客后台管理的网址
 export const blogAdminUrl =
-    'https://blog-admin-7gys9jfy3a4d43aa-1304393382.ap-shanghai.app.tcloudbase.com/';
+    'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/';
 
 // siteCount ID
 export const count_id = 'cd045e756100126d005169f014931c65';
@@ -17,7 +17,7 @@ export const homePageSize = 8;
 export const articlesPageSize = 10;
 
 // 管理员信息
-export const adminUid = '9bf44da2dbb8473da1fcf4f591cb82ff';
+export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
 export const adminName = '飞鸟';
 export const adminQQ = '965555169';
 export const adminQQEmail = '965555169@qq.com';
