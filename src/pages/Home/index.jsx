@@ -1,6 +1,6 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { connect } from 'react-redux';
-import { setNavShow } from '../../redux/actions';
+import { setNavShow, setHomePage } from '../../redux/actions';
 import ArtList from './ArtList';
 import PageNav from './PageNav';
 import BlogCard from '../../components/Blog/Content/BlogCard';
@@ -16,7 +16,7 @@ import './index.css';
 const Home = props => {
     // 返回顶部
     useToTop(props, true);
-    const [curPage, setCurPage] = useState(1);
+    const { homePage, setHomePage } = props;
     return (
         <div className="Home-box">
             <div className="home-top-img">
@@ -25,8 +25,8 @@ const Home = props => {
             </div>
             <div className="home-body">
                 <div className="home-main">
-                    <ArtList curPage={curPage} />
-                    <PageNav curPage={curPage} setCurPage={setCurPage} />
+                    <ArtList curPage={homePage} />
+                    <PageNav curPage={homePage} setCurPage={setHomePage} />
                 </div>
                 <div className="home-aside">
                     <BlogCard />
@@ -45,6 +45,7 @@ const Home = props => {
 export default connect(
     state => ({
         content: state.poem.content,
+        homePage: state.pageNum.homePage,
     }),
-    { setNavShow }
+    { setNavShow, setHomePage }
 )(Home);

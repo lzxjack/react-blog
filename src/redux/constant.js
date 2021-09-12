@@ -46,3 +46,9 @@ export const SET_NAV_SHOW = 'setNavShow';
 
 // 公告
 export const GET_NOTICE = 'getNotice';
+
+// 页码相关
+export const SET_HOME_PAGE = 'setHomePage';
+export const SET_ARTICLE_PAGE = 'setArticlePage';
+export const SET_CLASS_PAGE = 'setClassPage';
+export const SET_TAG_PAGE = 'setTagPage';

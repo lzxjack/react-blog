@@ -4,7 +4,7 @@ import PageTitle from '../../components/Blog/Content/PageTitle';
 import Search from './Search';
 import ArticlesShow from './ArticlesShow';
 import ArticlesNav from './ArticlesNav';
-import { setNavShow } from '../../redux/actions';
+import { setNavShow, setArticlePage } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
@@ -13,16 +13,16 @@ const Articles = props => {
     useToTop(props, true);
     // 需要展示文章的state
     const [articlesShow, setArticlesShow] = useState([]);
-    const [curPage, setCurPage] = useState(1);
+    const { articlePage, setArticlePage } = props;
     return (
         <>
             <PageTitle title="所有文章" />
             <div className="standard-page-box articles theme-color">
                 <Search getArticle={setArticlesShow} />
-                <ArticlesShow articles={articlesShow} curPage={curPage} />
+                <ArticlesShow articles={articlesShow} curPage={articlePage} />
                 <ArticlesNav
-                    curPage={curPage}
-                    setCurPage={setCurPage}
+                    curPage={articlePage}
+                    setCurPage={setArticlePage}
                     articleNum={articlesShow.length}
                 />
             </div>
@@ -30,4 +30,9 @@ const Articles = props => {
     );
 };
 
-export default connect(() => ({}), { setNavShow })(Articles);
+export default connect(
+    state => ({
+        articlePage: state.pageNum.articlePage,
+    }),
+    { setNavShow, setArticlePage }
+)(Articles);

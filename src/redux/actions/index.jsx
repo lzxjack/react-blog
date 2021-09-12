@@ -16,6 +16,10 @@ import {
     GET_COMMENTS_REPLY,
     GET_MSGS_REPLY,
     GET_NOTICE,
+    SET_HOME_PAGE,
+    SET_ARTICLE_PAGE,
+    SET_CLASS_PAGE,
+    SET_TAG_PAGE,
 } from '../constant';
 
 // 获得所有文章
@@ -96,5 +100,23 @@ export const getMsgsReply = data => ({
 
 export const getNotice = data => ({
     type: GET_NOTICE,
+    data,
+});
+
+// 页码相关
+export const setHomePage = data => ({
+    type: SET_HOME_PAGE,
+    data,
+});
+export const setArticlePage = data => ({
+    type: SET_ARTICLE_PAGE,
+    data,
+});
+export const setClassPage = data => ({
+    type: SET_CLASS_PAGE,
+    data,
+});
+export const setTagPage = data => ({
+    type: SET_TAG_PAGE,
     data,
 });

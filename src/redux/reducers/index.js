@@ -21,6 +21,8 @@ import siteCount from './siteCount';
 import navShow from './navShow';
 import notice from './notice';
 
+import pageNum from './pageNum';
+
 export default combineReducers({
     tags,
     classes,
@@ -39,4 +41,5 @@ export default combineReducers({
     msgsReply,
     commentsReply,
     notice,
+    pageNum,
 });
