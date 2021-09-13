@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { connect } from 'react-redux';
 import { setNavShow, setHomePage } from '../../redux/actions';
 import ArtList from './ArtList';

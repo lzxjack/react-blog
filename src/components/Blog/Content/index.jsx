@@ -1,4 +1,3 @@
-// import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import About from '../../../pages/About';
 import Articles from '../../../pages/Articles';
