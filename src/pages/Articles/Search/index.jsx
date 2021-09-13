@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Select } from 'antd';
 import { RedoOutlined } from '@ant-design/icons';
 import { isContained } from '../../../utils/functions';
+import { setArticlePage } from '../../../redux/actions';
 import './index.css';
 
 const Search = props => {
@@ -95,6 +96,7 @@ const Search = props => {
                     onChange={value => {
                         searchByClass(value);
                         setSearchClass(value);
+                        props.setArticlePage(1);
                     }}
                     className="select-class theme-color-1"
                     dropdownClassName="select-dropdown theme-color-1"
@@ -119,6 +121,7 @@ const Search = props => {
                     onChange={value => {
                         searchByTag(value);
                         setSearchTag(value);
+                        props.setArticlePage(1);
                     }}
                     className="select-tag theme-color-1"
                     dropdownClassName="select-dropdown theme-color-1"
@@ -138,5 +141,5 @@ export default connect(
         classes: state.classes,
         articles: state.articles,
     }),
-    {}
+    { setArticlePage }
 )(Search);

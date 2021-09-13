@@ -70,6 +70,17 @@
     background-color: rgb(19, 19, 26);
 }
 
+.ant-select-item-option-active,
+.ant-select-item-option-selected {
+    /* 副色2 */
+    background-color: rgb(69, 69, 88) !important;
+}
+
+.select-tag .ant-select-selection-item {
+    /* 副色2 */
+    background-color: rgb(69, 69, 88) !important;
+}
+
 .ant-select-item-option {
     color: #fff !important;
     border-radius: 8px !important;
@@ -80,12 +91,6 @@
 }
 .ant-select-item-option:last-child {
     margin-bottom: 0 !important;
-}
-
-.ant-select-item-option-active,
-.ant-select-item-option-selected {
-    background-color: rgb(180, 180, 0) !important;
-    color: rgb(88, 88, 88) !important;
 }
 
 .ant-select-selection-item-remove svg path {

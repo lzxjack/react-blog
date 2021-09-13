@@ -10,7 +10,7 @@ const ArticlesNav = props => (
             defaultPageSize={articlesPageSize}
             showSizeChanger={false}
             showTitle={false}
-            hideOnSinglePage={true}
+            hideOnSinglePage={false}
             onChange={page => props.setCurPage(page)}
         />
     </div>
