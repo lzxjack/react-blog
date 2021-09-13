@@ -20,6 +20,8 @@ import {
     SET_ARTICLE_PAGE,
     SET_CLASS_PAGE,
     SET_TAG_PAGE,
+    UPDATE_CLASS,
+    UPDATE_TAG,
 } from '../constant';
 
 // 获得所有文章
@@ -118,5 +120,15 @@ export const setClassPage = data => ({
 });
 export const setTagPage = data => ({
     type: SET_TAG_PAGE,
+    data,
+});
+
+export const updateClass = data => ({
+    type: UPDATE_CLASS,
+    data,
+});
+
+export const updateTag = data => ({
+    type: UPDATE_TAG,
     data,
 });

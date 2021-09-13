@@ -4,14 +4,15 @@ import moment from 'moment';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { Pagination } from 'antd';
 import { articlesPageSize } from '../../utils/constant';
-import { setNavShow } from '../../redux/actions';
+import { setNavShow, setTagPage, updateTag } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const ArtTag = props => {
+    const { tagPage, setTagPage, lastTag, updateTag } = props;
     // 返回顶部
     useToTop(props, true);
-    const [curPage, setCurPage] = useState(1);
+
     const turnToArticle = title => {
         props.history.push(`/post?title=${title}`);
     };
@@ -21,13 +22,21 @@ const ArtTag = props => {
         setMyTag(decodeURI(props.location.search.split('?tag=')[1]));
     }, [props]);
 
+    useEffect(() => {
+        if (!myTag) return;
+        if (myTag !== lastTag) {
+            setTagPage(1);
+            updateTag(myTag);
+        }
+    }, [myTag]);
+
     return (
         <>
             <PageTitle title={myTag} />
             <div className="standard-page-box theme-color animated bounceInLeft">
                 {props.articles
                     .filter(item => item.tags.indexOf(myTag) !== -1)
-                    .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)
+                    .slice((tagPage - 1) * articlesPageSize, tagPage * articlesPageSize)
                     .map(item => (
                         <div className="animated bounceInUp" key={item._id}>
                             <div
@@ -43,15 +52,15 @@ const ArtTag = props => {
                     ))}
                 <div className="PageNav-box">
                     <Pagination
-                        current={curPage}
+                        current={tagPage}
                         total={
                             props.articles.filter(item => item.tags.indexOf(myTag) !== -1).length
                         }
                         defaultPageSize={articlesPageSize}
                         showSizeChanger={false}
                         showTitle={false}
-                        // hideOnSinglePage={true}
-                        onChange={page => setCurPage(page)}
+                        hideOnSinglePage={false}
+                        onChange={page => setTagPage(page)}
                     />
                 </div>
             </div>
@@ -61,6 +70,8 @@ const ArtTag = props => {
 export default connect(
     state => ({
         articles: state.articles,
+        tagPage: state.pageNum.tagPage,
+        lastTag: state.lastText.tag,
     }),
-    { setNavShow }
+    { setNavShow, setTagPage, updateTag }
 )(ArtTag);

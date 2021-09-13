@@ -23,6 +23,8 @@ import notice from './notice';
 
 import pageNum from './pageNum';
 
+import lastText from './lastText';
+
 export default combineReducers({
     tags,
     classes,
@@ -42,4 +44,5 @@ export default combineReducers({
     commentsReply,
     notice,
     pageNum,
+    lastText,
 });

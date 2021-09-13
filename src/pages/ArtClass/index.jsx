@@ -4,15 +4,16 @@ import moment from 'moment';
 import PageTitle from '../../components/Blog/Content/PageTitle';
 import { Pagination } from 'antd';
 import { articlesPageSize } from '../../utils/constant';
-import { setNavShow } from '../../redux/actions';
+import { setNavShow, setClassPage, updateClass } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 
 import './index.css';
 
 const ArtClass = props => {
+    const { classPage, setClassPage, lastClass, updateClass } = props;
     // 返回顶部
     useToTop(props, true);
-    const [curPage, setCurPage] = useState(1);
+
     const turnToArticle = title => {
         props.history.push(`/post?title=${title}`);
     };
@@ -22,13 +23,21 @@ const ArtClass = props => {
         setMyClass(decodeURI(props.location.search.split('?class=')[1]));
     }, [props]);
 
+    useEffect(() => {
+        if (!myClass) return;
+        if (myClass !== lastClass) {
+            setClassPage(1);
+            updateClass(myClass);
+        }
+    }, [myClass]);
+
     return (
         <>
             <PageTitle title={myClass} />
             <div className="standard-page-box theme-color animated bounceInLeft">
                 {props.articles
                     .filter(item => item.classes === myClass)
-                    .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)
+                    .slice((classPage - 1) * articlesPageSize, classPage * articlesPageSize)
                     .map(item => (
                         <div className="animated bounceInUp" key={item._id}>
                             <div
@@ -44,13 +53,13 @@ const ArtClass = props => {
                     ))}
                 <div className="PageNav-box">
                     <Pagination
-                        current={curPage}
+                        current={classPage}
                         total={props.articles.filter(item => item.classes === myClass).length}
                         defaultPageSize={articlesPageSize}
                         showSizeChanger={false}
                         showTitle={false}
-                        // hideOnSinglePage={true}
-                        onChange={page => setCurPage(page)}
+                        hideOnSinglePage={false}
+                        onChange={page => setClassPage(page)}
                     />
                 </div>
             </div>
@@ -60,6 +69,8 @@ const ArtClass = props => {
 export default connect(
     state => ({
         articles: state.articles,
+        classPage: state.pageNum.classPage,
+        lastClass: state.lastText.class,
     }),
-    { setNavShow }
+    { setNavShow, setClassPage, updateClass }
 )(ArtClass);

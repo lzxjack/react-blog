@@ -52,3 +52,7 @@ export const SET_HOME_PAGE = 'setHomePage';
 export const SET_ARTICLE_PAGE = 'setArticlePage';
 export const SET_CLASS_PAGE = 'setClassPage';
 export const SET_TAG_PAGE = 'setTagPage';
+// 更新当前分类
+export const UPDATE_CLASS = 'updateClass';
+// 更新当前标签
+export const UPDATE_TAG = 'updateTag';

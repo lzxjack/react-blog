@@ -32,6 +32,7 @@ const Search = props => {
         );
         // 将搜索到的文章，放入要显示的state
         props.getArticle(newArticlesShow);
+        props.setArticlePage(1);
     };
     // 通过选择分类搜索
     const searchByClass = classesName => {
@@ -63,6 +64,7 @@ const Search = props => {
     };
     // 清空搜索内容
     const resetSearch = () => {
+        props.setArticlePage(1);
         searchWords.current.value = '';
         setSearchClass(null);
         setSearchTag([]);
