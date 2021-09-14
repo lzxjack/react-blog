@@ -32,6 +32,17 @@ const Footer = () => {
                     </span>
                 ))}
             </span>
+            <span>
+                Powered by
+                <a
+                    href="https://webify.cloudbase.net/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="icp"
+                >
+                    「CloudBase Webify」
+                </a>
+            </span>
         </footer>
     );
 };
