@@ -38,7 +38,7 @@ const ClockCard = () => {
                 <div className="three"></div>
                 <div className="nine"></div>
                 <div className="container">
-                    <div className="dot"></div>
+                    <div className="dot theme-color-btn"></div>
                     <div
                         className="point clockMinuteLine"
                         style={{ transform: `rotateZ(${minute}deg)` }}
@@ -48,7 +48,7 @@ const ClockCard = () => {
                         style={{ transform: `rotateZ(${hour}deg)` }}
                     ></div>
                     <div
-                        className="point clockSecondLine"
+                        className="point clockSecondLine theme-color-btn"
                         style={{ transform: `rotateZ(${second}deg)` }}
                     ></div>
                 </div>

@@ -68,6 +68,9 @@
     border-radius: 8px;
     color: #fff;
 }
+.copyright-name:hover {
+    color: #fff;
+}
 
 .copyed-success {
     position: fixed;

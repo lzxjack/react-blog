@@ -17,9 +17,6 @@
     padding: 6px 14px;
     border: 1px solid rgb(120, 120, 120);
 }
-.markdownStyle table th {
-    color: rgb(180, 180, 0);
-}
 
 /* a链接 */
 .markdownStyle a {
@@ -44,8 +41,7 @@
 }
 /* 行内代码 */
 .markdownStyle code {
-    color: rgb(241, 241, 151);
-    background-color: #5c5c5c;
+    background-color: rgb(55, 77, 78);
     font-family: 'yu100';
     padding: 0 6px;
 }
@@ -61,8 +57,7 @@
 }
 
 .markdownStyle strong {
-    color: rgb(82, 179, 2);
-    font-family: 'yu400';
+    color: rgb(97, 147, 187);
 }
 
 .markdownStyle blockquote {

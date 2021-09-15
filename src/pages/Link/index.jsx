@@ -31,7 +31,7 @@ const Link = props => {
                                         href={item.link}
                                         rel="noreferrer"
                                         target="_blank"
-                                        className="link-a"
+                                        className="link-a theme-color-font"
                                     >
                                         <img
                                             src={item.avatar}

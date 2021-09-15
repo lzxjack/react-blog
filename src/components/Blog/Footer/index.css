@@ -14,7 +14,8 @@ footer {
     transition: all 0.2s;
 }
 .icp:hover {
-    color: rgb(180, 180, 0);
+    /* 字体颜色 */
+    color: rgb(97, 147, 187);
 }
 
 .site-frame {

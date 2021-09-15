@@ -396,7 +396,7 @@ const Comment = props => {
                 }
             >
                 <div className="reply-who">
-                    回复给「<span>{owner}</span>」：
+                    回复给「<span className="theme-color-font">{owner}</span>」：
                 </div>
                 <div className="comment-edit-box">
                     <div className="comment-edit-avatar-box">
@@ -614,7 +614,7 @@ const Comment = props => {
                                     onClick={item.link ? () => {} : e => e.preventDefault()}
                                     target={item.link ? '_blank' : '_self'}
                                     rel="noreferrer"
-                                    className="comment-show-name common-hover"
+                                    className="comment-show-name theme-color-font common-hover"
                                     style={{ cursor: item.link ? 'pointer' : 'default' }}
                                 >
                                     {item.name}
@@ -623,7 +623,7 @@ const Comment = props => {
                                     <span className="admin-flag">站长</span>
                                 ) : null}
                                 <span className="comment-show-date">
-                                    {moment(item.date).startOf('hour').fromNow()}
+                                    {moment(item.date).fromNow()}
                                 </span>
                             </div>
                             <div
@@ -661,7 +661,7 @@ const Comment = props => {
                                                         }
                                                         target={replyItem.link ? '_blank' : '_self'}
                                                         rel="noreferrer"
-                                                        className="comment-show-name common-hover"
+                                                        className="comment-show-name theme-color-font common-hover"
                                                         style={{
                                                             cursor: replyItem.link
                                                                 ? 'pointer'
@@ -674,9 +674,7 @@ const Comment = props => {
                                                         <span className="admin-flag">站长</span>
                                                     ) : null}
                                                     <span className="comment-show-date">
-                                                        {moment(replyItem.date)
-                                                            .startOf('hour')
-                                                            .fromNow()}
+                                                        {moment(replyItem.date).fromNow()}
                                                     </span>
                                                 </div>
                                                 <div

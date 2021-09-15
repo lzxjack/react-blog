@@ -1,30 +1,41 @@
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
 import { blogAdminUrl } from '../../../utils/constant';
 import { setNavShow } from '../../../redux/actions';
-// import DarkBtn from './DarkBtn';
 import './index.css';
 
 const Nav = props => {
     useEffect(() => {
         document.body.onmousewheel = event => {
             event = event || window.event;
-            if (window.event.wheelDeltaY > 0) {
-                props.setNavShow(true);
-            } else {
-                props.setNavShow(false);
-            }
+            props.setNavShow(window.event.wheelDeltaY > 0);
         };
     }, [props]);
+    const navArr = [
+        { id: 0, name: '图库', to: '/gallery' },
+        { id: 1, name: '说说', to: '/say' },
+        { id: 2, name: '留言', to: '/msg' },
+        { id: 3, name: '友链', to: '/link' },
+        { id: 4, name: '作品', to: '/show' },
+        { id: 5, name: '建站', to: '/log' },
+        { id: 6, name: '关于', to: '/about' },
+    ];
+    const lenNav = navArr.length;
+    const secondNavArr = [
+        { id: 0, name: '找文章', to: '/articles' },
+        { id: 1, name: '分类', to: '/classes' },
+        { id: 2, name: '标签', to: '/tags' },
+    ];
     return (
         <>
             <nav className="nav-pc theme-color" id={props.navShow ? '' : 'hiddenNav'}>
                 <div className="nav-content">
-                    <NavLink className="home-btn common-hover" to="/">
+                    <div className="home-btn common-hover" onClick={() => props.history.push('/')}>
                         <HomeOutlined />
-                    </NavLink>
+                    </div>
                     <a
                         className="admin-btn common-hover"
                         href={blogAdminUrl}
@@ -36,57 +47,44 @@ const Nav = props => {
 
                     <div className="nav-btn common-hover articles-btn">
                         <div className="articels-second">
-                            <NavLink
-                                className="articels-second-item theme-color common-hover"
-                                to="/articles"
-                            >
-                                找文章
-                            </NavLink>
-                            <NavLink
-                                className="articels-second-item theme-color common-hover"
-                                to="/classes"
-                            >
-                                分类
-                            </NavLink>
-                            <NavLink
-                                className="articels-second-item theme-color common-hover"
-                                to="/tags"
-                            >
-                                标签
-                            </NavLink>
+                            {secondNavArr.map(item => (
+                                <NavLink
+                                    className="articels-second-item theme-color common-hover"
+                                    activeClassName="theme-color-btn"
+                                    to={item.to}
+                                    key={item.id}
+                                >
+                                    {item.name}
+                                </NavLink>
+                            ))}
                         </div>
                         文章
                     </div>
-                    <NavLink className="nav-btn common-hover" to="/gallery">
-                        图库
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover" to="/say">
-                        说说
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover" to="/msg">
-                        留言
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover" to="/link">
-                        友链
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover" to="/show">
-                        作品
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover" to="/log">
-                        建站
-                    </NavLink>
-                    <NavLink className="nav-btn common-hover margin-0" to="/about">
-                        关于
-                    </NavLink>
+                    {navArr.map((item, index) => (
+                        <NavLink
+                            className={
+                                index === lenNav - 1
+                                    ? 'nav-btn common-hover margin-0'
+                                    : 'nav-btn common-hover'
+                            }
+                            activeClassName="theme-color-btn"
+                            to={item.to}
+                            key={item.id}
+                        >
+                            {item.name}
+                        </NavLink>
+                    ))}
                 </div>
             </nav>
         </>
     );
 };
 
-export default connect(
-    state => ({
-        navShow: state.navShow,
-    }),
-    { setNavShow }
-)(Nav);
+export default withRouter(
+    connect(
+        state => ({
+            navShow: state.navShow,
+        }),
+        { setNavShow }
+    )(Nav)
+);

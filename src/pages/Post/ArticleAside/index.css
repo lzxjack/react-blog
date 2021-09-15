@@ -63,6 +63,9 @@
     cursor: default;
     transition: all 0.2s;
 }
+.tocLink:hover {
+    color: rgb(235, 235, 235);
+}
 
 .aside-fixed {
     top: 70px;

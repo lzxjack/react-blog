@@ -26,10 +26,10 @@ const BlogCard = () => {
             <div className="aside-card BlogCard-box theme-color">
                 <p className="BlogCard-text">
                     {timeText}, <br />
-                    我叫<span className="blogger-name">飞鸟</span>,<br />
+                    我叫<span className="theme-color-font blog-name">飞鸟</span>,<br />
                     欢迎来到
                     <br />
-                    我的<span className="blog-name">个人博客</span>。
+                    我的<span className="theme-color-font blog-name">个人博客</span>。
                 </p>
                 <img
                     src="https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210718205847.PNG"

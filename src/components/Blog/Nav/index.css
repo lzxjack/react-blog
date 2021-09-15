@@ -41,6 +41,12 @@
     transition: all 0.2s;
     user-select: none;
 }
+.nav-btn:hover,
+.home-btn:hover,
+.admin-btn:hover,
+.articels-second-item:hover {
+    color: #fff;
+}
 
 .margin-0 {
     margin-right: 0;
@@ -53,6 +59,7 @@
     transform: translate(0, -50%);
     font-size: 26px;
     width: 60px;
+    cursor: pointer;
 }
 
 .admin-btn {
@@ -62,16 +69,6 @@
     transform: translate(0, -50%);
     font-size: 26px;
     width: 60px;
-}
-
-.dark-icon {
-    width: 32px;
-    height: 32px;
-}
-
-.dark-icon path {
-    fill: #fff;
-    transition: all 0.2s;
 }
 
 .articles-btn {

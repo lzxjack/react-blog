@@ -29,6 +29,7 @@ const ArtClass = props => {
             setClassPage(1);
             updateClass(myClass);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [myClass]);
 
     return (

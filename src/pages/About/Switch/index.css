@@ -5,7 +5,8 @@
     position: relative;
 }
 .Switch-box:hover .switch-btn {
-    background-color: rgb(180, 180, 0);
+    /* 按钮颜色 */
+    background-color: rgb(97, 147, 187);
 }
 
 .switch-btn {

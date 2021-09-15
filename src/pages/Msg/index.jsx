@@ -36,11 +36,11 @@ const Msg = props => {
             <div className="standard-page-box theme-color">
                 <div className="msg-info animated bounceInLeft">
                     <div>
-                        {timeText}，我叫<span className="green">飞鸟</span>,
+                        {timeText}，我叫<span className="theme-color-font">飞鸟</span>,
                     </div>
                     <div>欢迎来到我的博客!</div>
                     <div>可以在这里留言、吐槽，</div>
-                    <div className="green">交换友链。</div>
+                    <div className="theme-color-font">交换友链。</div>
                 </div>
                 <div className="site-link">
                     <div className="my-link">本站链接：</div>

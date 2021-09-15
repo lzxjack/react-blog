@@ -11,15 +11,15 @@ const BlogData = props => {
             <div className="aside-card BlogData-box theme-color">
                 <div className="blogData common-hover" onClick={turnArticles}>
                     <div className="type-name">文章</div>
-                    <div className="type-num">{props.articleNum}</div>
+                    <div className="type-num theme-color-font">{props.articleNum}</div>
                 </div>
                 <div className="blogData common-hover" onClick={turnClasses}>
                     <div className="type-name">分类</div>
-                    <div className="type-num">{props.classNum}</div>
+                    <div className="type-num theme-color-font">{props.classNum}</div>
                 </div>
                 <div className="blogData common-hover" onClick={turnTags}>
                     <div className="type-name">标签</div>
-                    <div className="type-num">{props.tagNum}</div>
+                    <div className="type-num theme-color-font">{props.tagNum}</div>
                 </div>
             </div>
         </div>

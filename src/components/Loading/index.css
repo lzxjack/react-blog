@@ -28,7 +28,9 @@
 }
 
 .half-circle-spinner .circle.circle-2 {
-    border-bottom-color: rgb(180, 180, 0);
+    /* border-bottom-color: rgb(180, 180, 0); */
+    /* 按钮色 */
+    border-bottom-color: rgb(97, 147, 187);
     animation: half-circle-spinner-animation 1s infinite alternate;
 }
 

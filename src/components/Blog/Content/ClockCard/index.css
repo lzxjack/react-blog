@@ -89,14 +89,12 @@
     height: 90px;
     transform-origin: bottom;
     border-radius: 1px;
-    background-color: rgb(180, 180, 0);
     left: -1px;
     bottom: 0;
 }
 .dot {
     width: 12px;
     height: 12px;
-    background-color: rgb(180, 180, 0);
     position: absolute;
     top: -6px;
     left: -6px;

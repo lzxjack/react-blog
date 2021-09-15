@@ -26,10 +26,9 @@
     align-items: center;
 }
 .type-num {
-    color: rgb(180, 180, 0);
     transition: all 0.2s;
 }
 
 .blogData:hover .type-num {
-    color: rgb(88, 88, 88) !important;
+    color: rgb(202, 202, 202) !important;
 }

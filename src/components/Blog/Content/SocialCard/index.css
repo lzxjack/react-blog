@@ -21,14 +21,17 @@
     align-items: center;
     border-radius: 14px;
 }
+.social-btn:hover {
+    color: #fff;
+}
 
 .csdn-icon path {
     fill: #fff;
     transition: all 0.2s;
 }
-.csdn-btn:hover .csdn-icon path {
+/* .csdn-btn:hover .csdn-icon path {
     fill: rgb(88, 88, 88);
-}
+} */
 
 .QR-code {
     width: 140px;

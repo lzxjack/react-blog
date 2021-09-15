@@ -36,12 +36,14 @@
     transition: all 0.2s;
 }
 .time-line-time:hover {
-    color: rgb(180, 180, 0);
+    /* 字体颜色 */
+    color: rgb(97, 147, 187);
 }
 .time-line-time:hover .time-dot-in {
     width: 22px;
     height: 22px;
-    background-color: rgb(180, 180, 0);
+    /* 按钮颜色 */
+    background-color: rgb(97, 147, 187);
 }
 .time-line-content {
     list-style: none;

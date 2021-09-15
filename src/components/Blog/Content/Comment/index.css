@@ -214,7 +214,6 @@
     user-select: none;
 }
 .comment-show-name {
-    color: rgb(180, 180, 0);
     cursor: default;
     padding: 0 6px;
     border-radius: 10px;
@@ -222,13 +221,16 @@
     margin-right: 4px;
     font-weight: 700;
 }
+.comment-show-name:hover {
+    color: #fff;
+}
 
 .admin-flag {
+    background-color: rgb(97, 147, 187);
     font-size: 14px;
-    background-color: rgb(180, 180, 0);
     padding: 0 4px;
     border-radius: 8px;
-    color: #000;
+    color: rgb(231, 231, 231);
 }
 
 .comment-show-date {
@@ -282,9 +284,6 @@
 }
 .reply-who {
     user-select: none;
-}
-.reply-who span {
-    color: rgb(180, 180, 0);
 }
 .reply-in {
     right: 50%;
