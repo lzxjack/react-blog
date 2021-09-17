@@ -15,12 +15,12 @@ import './index.css';
 const Home = props => {
     // 返回顶部
     useToTop(props, true);
-    const { homePage, setHomePage } = props;
+    const { homePage, setHomePage, content } = props;
     return (
         <div className="Home-box">
             <div className="home-top-img">
                 <span className="home-top-title animated bounceInDown">飞鸟小站</span>
-                <span className="home-top-poem animated bounceInUp">{props.content}</span>
+                <span className="home-top-poem animated bounceInUp">{content}</span>
             </div>
             <div className="home-body">
                 <div className="home-main">

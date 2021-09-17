@@ -4,19 +4,20 @@ import { setNavShow } from '../../../redux/actions';
 import './index.css';
 
 const ArticleAside = props => {
+    const { content, setNavShow } = props;
     const [tocArr, setTocArr] = useState([]);
     useEffect(() => {
         const reg = /(#+)\s+?(.+?)\n/g;
         let regExecRes = null;
         const toc = [];
-        while ((regExecRes = reg.exec(props.content))) {
+        while ((regExecRes = reg.exec(content))) {
             toc.push({
                 level: regExecRes[1].length,
                 title: regExecRes[2],
             });
         }
         setTocArr(toc);
-    }, [props]);
+    }, [content]);
     return (
         <div className="aside-box">
             <ul className="aside-ul animated bounceInRight">
@@ -36,7 +37,7 @@ const ArticleAside = props => {
                         <a
                             className="tocLink theme-color-1 common-hover"
                             onClick={() => {
-                                props.setNavShow(false);
+                                setNavShow(false);
                             }}
                             href={`#${item.title.split('. ')[0]}-${item.title
                                 .split('. ')[1]

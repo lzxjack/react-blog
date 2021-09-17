@@ -10,18 +10,18 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const ArtClass = props => {
-    const { classPage, setClassPage, lastClass, updateClass } = props;
+    const { classPage, setClassPage, lastClass, updateClass, history, location, articles } = props;
     // 返回顶部
     useToTop(props, true);
 
     const turnToArticle = title => {
-        props.history.push(`/post?title=${title}`);
+        history.push(`/post?title=${title}`);
     };
 
     const [myClass, setMyClass] = useState('');
     useEffect(() => {
-        setMyClass(decodeURI(props.location.search.split('?class=')[1]));
-    }, [props]);
+        setMyClass(decodeURI(location.search.split('?class=')[1]));
+    }, [location.search]);
 
     useEffect(() => {
         if (!myClass) return;
@@ -36,7 +36,7 @@ const ArtClass = props => {
         <>
             <PageTitle title={myClass} />
             <div className="standard-page-box theme-color animated bounceInLeft">
-                {props.articles
+                {articles
                     .filter(item => item.classes === myClass)
                     .slice((classPage - 1) * articlesPageSize, classPage * articlesPageSize)
                     .map(item => (
@@ -55,7 +55,7 @@ const ArtClass = props => {
                 <div className="PageNav-box">
                     <Pagination
                         current={classPage}
-                        total={props.articles.filter(item => item.classes === myClass).length}
+                        total={articles.filter(item => item.classes === myClass).length}
                         defaultPageSize={articlesPageSize}
                         showSizeChanger={false}
                         showTitle={false}

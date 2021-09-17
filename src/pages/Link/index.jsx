@@ -7,14 +7,15 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Link = props => {
+    const { links, getLinks } = props;
     // 返回顶部
     useToTop(props, true);
     useEffect(() => {
-        const sum = props.links.length;
+        const sum = links.length;
         const Num = sum % 3;
         if (Num === 2) {
-            const Links = props.links;
-            props.getLinks([...Links, {}]);
+            const Links = links;
+            getLinks([...Links, {}]);
         }
     });
 
@@ -23,7 +24,7 @@ const Link = props => {
             <PageTitle title="友情链接" />
             <div className="standard-page-box theme-color link-page">
                 <ul className="links-box animated bounceInRight">
-                    {props.links.map(item => {
+                    {links.map(item => {
                         if (JSON.stringify(item) !== '{}') {
                             return (
                                 <li className="link-item theme-color-1" key={item._id}>

@@ -4,16 +4,17 @@ import { articlesPageSize } from '../../../utils/constant';
 import './index.css';
 
 const ArticlesShow = props => {
+    const { history, articles, curPage } = props;
     const turnToArticle = title => {
-        props.history.push(`/post?title=${title}`);
+        history.push(`/post?title=${title}`);
     };
     return (
         <>
-            {props.articles.length === 0 ? (
+            {articles.length === 0 ? (
                 <div className="art-show-none">暂时没有相应文章...</div>
             ) : (
-                props.articles
-                    .slice((props.curPage - 1) * articlesPageSize, props.curPage * articlesPageSize)
+                articles
+                    .slice((curPage - 1) * articlesPageSize, curPage * articlesPageSize)
                     .map(item => (
                         <div className="animated bounceInUp" key={item._id}>
                             <div

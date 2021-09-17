@@ -4,6 +4,7 @@ import './github-dark.css';
 import './index.css';
 
 const ArticleContent = props => {
+    const { content } = props;
     // 配置highlight
     hljs.configure({
         tabReplace: '',
@@ -22,7 +23,7 @@ const ArticleContent = props => {
         <div
             className="markdownStyle animated bounceInUp"
             dangerouslySetInnerHTML={{
-                __html: marked(props.content).replace(/<pre>/g, "<pre id='hljs'>"),
+                __html: marked(content).replace(/<pre>/g, "<pre id='hljs'>"),
             }}
         ></div>
     );

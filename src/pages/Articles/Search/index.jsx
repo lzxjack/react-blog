@@ -7,14 +7,17 @@ import { setArticlePage } from '../../../redux/actions';
 import './index.css';
 
 const Search = props => {
+    const { articles, getArticle, setArticlePage, classes, tags } = props;
+
     const { Option } = Select;
     const searchWords = useRef();
     const [searchClass, setSearchClass] = useState(null);
     const [searchTag, setSearchTag] = useState([]);
 
     useEffect(() => {
-        props.getArticle(props.articles);
-    }, [props]);
+        getArticle(articles);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // 通过输入文字搜索
     const searchByWords = () => {
@@ -23,52 +26,52 @@ const Search = props => {
         const keyWords = searchWords.current.value.toLowerCase();
         // 如果输入框内容为空，则展示所有文章
         if (!keyWords) {
-            props.getArticle(props.articles);
+            getArticle(articles);
             return;
         }
         // 过滤出搜索到的文章
-        const newArticlesShow = props.articles.filter(
+        const newArticlesShow = articles.filter(
             item => item.title.toLowerCase().indexOf(keyWords) !== -1
         );
         // 将搜索到的文章，放入要显示的state
-        props.getArticle(newArticlesShow);
-        props.setArticlePage(1);
+        getArticle(newArticlesShow);
+        setArticlePage(1);
     };
     // 通过选择分类搜索
     const searchByClass = classesName => {
         searchWords.current.value = '';
         setSearchTag([]);
         if (!classesName) {
-            props.getArticle(props.articles);
+            getArticle(articles);
             return;
         }
-        const newArticlesShow = props.articles.filter(item => item.classes === classesName);
-        props.getArticle(newArticlesShow);
+        const newArticlesShow = articles.filter(item => item.classes === classesName);
+        getArticle(newArticlesShow);
     };
     // 通过选择标签搜索
     const searchByTag = tagsArr => {
         searchWords.current.value = '';
         setSearchClass(null);
         if (tagsArr.length === 0) {
-            props.getArticle(props.articles);
+            getArticle(articles);
             return;
         }
-        const articlesLen = props.articles.length;
+        const articlesLen = articles.length;
         const articlesByTag = [];
         for (let i = 0; i < articlesLen; i++) {
-            if (isContained(props.articles[i].tags, tagsArr)) {
-                articlesByTag.push(props.articles[i]);
+            if (isContained(articles[i].tags, tagsArr)) {
+                articlesByTag.push(articles[i]);
             }
         }
-        props.getArticle(articlesByTag);
+        getArticle(articlesByTag);
     };
     // 清空搜索内容
     const resetSearch = () => {
-        props.setArticlePage(1);
+        setArticlePage(1);
         searchWords.current.value = '';
         setSearchClass(null);
         setSearchTag([]);
-        props.getArticle(props.articles);
+        getArticle(articles);
     };
     return (
         <div className="Search-box">
@@ -98,12 +101,12 @@ const Search = props => {
                     onChange={value => {
                         searchByClass(value);
                         setSearchClass(value);
-                        props.setArticlePage(1);
+                        setArticlePage(1);
                     }}
                     className="select-class theme-color-1"
                     dropdownClassName="select-dropdown theme-color-1"
                 >
-                    {props.classes.map(item => (
+                    {classes.map(item => (
                         <Option key={item.class}>{item.class}</Option>
                     ))}
                 </Select>
@@ -123,12 +126,12 @@ const Search = props => {
                     onChange={value => {
                         searchByTag(value);
                         setSearchTag(value);
-                        props.setArticlePage(1);
+                        setArticlePage(1);
                     }}
                     className="select-tag theme-color-1"
                     dropdownClassName="select-dropdown theme-color-1"
                 >
-                    {props.tags.map(item => (
+                    {tags.map(item => (
                         <Option key={item.tag}>{item.tag}</Option>
                     ))}
                 </Select>

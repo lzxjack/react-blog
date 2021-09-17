@@ -6,6 +6,7 @@ import './index.css';
 
 const SiteCard = props => {
     const [runTime, setRunTime] = useState(0);
+    const { siteCount } = props;
     useEffect(() => {
         const nowTime = new Date().getTime();
         const startTime = new Date(time).getTime();
@@ -18,7 +19,7 @@ const SiteCard = props => {
             <div className="aside-card SiteCard-box theme-color">
                 <div className="site-data-item common-hover">
                     <span className="site-data-key">总浏览量</span>
-                    <span className="site-data-value">{props.siteCount}次</span>
+                    <span className="site-data-value">{siteCount}次</span>
                 </div>
                 <div className="site-data-item common-hover">
                     <span className="site-data-key">运行时间</span>

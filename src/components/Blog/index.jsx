@@ -12,6 +12,7 @@ import './index.css';
 
 const Blog = props => {
     const [drawerShow, setDrawerShow] = useState(false);
+    const { setNavShow } = props;
     return (
         <div className="Blog-box" style={{ backgroundImage: `url(${blogBackGroundImgs[imgNum]})` }}>
             {/* 正常文档流 */}
@@ -22,7 +23,7 @@ const Blog = props => {
             <BackTop
                 duration={700}
                 visibilityHeight={300}
-                onClick={() => props.setNavShow(true)}
+                onClick={() => setNavShow(true)}
                 className="BackTop"
             >
                 <div className="back-top-btn theme-color common-hover">

@@ -10,6 +10,7 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const About = props => {
+    const { about } = props;
     // 返回顶部
     useToTop(props, true);
     // 配置highlight
@@ -40,9 +41,10 @@ const About = props => {
                     <div
                         className="about-me-box markdownStyle animated bounceInRight"
                         dangerouslySetInnerHTML={{
-                            __html: marked(
-                                props.about.filter(item => item.isMe)[0].content
-                            ).replace(/<pre>/g, "<pre id='hljs'>"),
+                            __html: marked(about.filter(item => item.isMe)[0].content).replace(
+                                /<pre>/g,
+                                "<pre id='hljs'>"
+                            ),
                         }}
                     ></div>
                 ) : (
@@ -54,9 +56,10 @@ const About = props => {
                         <div
                             className="site-text markdownStyle"
                             dangerouslySetInnerHTML={{
-                                __html: marked(
-                                    props.about.filter(item => !item.isMe)[0].content
-                                ).replace(/<pre>/g, "<pre id='hljs'>"),
+                                __html: marked(about.filter(item => !item.isMe)[0].content).replace(
+                                    /<pre>/g,
+                                    "<pre id='hljs'>"
+                                ),
                             }}
                         ></div>
                     </div>

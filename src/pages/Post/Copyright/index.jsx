@@ -5,9 +5,10 @@ import copy from 'copy-to-clipboard';
 import './index.css';
 
 const Copyright = props => {
+    const { url, title } = props;
     const [showCopySuccess, setShowCopySuccess] = useState(false);
     const copyUrl = () => {
-        if (copy(props.url)) {
+        if (copy(url)) {
             setShowCopySuccess(true);
             setTimeout(() => {
                 setShowCopySuccess(false);
@@ -28,9 +29,9 @@ const Copyright = props => {
             <div className="Copyright-box theme-color-1">
                 <CopyrightIcon />
                 {/* <div className="copyright-center"> */}
-                <div className="copyright-title">{props.title}</div>
+                <div className="copyright-title">{title}</div>
                 <div className="copyright-url" id="copyright-url-text">
-                    {props.url}
+                    {url}
                     <div className="copy-icon-btn common-hover" onClick={copyUrl}>
                         <CopyIcon />
                     </div>

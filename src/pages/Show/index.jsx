@@ -5,6 +5,7 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Show = props => {
+    const { shows } = props;
     // 返回顶部
     useToTop(props, true);
     return (
@@ -12,7 +13,7 @@ const Show = props => {
             <PageTitle title="小作品" />
             <div className="standard-page-box theme-color gallery-page-box">
                 <ul className="galleryUl animated bounceInUp">
-                    {props.shows.map(item => (
+                    {shows.map(item => (
                         <li key={item._id} style={{ backgroundImage: `url(${item.cover})` }}>
                             <a
                                 href={item.link}

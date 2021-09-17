@@ -34,7 +34,7 @@ const Chart = props => {
     // 整理饼图需要的数据格式
     useEffect(() => {
         // classes分类的数组
-        const classes = props.classes
+        const CLASSES = props.classes
             .filter(item => item.count !== 0)
             .map(item => ({
                 className: item.class,
@@ -42,9 +42,9 @@ const Chart = props => {
             }));
         // 求有分类的文章的数目
         let articleHadClass = 0;
-        const len = classes.length;
+        const len = CLASSES.length;
         for (let i = 0; i < len; i++) {
-            articleHadClass += classes[i].count;
+            articleHadClass += CLASSES[i].count;
         }
         // articlesNoClassNum为未分类的文章数目：文章总数-有分类的文章的数目
         const articlesNoClassNum = props.articles.length - articleHadClass;
@@ -56,11 +56,11 @@ const Chart = props => {
                 count: articlesNoClassNum,
             };
             // 未分类的文章追加到数组中
-            const articlesData = [...classes, articleNoClass];
+            const articlesData = [...CLASSES, articleNoClass];
             setClassData(articlesData);
         } else {
             // 没有未分类的文章
-            setClassData(classes);
+            setClassData(CLASSES);
         }
     }, [props.classes, props.articles]);
 

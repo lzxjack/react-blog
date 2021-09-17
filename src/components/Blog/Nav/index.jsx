@@ -8,12 +8,14 @@ import { setNavShow } from '../../../redux/actions';
 import './index.css';
 
 const Nav = props => {
+    const { setNavShow, navShow, history } = props;
     useEffect(() => {
         document.body.onmousewheel = event => {
             event = event || window.event;
-            props.setNavShow(window.event.wheelDeltaY > 0);
+            setNavShow(window.event.wheelDeltaY > 0);
         };
-    }, [props]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const navArr = [
         { id: 0, name: '图库', to: '/gallery' },
         { id: 1, name: '说说', to: '/say' },
@@ -31,9 +33,9 @@ const Nav = props => {
     ];
     return (
         <>
-            <nav className="nav-pc theme-color" id={props.navShow ? '' : 'hiddenNav'}>
+            <nav className="nav-pc theme-color" id={navShow ? '' : 'hiddenNav'}>
                 <div className="nav-content">
-                    <div className="home-btn common-hover" onClick={() => props.history.push('/')}>
+                    <div className="home-btn common-hover" onClick={() => history.push('/')}>
                         <HomeOutlined />
                     </div>
                     <a

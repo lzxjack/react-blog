@@ -3,13 +3,14 @@ import { withRouter } from 'react-router-dom';
 import './index.css';
 
 const TagCard = props => {
+    const { history, tags } = props;
     const toSomeArts = tag => {
-        props.history.push(`/artTag?tag=${tag}`);
+        history.push(`/artTag?tag=${tag}`);
     };
     return (
         <div className="animated bounceInRight">
             <div className="aside-card TagCard-box theme-color">
-                {props.tags.map(item => (
+                {tags.map(item => (
                     <span
                         className="theTag common-hover"
                         key={item._id}

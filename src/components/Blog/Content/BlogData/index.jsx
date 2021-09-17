@@ -3,23 +3,22 @@ import { withRouter } from 'react-router-dom';
 import './index.css';
 
 const BlogData = props => {
-    const turnArticles = () => props.history.push('/articles');
-    const turnClasses = () => props.history.push('/classes');
-    const turnTags = () => props.history.push('/tags');
+    const { history, articleNum, classNum, tagNum } = props;
+
     return (
         <div className="animated bounceInRight">
             <div className="aside-card BlogData-box theme-color">
-                <div className="blogData common-hover" onClick={turnArticles}>
+                <div className="blogData common-hover" onClick={() => history.push('/articles')}>
                     <div className="type-name">文章</div>
-                    <div className="type-num theme-color-font">{props.articleNum}</div>
+                    <div className="type-num theme-color-font">{articleNum}</div>
                 </div>
-                <div className="blogData common-hover" onClick={turnClasses}>
+                <div className="blogData common-hover" onClick={() => history.push('/classes')}>
                     <div className="type-name">分类</div>
-                    <div className="type-num theme-color-font">{props.classNum}</div>
+                    <div className="type-num theme-color-font">{classNum}</div>
                 </div>
-                <div className="blogData common-hover" onClick={turnTags}>
+                <div className="blogData common-hover" onClick={() => history.push('/tags')}>
                     <div className="type-name">标签</div>
-                    <div className="type-num theme-color-font">{props.tagNum}</div>
+                    <div className="type-num theme-color-font">{tagNum}</div>
                 </div>
             </div>
         </div>

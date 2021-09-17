@@ -12,6 +12,8 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Post = props => {
+    const { location, articles, history } = props;
+
     const [classes, setClasses] = useState('');
     const [date, setDate] = useState(null);
     const [tags, setTags] = useState([]);
@@ -22,8 +24,8 @@ const Post = props => {
     useToTop(props, false);
 
     useEffect(() => {
-        const Title = props.location.search.split('?title=')[1];
-        const theArticle = props.articles.filter(item => item.titleEng === Title)[0];
+        const Title = location.search.split('?title=')[1];
+        const theArticle = articles.filter(item => item.titleEng === Title)[0];
         if (theArticle) {
             const { date, tags, title, content, classes, url } = theArticle;
             setTitle(title);
@@ -33,9 +35,9 @@ const Post = props => {
             setTags(tags);
             setUrl(url);
         }
-    }, [props]);
+    }, [articles, location.search]);
     const toSomeArts = myClass => {
-        props.history.push(`/artClass?class=${myClass}`);
+        history.push(`/artClass?class=${myClass}`);
     };
     return (
         <div className="Article-box">
@@ -64,7 +66,7 @@ const Post = props => {
                 <Divider />
                 <Comment
                     isMsg={false}
-                    postTitle={props.location.search.split('?title=')[1]}
+                    postTitle={location.search.split('?title=')[1]}
                     title={title}
                 />
             </div>

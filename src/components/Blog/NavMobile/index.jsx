@@ -3,6 +3,7 @@ import { avatarUrl } from '../../../utils/constant';
 import './index.css';
 
 const NavMobile = props => {
+    const { history, setDrawerShow, drawerShow } = props;
     const navArr = [
         { name: '主页', to: '/' },
         { name: '文章', to: '/articles' },
@@ -17,23 +18,19 @@ const NavMobile = props => {
         { name: '关于', to: '/about' },
     ];
     const turnToPage = to => {
-        props.history.push(to);
-        props.setDrawerShow(false);
+        history.push(to);
+        setDrawerShow(false);
     };
-    const { pathname } = props.history.location;
+    const { pathname } = history.location;
     return (
         <>
             <div
-                className={
-                    props.drawerShow ? 'nav-mobile-mask nav-mobile-mask-in' : 'nav-mobile-mask'
-                }
-                onClick={() => props.setDrawerShow(false)}
+                className={drawerShow ? 'nav-mobile-mask nav-mobile-mask-in' : 'nav-mobile-mask'}
+                onClick={() => setDrawerShow(false)}
             ></div>
             <div
                 className={
-                    props.drawerShow
-                        ? 'nav-mobile theme-color nav-mobile-in'
-                        : 'nav-mobile theme-color'
+                    drawerShow ? 'nav-mobile theme-color nav-mobile-in' : 'nav-mobile theme-color'
                 }
             >
                 <div className="nav-mobile-avatar-box">

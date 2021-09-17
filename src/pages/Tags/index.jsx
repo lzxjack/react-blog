@@ -5,16 +5,17 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Tags = props => {
+    const { history, tags } = props;
     // 返回顶部
     useToTop(props, true);
     const toSomeArts = tag => {
-        props.history.push(`/artTag?tag=${tag}`);
+        history.push(`/artTag?tag=${tag}`);
     };
     return (
         <>
             <PageTitle title="标签" />
             <div className="standard-page-box theme-color tags-box animated bounceInLeft">
-                {props.tags.map(item => (
+                {tags.map(item => (
                     <span
                         className="theTag tags-item common-hover"
                         key={item._id}

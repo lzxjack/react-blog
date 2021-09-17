@@ -3,7 +3,7 @@ import GalleryOutline from './GalleryOutline';
 import TheGallery from './TheGallery';
 import './index.css';
 
-const Gallery = props => {
+const Gallery = () => {
     return (
         <Switch>
             <Route path="/gallery/one" component={TheGallery} />

@@ -5,39 +5,38 @@ import { homePageSize } from '../../../utils/constant';
 import './index.css';
 
 const ArtList = props => {
+    const { history, articles, curPage } = props;
     const showOneArticle = title => {
-        props.history.push(`/post?title=${title}`);
+        history.push(`/post?title=${title}`);
     };
     return (
         <>
-            {props.articles
-                .slice((props.curPage - 1) * homePageSize, props.curPage * homePageSize)
-                .map(item => (
-                    <div key={item._id} className="animated bounceInLeft">
-                        <div
-                            className="article-item theme-color"
-                            onClick={() => showOneArticle(item.titleEng)}
-                        >
-                            <div className="article-item-title">{item.title}</div>
-                            <p className="article-item-abstract">{item.content}</p>
-                            <div className="article-item-info">
-                                <span className="article-item-date theme-color-1 common-hover">
-                                    {moment(item.date).format('YYYY-MM-DD')}
-                                </span>
-                                <div className="article-item-tags">
-                                    {item.tags.map(tag => (
-                                        <span
-                                            className="article-item-tag theme-color-1 common-hover"
-                                            key={tag}
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
+            {articles.slice((curPage - 1) * homePageSize, curPage * homePageSize).map(item => (
+                <div key={item._id} className="animated bounceInLeft">
+                    <div
+                        className="article-item theme-color"
+                        onClick={() => showOneArticle(item.titleEng)}
+                    >
+                        <div className="article-item-title">{item.title}</div>
+                        <p className="article-item-abstract">{item.content}</p>
+                        <div className="article-item-info">
+                            <span className="article-item-date theme-color-1 common-hover">
+                                {moment(item.date).format('YYYY-MM-DD')}
+                            </span>
+                            <div className="article-item-tags">
+                                {item.tags.map(tag => (
+                                    <span
+                                        className="article-item-tag theme-color-1 common-hover"
+                                        key={tag}
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                     </div>
-                ))}
+                </div>
+            ))}
         </>
     );
 };

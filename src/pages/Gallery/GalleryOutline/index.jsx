@@ -7,15 +7,16 @@ import './index.css';
 const GalleryOutline = props => {
     // 返回顶部
     useToTop(props, true);
+    const { history, galleries } = props;
     const turnOne = id => {
-        props.history.push(`/gallery/one?id=${id}`);
+        history.push(`/gallery/one?id=${id}`);
     };
     return (
         <>
             <PageTitle title="我的图库" />
             <div className="standard-page-box theme-color gallery-page-box">
                 <ul className="galleryUl animated bounceInUp">
-                    {props.galleries.map(item => (
+                    {galleries.map(item => (
                         <li
                             key={item._id}
                             style={{ backgroundImage: `url(${item.cover})` }}

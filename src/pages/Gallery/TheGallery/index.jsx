@@ -8,26 +8,27 @@ import useToTop from '../../../hooks/useToTop';
 import './index.css';
 
 const TheGallery = props => {
+    const { location, galleries, history } = props;
     // 返回顶部
     useToTop(props, true);
     const [title, setitle] = useState('');
     const [pics, sePics] = useState([]);
     useEffect(() => {
-        const ID = props.location.search.split('?id=')[1];
-        const theOne = props.galleries.filter(item => item._id === ID)[0];
+        const ID = location.search.split('?id=')[1];
+        const theOne = galleries.filter(item => item._id === ID)[0];
         if (theOne) {
             const { title, pics } = theOne;
             setitle(title);
             sePics(pics);
         }
-    }, [props]);
+    }, [location.search, galleries]);
     return (
         <>
             <PageTitle title={title} />
             <div className="standard-page-box theme-color one-gallery-page-box">
                 <div
                     className="turn-back-btn theme-color common-hover animated bounceInDown"
-                    onClick={() => props.history.go(-1)}
+                    onClick={() => history.go(-1)}
                 >
                     <SwapLeftOutlined />
                 </div>

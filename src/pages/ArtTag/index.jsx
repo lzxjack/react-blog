@@ -9,18 +9,18 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const ArtTag = props => {
-    const { tagPage, setTagPage, lastTag, updateTag } = props;
+    const { tagPage, setTagPage, lastTag, updateTag, history, location, articles } = props;
     // 返回顶部
     useToTop(props, true);
 
     const turnToArticle = title => {
-        props.history.push(`/post?title=${title}`);
+        history.push(`/post?title=${title}`);
     };
 
     const [myTag, setMyTag] = useState('');
     useEffect(() => {
-        setMyTag(decodeURI(props.location.search.split('?tag=')[1]));
-    }, [props]);
+        setMyTag(decodeURI(location.search.split('?tag=')[1]));
+    }, [location.search]);
 
     useEffect(() => {
         if (!myTag) return;
@@ -35,7 +35,7 @@ const ArtTag = props => {
         <>
             <PageTitle title={myTag} />
             <div className="standard-page-box theme-color animated bounceInLeft">
-                {props.articles
+                {articles
                     .filter(item => item.tags.indexOf(myTag) !== -1)
                     .slice((tagPage - 1) * articlesPageSize, tagPage * articlesPageSize)
                     .map(item => (
@@ -54,9 +54,7 @@ const ArtTag = props => {
                 <div className="PageNav-box">
                     <Pagination
                         current={tagPage}
-                        total={
-                            props.articles.filter(item => item.tags.indexOf(myTag) !== -1).length
-                        }
+                        total={articles.filter(item => item.tags.indexOf(myTag) !== -1).length}
                         defaultPageSize={articlesPageSize}
                         showSizeChanger={false}
                         showTitle={false}

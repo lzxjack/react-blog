@@ -7,13 +7,14 @@ import useToTop from '../../hooks/useToTop';
 import './index.css';
 
 const Say = props => {
+    const { says } = props;
     // 返回顶部
     useToTop(props, true);
     return (
         <>
             <PageTitle title="自言自语" />
             <div className="standard-page-box theme-color">
-                {props.says.map(item => (
+                {says.map(item => (
                     <div className="say-item" key={item._id}>
                         <div className="say-avatar-box animated bounceInLeft">
                             <img src={avatarUrl} alt="avatar" className="say-avatar" />
