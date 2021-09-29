@@ -12,8 +12,6 @@ import {
     adminUrlCheck,
     avatarUrl,
     APIUrl,
-    QMsgUrl,
-    QMsgKey,
 } from '../../../../utils/constant';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
@@ -149,19 +147,18 @@ const Comment = props => {
                 replyId: '',
             })
             .then(() => {
-                // message.success('发布留言成功！');
                 setContent('');
                 getCommentsFromDB();
                 sendNewEmail();
             });
     };
-    // 提醒站长有新评论了
+    // 提醒站长有新评论了000
     const sendNewEmail = () => {
         axios({
             url: `${APIUrl}/email`,
-            method: 'get',
+            method: 'post',
             params: {
-                isReply: '',
+                flag: 0,
                 name,
                 search: props.postTitle,
                 content,
@@ -169,7 +166,7 @@ const Comment = props => {
             },
             withCredentials: true,
         })
-            .then(res => res.status === 200 && message.success('发布成功！'))
+            .then(res => res.status === 200 && message.success('发布留言成功！'))
             .catch(err => console.error(err));
     };
     // 发布回复
@@ -223,27 +220,35 @@ const Comment = props => {
                 } else {
                     message.success('回复成功!');
                 }
-                informAdminByQMsg();
+                // 通知站长
+                informAdminByEmail();
             });
     };
-    // 提醒管理员，有评论收到回复
-    const informAdminByQMsg = () => {
+    // 提醒管理员，有评论收到回复111
+    const informAdminByEmail = () => {
         axios({
-            url: `${QMsgUrl}/${QMsgKey}`,
-            method: 'get',
+            url: `${APIUrl}/email`,
+            method: 'post',
             params: {
-                msg: `「${props.title}」中「${owner}」的评论收到「${name}」的新回复！\n回复内容：${replyContent}`,
+                flag: 1,
+                name,
+                owner,
+                search: props.postTitle,
+                content: replyContent,
+                title: props.title,
             },
             withCredentials: true,
-        });
+        })
+            .then(res => res.status === 200 && message.success('已通知站长！'))
+            .catch(err => console.error(err));
     };
-    // 提醒原评论人有人回复
+    // 提醒原评论人有人回复222
     const sendReplyEmail = () => {
         axios({
             url: `${APIUrl}/email`,
-            method: 'get',
+            method: 'post',
             params: {
-                isReply: '1',
+                flag: 2,
                 name,
                 owner,
                 email: replyEmail,
@@ -253,7 +258,7 @@ const Comment = props => {
             },
             withCredentials: true,
         })
-            .then(res => res.status === 200 && message.success('回复成功!'))
+            .then(res => res.status === 200 && message.success('回复成功'))
             .catch(err => console.error(err));
     };
     const reg_qq = /[1-9][0-9]{3,11}/;

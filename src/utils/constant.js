@@ -66,7 +66,3 @@ export const weChatQRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/2
 
 // QQ二维码地址
 export const QQ_QRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719214515.jpg';
-
-// QMsg酱接口
-export const QMsgUrl = 'https://qmsg.zendee.cn/send';
-export const QMsgKey = '1cb445e8137aea6daff673a7e07cbc11';
