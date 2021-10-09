@@ -241,6 +241,7 @@
     padding: 10px 16px;
     border-radius: 12px;
     font-size: 18px;
+    word-break: break-all;
 }
 .comment-show-content p {
     margin: 0;
