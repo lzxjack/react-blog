@@ -12,13 +12,18 @@ import {
     adminUrlCheck,
     avatarUrl,
     APIUrl,
+    emojiPeople,
+    emojiNature,
+    emojiObj,
+    emojiPlace,
+    emojiSymbol,
 } from '../../../../utils/constant';
 import { getRandomNum } from '../../../../utils/functions';
 import axios from 'axios';
 import marked from 'marked';
 import hljs from 'highlight.js';
 import { getComments, getCommentsReply, getMsgs, getMsgsReply } from '../../../../redux/actions';
-import { message } from 'antd';
+import { message, Popover, Button } from 'antd';
 import { MessageOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -328,6 +333,13 @@ const Comment = props => {
             .name;
         setOwner(owner);
     };
+    // 关闭评论回复框
+    const closeReplyBox = () => {
+        setShowReply(false);
+        setReplyId('');
+        setReplyEmail('');
+        setOwner('');
+    };
     // 取消管理员登录
     const cancelAdminLogin = () => {
         setAdminBox(false);
@@ -464,14 +476,76 @@ const Comment = props => {
                         </div>
 
                         <div className="comment-btns">
+                            <Popover
+                                className="emojiBtn theme-color-2 common-hover"
+                                theme-color-2
+                                common-hover
+                                overlayClassName="emojiContent"
+                                color="rgb(42 42 50)"
+                                placement="bottom"
+                                content={emojiPeople}
+                                trigger="click"
+                                getPopupContainer={() =>
+                                    document.querySelector('.comment-reply-box')
+                                }
+                            >
+                                <Button>😄</Button>
+                            </Popover>
+                            <Popover
+                                className="emojiBtn theme-color-2 common-hover emoji2"
+                                overlayClassName="emojiContent"
+                                color="rgb(42 42 50)"
+                                placement="bottom"
+                                content={emojiNature}
+                                trigger="click"
+                                getPopupContainer={() =>
+                                    document.querySelector('.comment-reply-box')
+                                }
+                            >
+                                <Button>☀️</Button>
+                            </Popover>
+                            <Popover
+                                className="emojiBtn theme-color-2 common-hover emoji3"
+                                overlayClassName="emojiContent"
+                                color="rgb(42 42 50)"
+                                placement="bottom"
+                                content={emojiObj}
+                                trigger="click"
+                                getPopupContainer={() =>
+                                    document.querySelector('.comment-reply-box')
+                                }
+                            >
+                                <Button>🏀</Button>
+                            </Popover>
+                            <Popover
+                                className="emojiBtn theme-color-2 common-hover emoji4"
+                                overlayClassName="emojiContent"
+                                color="rgb(42 42 50)"
+                                placement="bottom"
+                                content={emojiPlace}
+                                trigger="click"
+                                getPopupContainer={() =>
+                                    document.querySelector('.comment-reply-box')
+                                }
+                            >
+                                <Button>⛪</Button>
+                            </Popover>
+                            <Popover
+                                className="emojiBtn theme-color-2 common-hover emoji5"
+                                overlayClassName="emojiContent"
+                                color="rgb(42 42 50)"
+                                placement="bottom"
+                                content={emojiSymbol}
+                                trigger="click"
+                                getPopupContainer={() =>
+                                    document.querySelector('.comment-reply-box')
+                                }
+                            >
+                                <Button>🆗</Button>
+                            </Popover>
                             <div
                                 className="comment-cancel-btn theme-color-2 common-hover"
-                                onClick={() => {
-                                    setShowReply(false);
-                                    setReplyId('');
-                                    setReplyEmail('');
-                                    setOwner('');
-                                }}
+                                onClick={closeReplyBox}
                             >
                                 取消
                             </div>
@@ -577,6 +651,59 @@ const Comment = props => {
                     </div>
 
                     <div className="comment-btns">
+                        {/* emoji表情复制 */}
+                        <Popover
+                            className="emojiBtn theme-color-2 common-hover"
+                            theme-color-2
+                            common-hover
+                            overlayClassName="emojiContent"
+                            color="rgb(42 42 50)"
+                            placement="bottom"
+                            content={emojiPeople}
+                            trigger="click"
+                        >
+                            <Button>😄</Button>
+                        </Popover>
+                        <Popover
+                            className="emojiBtn theme-color-2 common-hover emoji2"
+                            overlayClassName="emojiContent"
+                            color="rgb(42 42 50)"
+                            placement="bottom"
+                            content={emojiNature}
+                            trigger="click"
+                        >
+                            <Button>☀️</Button>
+                        </Popover>
+                        <Popover
+                            className="emojiBtn theme-color-2 common-hover emoji3"
+                            overlayClassName="emojiContent"
+                            color="rgb(42 42 50)"
+                            placement="bottom"
+                            content={emojiObj}
+                            trigger="click"
+                        >
+                            <Button>🏀</Button>
+                        </Popover>
+                        <Popover
+                            className="emojiBtn theme-color-2 common-hover emoji4"
+                            overlayClassName="emojiContent"
+                            color="rgb(42 42 50)"
+                            placement="bottom"
+                            content={emojiPlace}
+                            trigger="click"
+                        >
+                            <Button>⛪</Button>
+                        </Popover>
+                        <Popover
+                            className="emojiBtn theme-color-2 common-hover emoji5"
+                            overlayClassName="emojiContent"
+                            color="rgb(42 42 50)"
+                            placement="bottom"
+                            content={emojiSymbol}
+                            trigger="click"
+                        >
+                            <Button>🆗</Button>
+                        </Popover>
                         <div
                             className="comment-preview-btn theme-color-2 common-hover"
                             // onClick={() => setShowPreview(true)}

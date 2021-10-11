@@ -52,11 +52,11 @@ html {
 }
 
 .common-hover {
-    transition: all 0.2s;
+    transition: all 0.2s !important;
 }
 .common-hover:hover {
     /* background-color: rgb(180, 180, 0); */
-    background-color: rgb(97, 147, 187);
+    background-color: rgb(97, 147, 187) !important;
     /* color: rgb(88, 88, 88); */
 }
 
@@ -70,7 +70,7 @@ html {
 }
 /* 副色2 */
 .theme-color-2 {
-    background-color: rgb(69, 69, 88);
+    background-color: rgb(69, 69, 88) !important;
 }
 /* 按钮色 */
 .theme-color-btn {

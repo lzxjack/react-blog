@@ -28,7 +28,7 @@ const SocialCard = () => {
                 </a>
                 <Popover
                     className="social-btn common-hover"
-                    color="rgb(180, 180, 0)"
+                    color="rgb(97, 147, 187)"
                     content={weChat}
                     overlayClassName="social-btn-card"
                 >
@@ -37,7 +37,7 @@ const SocialCard = () => {
 
                 <Popover
                     className="social-btn common-hover"
-                    color="rgb(180, 180, 0)"
+                    color="rgb(97, 147, 187)"
                     content={QQ}
                     overlayClassName="social-btn-card"
                 >

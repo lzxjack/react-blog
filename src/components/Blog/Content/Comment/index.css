@@ -90,7 +90,7 @@
 .comment-btns {
     position: relative;
     height: 46px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 .comment-preview-btn,
@@ -350,6 +350,45 @@
     margin-bottom: 0;
 }
 
+/* emoji */
+.emojiBtn {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    bottom: 0;
+    border-radius: 14px;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-size: 16px;
+}
+
+.emoji2 {
+    left: 46px;
+}
+.emoji3 {
+    left: 92px;
+}
+.emoji4 {
+    left: 138px;
+}
+.emoji5 {
+    left: 184px;
+}
+
+.emojiContent {
+    width: 500px;
+    word-break: break-all;
+    font-size: 16px;
+}
+.ant-popover-inner {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
 /* 邮箱字、密码字 */
 .admin-email,
 .admin-pwd {
@@ -429,7 +468,6 @@
         height: 100%;
         border: none;
         outline: none;
-        background-color: #0f0f0f;
         font-size: 12px;
     }
     /* 设置滚动条的样式 */
@@ -583,5 +621,10 @@
         width: 50px;
         height: 25px;
         font-size: 14px;
+    }
+
+    /* emoji */
+    .emojiBtn {
+        display: none;
     }
 }
