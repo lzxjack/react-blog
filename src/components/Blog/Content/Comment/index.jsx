@@ -139,12 +139,19 @@ const Comment = props => {
                 return;
             }
         }
+        // 获取随机头像
         const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
+        // 加协议
+        let linkUrl = link;
+        const webProtocol = ['http://', 'https://'];
+        if (link.indexOf(webProtocol[0]) === -1 && link.indexOf(webProtocol[1]) === -1) {
+            linkUrl = `http://${link}`;
+        }
         db.collection('allComments')
             .add({
                 name,
                 email,
-                link,
+                link: linkUrl,
                 content,
                 date: new Date().getTime(),
                 avatar: Avatar,
@@ -204,11 +211,17 @@ const Comment = props => {
             }
         }
         const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
+        // 加协议
+        let linkUrl = link;
+        const webProtocol = ['http://', 'https://'];
+        if (link.indexOf(webProtocol[0]) === -1 && link.indexOf(webProtocol[1]) === -1) {
+            linkUrl = `http://${link}`;
+        }
         db.collection('allComments')
             .add({
                 name,
                 email,
-                link,
+                link: linkUrl,
                 content: replyContent,
                 date: new Date().getTime(),
                 avatar: Avatar,
