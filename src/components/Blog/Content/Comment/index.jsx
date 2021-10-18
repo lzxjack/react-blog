@@ -450,7 +450,7 @@ const Comment = props => {
                                     onKeyUp={e => {
                                         if (e.keyCode === 13) getQQAvatar();
                                     }}
-                                    placeholder="必填"
+                                    placeholder="试试QQ号~"
                                     onBlur={getQQAvatar}
                                 />
                             </div>
@@ -627,7 +627,7 @@ const Comment = props => {
                                 onKeyUp={e => {
                                     if (e.keyCode === 13) getQQAvatar();
                                 }}
-                                placeholder="必填"
+                                placeholder="试试QQ号~"
                                 onBlur={getQQAvatar}
                             />
                         </div>
@@ -659,7 +659,7 @@ const Comment = props => {
                             className="comment-textarea theme-color-1"
                             value={content}
                             onChange={e => setContent(e.target.value)}
-                            placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ，自动获取「头像」和「邮箱」~"
+                            placeholder="写点什么吗？&#10;可以在「昵称」处填写QQ号，自动获取「头像」和「QQ邮箱」！"
                         />
                     </div>
 

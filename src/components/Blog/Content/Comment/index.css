@@ -362,7 +362,7 @@
     justify-content: center;
     align-items: center;
     border: none;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .emoji2 {
@@ -379,9 +379,9 @@
 }
 
 .emojiContent {
-    width: 500px;
+    width: 650px;
     word-break: break-all;
-    font-size: 16px;
+    font-size: 20px;
 }
 .ant-popover-inner {
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);

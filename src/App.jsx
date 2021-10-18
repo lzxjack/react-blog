@@ -24,6 +24,8 @@ import Loading from './components/Loading';
 import Blog from './components/Blog';
 
 const App = props => {
+    // 历史遗留的小问题，以前是匿名登录，后来改成了不登录
+    // 清除用户的匿名登录状态
     useEffect(() => {
         if (auth.hasLoginState() && auth.currentUser.uid !== adminUid) {
             localStorage.removeItem('login_type_blog-admin-7gys9jfy3a4d43aa');
