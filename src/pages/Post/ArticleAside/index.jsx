@@ -39,12 +39,12 @@ const ArticleAside = props => {
                             onClick={() => {
                                 setNavShow(false);
                             }}
+                            // 目录支持中文、英文大小写、()、/、空格、?、=、-、_
                             href={`#${item.title.split('. ')[0]}-${item.title
                                 .split('. ')[1]
                                 .toLowerCase()
-                                .replace(' / ', '--')
-                                .replace('.', '')
-                                .replace('+', '')}`}
+                                .replace(/\s/g, '-')
+                                .replace(/\.|\+|\(|\)|\/|\?|\=/g, '')}`}
                         >
                             {item.title}
                         </a>
