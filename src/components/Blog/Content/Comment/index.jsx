@@ -143,9 +143,11 @@ const Comment = props => {
         const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
         // 加协议
         let linkUrl = link;
-        const webProtocol = ['http://', 'https://'];
-        if (link.indexOf(webProtocol[0]) === -1 && link.indexOf(webProtocol[1]) === -1) {
-            linkUrl = `http://${link}`;
+        if (linkUrl) {
+            const webProtocol = ['http://', 'https://'];
+            if (link.indexOf(webProtocol[0]) < 0 && link.indexOf(webProtocol[1]) < 0) {
+                linkUrl = `http://${linkUrl}`;
+            }
         }
         db.collection('allComments')
             .add({
@@ -213,9 +215,11 @@ const Comment = props => {
         const Avatar = avatar ? avatar : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)];
         // 加协议
         let linkUrl = link;
-        const webProtocol = ['http://', 'https://'];
-        if (link.indexOf(webProtocol[0]) === -1 && link.indexOf(webProtocol[1]) === -1) {
-            linkUrl = `http://${link}`;
+        if (linkUrl) {
+            const webProtocol = ['http://', 'https://'];
+            if (link.indexOf(webProtocol[0]) < 0 && link.indexOf(webProtocol[1]) < 0) {
+                linkUrl = `http://${linkUrl}`;
+            }
         }
         db.collection('allComments')
             .add({
@@ -733,6 +737,12 @@ const Comment = props => {
                     </div>
                 </div>
             </div>
+            {(props.postTitle
+                ? props.comments.filter(item => item.postTitle === props.postTitle)
+                : props.msgs
+            ).length ? null : (
+                <div className="no-comment-box">暂时没有评论~</div>
+            )}
             {/* 留言展示区 */}
             <div className="comment-show-box">
                 {(props.postTitle

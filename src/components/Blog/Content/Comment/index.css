@@ -426,6 +426,16 @@
     border-radius: 20px;
 }
 
+/* 无评论的占位盒子 */
+.no-comment-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(163, 163, 163);
+    height: 130px;
+    user-select: none;
+}
+
 @media all and (max-width: 1240px) {
     .comment-edit-avatar-box {
         width: 46px;
