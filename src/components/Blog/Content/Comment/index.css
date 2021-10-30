@@ -637,4 +637,9 @@
     .emojiBtn {
         display: none;
     }
+
+    /* 无评论的占位盒子 */
+    .no-comment-box {
+        height: 60px;
+    }
 }
