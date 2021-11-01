@@ -43,7 +43,7 @@ const Post = props => {
         <div className="Article-box">
             <div className="animated bounceInDown">
                 <div className="standard-page-title">
-                    <span className="article-title">{title}</span>
+                    <h1 className="article-title">{title}</h1>
 
                     <div className="article-info-box">
                         <span

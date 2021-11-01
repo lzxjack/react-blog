@@ -1,7 +1,7 @@
 .standard-page-title {
     width: 1000px;
     margin: 0 auto;
-    height: 440px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +22,7 @@
     font-size: 50px;
     font-weight: 700;
     font-family: 'FiraCode', 'yu400';
+    color: #fff;
 }
 
 .article-class {

@@ -17,7 +17,7 @@ const ArtList = props => {
                         className="article-item theme-color"
                         onClick={() => showOneArticle(item.titleEng)}
                     >
-                        <div className="article-item-title">{item.title}</div>
+                        <h1 className="article-item-title">{item.title}</h1>
                         <p className="article-item-abstract">{item.content}</p>
                         <div className="article-item-info">
                             <span className="article-item-date theme-color-1 common-hover">
