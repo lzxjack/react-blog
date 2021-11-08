@@ -19,6 +19,7 @@
 }
 
 .article-title {
+    margin: 0;
     font-size: 50px;
     font-weight: 700;
     font-family: 'FiraCode', 'yu400';

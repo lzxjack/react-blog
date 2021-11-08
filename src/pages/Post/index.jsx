@@ -44,7 +44,6 @@ const Post = props => {
             <div className="animated bounceInDown">
                 <div className="standard-page-title">
                     <h1 className="article-title">{title}</h1>
-
                     <div className="article-info-box">
                         <span
                             className="article-class theme-color common-hover"
