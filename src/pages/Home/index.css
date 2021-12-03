@@ -27,6 +27,9 @@
     flex-direction: column;
     user-select: none;
 }
+.home-top-img span {
+    text-shadow: 0 0 6px rgb(0, 0, 0);
+}
 
 .home-top-title {
     font-size: 56px;

@@ -31,9 +31,10 @@ export const blogBackGroundImgs = [
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111500.jpg',
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111501.png',
     'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111502.jpg',
+    'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20211126190312.jpg',
 ];
 // 背景图选择
-export const imgNum = 2;
+export const imgNum = 3;
 
 // 个人友链信息
 export const myName = '飞鸟';

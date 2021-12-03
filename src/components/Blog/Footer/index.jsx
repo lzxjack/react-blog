@@ -1,7 +1,7 @@
 import './index.css';
 
 const Footer = () => {
-    const arr = ['React', 'CloudBase', 'AntD'];
+    const arr = ['React', 'Redux', 'AntD', 'CloudBase', 'Webify'];
     return (
         <footer>
             <span>
@@ -32,7 +32,7 @@ const Footer = () => {
                     </span>
                 ))}
             </span>
-            <span>
+            {/* <span>
                 Powered by
                 <a
                     href="https://webify.cloudbase.net/"
@@ -42,7 +42,7 @@ const Footer = () => {
                 >
                     「CloudBase Webify」
                 </a>
-            </span>
+            </span> */}
         </footer>
     );
 };
