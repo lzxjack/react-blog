@@ -18,7 +18,11 @@ const ArtList = props => {
                         onClick={() => showOneArticle(item.titleEng)}
                     >
                         <h1 className="article-item-title">{item.title}</h1>
-                        <p className="article-item-abstract">{item.content}</p>
+                        <p className="article-item-abstract">
+                            {item.content
+                                .replace(/<a(.*?)>(.*?)<\/a>/g, '$2')
+                                .replace(/[# |**|`|\>]/g, '')}
+                        </p>
                         <div className="article-item-info">
                             <span className="article-item-date theme-color-1 common-hover">
                                 {moment(item.date).format('YYYY-MM-DD')}
