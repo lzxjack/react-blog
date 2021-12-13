@@ -60,7 +60,8 @@ export const defaultCommentAvatarArr = [
 ];
 
 // 评论回复时，发送邮件提醒的API地址
-export const APIUrl = 'https://lzxapi.top:444';
+export const emailApi =
+    'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/sendemail';
 
 // 微信二维码地址
 export const weChatQRCode = 'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719213208.jpg';

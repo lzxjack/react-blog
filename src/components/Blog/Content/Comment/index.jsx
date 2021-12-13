@@ -11,7 +11,7 @@ import {
     adminUrl,
     adminUrlCheck,
     avatarUrl,
-    APIUrl,
+    emailApi,
     emojiPeople,
     emojiNature,
     emojiObj,
@@ -169,7 +169,7 @@ const Comment = props => {
     // 提醒站长有新评论了000
     const sendNewEmail = () => {
         axios({
-            url: `${APIUrl}/email`,
+            url: emailApi,
             method: 'post',
             params: {
                 flag: 0,
@@ -249,7 +249,7 @@ const Comment = props => {
     // 提醒管理员，有评论收到回复111
     const informAdminByEmail = () => {
         axios({
-            url: `${APIUrl}/email`,
+            url: emailApi,
             method: 'post',
             params: {
                 flag: 1,
@@ -267,7 +267,7 @@ const Comment = props => {
     // 提醒原评论人有人回复222
     const sendReplyEmail = () => {
         axios({
-            url: `${APIUrl}/email`,
+            url: emailApi,
             method: 'post',
             params: {
                 flag: 2,
