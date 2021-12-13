@@ -28,7 +28,7 @@
 
 ## 2. 后台管理页面
 
-演示地址：<a href="https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/" target="_blank">「飞鸟小站后台」</a>
+演示地址：<a href="https://react-blog-admin-8fo571wf24c87f9-1304393382.tcloudbaseapp.com/" target="_blank">「飞鸟小站后台」</a>
 
 > 点击`游客`按钮即可使用**游客**身份浏览！
 
