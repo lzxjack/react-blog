@@ -3,7 +3,7 @@ export const env = 'react-blog-admin-8fo571wf24c87f9';
 
 // 博客后台管理的网址
 export const blogAdminUrl =
-    'https://react-blog-admin-8fo571wf24c87f9-1304393382.tcloudbaseapp.com/';
+    'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/';
 
 // siteCount ID
 export const count_id = 'cd045e756100126d005169f014931c65';
