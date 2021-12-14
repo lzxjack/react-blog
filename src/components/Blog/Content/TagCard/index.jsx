@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './index.css';
 
-const TagCard = props => {
-    const { history, tags } = props;
+const TagCard = ({ history, tags }) => {
     const toSomeArts = tag => {
         history.push(`/artTag?tag=${tag}`);
     };

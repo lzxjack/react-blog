@@ -1,7 +1,5 @@
 import './index.css';
 
-const PageTitle = props => {
-    return <div className="PageTitle-box">{props.title}</div>;
-};
+const PageTitle = ({ title }) => <div className="PageTitle-box">{title}</div>;
 
 export default PageTitle;

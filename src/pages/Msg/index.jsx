@@ -8,9 +8,9 @@ import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Msg = props => {
+const Msg = ({ setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     const [timeText, setTimeText] = useState('');
     useEffect(() => {
         const hour = new Date().getHours();

@@ -7,10 +7,9 @@ import { Image } from 'antd';
 import useToTop from '../../../hooks/useToTop';
 import './index.css';
 
-const TheGallery = props => {
-    const { location, galleries, history } = props;
+const TheGallery = ({ location, galleries, history, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     const [title, setitle] = useState('');
     const [pics, sePics] = useState([]);
     useEffect(() => {

@@ -6,9 +6,7 @@ import { isContained } from '../../../utils/functions';
 import { setArticlePage } from '../../../redux/actions';
 import './index.css';
 
-const Search = props => {
-    const { articles, getArticle, setArticlePage, classes, tags } = props;
-
+const Search = ({ articles, getArticle, setArticlePage, classes, tags }) => {
     const { Option } = Select;
     const searchWords = useRef();
     const [searchClass, setSearchClass] = useState(null);

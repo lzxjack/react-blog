@@ -9,10 +9,18 @@ import useToTop from '../../hooks/useToTop';
 
 import './index.css';
 
-const ArtClass = props => {
-    const { classPage, setClassPage, lastClass, updateClass, history, location, articles } = props;
+const ArtClass = ({
+    classPage,
+    setClassPage,
+    lastClass,
+    updateClass,
+    history,
+    location,
+    articles,
+    setNavShow,
+}) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
 
     const turnToArticle = title => {
         history.push(`/post?title=${title}`);

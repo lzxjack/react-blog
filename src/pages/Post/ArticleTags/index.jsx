@@ -1,8 +1,7 @@
 import { withRouter } from 'react-router-dom';
 import './index.css';
 
-const ArticleTags = props => {
-    const { history, tags } = props;
+const ArticleTags = ({ history, tags }) => {
     const toSomeArts = tag => {
         history.push(`/artTag?tag=${tag}`);
     };

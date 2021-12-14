@@ -4,10 +4,9 @@ import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Classes = props => {
-    const { history, classes } = props;
+const Classes = ({ history, classes, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     const toSomeArts = myClass => {
         history.push(`/artClass?class=${myClass}`);
     };

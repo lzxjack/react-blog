@@ -8,12 +8,11 @@ import { setNavShow, setArticlePage } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Articles = props => {
+const Articles = ({ articlePage, setArticlePage, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     // 需要展示文章的state
     const [articlesShow, setArticlesShow] = useState([]);
-    const { articlePage, setArticlePage } = props;
     return (
         <>
             <PageTitle title="所有文章" />

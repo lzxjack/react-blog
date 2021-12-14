@@ -7,8 +7,7 @@ import { blogAdminUrl } from '../../../utils/constant';
 import { setNavShow } from '../../../redux/actions';
 import './index.css';
 
-const Nav = props => {
-    const { setNavShow, navShow, history } = props;
+const Nav = ({ setNavShow, navShow, history }) => {
     useEffect(() => {
         document.body.onmousewheel = event => {
             event = event || window.event;

@@ -4,10 +4,9 @@ import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Tags = props => {
-    const { history, tags } = props;
+const Tags = ({ history, tags, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     const toSomeArts = tag => {
         history.push(`/artTag?tag=${tag}`);
     };

@@ -4,9 +4,8 @@ import moment from 'moment';
 import { time } from '../../../../utils/constant';
 import './index.css';
 
-const SiteCard = props => {
+const SiteCard = ({ siteCount }) => {
     const [runTime, setRunTime] = useState(0);
-    const { siteCount } = props;
     useEffect(() => {
         const nowTime = new Date().getTime();
         const startTime = new Date(time).getTime();

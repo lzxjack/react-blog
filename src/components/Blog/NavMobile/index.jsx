@@ -2,8 +2,7 @@ import { withRouter } from 'react-router-dom';
 import { avatarUrl } from '../../../utils/constant';
 import './index.css';
 
-const NavMobile = props => {
-    const { history, setDrawerShow, drawerShow } = props;
+const NavMobile = ({ history, setDrawerShow, drawerShow }) => {
     const navArr = [
         { name: '主页', to: '/' },
         { name: '文章', to: '/articles' },

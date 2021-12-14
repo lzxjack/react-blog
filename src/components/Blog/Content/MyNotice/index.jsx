@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import './index.css';
 
-const MyNotice = props => (
+const MyNotice = ({ notice }) => (
     <div className="animated bounceInRight">
         <div className="aside-card MyNotice-box theme-color">
-            <div className="notice">{props.notice}</div>
+            <div className="notice">{notice}</div>
         </div>
     </div>
 );

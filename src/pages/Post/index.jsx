@@ -11,9 +11,7 @@ import moment from 'moment';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Post = props => {
-    const { location, articles, history } = props;
-
+const Post = ({ location, articles, history, setNavShow }) => {
     const [classes, setClasses] = useState('');
     const [date, setDate] = useState(null);
     const [tags, setTags] = useState([]);
@@ -21,7 +19,7 @@ const Post = props => {
     const [content, setContent] = useState('');
     const [url, setUrl] = useState(''); // 返回顶部
 
-    useToTop(props, false);
+    useToTop(setNavShow);
 
     useEffect(() => {
         const Title = location.search.split('?title=')[1];

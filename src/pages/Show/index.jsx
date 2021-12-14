@@ -4,10 +4,9 @@ import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Show = props => {
-    const { shows } = props;
+const Show = ({ shows, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     return (
         <>
             <PageTitle title="小作品" />

@@ -4,8 +4,7 @@ import moment from 'moment';
 import { homePageSize } from '../../../utils/constant';
 import './index.css';
 
-const ArtList = props => {
-    const { history, articles, curPage } = props;
+const ArtList = ({ history, articles, curPage }) => {
     const showOneArticle = title => {
         history.push(`/post?title=${title}`);
     };
@@ -21,7 +20,7 @@ const ArtList = props => {
                         <p className="article-item-abstract">
                             {item.content
                                 .replace(/<a(.*?)>(.*?)<\/a>/g, '$2')
-                                .replace(/[# |**|`|\>]/g, '')}
+                                .replace(/[# |**|`|>]/g, '')}
                         </p>
                         <div className="article-item-info">
                             <span className="article-item-date theme-color-1 common-hover">

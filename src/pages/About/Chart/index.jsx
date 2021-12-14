@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Pie } from '@ant-design/charts';
 import './index.css';
 
-const Chart = props => {
+const Chart = ({ classes, articles }) => {
     const [classData, setClassData] = useState([]);
     const pieConfig = {
         appendPadding: 30,
@@ -34,7 +34,7 @@ const Chart = props => {
     // 整理饼图需要的数据格式
     useEffect(() => {
         // classes分类的数组
-        const CLASSES = props.classes
+        const CLASSES = classes
             .filter(item => item.count !== 0)
             .map(item => ({
                 className: item.class,
@@ -47,7 +47,7 @@ const Chart = props => {
             articleHadClass += CLASSES[i].count;
         }
         // articlesNoClassNum为未分类的文章数目：文章总数-有分类的文章的数目
-        const articlesNoClassNum = props.articles.length - articleHadClass;
+        const articlesNoClassNum = articles.length - articleHadClass;
         if (articlesNoClassNum !== 0) {
             // 有未分类的文章
             // 类名为“未分类”
@@ -62,7 +62,7 @@ const Chart = props => {
             // 没有未分类的文章
             setClassData(CLASSES);
         }
-    }, [props.classes, props.articles]);
+    }, [classes, articles]);
 
     return (
         <div className="Chart-box">

@@ -3,8 +3,7 @@ import hljs from 'highlight.js';
 import './github-dark.css';
 import './index.css';
 
-const ArticleContent = props => {
-    const { content } = props;
+const ArticleContent = ({ content }) => {
     // 配置highlight
     hljs.configure({
         tabReplace: '',

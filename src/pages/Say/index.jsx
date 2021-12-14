@@ -6,10 +6,9 @@ import moment from 'moment';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Say = props => {
-    const { says } = props;
+const Say = ({ says, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     return (
         <>
             <PageTitle title="自言自语" />

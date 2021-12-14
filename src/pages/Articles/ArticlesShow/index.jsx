@@ -3,8 +3,7 @@ import moment from 'moment';
 import { articlesPageSize } from '../../../utils/constant';
 import './index.css';
 
-const ArticlesShow = props => {
-    const { history, articles, curPage } = props;
+const ArticlesShow = ({ history, articles, curPage }) => {
     const turnToArticle = title => {
         history.push(`/post?title=${title}`);
     };

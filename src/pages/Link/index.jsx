@@ -6,10 +6,9 @@ import { setNavShow } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Link = props => {
-    const { links, getLinks } = props;
+const Link = ({ links, getLinks, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     useEffect(() => {
         const sum = links.length;
         const Num = sum % 3;

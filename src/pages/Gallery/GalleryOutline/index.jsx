@@ -4,10 +4,9 @@ import { setNavShow } from '../../../redux/actions';
 import useToTop from '../../../hooks/useToTop';
 import './index.css';
 
-const GalleryOutline = props => {
+const GalleryOutline = ({ history, galleries, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
-    const { history, galleries } = props;
+    useToTop(setNavShow);
     const turnOne = id => {
         history.push(`/gallery/one?id=${id}`);
     };

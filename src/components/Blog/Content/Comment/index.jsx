@@ -29,7 +29,18 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import './index.css';
 
-const Comment = props => {
+const Comment = ({
+    postTitle,
+    title,
+    msgs,
+    msgsReply,
+    comments,
+    commentsReply,
+    getComments,
+    getCommentsReply,
+    getMsgs,
+    getMsgsReply,
+}) => {
     // 配置highlight
     hljs.configure({
         tabReplace: '',
@@ -104,10 +115,10 @@ const Comment = props => {
                     .filter(item => !item.postTitle && !item.replyId)
                     .sort((a, b) => b.date - a.date);
                 const msgsReply = res.data.filter(item => !item.postTitle && item.replyId);
-                props.getComments(comments);
-                props.getCommentsReply(commentsReply);
-                props.getMsgs(msgs);
-                props.getMsgsReply(msgsReply);
+                getComments(comments);
+                getCommentsReply(commentsReply);
+                getMsgs(msgs);
+                getMsgsReply(msgsReply);
             });
     };
     // 发布留言
@@ -157,7 +168,7 @@ const Comment = props => {
                 content,
                 date: new Date().getTime(),
                 avatar: Avatar,
-                postTitle: props.postTitle,
+                postTitle,
                 replyId: '',
             })
             .then(() => {
@@ -174,9 +185,9 @@ const Comment = props => {
             params: {
                 flag: 0,
                 name,
-                search: props.postTitle,
+                search: postTitle,
                 content,
-                title: props.title,
+                title,
             },
             withCredentials: true,
         })
@@ -229,7 +240,7 @@ const Comment = props => {
                 content: replyContent,
                 date: new Date().getTime(),
                 avatar: Avatar,
-                postTitle: props.postTitle,
+                postTitle,
                 replyId,
             })
             .then(() => {
@@ -255,9 +266,9 @@ const Comment = props => {
                 flag: 1,
                 name,
                 owner,
-                search: props.postTitle,
+                search: postTitle,
                 content: replyContent,
-                title: props.title,
+                title,
             },
             withCredentials: true,
         })
@@ -274,9 +285,9 @@ const Comment = props => {
                 name,
                 owner,
                 email: replyEmail,
-                search: props.postTitle,
+                search: postTitle,
                 content: replyContent,
-                title: props.title,
+                title,
             },
             withCredentials: true,
         })
@@ -343,11 +354,9 @@ const Comment = props => {
     const openReplyBox = ID => {
         setShowReply(true);
         setReplyId(ID);
-        const Eamil = (props.postTitle ? props.comments : props.msgs).filter(k => k._id === ID)[0]
-            .email;
+        const Eamil = (postTitle ? comments : msgs).filter(k => k._id === ID)[0].email;
         setReplyEmail(Eamil);
-        const owner = (props.postTitle ? props.comments : props.msgs).filter(k => k._id === ID)[0]
-            .name;
+        const owner = (postTitle ? comments : msgs).filter(k => k._id === ID)[0].name;
         setOwner(owner);
     };
     // 关闭评论回复框
@@ -737,117 +746,119 @@ const Comment = props => {
                     </div>
                 </div>
             </div>
-            {(props.postTitle
-                ? props.comments.filter(item => item.postTitle === props.postTitle)
-                : props.msgs
-            ).length ? null : (
+            {(postTitle ? comments.filter(item => item.postTitle === postTitle) : msgs)
+                .length ? null : (
                 <div className="no-comment-box">暂时没有评论~</div>
             )}
             {/* 留言展示区 */}
             <div className="comment-show-box">
-                {(props.postTitle
-                    ? props.comments.filter(item => item.postTitle === props.postTitle)
-                    : props.msgs
-                ).map(item => (
-                    <div className="comment-show-item" key={item._id}>
-                        {/* 头像框 */}
-                        <div className="comment-show-avatar-box">
-                            <img src={item.avatar} alt="avatar" className="comment-edit-avatar" />
-                        </div>
-                        {/* 回复框显示按钮 */}
-                        <div
-                            className="comment-show-reply common-hover"
-                            onClick={() => openReplyBox(item._id)}
-                        >
-                            <MessageOutlined />
-                        </div>
-                        {/* 内容区 */}
-                        <div className="comment-show-content-box">
-                            <div className="comment-show-usrInfo">
-                                <a
-                                    href={item.link}
-                                    onClick={item.link ? () => {} : e => e.preventDefault()}
-                                    target={item.link ? '_blank' : '_self'}
-                                    rel="noreferrer"
-                                    className="comment-show-name theme-color-font common-hover"
-                                    style={{ cursor: item.link ? 'pointer' : 'default' }}
-                                >
-                                    {item.name}
-                                </a>
-                                {item.name === '飞鸟' ? (
-                                    <span className="admin-flag">站长</span>
-                                ) : null}
-                                <span className="comment-show-date">
-                                    {moment(item.date).fromNow()}
-                                </span>
+                {(postTitle ? comments.filter(item => item.postTitle === postTitle) : msgs).map(
+                    item => (
+                        <div className="comment-show-item" key={item._id}>
+                            {/* 头像框 */}
+                            <div className="comment-show-avatar-box">
+                                <img
+                                    src={item.avatar}
+                                    alt="avatar"
+                                    className="comment-edit-avatar"
+                                />
                             </div>
+                            {/* 回复框显示按钮 */}
                             <div
-                                className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
-                                dangerouslySetInnerHTML={{
-                                    __html: marked(item.content).replace(
-                                        /<pre>/g,
-                                        "<pre id='hljs'>"
-                                    ),
-                                }}
-                            ></div>
-                            {/* 回复的消息 */}
-                            <div className="comment-show-reply-box">
-                                {(props.postTitle ? props.commentsReply : props.msgsReply)
-                                    .filter(k => k.replyId === item._id)
-                                    .map(replyItem => (
-                                        <div className="comment-show-item" key={replyItem._id}>
-                                            {/* 头像框 */}
-                                            <div className="comment-show-avatar-box">
-                                                <img
-                                                    src={replyItem.avatar}
-                                                    alt="avatar"
-                                                    className="comment-edit-avatar"
-                                                />
-                                            </div>
-                                            {/* 内容区 */}
-                                            <div className="comment-show-content-box">
-                                                <div className="comment-show-usrInfo">
-                                                    <a
-                                                        href={replyItem.link}
-                                                        onClick={
-                                                            replyItem.link
-                                                                ? () => {}
-                                                                : e => e.preventDefault()
-                                                        }
-                                                        target={replyItem.link ? '_blank' : '_self'}
-                                                        rel="noreferrer"
-                                                        className="comment-show-name theme-color-font common-hover"
-                                                        style={{
-                                                            cursor: replyItem.link
-                                                                ? 'pointer'
-                                                                : 'default',
-                                                        }}
-                                                    >
-                                                        {replyItem.name}
-                                                    </a>
-                                                    {replyItem.name === '飞鸟' ? (
-                                                        <span className="admin-flag">站长</span>
-                                                    ) : null}
-                                                    <span className="comment-show-date">
-                                                        {moment(replyItem.date).fromNow()}
-                                                    </span>
+                                className="comment-show-reply common-hover"
+                                onClick={() => openReplyBox(item._id)}
+                            >
+                                <MessageOutlined />
+                            </div>
+                            {/* 内容区 */}
+                            <div className="comment-show-content-box">
+                                <div className="comment-show-usrInfo">
+                                    <a
+                                        href={item.link}
+                                        onClick={item.link ? () => {} : e => e.preventDefault()}
+                                        target={item.link ? '_blank' : '_self'}
+                                        rel="noreferrer"
+                                        className="comment-show-name theme-color-font common-hover"
+                                        style={{ cursor: item.link ? 'pointer' : 'default' }}
+                                    >
+                                        {item.name}
+                                    </a>
+                                    {item.name === '飞鸟' ? (
+                                        <span className="admin-flag">站长</span>
+                                    ) : null}
+                                    <span className="comment-show-date">
+                                        {moment(item.date).fromNow()}
+                                    </span>
+                                </div>
+                                <div
+                                    className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
+                                    dangerouslySetInnerHTML={{
+                                        __html: marked(item.content).replace(
+                                            /<pre>/g,
+                                            "<pre id='hljs'>"
+                                        ),
+                                    }}
+                                ></div>
+                                {/* 回复的消息 */}
+                                <div className="comment-show-reply-box">
+                                    {(postTitle ? commentsReply : msgsReply)
+                                        .filter(k => k.replyId === item._id)
+                                        .map(replyItem => (
+                                            <div className="comment-show-item" key={replyItem._id}>
+                                                {/* 头像框 */}
+                                                <div className="comment-show-avatar-box">
+                                                    <img
+                                                        src={replyItem.avatar}
+                                                        alt="avatar"
+                                                        className="comment-edit-avatar"
+                                                    />
                                                 </div>
-                                                <div
-                                                    className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: marked(replyItem.content).replace(
-                                                            /<pre>/g,
-                                                            "<pre id='hljs'>"
-                                                        ),
-                                                    }}
-                                                ></div>
+                                                {/* 内容区 */}
+                                                <div className="comment-show-content-box">
+                                                    <div className="comment-show-usrInfo">
+                                                        <a
+                                                            href={replyItem.link}
+                                                            onClick={
+                                                                replyItem.link
+                                                                    ? () => {}
+                                                                    : e => e.preventDefault()
+                                                            }
+                                                            target={
+                                                                replyItem.link ? '_blank' : '_self'
+                                                            }
+                                                            rel="noreferrer"
+                                                            className="comment-show-name theme-color-font common-hover"
+                                                            style={{
+                                                                cursor: replyItem.link
+                                                                    ? 'pointer'
+                                                                    : 'default',
+                                                            }}
+                                                        >
+                                                            {replyItem.name}
+                                                        </a>
+                                                        {replyItem.name === '飞鸟' ? (
+                                                            <span className="admin-flag">站长</span>
+                                                        ) : null}
+                                                        <span className="comment-show-date">
+                                                            {moment(replyItem.date).fromNow()}
+                                                        </span>
+                                                    </div>
+                                                    <div
+                                                        className="comment-show-content theme-color-1 markdownStyle commentMarkDown"
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: marked(
+                                                                replyItem.content
+                                                            ).replace(/<pre>/g, "<pre id='hljs'>"),
+                                                        }}
+                                                    ></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    )
+                )}
             </div>
         </div>
     );

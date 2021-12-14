@@ -4,8 +4,7 @@ import CopyrightIcon from './CopyrightIcon';
 import copy from 'copy-to-clipboard';
 import './index.css';
 
-const Copyright = props => {
-    const { url, title } = props;
+const Copyright = ({ url, title }) => {
     const [showCopySuccess, setShowCopySuccess] = useState(false);
     const copyUrl = () => {
         if (copy(url)) {

@@ -8,10 +8,18 @@ import { setNavShow, setTagPage, updateTag } from '../../redux/actions';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const ArtTag = props => {
-    const { tagPage, setTagPage, lastTag, updateTag, history, location, articles } = props;
+const ArtTag = ({
+    tagPage,
+    setTagPage,
+    lastTag,
+    updateTag,
+    history,
+    location,
+    articles,
+    setNavShow,
+}) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
 
     const turnToArticle = title => {
         history.push(`/post?title=${title}`);

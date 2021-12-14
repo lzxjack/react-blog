@@ -12,10 +12,9 @@ import MyNotice from '../../components/Blog/Content/MyNotice';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const Home = props => {
+const Home = ({ homePage, setHomePage, content, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
-    const { homePage, setHomePage, content } = props;
+    useToTop(setNavShow);
     return (
         <div className="Home-box">
             <div className="home-top-img">

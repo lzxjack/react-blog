@@ -9,10 +9,9 @@ import Chart from './Chart';
 import useToTop from '../../hooks/useToTop';
 import './index.css';
 
-const About = props => {
-    const { about } = props;
+const About = ({ about, setNavShow }) => {
     // 返回顶部
-    useToTop(props, true);
+    useToTop(setNavShow);
     // 配置highlight
     hljs.configure({
         tabReplace: '',

@@ -3,14 +3,12 @@ import GalleryOutline from './GalleryOutline';
 import TheGallery from './TheGallery';
 import './index.css';
 
-const Gallery = () => {
-    return (
-        <Switch>
-            <Route path="/gallery/one" component={TheGallery} />
-            <Route path="/gallery" component={GalleryOutline} />
-            <Redirect to="/gallery" />
-        </Switch>
-    );
-};
+const Gallery = () => (
+    <Switch>
+        <Route path="/gallery/one" component={TheGallery} />
+        <Route path="/gallery" component={GalleryOutline} />
+        <Redirect to="/gallery" />
+    </Switch>
+);
 
 export default Gallery;

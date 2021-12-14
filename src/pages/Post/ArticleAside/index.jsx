@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { setNavShow } from '../../../redux/actions';
 import './index.css';
 
-const ArticleAside = props => {
-    const { content, setNavShow } = props;
+const ArticleAside = ({ content, setNavShow }) => {
     const [tocArr, setTocArr] = useState([]);
     useEffect(() => {
         const reg = /(#+)\s+?(.+?)\n/g;
@@ -44,7 +43,7 @@ const ArticleAside = props => {
                                 .split('. ')[1]
                                 .toLowerCase()
                                 .replace(/\s/g, '-')
-                                .replace(/\.|\+|\(|\)|\/|\?|\=/g, '')}`}
+                                .replace(/\.|\+|\(|\)|\/|\?|=/g, '')}`}
                         >
                             {item.title}
                         </a>
