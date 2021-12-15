@@ -33,7 +33,7 @@ const TheGallery = ({ location, galleries, history, setNavShow }) => {
                 </div>
                 <Image.PreviewGroup>
                     {pics.map((item, index) => (
-                        <Image width={360} src={item} key={index} />
+                        <Image width={360} src={item} key={index} loading="lazy" alt="img" />
                     ))}
                 </Image.PreviewGroup>
             </div>
