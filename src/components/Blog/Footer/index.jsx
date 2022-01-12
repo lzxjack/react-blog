@@ -1,7 +1,7 @@
 import './index.css';
 
 const Footer = () => {
-    const arr = ['React', 'Redux', 'AntD', 'CloudBase', 'Webify'];
+    const arr = ['React', 'Redux', 'AntD', 'CloudBase'];
     return (
         <footer>
             <span>

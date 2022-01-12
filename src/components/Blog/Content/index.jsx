@@ -1,29 +1,30 @@
+import { lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import About from '../../../pages/About';
-import Articles from '../../../pages/Articles';
-import Post from '../../../pages/Post';
-import Gallery from '../../../pages/Gallery';
-import Home from '../../../pages/Home';
-import Link from '../../../pages/Link';
-import Log from '../../../pages/Log';
-import Msg from '../../../pages/Msg';
-import Say from '../../../pages/Say';
-import Show from '../../../pages/Show';
-import Classes from '../../../pages/Classes';
-import Tags from '../../../pages/Tags';
-import ArtClass from '../../../pages/ArtClass';
-import ArtTag from '../../../pages/ArtTag';
-
 import './index.css';
 
-const Content = () => {
-    return (
-        <>
-            {/* <div className="nav-bottm"></div> */}
-            {/* 整个页面 */}
-            <div className="Content-box">
-                {/* 通栏 */}
-                <div className="content-center">
+const About = lazy(() => import('../../../pages/About'));
+const Articles = lazy(() => import('../../../pages/Articles'));
+const Post = lazy(() => import('../../../pages/Post'));
+const Gallery = lazy(() => import('../../../pages/Gallery'));
+const Home = lazy(() => import('../../../pages/Home'));
+const Link = lazy(() => import('../../../pages/Link'));
+const Log = lazy(() => import('../../../pages/Log'));
+const Msg = lazy(() => import('../../../pages/Msg'));
+const Say = lazy(() => import('../../../pages/Say'));
+const Show = lazy(() => import('../../../pages/Show'));
+const Classes = lazy(() => import('../../../pages/Classes'));
+const Tags = lazy(() => import('../../../pages/Tags'));
+const ArtClass = lazy(() => import('../../../pages/ArtClass'));
+const ArtTag = lazy(() => import('../../../pages/ArtTag'));
+
+const Content = () => (
+    <>
+        {/* <div className="nav-bottm"></div> */}
+        {/* 整个页面 */}
+        <div className="Content-box">
+            {/* 通栏 */}
+            <div className="content-center">
+                <Suspense fallback={null}>
                     <Switch>
                         <Route path="/articles" component={Articles} />
                         <Route path="/artClass" component={ArtClass} />
@@ -41,10 +42,10 @@ const Content = () => {
                         <Route path="/" exact component={Home} />
                         <Redirect to="/" />
                     </Switch>
-                </div>
+                </Suspense>
             </div>
-        </>
-    );
-};
+        </div>
+    </>
+);
 
 export default Content;
