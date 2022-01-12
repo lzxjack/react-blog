@@ -39,22 +39,22 @@ const Post = ({ location, articles, history, setNavShow }) => {
     };
     return (
         <div className="Article-box">
-            {/* <div className="animated bounceInDown"> */}
-            <div className="standard-page-title">
-                <h1 className="article-title">{title}</h1>
-                <div className="article-info-box">
-                    <span
-                        className="article-class theme-color common-hover"
-                        onClick={() => toSomeArts(classes)}
-                    >
-                        {classes}
-                    </span>
-                    <span className="article-date theme-color common-hover">
-                        {moment(date).format('YYYY-MM-DD HH:mm:ss')}
-                    </span>
+            <div className="animated bounceInDown">
+                <div className="standard-page-title">
+                    <h1 className="article-title">{title}</h1>
+                    <div className="article-info-box">
+                        <span
+                            className="article-class theme-color common-hover"
+                            onClick={() => toSomeArts(classes)}
+                        >
+                            {classes}
+                        </span>
+                        <span className="article-date theme-color common-hover">
+                            {moment(date).format('YYYY-MM-DD HH:mm:ss')}
+                        </span>
+                    </div>
                 </div>
             </div>
-            {/* </div> */}
 
             <div className="standard-page-box theme-color">
                 <ArticleContent content={content} />
