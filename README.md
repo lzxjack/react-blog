@@ -1,47 +1,23 @@
-## 📖简介
+## 博客 2.0 开发中...
 
-学习 Webpack 后搭建的小项目，供以后个人开发开箱即用。
+改用自己搭建的脚手架，并重构优化代码。
 
-这是一个自己基于 Webpack 搭建的 React 脚手架，配置了相关模块，添加了常用功能，便于以后 React 新项目的搭建。
+## 预计使用的 hooks
 
-此脚手架集成了`react`+`react-router-dom`+`typescript`+`redux`+`less`+`sass`+`commitlint`+`eslint`+`dayjs`+`antd按需引入/自定义主题`+`ahooks`，可省去繁琐的配置过程，开箱即用。
-
-## 📝使用
-
-安装依赖：
-
-```powershell
-yarn
-```
-
-开发环境：
-
-```powershell
-yarn start
-```
-
-生产环境：
-
-```powershell
-yarn build
-```
-
-## 🏷️Webpack 版本
-
-- `webpack`：5.69.1
-- `webpack-cli`：4.9.2
-
-## 🔖功能版本
-
-- `react`：17.0.2
-- `react-router-dom`：6.2.2
-- `typescript`：4.6.2
-- `redux`：4.1.2
-- `less`：4.1.2
-- `sass-loader`：12.6.0
-- `commitlint`：16.2.1
-- `eslint`：8.10.0
-- `dayjs`：1.10.8
-- `antd`：4.19.0
-- `ahooks`：3.1.13
-- ...
+- useReques
+- usePagination：
+- useMount：只在组件初始化时执行的 Hook。
+- useUnmount：在组件卸载（unmount）时执行的 Hook。
+- useSetState：用法与 class 组件的 this.setState 基本一致。
+- useBoolean
+- useDebounce
+- useThrottle
+- useSafeState：用法与 React.useState 完全一样，但是在组件卸载后异步回调内的 setState 不再执行，避免因组件卸载后更新状态而导致的内存泄漏。
+- useGetState：给 React.useState 增加了一个 getter 方法，以获取当前最新值。
+- useUpdateEffect：忽略首次执行，只在依赖更新时执行。
+- useAsyncEffect：useEffect 支持异步函数。
+- useDeepCompareEffect
+- useEventListener：优雅的使用 addEventListener。
+- useTitle
+- useLatest：返回当前最新值的 Hook，可以避免闭包问题。
+- useMemoizedFn：持久化 function 的 Hook，理论上，可以使用 useMemoizedFn 完全代替 useCallback。

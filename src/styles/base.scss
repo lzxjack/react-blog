@@ -1,0 +1,16 @@
+// 尺寸
+$navHeight: 60px;
+$footerHeight: 120px;
+
+// 颜色
+$themeColor: rgba(35, 35, 44, 1);
+$hoverColor: rgb(97, 147, 187);
+$textColor: #fff;
+
+:export {
+  navHeight: $navHeight;
+  footerHeight: $footerHeight;
+  themeColor: $themeColor;
+  hoverColor: $hoverColor;
+  textColor: $textColor;
+}

@@ -1,0 +1,12 @@
+@import './base.scss';
+
+.trans {
+  transition: all 0.3s !important;
+}
+
+.hover {
+  @extend .trans;
+}
+.hover:hover {
+  background-color: $hoverColor !important;
+}

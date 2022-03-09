@@ -1,0 +1,13 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.nav {
+  width: 100%;
+  height: $navHeight;
+  background-color: pink;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 0 18px #000;
+  @extend .trans;
+}
