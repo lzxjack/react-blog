@@ -1,3 +1,3 @@
 export interface storeState {
-  count: number;
+  navShow: boolean;
 }
