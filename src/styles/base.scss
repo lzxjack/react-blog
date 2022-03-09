@@ -1,6 +1,7 @@
 // 尺寸
 $navHeight: 60px;
 $footerHeight: 120px;
+$centerWidth: 1200px;
 
 // 颜色
 $themeColor: rgba(35, 35, 44, 1);
@@ -13,4 +14,5 @@ $textColor: #fff;
   themeColor: $themeColor;
   hoverColor: $hoverColor;
   textColor: $textColor;
+  centerWidth: $centerWidth;
 }
