@@ -1,12 +1,19 @@
-// 尺寸
+// size
 $navHeight: 60px;
 $footerHeight: 120px;
 $centerWidth: 1200px;
 $asideWidth: 260px;
 
-// 颜色
-$themeColor: rgba(35, 35, 44, 1);
+// color
+// 主色
+$themeColor: rgb(35, 35, 44);
+// 副色1
+$themeColor1: rgb(19, 19, 26);
+// 副色2
+$themeColor2: rgb(69, 69, 88);
+// 按钮/字体高亮/hover
 $hoverColor: rgb(97, 147, 187);
+// 字体色
 $textColor: #fff;
 
 // 圆角

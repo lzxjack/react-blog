@@ -3,5 +3,6 @@
 .section {
   width: calc(100% - #{$asideWidth});
   padding-right: $space;
+  box-sizing: border-box;
   // background-color: yellow;
 }

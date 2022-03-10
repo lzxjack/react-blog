@@ -147,3 +147,7 @@ a:focus {
 body::-webkit-scrollbar {
   display: none;
 }
+
+div {
+  box-sizing: border-box;
+}
