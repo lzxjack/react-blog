@@ -13,6 +13,8 @@ $themeColor1: rgb(19, 19, 26);
 $themeColor2: rgb(69, 69, 88);
 // 按钮/字体高亮/hover
 $hoverColor: rgb(97, 147, 187);
+// hover基础上，对比色
+$hoverDeepColor: rgb(55, 85, 109);
 // 字体色
 $textColor: #fff;
 
@@ -27,6 +29,8 @@ $space: 20px;
   navHeight: $navHeight;
   footerHeight: $footerHeight;
   themeColor: $themeColor;
+  themeColor1: $themeColor1;
+  themeColor2: $themeColor2;
   hoverColor: $hoverColor;
   textColor: $textColor;
   centerWidth: $centerWidth;
@@ -34,4 +38,5 @@ $space: 20px;
   bigRadius: $bigRadius;
   space: $space;
   midRadius: $midRadius;
+  hoverDeepColor: $hoverDeepColor;
 }

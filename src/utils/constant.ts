@@ -19,3 +19,10 @@ export const weChatQRCode =
 // QQ二维码地址
 export const QQ_QRCode =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210719214515.jpg';
+
+// 透明头像
+export const cardUrl =
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210718205847.PNG';
+
+// 博客运行起始日
+export const time = '2020-12-16 14:00:00';

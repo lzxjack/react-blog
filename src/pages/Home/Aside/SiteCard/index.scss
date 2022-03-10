@@ -1,0 +1,29 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.card {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .item {
+    height: 36px;
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: $midRadius;
+    @extend .hover;
+
+    .key {
+      margin-left: 10px;
+    }
+
+    .value {
+      margin-right: 10px;
+    }
+  }
+}

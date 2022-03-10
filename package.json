@@ -1,6 +1,6 @@
 {
-  "name": "my-react",
-  "version": "1.0.0",
+  "name": "react-blog",
+  "version": "2.0.0",
   "main": "index.js",
   "sideEffects": [
     "*.css",
@@ -31,6 +31,7 @@
     "antd": "4.19.0",
     "classnames": "2.3.1",
     "dayjs": "1.10.8",
+    "jinrishici": "^1.0.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "4.3.1",

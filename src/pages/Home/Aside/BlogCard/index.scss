@@ -1,0 +1,27 @@
+@import '../../../../styles/base.scss';
+
+.card {
+  height: 200px;
+  position: relative;
+
+  .avatar {
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    height: 200px;
+  }
+
+  .text {
+    margin: 0;
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    font-size: 20px;
+    line-height: 34px;
+  }
+
+  .color {
+    font-weight: 700;
+    color: $hoverColor;
+  }
+}
