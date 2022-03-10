@@ -18,6 +18,7 @@ $textColor: #fff;
 
 // 圆角
 $bigRadius: 20px;
+$midRadius: 12px;
 
 // 间距
 $space: 20px;
@@ -32,4 +33,5 @@ $space: 20px;
   asideWidth: $asideWidth;
   bigRadius: $bigRadius;
   space: $space;
+  midRadius: $midRadius;
 }

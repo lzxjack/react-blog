@@ -13,6 +13,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@babel/core": "7.17.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "7.17.0",

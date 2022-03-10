@@ -151,3 +151,7 @@ body::-webkit-scrollbar {
 div {
   box-sizing: border-box;
 }
+
+img {
+  -webkit-user-drag: none;
+}

@@ -1,0 +1,12 @@
+@import '../../../../../styles/base.scss';
+@import '../../../../../styles/style.scss';
+
+.csdn {
+  width: 30px;
+  height: 30px;
+
+  path {
+    fill: $textColor;
+    @extend .trans;
+  }
+}
