@@ -19,24 +19,26 @@ const About = lazy(() => import(/* webpackPrefetch:true */ '@/pages/About'));
 const Main: React.FC = () => {
   return (
     <main className={s.main}>
-      <ErrorBoundary>
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='articles' element={<Articles />} />
-            <Route path='classes' element={<Classes />} />
-            <Route path='tags' element={<Tags />} />
-            <Route path='gallery' element={<Gallery />} />
-            <Route path='say' element={<Say />} />
-            <Route path='msg' element={<Msg />} />
-            <Route path='link' element={<Link />} />
-            <Route path='show' element={<Show />} />
-            <Route path='log' element={<Log />} />
-            <Route path='about' element={<About />} />
-            <Route path='*' element={<Navigate to='/' replace />} />
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
+      <div className={s.center}>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='articles' element={<Articles />} />
+              <Route path='classes' element={<Classes />} />
+              <Route path='tags' element={<Tags />} />
+              <Route path='gallery' element={<Gallery />} />
+              <Route path='say' element={<Say />} />
+              <Route path='msg' element={<Msg />} />
+              <Route path='link' element={<Link />} />
+              <Route path='show' element={<Show />} />
+              <Route path='log' element={<Log />} />
+              <Route path='about' element={<About />} />
+              <Route path='*' element={<Navigate to='/' replace />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </div>
     </main>
   );
 };

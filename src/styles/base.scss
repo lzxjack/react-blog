@@ -2,11 +2,18 @@
 $navHeight: 60px;
 $footerHeight: 120px;
 $centerWidth: 1200px;
+$asideWidth: 260px;
 
 // 颜色
 $themeColor: rgba(35, 35, 44, 1);
 $hoverColor: rgb(97, 147, 187);
 $textColor: #fff;
+
+// 圆角
+$bigRadius: 20px;
+
+// 间距
+$space: 20px;
 
 :export {
   navHeight: $navHeight;
@@ -15,4 +22,7 @@ $textColor: #fff;
   hoverColor: $hoverColor;
   textColor: $textColor;
   centerWidth: $centerWidth;
+  asideWidth: $asideWidth;
+  bigRadius: $bigRadius;
+  space: $space;
 }

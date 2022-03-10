@@ -1,0 +1,7 @@
+@import '../../../styles/base.scss';
+
+.section {
+  width: calc(100% - #{$asideWidth});
+  padding-right: $space;
+  // background-color: yellow;
+}
