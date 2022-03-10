@@ -10,8 +10,8 @@ type Props = {
 const PageTitle: React.FC<Props> = ({ height = '300px', title, desc }) => {
   return (
     <div style={{ height }} className={s.box}>
-      <h1 className={s.title}>{title}</h1>
-      {desc && <h3 className={s.desc}>{desc}</h3>}
+      <div className={s.title}>{title}</div>
+      {desc && <div className={s.desc}>{desc}</div>}
     </div>
   );
 };
