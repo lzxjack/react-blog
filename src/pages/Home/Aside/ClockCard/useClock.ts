@@ -4,6 +4,7 @@ export const useClock = () => {
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
+
   const runPerSecond = () => {
     const date = new Date();
     const hours = date.getHours();

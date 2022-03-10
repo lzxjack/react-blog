@@ -39,26 +39,23 @@
     border-radius: 50%;
     box-shadow: 0 0 24px #000 inset;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    // background-color: pink;
-  }
-  .zero {
-    @extend .pointX;
-    top: 20px;
-  }
-  .six {
-    @extend .pointX;
-    bottom: 20px;
-  }
-  .three {
-    @extend .pointY;
-    right: 20px;
-  }
-  .nine {
-    @extend .pointY;
-    left: 20px;
+
+    .zero {
+      @extend .pointX;
+      top: 0;
+    }
+    .six {
+      @extend .pointX;
+      bottom: 0;
+    }
+    .three {
+      @extend .pointY;
+      right: 0;
+    }
+    .nine {
+      @extend .pointY;
+      left: 0;
+    }
   }
 
   .container {

@@ -2,22 +2,20 @@ import React from 'react';
 import Card from '@/components/Card';
 import { useClock } from './useClock';
 import { useInterval } from 'ahooks';
-import classNames from 'classnames';
 import s from './index.scss';
 
 const ClockCard: React.FC = () => {
   const { hour, minute, second, runPerSecond } = useClock();
-  useInterval(() => {
-    runPerSecond();
-  }, 1000);
+  useInterval(runPerSecond, 1000);
 
   return (
     <Card className={s.card}>
-      <div className={s.dial}></div>
-      <div className={s.zero}></div>
-      <div className={s.six}></div>
-      <div className={s.three}></div>
-      <div className={s.nine}></div>
+      <div className={s.dial}>
+        <div className={s.zero}></div>
+        <div className={s.six}></div>
+        <div className={s.three}></div>
+        <div className={s.nine}></div>
+      </div>
       <div className={s.container}>
         <div className={s.dot}></div>
         <div
