@@ -1,3 +1,6 @@
+// 博客的云环境ID
+export const env = 'react-blog-admin-8fo571wf24c87f9';
+
 export const source_github = 'https://github.com/lzxjack/react-blog';
 
 export const icp_site = 'https://beian.miit.gov.cn/#/Integrated/index';

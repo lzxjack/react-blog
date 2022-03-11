@@ -1,9 +1,7 @@
 // antd自定义主题配置
 
 const myAntd = {
-  'primary-color': '#1DA57A',
-  'link-color': '#1DA57A',
-  'border-radius-base': '8px'
+  'primary-color': 'rgb(69, 69, 88)'
 };
 
 module.exports = {

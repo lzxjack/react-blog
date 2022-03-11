@@ -183,7 +183,8 @@ module.exports = {
       '@': path.resolve(ROOT_PATH, './src')
     },
     // 若没有写后缀时，依次从数组中查找相应后缀文件是否存在
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    fallback: { crypto: false }
   },
 
   // 缓存
