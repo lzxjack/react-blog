@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 import Card from '@/components/Card';
 
+import { fetchData } from './fetchData';
 import s from './index.scss';
-import { useFetchData } from './useFetchData';
 
 const DataCard: React.FC = () => {
   const navigate = useNavigate();
-  const { data, loading } = useRequest(useFetchData);
+  const { data, loading } = useRequest(fetchData);
 
   return (
     <Card className={s.card} loading={loading}>
