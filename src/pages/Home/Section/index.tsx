@@ -2,6 +2,7 @@ import './pagination.custom.scss';
 
 import { useRequest, useSafeState } from 'ahooks';
 import { Pagination } from 'antd';
+import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -58,7 +59,7 @@ const Section: React.FC<Props> = ({ artSum }) => {
           <PostCard key={_id} title={title} content={content} date={date} tags={tags} />
         ))
       )}
-      <div className={s.box}>
+      <div className={classNames(s.box, 'pagination')}>
         <Pagination
           current={page}
           total={artSum}

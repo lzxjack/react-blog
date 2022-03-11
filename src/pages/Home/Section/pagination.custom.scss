@@ -1,55 +1,58 @@
-.ant-pagination {
-  color: #fff;
-  height: 100%;
-}
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
 
-.ant-pagination .ant-pagination-prev,
-.ant-pagination .ant-pagination-next {
-  width: 50px;
-  height: 50px;
-}
+.pagination {
+  .ant-pagination {
+    color: $textColor;
+    height: 100%;
+  }
 
-.ant-pagination .ant-pagination-item-link,
-.ant-pagination .ant-pagination-item,
-.ant-pagination .ant-pagination-jump-prev,
-.ant-pagination .ant-pagination-jump-next {
-  /* 副色1 */
-  background-color: rgb(19, 19, 26);
-  border: none;
-  border-radius: 10px;
-  /* cursor: default; */
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-  line-height: 50px;
-  transition: all 0.2s !important;
-}
+  .ant-pagination .ant-pagination-prev,
+  .ant-pagination .ant-pagination-next {
+    width: 50px;
+    height: 50px;
+  }
 
-.ant-pagination .ant-pagination-item a {
-  transition: all 0.2s !important;
-  cursor: default;
-  color: #fff;
-}
-.ant-pagination .ant-pagination-item a:hover,
-.ant-pagination-item-active a,
-.ant-pagination-item-ellipsis {
-  color: #fff !important;
-}
+  .ant-pagination .ant-pagination-item-link,
+  .ant-pagination .ant-pagination-item,
+  .ant-pagination .ant-pagination-jump-prev,
+  .ant-pagination .ant-pagination-jump-next {
+    background-color: $themeColor1;
+    border: none;
+    border-radius: $midRadius;
+    cursor: default;
+    color: $textColor;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    @extend .trans;
+  }
 
-.ant-pagination .ant-pagination-item-link:hover,
-.ant-pagination .ant-pagination-item:hover,
-.ant-pagination-item-active:hover,
-.ant-pagination .ant-pagination-jump-prev:hover,
-.ant-pagination .ant-pagination-jump-next:hover,
-.ant-pagination-item-active {
-  /* 按钮色 */
-  background-color: rgb(97, 147, 187) !important;
-  color: #fff !important;
-}
+  .ant-pagination .ant-pagination-item a {
+    @extend .trans;
+    cursor: default;
+    color: $textColor;
+  }
+  .ant-pagination .ant-pagination-item a:hover,
+  .ant-pagination-item-active a,
+  .ant-pagination-item-ellipsis {
+    color: $textColor !important;
+  }
 
-.ant-pagination-item-link-icon svg {
-  width: 18px;
-  height: 18px;
-  fill: #fff;
+  .ant-pagination .ant-pagination-item-link:hover,
+  .ant-pagination .ant-pagination-item:hover,
+  .ant-pagination-item-active:hover,
+  .ant-pagination .ant-pagination-jump-prev:hover,
+  .ant-pagination .ant-pagination-jump-next:hover,
+  .ant-pagination-item-active {
+    background-color: $hoverColor !important;
+    color: $textColor !important;
+  }
+
+  .ant-pagination-item-link-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: $textColor;
+  }
 }
