@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { AiOutlineHome, AiOutlineSetting } from 'react-icons/ai';
+import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
 import { useEventListener } from 'ahooks';
 import { connect } from 'react-redux';
 import { setNavShow } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
 import { blogAdminUrl } from '@/utils/constant';
 import { useLinkList } from './config';
-import s from './index.scss';
 import classNames from 'classnames';
+import s from './index.scss';
 
 type Props = {
   navShow?: boolean;
@@ -33,12 +33,12 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
       <div className={s.navContent}>
         {/* 主页 */}
         <div className={s.homeBtn} onClick={() => navigate('/')}>
-          <AiOutlineHome />
+          <HomeOutlined />
         </div>
 
         {/* 后台管理 */}
         <a className={s.adminBtn} href={blogAdminUrl} target='_blank' rel='noreferrer'>
-          <AiOutlineSetting />
+          <SettingOutlined />
         </a>
 
         {/* 文章单独按钮 */}
