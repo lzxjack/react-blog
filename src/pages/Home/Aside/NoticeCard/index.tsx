@@ -4,11 +4,17 @@ import React from 'react';
 import Card from '@/components/Card';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
+import { staleTime } from '@/utils/constant';
 
 import s from './index.scss';
 
 const NoticeCard: React.FC = () => {
-  const { data, loading } = useRequest(getData, { defaultParams: [DB.Notice] });
+  const { data, loading } = useRequest(getData, {
+    defaultParams: [DB.Notice],
+    retryCount: 3,
+    cacheKey: 'notice',
+    staleTime
+  });
 
   return (
     <Card loading={loading}>

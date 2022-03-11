@@ -8,11 +8,11 @@ import s from './index.scss';
 interface Props {
   title?: string;
   content?: string;
-  time?: string;
+  date?: number;
   tags?: string[];
 }
 
-const PostCard: React.FC<Props> = ({ title, content, time, tags }) => {
+const PostCard: React.FC<Props> = ({ title, content, date, tags }) => {
   return (
     <Card className={s.card}>
       <h1 className={s.title}>{title}</h1>
@@ -20,7 +20,7 @@ const PostCard: React.FC<Props> = ({ title, content, time, tags }) => {
         {content!.replace(/<a(.*?)>(.*?)<\/a>/g, '$2').replace(/[# |**|`|>]/g, '')}
       </p>
       <div className={s.info}>
-        <span className={s.date}>{dayjs(time!).format('YYYY-MM-DD')}</span>
+        <span className={s.date}>{dayjs(date!).format('YYYY-MM-DD')}</span>
         <div className={s.tags}>
           {tags!.map(tag => (
             <span className={s.tag} key={tag}>

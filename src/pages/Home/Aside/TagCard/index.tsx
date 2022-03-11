@@ -4,12 +4,16 @@ import React from 'react';
 import Card from '@/components/Card';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
+import { staleTime } from '@/utils/constant';
 
 import s from './index.scss';
 
 const TagCard: React.FC = () => {
   const { data, loading } = useRequest(getData, {
-    defaultParams: [DB.Tag]
+    defaultParams: [DB.Tag],
+    retryCount: 3,
+    cacheKey: 'tags',
+    staleTime
   });
 
   return (

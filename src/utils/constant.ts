@@ -39,3 +39,9 @@ export const blogBackGroundImgs = [
 ];
 // 背景图选择
 export const imgNum = 3;
+
+// 数据缓存时间
+export const staleTime = 180000;
+
+// 首页文章分页，每页数据
+export const homeSize = 8;

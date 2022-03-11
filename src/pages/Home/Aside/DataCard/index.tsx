@@ -1,15 +1,27 @@
 import { useRequest } from 'ahooks';
 import React from 'react';
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Card from '@/components/Card';
+import { setArtSum } from '@/redux/actions';
+import { staleTime } from '@/utils/constant';
 
 import { fetchData } from './fetchData';
 import s from './index.scss';
 
-const DataCard: React.FC = () => {
+interface Props {
+  setArtSum?: Function;
+}
+
+const DataCard: React.FC<Props> = ({ setArtSum }) => {
   const navigate = useNavigate();
-  const { data, loading } = useRequest(fetchData);
+  const { data, loading } = useRequest(fetchData, {
+    retryCount: 3,
+    cacheKey: 'threeCount',
+    staleTime,
+    onSuccess: data => setArtSum!(data?.articles.total)
+  });
 
   return (
     <Card className={s.card} loading={loading}>
@@ -29,4 +41,6 @@ const DataCard: React.FC = () => {
   );
 };
 
-export default DataCard;
+export default connect(() => ({}), {
+  setArtSum
+})(DataCard);

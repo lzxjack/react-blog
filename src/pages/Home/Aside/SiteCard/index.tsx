@@ -4,6 +4,7 @@ import React from 'react';
 import Card from '@/components/Card';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
+import { staleTime } from '@/utils/constant';
 
 import s from './index.scss';
 import { useRunTime } from './useRunTime';
@@ -12,7 +13,10 @@ const SiteCard: React.FC = () => {
   const { runTime } = useRunTime();
 
   const { data, loading } = useRequest(getData, {
-    defaultParams: [DB.Count]
+    defaultParams: [DB.Count],
+    retryCount: 3,
+    cacheKey: 'siteCount',
+    staleTime
   });
 
   return (
