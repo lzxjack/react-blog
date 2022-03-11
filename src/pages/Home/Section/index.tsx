@@ -1,3 +1,5 @@
+import './pagination.custom.scss';
+
 import { useRequest, useSafeState } from 'ahooks';
 import { Pagination } from 'antd';
 import React from 'react';
@@ -11,6 +13,7 @@ import { homeSize } from '@/utils/constant';
 import s from './index.scss';
 import PostCard from './PostCard';
 import PostLoading from './PostLoading';
+// import
 
 interface theAtc {
   classes: string;
@@ -55,7 +58,7 @@ const Section: React.FC<Props> = ({ artSum }) => {
           <PostCard key={_id} title={title} content={content} date={date} tags={tags} />
         ))
       )}
-      <div className='PageNav-box animated bounceInLeft'>
+      <div className={s.box}>
         <Pagination
           current={page}
           total={artSum}
