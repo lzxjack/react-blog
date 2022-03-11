@@ -14,7 +14,6 @@ import { homeSize } from '@/utils/constant';
 import s from './index.scss';
 import PostCard from './PostCard';
 import PostLoading from './PostLoading';
-// import
 
 interface theAtc {
   classes: string;
