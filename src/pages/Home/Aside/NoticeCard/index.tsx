@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Card from '@/components/Card';
+
 import s from './index.scss';
 
 const NoticeCard: React.FC = () => {

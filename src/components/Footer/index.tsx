@@ -1,5 +1,7 @@
 import React from 'react';
-import { source_github, icp_site, icp_no } from '@/utils/constant';
+
+import { icp_no,icp_site, source_github } from '@/utils/constant';
+
 import s from './index.scss';
 
 const Footer: React.FC = () => {

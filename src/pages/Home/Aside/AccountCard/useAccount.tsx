@@ -1,6 +1,8 @@
+import { GithubOutlined, QqOutlined,WechatOutlined } from '@ant-design/icons';
 import React from 'react';
-import { GithubOutlined, WechatOutlined, QqOutlined } from '@ant-design/icons';
-import { weChatQRCode, QQ_QRCode, githubUrl, csdnUrl } from '@/utils/constant';
+
+import { csdnUrl,githubUrl, QQ_QRCode, weChatQRCode } from '@/utils/constant';
+
 import Csdn from './Csdn';
 
 export const useAccount = () => {

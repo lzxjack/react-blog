@@ -1,13 +1,15 @@
-import React from 'react';
-import PageTitle from '@/components/PageTitle';
-import { siteTitle } from '@/utils/constant';
-import Section from './Section';
-import Aside from './Aside';
-import useTop from '@/utils/hooks/useTop';
-import { connect } from 'react-redux';
-import { setNavShow } from '@/redux/actions';
 import { useMount, useSafeState } from 'ahooks';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import PageTitle from '@/components/PageTitle';
+import { setNavShow } from '@/redux/actions';
+import { siteTitle } from '@/utils/constant';
+import useTop from '@/utils/hooks/useTop';
+
+import Aside from './Aside';
 import s from './index.scss';
+import Section from './Section';
 
 interface Props {
   setNavShow: Function;

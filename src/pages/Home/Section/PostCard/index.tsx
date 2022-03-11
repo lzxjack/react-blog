@@ -1,6 +1,8 @@
-import React from 'react';
-import Card from '@/components/Card';
 import dayjs from 'dayjs';
+import React from 'react';
+
+import Card from '@/components/Card';
+
 import s from './index.scss';
 
 interface Props {

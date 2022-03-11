@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import PageLoading from '@/components/PageLoading';
+import { Navigate,Route, Routes } from 'react-router-dom';
+
 import ErrorBoundary from '@/components/ErrorBoundary';
+import PageLoading from '@/components/PageLoading';
+
 import s from './index.scss';
 
 const Home = lazy(() => import(/* webpackPrefetch:true */ '@/pages/Home'));

@@ -1,8 +1,10 @@
-import React from 'react';
-import Card from '@/components/Card';
-import { useClock } from './useClock';
 import { useInterval } from 'ahooks';
+import React from 'react';
+
+import Card from '@/components/Card';
+
 import s from './index.scss';
+import { useClock } from './useClock';
 
 const ClockCard: React.FC = () => {
   const { hour, minute, second, runPerSecond } = useClock();

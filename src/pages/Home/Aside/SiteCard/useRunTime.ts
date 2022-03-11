@@ -1,6 +1,7 @@
+import { useMount,useSafeState } from 'ahooks';
 import dayjs from 'dayjs';
+
 import { time } from '@/utils/constant';
-import { useSafeState, useMount } from 'ahooks';
 
 export const useRunTime = () => {
   const [runTime, setRunTime] = useSafeState(0);
