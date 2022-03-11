@@ -1,10 +1,11 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
+
 import s from './index.scss';
 
-type Props = {
+interface Props {
   className?: string;
-};
+}
 
 const Card: React.FC<Props> = ({ children, className }) => {
   return <div className={classNames(s.card, className)}>{children}</div>;

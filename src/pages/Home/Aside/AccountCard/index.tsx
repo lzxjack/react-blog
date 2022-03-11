@@ -1,8 +1,10 @@
 import React from 'react';
+
 import Card from '@/components/Card';
+
 import IcoBtn from './IcoBtn';
-import { useAccount } from './useAccount';
 import s from './index.scss';
+import { useAccount } from './useAccount';
 
 const AccountCard: React.FC = () => {
   const accounts = useAccount();

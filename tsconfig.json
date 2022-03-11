@@ -4,7 +4,7 @@
     "target": "ES5", // 编译成哪个版本的 es
     "module": "ESNext", // 指定生成哪个模块系统代码
     "lib": ["dom", "dom.iterable", "esnext"], // 编译过程中需要引入的库文件的列表
-    "allowJs": true, // 允许编译 js 文件
+    "allowJs": false, // 允许编译 js 文件
     "jsx": "react", // 在 .tsx 文件里支持 JSX
     "isolatedModules": true, // 提供额外的一些语法检查，如文件没有模块导出会报错
     "strict": true, // 启用所有严格类型检查选项

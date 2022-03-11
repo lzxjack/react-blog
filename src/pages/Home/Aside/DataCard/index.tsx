@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import Card from '@/components/Card';
+
 import s from './index.scss';
 
 const DataCard: React.FC = () => {

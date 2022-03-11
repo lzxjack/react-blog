@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Card from '@/components/Card';
+
 import s from './index.scss';
 
 const TagCard: React.FC = () => {
@@ -14,7 +16,7 @@ const TagCard: React.FC = () => {
     'WebPack',
     'WebPack',
     'WebPack',
-    'WebPack',
+    'WebPack'
   ];
   return (
     <Card className={s.card}>

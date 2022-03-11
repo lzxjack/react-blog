@@ -1,6 +1,8 @@
+import { GithubOutlined, QqOutlined,WechatOutlined } from '@ant-design/icons';
 import React from 'react';
-import { GithubOutlined, WechatOutlined, QqOutlined } from '@ant-design/icons';
-import { weChatQRCode, QQ_QRCode, githubUrl, csdnUrl } from '@/utils/constant';
+
+import { csdnUrl,githubUrl, QQ_QRCode, weChatQRCode } from '@/utils/constant';
+
 import Csdn from './Csdn';
 
 export const useAccount = () => {
@@ -11,25 +13,25 @@ export const useAccount = () => {
       isLink: true,
       link: githubUrl,
       ico: <GithubOutlined />,
-      content: <></>,
+      content: null
     },
     {
       isLink: true,
       link: csdnUrl,
       ico: <Csdn />,
-      content: <></>,
+      content: null
     },
     {
       isLink: false,
       link: '',
       ico: <WechatOutlined />,
-      content: <img src={weChatQRCode} alt='WeChat' style={imgStyle} />,
+      content: <img src={weChatQRCode} alt='WeChat' style={imgStyle} />
     },
     {
       isLink: false,
       link: '',
       ico: <QqOutlined />,
-      content: <img src={QQ_QRCode} alt='QQ' style={imgStyle} />,
-    },
+      content: <img src={QQ_QRCode} alt='QQ' style={imgStyle} />
+    }
   ];
 };

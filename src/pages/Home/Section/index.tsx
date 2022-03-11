@@ -1,6 +1,7 @@
 import React from 'react';
-import PostCard from './PostCard';
+
 import s from './index.scss';
+import PostCard from './PostCard';
 
 const Section: React.FC = () => {
   return (

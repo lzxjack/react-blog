@@ -1,7 +1,9 @@
 import React from 'react';
+
 import Card from '@/components/Card';
-import { useRunTime } from './useRunTime';
+
 import s from './index.scss';
+import { useRunTime } from './useRunTime';
 
 const SiteCard: React.FC = () => {
   const { runTime } = useRunTime();

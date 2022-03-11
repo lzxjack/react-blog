@@ -9,5 +9,5 @@ const SERVER_PORT = 8080;
 module.exports = {
   ROOT_PATH,
   SERVER_HOST,
-  SERVER_PORT,
+  SERVER_PORT
 };

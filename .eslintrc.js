@@ -1,16 +1,33 @@
 module.exports = {
+  root: true,
   extends: ['alloy', 'alloy/react', 'alloy/typescript'],
+  parserOptions: {
+    warnOnUnsupportedTypeScriptVersion: false
+  },
   env: {
-    // 环境变量（包含多个预定义的全局变量）
+    es2021: true,
     browser: true,
-    node: true,
+    node: true
   },
-  globals: {
-    // 全局变量（设置为 false 表示它不允许被重新赋值）
+  settings: {
+    react: {
+      version: 'detect'
+    }
   },
+  plugins: ['simple-import-sort'],
   rules: {
-    // 自定义规则
-    // 禁止require
-    'no-require-imports': false,
-  },
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    '@typescript-eslint/no-require-imports': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/member-ordering': 0,
+    'default-case': 2,
+    'guard-for-in': 2,
+    'no-eval': 2,
+    'no-implied-eval': 2,
+    'no-lone-blocks': 2,
+    'require-await': 2,
+    'no-param-reassign': 0,
+    'comma-dangle': 2
+  }
 };
