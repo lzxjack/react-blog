@@ -1,0 +1,20 @@
+@import '../../styles/base.scss';
+
+.box {
+  color: $textColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+  text-shadow: 0 0 6px rgb(0, 0, 0);
+
+  .title {
+    font-size: 56px;
+    font-weight: 700;
+  }
+
+  .desc {
+    font-size: 28px;
+  }
+}

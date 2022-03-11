@@ -1,0 +1,17 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.card {
+  margin-bottom: $space;
+  border-radius: $bigRadius;
+  overflow: hidden;
+  user-select: none;
+  background-color: $themeColor;
+  color: $textColor;
+  padding: $space;
+  @extend .trans;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}

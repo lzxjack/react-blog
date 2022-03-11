@@ -29,7 +29,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
   const navigate = useNavigate();
 
   return (
-    <nav className={classNames(s.nav, { [s.hiddenNav]: navShow! })}>
+    <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
       <div className={s.navContent}>
         {/* 主页 */}
         <div className={s.homeBtn} onClick={() => navigate('/')}>
@@ -46,7 +46,9 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <div className={s.articelsSecond}>
             {secondNavArr.map(item => (
               <NavLink
-                className={({ isActive }) => (isActive ? s.sedActive : s.articelsSecondItem)}
+                className={({ isActive }) =>
+                  isActive ? s.sedActive : s.articelsSecondItem
+                }
                 to={item.to}
                 key={item.id}
               >

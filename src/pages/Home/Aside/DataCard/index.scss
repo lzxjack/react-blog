@@ -1,0 +1,40 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.card {
+  height: 80px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .blogData {
+    width: 64px;
+    height: 58px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    cursor: pointer;
+    @extend .hover;
+  }
+
+  .name,
+  .num {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .num {
+    @extend .trans;
+    color: $hoverColor;
+    font-weight: 700;
+  }
+
+  .blogData:hover .num {
+    color: $hoverDeepColor;
+  }
+}

@@ -143,3 +143,15 @@ a:active,
 a:focus {
   text-decoration: none !important;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+img {
+  -webkit-user-drag: none;
+}

@@ -2,5 +2,9 @@
 
 .main {
   min-height: calc(100vh - #{$footerHeight});
-  background-color: yellow;
+
+  .center {
+    width: $centerWidth;
+    margin: auto;
+  }
 }
