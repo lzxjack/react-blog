@@ -14,7 +14,10 @@ module.exports = {
       version: 'detect'
     }
   },
+  plugins: ['simple-import-sort'],
   rules: {
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
     '@typescript-eslint/no-require-imports': 0,
     '@typescript-eslint/explicit-member-accessibility': 0,
     '@typescript-eslint/member-ordering': 0,

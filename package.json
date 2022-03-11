@@ -11,7 +11,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
-    "eslint": "eslint ./src/** --ignore-pattern *.scss --ignore-pattern *.ttf --no-error-on-unmatched-pattern --quiet",
+    "eslint": "eslint ./src/** --ignore-pattern *.scss --ignore-pattern *.ttf --no-error-on-unmatched-pattern --quiet --fix",
     "commitlint": "commitlint --config .commitlintrc.js -e"
   },
   "browserslist": [
@@ -67,6 +67,7 @@
     "eslint": "8.10.0",
     "eslint-config-alloy": "4.5.1",
     "eslint-plugin-react": "7.29.3",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "fork-ts-checker-webpack-plugin": "7.2.1",
     "html-webpack-plugin": "5.5.0",
     "husky": "4.3.8",
