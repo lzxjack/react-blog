@@ -10,17 +10,17 @@ import { useLinkList } from './config';
 import classNames from 'classnames';
 import s from './index.scss';
 
-type Props = {
+interface Props {
   navShow?: boolean;
   setNavShow?: Function;
-};
+}
 
 const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
   useEventListener(
     'mousewheel',
     event => {
       event = event || window.event;
-      setNavShow && setNavShow(event.wheelDeltaY > 0);
+      setNavShow!(event.wheelDeltaY > 0);
     },
     { target: document.body }
   );
@@ -50,8 +50,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
                   isActive ? s.sedActive : s.articelsSecondItem
                 }
                 to={item.to}
-                key={item.id}
-              >
+                key={item.id}>
                 {item.name}
               </NavLink>
             ))}
@@ -64,8 +63,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <NavLink
             className={({ isActive }) => (isActive ? s.navActive : s.navBtn)}
             to={item.to}
-            key={item.id}
-          >
+            key={item.id}>
             {item.name}
           </NavLink>
         ))}
@@ -76,7 +74,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
 
 export default connect(
   (state: storeState) => ({
-    navShow: state.navShow,
+    navShow: state.navShow
   }),
   { setNavShow }
 )(Nav);

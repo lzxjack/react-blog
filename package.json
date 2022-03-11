@@ -10,7 +10,9 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
+    "eslint": "eslint ./src/** --ignore-pattern *.scss --ignore-pattern *.ttf --no-error-on-unmatched-pattern --quiet",
+    "commitlint": "commitlint --config .commitlintrc.js -e"
   },
   "browserslist": [
     ">0.2%",
@@ -20,7 +22,8 @@
   ],
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint --config .commitlintrc.js -e"
+      "pre-commit": "yarn eslint",
+      "commit-msg": "yarn commitlint"
     }
   },
   "dependencies": {

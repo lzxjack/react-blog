@@ -14,7 +14,7 @@ const TagCard: React.FC = () => {
     'WebPack',
     'WebPack',
     'WebPack',
-    'WebPack',
+    'WebPack'
   ];
   return (
     <Card className={s.card}>

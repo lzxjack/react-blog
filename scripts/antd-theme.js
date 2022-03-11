@@ -3,9 +3,9 @@
 const myAntd = {
   'primary-color': '#1DA57A',
   'link-color': '#1DA57A',
-  'border-radius-base': '8px',
+  'border-radius-base': '8px'
 };
 
 module.exports = {
-  myAntd,
+  myAntd
 };

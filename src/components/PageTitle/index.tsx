@@ -1,11 +1,11 @@
 import React from 'react';
 import s from './index.scss';
 
-type Props = {
+interface Props {
   height?: string;
   title?: string;
   desc?: string;
-};
+}
 
 const PageTitle: React.FC<Props> = ({ height = '300px', title, desc }) => {
   return (

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from '@/redux/store';
 import App from './App';
 
-if (module && module.hot) {
+if (module?.hot) {
   module.hot.accept();
 }
 

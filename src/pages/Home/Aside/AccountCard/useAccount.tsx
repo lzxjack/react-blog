@@ -11,25 +11,25 @@ export const useAccount = () => {
       isLink: true,
       link: githubUrl,
       ico: <GithubOutlined />,
-      content: <></>,
+      content: null
     },
     {
       isLink: true,
       link: csdnUrl,
       ico: <Csdn />,
-      content: <></>,
+      content: null
     },
     {
       isLink: false,
       link: '',
       ico: <WechatOutlined />,
-      content: <img src={weChatQRCode} alt='WeChat' style={imgStyle} />,
+      content: <img src={weChatQRCode} alt='WeChat' style={imgStyle} />
     },
     {
       isLink: false,
       link: '',
       ico: <QqOutlined />,
-      content: <img src={QQ_QRCode} alt='QQ' style={imgStyle} />,
-    },
+      content: <img src={QQ_QRCode} alt='QQ' style={imgStyle} />
+    }
   ];
 };

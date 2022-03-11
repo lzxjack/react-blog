@@ -24,6 +24,6 @@ export const useClock = () => {
     hour,
     minute,
     second,
-    runPerSecond,
+    runPerSecond
   };
 };

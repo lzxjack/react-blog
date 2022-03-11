@@ -20,11 +20,11 @@ const getCssLoaders = () => {
       options: {
         modules: {
           // 模块化类名，防止重复
-          localIdentName: '[local]--[hash:base64:5]',
+          localIdentName: '[local]--[hash:base64:5]'
         },
-        sourceMap: isDevelopment,
-      },
-    },
+        sourceMap: isDevelopment
+      }
+    }
   ];
 
   // 加css前缀的loader配置
@@ -37,13 +37,13 @@ const getCssLoaders = () => {
             'postcss-preset-env',
             {
               autoprefixer: {
-                grid: true,
-              },
-            },
-          ],
-        ],
-      },
-    },
+                grid: true
+              }
+            }
+          ]
+        ]
+      }
+    }
   };
 
   // 生产模式时，才需要加css前缀
@@ -57,8 +57,8 @@ const getAntdLessLoaders = () => [
   {
     loader: 'css-loader',
     options: {
-      sourceMap: isDevelopment,
-    },
+      sourceMap: isDevelopment
+    }
   },
   {
     loader: 'less-loader',
@@ -67,15 +67,15 @@ const getAntdLessLoaders = () => [
       lessOptions: {
         // antd 自定义主题
         modifyVars: myAntd,
-        javascriptEnabled: true,
-      },
-    },
-  },
+        javascriptEnabled: true
+      }
+    }
+  }
 ];
 
 module.exports = {
   entry: {
-    index: path.resolve(ROOT_PATH, './src/index'),
+    index: path.resolve(ROOT_PATH, './src/index')
   },
 
   plugins: [
@@ -83,15 +83,15 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(ROOT_PATH, './public/index.html'),
       filename: 'index.html',
-      inject: 'body',
+      inject: 'body'
     }),
     // 打包显示进度条
     new WebpackBar(),
     // webpack打包不会有类型检查，强制ts类型检查
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        configFile: path.resolve(ROOT_PATH, './tsconfig.json'),
-      },
+        configFile: path.resolve(ROOT_PATH, './tsconfig.json')
+      }
     }),
     // 复制不用动态导入的资源
     new CopyWebpackPlugin({
@@ -104,15 +104,15 @@ module.exports = {
           globOptions: {
             dot: true,
             gitignore: true,
-            ignore: ['**/index.html'], // **表示任意目录下
-          },
-        },
-      ],
+            ignore: ['**/index.html'] // **表示任意目录下
+          }
+        }
+      ]
     }),
     // 自动删除上一次打包的产物
     new CleanWebpackPlugin(),
     // 将antd中的moment.js替换为day.js
-    new AntdDayjsWebpackPlugin(),
+    new AntdDayjsWebpackPlugin()
   ],
 
   module: {
@@ -120,7 +120,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: getCssLoaders(),
+        use: getCssLoaders()
       },
       {
         test: /\.less$/,
@@ -130,15 +130,15 @@ module.exports = {
           {
             loader: 'less-loader',
             options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
+              sourceMap: isDevelopment
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
         exclude: /src/,
-        use: getAntdLessLoaders(),
+        use: getAntdLessLoaders()
       },
       {
         test: /\.scss$/,
@@ -148,16 +148,16 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: isDevelopment,
-            },
-          },
-        ],
+              sourceMap: isDevelopment
+            }
+          }
+        ]
       },
       {
         test: /\.(tsx?|js)$/, // ts\tsx\js
         loader: 'babel-loader',
         options: { cacheDirectory: true }, // 缓存公共文件
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -165,25 +165,25 @@ module.exports = {
         type: 'asset',
         parser: {
           dataUrlCondition: {
-            maxSize: 4 * 1024,
-          },
-        },
+            maxSize: 4 * 1024
+          }
+        }
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2?)$/,
         // 分割为单独文件，并导出url
-        type: 'asset/resource',
-      },
-    ],
+        type: 'asset/resource'
+      }
+    ]
   },
 
   // 路径配置别名
   resolve: {
     alias: {
-      '@': path.resolve(ROOT_PATH, './src'),
+      '@': path.resolve(ROOT_PATH, './src')
     },
     // 若没有写后缀时，依次从数组中查找相应后缀文件是否存在
-    extensions: ['.tsx', '.ts', '.js', '.json'],
+    extensions: ['.tsx', '.ts', '.js', '.json']
   },
 
   // 缓存
@@ -192,7 +192,7 @@ module.exports = {
     type: 'filesystem',
     buildDependencies: {
       // 当配置文件发生变化时，缓存失效
-      config: [__filename],
-    },
-  },
+      config: [__filename]
+    }
+  }
 };

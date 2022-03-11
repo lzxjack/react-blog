@@ -11,25 +11,22 @@ const ClockCard: React.FC = () => {
   return (
     <Card className={s.card}>
       <div className={s.dial}>
-        <div className={s.zero}></div>
-        <div className={s.six}></div>
-        <div className={s.three}></div>
-        <div className={s.nine}></div>
+        <div className={s.zero} />
+        <div className={s.six} />
+        <div className={s.three} />
+        <div className={s.nine} />
       </div>
       <div className={s.container}>
-        <div className={s.dot}></div>
+        <div className={s.dot} />
         <div
           className={s.clockMinuteLine}
           style={{ transform: `rotateZ(${minute}deg)` }}
-        ></div>
-        <div
-          className={s.clockHourLine}
-          style={{ transform: `rotateZ(${hour}deg)` }}
-        ></div>
+        />
+        <div className={s.clockHourLine} style={{ transform: `rotateZ(${hour}deg)` }} />
         <div
           className={s.clockSecondLine}
           style={{ transform: `rotateZ(${second}deg)` }}
-        ></div>
+        />
       </div>
     </Card>
   );

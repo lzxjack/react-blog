@@ -9,9 +9,9 @@ import { setNavShow } from '@/redux/actions';
 import { useMount, useSafeState } from 'ahooks';
 import s from './index.scss';
 
-type Props = {
+interface Props {
   setNavShow: Function;
-};
+}
 
 const getPoem = require('jinrishici');
 
