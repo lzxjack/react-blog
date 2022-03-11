@@ -15,15 +15,15 @@ const DataCard: React.FC = () => {
     <Card className={s.card} loading={loading}>
       <div className={s.blogData} onClick={() => navigate('/articles')}>
         <div className={s.name}>文章</div>
-        <div className={s.num}>{data?.articles.data.length}</div>
+        <div className={s.num}>{data?.articles.total}</div>
       </div>
       <div className={s.blogData} onClick={() => navigate('/classes')}>
         <div className={s.name}>分类</div>
-        <div className={s.num}>{data?.classes.data.length}</div>
+        <div className={s.num}>{data?.classes.total}</div>
       </div>
       <div className={s.blogData} onClick={() => navigate('/tags')}>
         <div className={s.name}>标签</div>
-        <div className={s.num}>{data?.tags.data.length}</div>
+        <div className={s.num}>{data?.tags.total}</div>
       </div>
     </Card>
   );

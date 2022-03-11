@@ -1,9 +1,8 @@
 import { db } from '../cloudBase';
-import { DB } from './dbConfig';
 
-export const getArticle = () =>
+export const getData = (dbName: string) =>
   db
-    .collection(DB.Article)
+    .collection(dbName)
     .get()
     .then(res => res)
     .catch(err => err);

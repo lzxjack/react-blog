@@ -1,12 +1,11 @@
-import { getArticle } from '@/utils/apis/getArticle';
-import { getClass } from '@/utils/apis/getClass';
-import { getTag } from '@/utils/apis/getTag';
+import { DB } from '@/utils/apis/dbConfig';
+import { getNum } from '@/utils/apis/getNum';
 
 export const fetchData = async () => {
   const [articles, classes, tags] = await Promise.all([
-    getArticle(),
-    getClass(),
-    getTag()
+    getNum(DB.Article),
+    getNum(DB.Class),
+    getNum(DB.Tag)
   ]);
 
   return {
