@@ -4,4 +4,11 @@
   width: calc(100% - #{$asideWidth});
   padding-right: $space;
   box-sizing: border-box;
+
+  .box {
+    height: 50px;
+    user-select: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }

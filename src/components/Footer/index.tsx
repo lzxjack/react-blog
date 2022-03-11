@@ -1,11 +1,19 @@
 import React from 'react';
 
-import { icp_no,icp_site, source_github } from '@/utils/constant';
+import { icp_no, icp_site, source_github } from '@/utils/constant';
 
 import s from './index.scss';
 
 const Footer: React.FC = () => {
-  const frameArr = ['React', 'Redux', 'AntD', 'CloudBase'];
+  const frameArr = [
+    'React',
+    'React Router',
+    'Redux',
+    'Webpack',
+    'AntD',
+    'ahooks',
+    'CloudBase'
+  ];
 
   return (
     <footer className={s.footer}>

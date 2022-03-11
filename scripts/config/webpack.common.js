@@ -52,6 +52,43 @@ const getCssLoaders = () => {
   return cssLoaders;
 };
 
+const getCustomLoaders = () => {
+  const cssLoaders = [
+    // 开发模式使用style-loader，生产模式MiniCssExtractPlugin.loader
+    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: isDevelopment
+      }
+    }
+  ];
+
+  // 加css前缀的loader配置
+  const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: [
+          isProduction && [
+            'postcss-preset-env',
+            {
+              autoprefixer: {
+                grid: true
+              }
+            }
+          ]
+        ]
+      }
+    }
+  };
+
+  // 生产模式时，才需要加css前缀
+  isProduction && cssLoaders.push(postcssLoader);
+
+  return cssLoaders;
+};
+
 const getAntdLessLoaders = () => [
   isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
@@ -142,9 +179,21 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /\.custom.scss$/],
         use: [
           ...getCssLoaders(),
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment
+            }
+          }
+        ]
+      },
+      {
+        test: /\.custom.scss$/,
+        use: [
+          ...getCustomLoaders(),
           {
             loader: 'sass-loader',
             options: {
@@ -183,7 +232,8 @@ module.exports = {
       '@': path.resolve(ROOT_PATH, './src')
     },
     // 若没有写后缀时，依次从数组中查找相应后缀文件是否存在
-    extensions: ['.tsx', '.ts', '.js', '.json']
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    fallback: { crypto: false }
   },
 
   // 缓存
