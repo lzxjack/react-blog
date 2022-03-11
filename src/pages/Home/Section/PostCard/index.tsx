@@ -12,18 +12,16 @@ type Props = {
 
 const PostCard: React.FC<Props> = ({ title, content, time, tags }) => {
   return (
-    <Card>
-      <h1 className='article-item-title'>{title}</h1>
-      <p className='article-item-abstract'>
+    <Card className={s.card}>
+      <h1 className={s.title}>{title}</h1>
+      <p className={s.content}>
         {content!.replace(/<a(.*?)>(.*?)<\/a>/g, '$2').replace(/[# |**|`|>]/g, '')}
       </p>
-      <div className='article-item-info'>
-        <span className='article-item-date theme-color-1 common-hover'>
-          {dayjs(time!).format('YYYY-MM-DD')}
-        </span>
-        <div className='article-item-tags'>
+      <div className={s.info}>
+        <span className={s.date}>{dayjs(time!).format('YYYY-MM-DD')}</span>
+        <div className={s.tags}>
           {tags!.map(tag => (
-            <span className='article-item-tag theme-color-1 common-hover' key={tag}>
+            <span className={s.tag} key={tag}>
               {tag}
             </span>
           ))}

@@ -23,6 +23,24 @@ const Section: React.FC = () => {
         time='2021-10-20'
         tags={['React', 'JavaScript', 'Git']}
       />
+      <PostCard
+        title='JavaScript 作用域、作用域链的理解'
+        content={'JavaScript 作用域、作用域链的理解'.repeat(100)}
+        time='2021-10-20'
+        tags={['React', 'JavaScript', 'Git']}
+      />
+      <PostCard
+        title='JavaScript 作用域、作用域链的理解'
+        content={'JavaScript 作用域、作用域链的理解'.repeat(100)}
+        time='2021-10-20'
+        tags={['React', 'JavaScript', 'Git']}
+      />
+      <PostCard
+        title='JavaScript 作用域、作用域链的理解'
+        content={'JavaScript 作用域、作用域链的理解'.repeat(100)}
+        time='2021-10-20'
+        tags={['React', 'JavaScript', 'Git']}
+      />
     </section>
   );
 };
