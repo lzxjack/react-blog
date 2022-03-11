@@ -10,6 +10,7 @@ import { homeSize } from '@/utils/constant';
 
 import s from './index.scss';
 import PostCard from './PostCard';
+import PostLoading from './PostLoading';
 
 interface theAtc {
   classes: string;
@@ -47,9 +48,13 @@ const Section: React.FC<Props> = ({ artSum }) => {
 
   return (
     <section className={s.section}>
-      {data?.data.map(({ _id, title, content, date, tags }: theAtc) => (
-        <PostCard key={_id} title={title} content={content} date={date} tags={tags} />
-      ))}
+      {loading ? (
+        <PostLoading />
+      ) : (
+        data?.data.map(({ _id, title, content, date, tags }: theAtc) => (
+          <PostCard key={_id} title={title} content={content} date={date} tags={tags} />
+        ))
+      )}
       <div className='PageNav-box animated bounceInLeft'>
         <Pagination
           current={page}
