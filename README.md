@@ -21,3 +21,45 @@
 - useTitle
 - useLatest：返回当前最新值的 Hook，可以避免闭包问题。
 - useMemoizedFn：持久化 function 的 Hook，理论上，可以使用 useMemoizedFn 完全代替 useCallback。
+
+## 遇到的问题
+
+（1）自定义主题 antd 样式不满足，自定义 antd 样式
+
+额外写的`.scss`会开启`module`模式，导致样式无法匹配，不生效。
+
+解决：专门创建`*.custom.scss`后缀文件，创建单独的规则：
+
+```js
+{
+  test: /\.custom.scss$/,
+  use: [
+    ...getCustomLoaders(), // 这里不开启module
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: isDevelopment
+      }
+    }
+  ]
+}
+```
+
+原先的规则要排除：
+
+```js
+{
+  test: /\.scss$/,
+  exclude: [/node_modules/, /\.custom.scss$/],
+  use: [
+    ...getCssLoaders(),
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: isDevelopment
+      }
+    }
+  ]
+}
+```
+
