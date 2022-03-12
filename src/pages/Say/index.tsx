@@ -1,4 +1,4 @@
-import { useRequest } from 'ahooks';
+import { useRequest, useTitle } from 'ahooks';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -7,9 +7,10 @@ import LayoutLoading from '@/components/LayoutLoading';
 import { setNavShow } from '@/redux/actions';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
-import { staleTime } from '@/utils/constant';
+import { siteTitle, staleTime } from '@/utils/constant';
 import useTop from '@/utils/hooks/useTop';
 
+import { Title } from '../titleConfig';
 import s from './index.scss';
 import SayPop from './SayPop';
 
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const Say: React.FC<Props> = ({ setNavShow }) => {
+  useTitle(`${siteTitle} | ${Title.Say}`);
+
   useTop(setNavShow!);
 
   const { data, loading } = useRequest(getData, {
@@ -28,7 +31,7 @@ const Say: React.FC<Props> = ({ setNavShow }) => {
   });
 
   return (
-    <Layout title='自言自语'>
+    <Layout title={Title.Say}>
       {loading ? (
         <LayoutLoading />
       ) : (

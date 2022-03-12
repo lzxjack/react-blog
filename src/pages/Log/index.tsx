@@ -1,12 +1,13 @@
-import { useRequest } from 'ahooks';
+import { useRequest, useTitle } from 'ahooks';
 import React from 'react';
 
 import Layout from '@/components/Layout';
 import LayoutLoading from '@/components/LayoutLoading';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
-import { staleTime } from '@/utils/constant';
+import { siteTitle, staleTime } from '@/utils/constant';
 
+import { Title } from '../titleConfig';
 import TimeItem from './TimeItem';
 
 interface Log {
@@ -16,6 +17,8 @@ interface Log {
 }
 
 const Log: React.FC = () => {
+  useTitle(`${siteTitle} | ${Title.Log}`);
+
   const { data, loading } = useRequest(getData, {
     defaultParams: [{ dbName: DB.Log, sortKey: 'date' }],
     retryCount: 3,
@@ -24,7 +27,7 @@ const Log: React.FC = () => {
   });
 
   return (
-    <Layout title='建站日志'>
+    <Layout title={Title.Log}>
       {loading ? (
         <LayoutLoading />
       ) : (
