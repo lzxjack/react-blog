@@ -10,9 +10,9 @@ import s from './index.scss';
 
 const TagCard: React.FC = () => {
   const { data, loading } = useRequest(getData, {
-    defaultParams: [DB.Tag],
+    defaultParams: [{ dbName: DB.Tag }],
     retryCount: 3,
-    cacheKey: 'tags',
+    cacheKey: DB.Tag,
     staleTime
   });
 

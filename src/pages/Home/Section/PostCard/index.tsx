@@ -14,7 +14,7 @@ interface Props {
 
 const PostCard: React.FC<Props> = ({ title, content, date, tags }) => {
   return (
-    <Card className={s.card}>
+    <Card className={s.card} isStatic={true}>
       <h1 className={s.title}>{title}</h1>
       <p className={s.content}>
         {content!.replace(/<a(.*?)>(.*?)<\/a>/g, '$2').replace(/[# |**|`|>]/g, '')}

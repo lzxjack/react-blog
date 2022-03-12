@@ -8,7 +8,7 @@ interface Props {
   desc?: string;
 }
 
-const PageTitle: React.FC<Props> = ({ height = '300px', title, desc }) => {
+const PageTitle: React.FC<Props> = ({ height = '440px', title, desc }) => {
   return (
     <div style={{ height }} className={s.box}>
       <div className={s.title}>{title}</div>

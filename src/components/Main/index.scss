@@ -1,7 +1,7 @@
 @import '../../styles/base.scss';
 
 .main {
-  min-height: calc(100vh - #{$footerHeight});
+  min-height: calc(100vh - #{$footerHeight + 2 * $space});
 
   .center {
     width: $centerWidth;
