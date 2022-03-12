@@ -1,12 +1,22 @@
+import { useToggle } from 'ahooks';
 import React from 'react';
 
 import Layout from '@/components/Layout';
 
 import { Title } from '../titleConfig';
-import s from './index.scss';
+import AboutMe from './AboutMe';
+import AboutSite from './AboutSite';
+import Switch from './Switch';
 
 const About: React.FC = () => {
-  return <Layout title={Title.About}>About</Layout>;
+  const [state, { toggle }] = useToggle();
+
+  return (
+    <Layout title={Title.About}>
+      <Switch state={state} toggle={toggle} />
+      {state ? <AboutMe /> : <AboutSite />}
+    </Layout>
+  );
 };
 
 export default About;
