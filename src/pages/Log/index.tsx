@@ -2,11 +2,11 @@ import { useRequest } from 'ahooks';
 import React from 'react';
 
 import Layout from '@/components/Layout';
-import LayoutLoading from '@/components/LayoutLoading';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
 import { staleTime } from '@/utils/constant';
 
+import { Title } from '../titleConfig';
 import TimeItem from './TimeItem';
 
 interface Log {
@@ -24,14 +24,10 @@ const Log: React.FC = () => {
   });
 
   return (
-    <Layout title='建站日志'>
-      {loading ? (
-        <LayoutLoading />
-      ) : (
-        data?.data.map(({ _id, date, logContent }: Log) => (
-          <TimeItem key={_id} date={date} logContent={logContent} />
-        ))
-      )}
+    <Layout title={Title.Log} loading={loading}>
+      {data?.data.map(({ _id, date, logContent }: Log) => (
+        <TimeItem key={_id} date={date} logContent={logContent} />
+      ))}
     </Layout>
   );
 };

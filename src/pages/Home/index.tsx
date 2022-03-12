@@ -1,4 +1,4 @@
-import { useMount, useSafeState } from 'ahooks';
+import { useMount, useSafeState, useTitle } from 'ahooks';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -18,7 +18,8 @@ interface Props {
 const getPoem = require('jinrishici');
 
 const Home: React.FC<Props> = ({ setNavShow }) => {
-  useTop(setNavShow!);
+  useTitle(siteTitle);
+  setNavShow && useTop(setNavShow);
 
   const [poem, setPoem] = useSafeState('');
   useMount(() => {

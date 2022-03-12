@@ -1,0 +1,57 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.switch {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  user-select: none;
+  margin-bottom: $space;
+
+  .box {
+    height: 36px;
+    width: 70px;
+    border-radius: 20px;
+    position: relative;
+    background-color: $themeColor1;
+
+    .btn {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      background-color: $themeColor2;
+      @extend .trans;
+    }
+
+    .isMe {
+      left: 34px;
+    }
+  }
+  .box:hover .btn {
+    background-color: $hoverColor;
+  }
+
+  .text {
+    font-size: 34px;
+    font-weight: 700;
+    color: $textColor;
+  }
+
+  .site {
+    @extend .text;
+    margin-right: 20px;
+  }
+  .me {
+    @extend .text;
+    margin-left: 20px;
+  }
+
+  .titleOff {
+    color: $switchOff;
+  }
+}
