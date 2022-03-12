@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Layout from '@/components/Layout';
+import LayoutLoading from '@/components/LayoutLoading';
 import { setNavShow } from '@/redux/actions';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
@@ -28,9 +29,13 @@ const Say: React.FC<Props> = ({ setNavShow }) => {
 
   return (
     <Layout title='自言自语'>
-      {data?.data.map(
-        ({ _id, content, date }: { _id: string; content: string; date: number }) => (
-          <SayPop key={_id} content={content} date={date} className={s.sayItem} />
+      {loading ? (
+        <LayoutLoading />
+      ) : (
+        data?.data.map(
+          ({ _id, content, date }: { _id: string; content: string; date: number }) => (
+            <SayPop key={_id} content={content} date={date} className={s.sayItem} />
+          )
         )
       )}
     </Layout>
