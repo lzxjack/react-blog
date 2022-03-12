@@ -1,14 +1,12 @@
-import { useTitle } from 'ahooks';
 import React from 'react';
 
-import { siteTitle } from '@/utils/constant';
+import Layout from '@/components/Layout';
 
 import { Title } from '../titleConfig';
 import s from './index.scss';
 
 const Tags: React.FC = () => {
-  useTitle(`${siteTitle} | ${Title.Tags}`);
-  return <>Tags</>;
+  return <Layout title={Title.Tags}>Tags</Layout>;
 };
 
 export default Tags;

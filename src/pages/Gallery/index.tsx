@@ -1,14 +1,12 @@
-import { useTitle } from 'ahooks';
 import React from 'react';
 
-import { siteTitle } from '@/utils/constant';
+import Layout from '@/components/Layout';
 
 import { Title } from '../titleConfig';
 import s from './index.scss';
 
 const Gallery: React.FC = () => {
-  useTitle(`${siteTitle} | ${Title.Gallery}`);
-  return <>Gallery</>;
+  return <Layout title={Title.Gallery}>Gallery</Layout>;
 };
 
 export default Gallery;

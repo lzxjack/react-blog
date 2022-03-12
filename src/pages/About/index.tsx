@@ -1,14 +1,12 @@
-import { useTitle } from 'ahooks';
 import React from 'react';
 
-import { siteTitle } from '@/utils/constant';
+import Layout from '@/components/Layout';
 
 import { Title } from '../titleConfig';
 import s from './index.scss';
 
 const About: React.FC = () => {
-  useTitle(`${siteTitle} | ${Title.About}`);
-  return <>About</>;
+  return <Layout title={Title.About}>About</Layout>;
 };
 
 export default About;
