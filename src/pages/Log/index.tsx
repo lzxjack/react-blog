@@ -1,9 +1,39 @@
+import { useRequest } from 'ahooks';
 import React from 'react';
 
-import s from './index.scss';
+import Layout from '@/components/Layout';
+import LayoutLoading from '@/components/LayoutLoading';
+import { DB } from '@/utils/apis/dbConfig';
+import { getData } from '@/utils/apis/getData';
+import { staleTime } from '@/utils/constant';
+
+import TimeItem from './TimeItem';
+
+interface Log {
+  _id: string;
+  date: number;
+  logContent: string[];
+}
 
 const Log: React.FC = () => {
-  return <>Log</>;
+  const { data, loading } = useRequest(getData, {
+    defaultParams: [{ dbName: DB.Log, sortKey: 'date' }],
+    retryCount: 3,
+    cacheKey: DB.Log,
+    staleTime
+  });
+
+  return (
+    <Layout title='建站日志'>
+      {loading ? (
+        <LayoutLoading />
+      ) : (
+        data?.data.map(({ _id, date, logContent }: Log) => (
+          <TimeItem key={_id} date={date} logContent={logContent} />
+        ))
+      )}
+    </Layout>
+  );
 };
 
 export default Log;

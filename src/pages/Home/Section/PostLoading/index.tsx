@@ -2,11 +2,12 @@ import { Skeleton } from 'antd';
 import React from 'react';
 
 import Card from '@/components/Card';
+import { homeSize } from '@/utils/constant';
 
 import s from './index.scss';
 
 const PostLoading: React.FC = () => {
-  const oneCard = new Array(8).fill(0);
+  const oneCard = new Array(homeSize).fill(0);
 
   return (
     <>
