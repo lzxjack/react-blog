@@ -12,13 +12,13 @@ import s from './index.scss';
 import Section from './Section';
 
 interface Props {
-  setNavShow: Function;
+  setNavShow?: Function;
 }
 
 const getPoem = require('jinrishici');
 
 const Home: React.FC<Props> = ({ setNavShow }) => {
-  useTop(setNavShow);
+  useTop(setNavShow!);
 
   const [poem, setPoem] = useSafeState('');
   useMount(() => {

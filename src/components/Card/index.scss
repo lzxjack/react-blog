@@ -12,7 +12,7 @@
   @extend .trans;
 }
 
-.card:hover {
+.active:hover {
   transform: scale(1.04);
 }
 

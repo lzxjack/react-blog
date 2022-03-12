@@ -7,11 +7,19 @@ import s from './index.scss';
 interface Props {
   className?: string;
   loading?: boolean;
+  isStatic?: boolean;
 }
 
-const Card: React.FC<Props> = ({ children, className, loading }) => {
+const Card: React.FC<Props> = ({ children, className, loading, isStatic }) => {
   return (
-    <div className={classNames(s.card, { [s.center]: loading }, className)}>
+    <div
+      className={classNames(
+        s.card,
+        { [s.center]: loading },
+        { [s.active]: !isStatic },
+        className
+      )}
+    >
       {loading ? <Loading /> : children}
     </div>
   );

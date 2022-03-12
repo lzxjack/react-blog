@@ -10,9 +10,9 @@ import s from './index.scss';
 
 const NoticeCard: React.FC = () => {
   const { data, loading } = useRequest(getData, {
-    defaultParams: [DB.Notice],
+    defaultParams: [{ dbName: DB.Notice }],
     retryCount: 3,
-    cacheKey: 'notice',
+    cacheKey: DB.Notice,
     staleTime
   });
 

@@ -13,9 +13,9 @@ const SiteCard: React.FC = () => {
   const { runTime } = useRunTime();
 
   const { data, loading } = useRequest(getData, {
-    defaultParams: [DB.Count],
+    defaultParams: [{ dbName: DB.Count }],
     retryCount: 3,
-    cacheKey: 'siteCount',
+    cacheKey: DB.Count,
     staleTime
   });
 
