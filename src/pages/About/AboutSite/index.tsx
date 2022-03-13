@@ -1,9 +1,19 @@
 import React from 'react';
 
-import s from './index.scss';
+import AboutText from './AboutText';
+import Chart from './Chart';
 
-const AboutSite: React.FC = () => {
-  return <>AboutSite</>;
+interface Props {
+  content?: string;
+}
+
+const AboutSite: React.FC<Props> = ({ content }) => {
+  return (
+    <>
+      <Chart />
+      <AboutText content={content || ''} />
+    </>
+  );
 };
 
 export default AboutSite;
