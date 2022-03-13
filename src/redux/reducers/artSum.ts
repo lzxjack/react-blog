@@ -7,7 +7,7 @@ interface Action {
   data: number;
 }
 
-const initState = homeSize;
+const initState = 0;
 
 export default function addReducer(preState = initState, action: Action) {
   const { type, data } = action;

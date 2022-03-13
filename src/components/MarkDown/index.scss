@@ -1,0 +1,67 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.marked {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: $textColor;
+    font-weight: 700;
+  }
+
+  strong {
+    color: $hoverColor;
+  }
+  code {
+    background-color: rgb(55, 77, 78);
+    font-family: 'yu100';
+    padding: 0 6px;
+  }
+
+  p img {
+    display: block;
+    max-width: 100%;
+    margin: 14px auto;
+    border-radius: 12px;
+  }
+
+  blockquote {
+    background-color: #111111;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 20px;
+    color: #ccc;
+    border: 2px rgb(105, 105, 105) dashed;
+  }
+  blockquote p {
+    margin: 0;
+  }
+
+  table {
+    margin: 20px auto;
+    border: 2px solid rgb(120, 120, 120);
+    background-color: #0d1117;
+    border-spacing: 0; /*去掉单元格间隙*/
+    text-align: center;
+  }
+  table th,
+  table td {
+    padding: 6px 14px;
+    border: 1px solid rgb(120, 120, 120);
+  }
+
+  a {
+    font-weight: 700;
+    margin: 0 4px;
+    color: rgb(28, 186, 248);
+    @extend .trans;
+  }
+  a:hover {
+    color: rgb(248, 28, 120);
+  }
+}

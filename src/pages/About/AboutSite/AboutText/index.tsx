@@ -1,9 +1,13 @@
 import React from 'react';
 
-import s from './index.scss';
+import MarkDown from '@/components/MarkDown';
 
-const AboutText: React.FC = () => {
-  return <>AboutText</>;
+interface Props {
+  content?: string;
+}
+
+const AboutText: React.FC<Props> = ({ content }) => {
+  return <MarkDown content={content || ''} />;
 };
 
 export default AboutText;

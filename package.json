@@ -35,13 +35,19 @@
     "antd": "4.19.0",
     "classnames": "2.3.1",
     "dayjs": "1.10.8",
+    "echarts": "^5.3.1",
+    "echarts-for-react": "^3.0.2",
+    "highlight.js": "^11.5.0",
     "jinrishici": "^1.0.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "4.3.1",
+    "react-markdown": "^8.0.0",
     "react-redux": "7.2.6",
     "react-router-dom": "6.2.2",
-    "redux": "4.1.2"
+    "redux": "4.1.2",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.17.5",

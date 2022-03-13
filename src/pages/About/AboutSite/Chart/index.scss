@@ -1,0 +1,12 @@
+@import '../../../../styles/base.scss';
+
+.box {
+  margin-bottom: $space;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: $textColor;
+    font-weight: 700;
+  }
+}
