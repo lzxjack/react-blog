@@ -1,21 +1,22 @@
 import { useRequest, useToggle } from 'ahooks';
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import Layout from '@/components/Layout';
+import LayoutLoading from '@/components/LayoutLoading';
 import { DB } from '@/utils/apis/dbConfig';
-import { getData } from '@/utils/apis/getData';
 import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
-import AboutMe from './AboutMe';
 import AboutSite from './AboutSite';
+import { fetchData } from './fetchData';
 import Switch from './Switch';
+
+const AboutMe = lazy(() => import(/* webpackPrefetch:true */ './AboutMe'));
 
 const About: React.FC = () => {
   const [state, { toggle, setLeft, setRight }] = useToggle();
 
-  const { data, loading } = useRequest(getData, {
-    defaultParams: [{ dbName: DB.About }],
+  const { data, loading } = useRequest(fetchData, {
     retryCount: 3,
     cacheKey: DB.About,
     staleTime
@@ -25,9 +26,15 @@ const About: React.FC = () => {
     <Layout title={Title.About} loading={loading}>
       <Switch state={state} toggle={toggle} setLeft={setLeft} setRight={setRight} />
       {state ? (
-        <AboutMe content={data?.data[1].content} />
+        <Suspense fallback={<LayoutLoading />}>
+          <AboutMe content={data?.about.data[1].content} />
+        </Suspense>
       ) : (
-        <AboutSite content={data?.data[0].content} />
+        <AboutSite
+          content={data?.about.data[0].content}
+          classes={data?.classes.data}
+          artSum={data?.artSum.total}
+        />
       )}
     </Layout>
   );

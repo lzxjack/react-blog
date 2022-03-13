@@ -3,15 +3,24 @@ import React from 'react';
 import AboutText from './AboutText';
 import Chart from './Chart';
 
-interface Props {
-  content?: string;
+export interface ClassType {
+  class: string;
+  count: number;
+  _id: string;
+  _openid: string;
 }
 
-const AboutSite: React.FC<Props> = ({ content }) => {
+interface Props {
+  content?: string;
+  classes?: ClassType[];
+  artSum?: number;
+}
+
+const AboutSite: React.FC<Props> = ({ content, classes, artSum }) => {
   return (
     <>
-      <Chart />
-      <AboutText content={content || ''} />
+      <Chart classes={classes} artSum={artSum} />
+      <AboutText content={content} />
     </>
   );
 };
