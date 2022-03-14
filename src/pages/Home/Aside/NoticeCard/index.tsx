@@ -3,13 +3,13 @@ import React from 'react';
 
 import Card from '@/components/Card';
 import { DB } from '@/utils/apis/dbConfig';
-import { getData } from '@/utils/apis/getData';
+import { getOrderData } from '@/utils/apis/getOrderData';
 import { staleTime } from '@/utils/constant';
 
 import s from './index.scss';
 
 const NoticeCard: React.FC = () => {
-  const { data, loading } = useRequest(getData, {
+  const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Notice }],
     retryCount: 3,
     cacheKey: DB.Notice,

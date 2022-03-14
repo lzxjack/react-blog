@@ -3,7 +3,7 @@ import React from 'react';
 
 import Layout from '@/components/Layout';
 import { DB } from '@/utils/apis/dbConfig';
-import { getData } from '@/utils/apis/getData';
+import { getOrderData } from '@/utils/apis/getOrderData';
 import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
@@ -16,7 +16,7 @@ interface Log {
 }
 
 const Log: React.FC = () => {
-  const { data, loading } = useRequest(getData, {
+  const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Log, sortKey: 'date' }],
     retryCount: 3,
     cacheKey: DB.Log,
