@@ -27,10 +27,9 @@
     }
   },
   "dependencies": {
+    "@ahooksjs/use-url-state": "^3.1.13",
     "@ant-design/icons": "4.7.0",
     "@cloudbase/js-sdk": "^1.7.2",
-    "@types/react": "17.0.39",
-    "@types/react-dom": "17.0.11",
     "ahooks": "3.1.13",
     "antd": "4.19.0",
     "classnames": "2.3.1",
@@ -60,6 +59,8 @@
     "@commitlint/cli": "16.2.1",
     "@commitlint/config-conventional": "16.2.1",
     "@redux-devtools/extension": "3.2.2",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
     "@types/webpack-env": "1.16.3",
     "@typescript-eslint/eslint-plugin": "5.13.0",
     "@typescript-eslint/parser": "5.13.0",

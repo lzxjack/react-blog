@@ -11,7 +11,7 @@
     height: 90px;
     border-radius: 20px;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: $space;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,6 @@
         position: absolute;
         top: 12px;
         left: 90px;
-        font-family: 'yu400';
         font-weight: 700;
         height: 40px;
       }
@@ -53,12 +52,12 @@
         align-items: center;
         line-height: 18px;
         overflow: hidden;
-        color: #fff;
+        color: $textColor;
       }
     }
     .link:hover {
       /* 字体颜色 */
-      color: rgb(97, 147, 187);
+      color: $hoverColor;
     }
   }
   .item:hover {

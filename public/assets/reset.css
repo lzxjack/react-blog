@@ -18,7 +18,10 @@ a:active,
 a:focus {
   text-decoration: none !important;
 }
-
+body {
+  /* 隐藏x轴导航条 */
+  overflow-x: hidden;
+}
 body::-webkit-scrollbar {
   display: none;
 }
