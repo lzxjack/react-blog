@@ -1,0 +1,14 @@
+@import '../../styles/base.scss';
+@import '../Gallery/index.scss';
+
+.showBox {
+  @extend .imgBox;
+
+  .link {
+    color: $textColor;
+  }
+
+  .link:hover {
+    color: $textColor;
+  }
+}

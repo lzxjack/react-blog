@@ -21,6 +21,7 @@ a:focus {
 body {
   /* 隐藏x轴导航条 */
   overflow-x: hidden;
+  background-color: rgb(35, 35, 44);
 }
 body::-webkit-scrollbar {
   display: none;
