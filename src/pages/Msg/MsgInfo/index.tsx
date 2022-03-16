@@ -13,7 +13,7 @@ const MsgInfo: React.FC = () => {
     <>
       <div className={s.info}>
         <div>
-          {timeText}，我叫<span className={s.hoverName}>飞鸟</span>,
+          {timeText}，我叫<span className={s.hoverName}>飞鸟</span>，
         </div>
         <div>欢迎来到我的博客!</div>
         <div>可以在这里留言、吐槽，</div>
