@@ -1,0 +1,93 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.flex3 {
+  flex: 3;
+}
+.flex2 {
+  flex: 2;
+}
+
+.editBox {
+  display: flex;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+
+  .avatarBox {
+    width: 80px;
+
+    .editAvatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+      background-color: $switchOff;
+    }
+  }
+  .editInputBox {
+    width: calc(100% - 80px);
+
+    .inputBox {
+      height: 46px;
+      display: flex;
+
+      .inputInfo {
+        height: 36px;
+        margin-right: 10px;
+        display: flex;
+        border-radius: 14px;
+        overflow: hidden;
+        background-color: $themeColor1;
+
+        .inputKey {
+          width: 80px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          user-select: none;
+          font-size: 18px;
+          background-color: $themeColor2;
+          @extend .hover;
+        }
+        .inputValue {
+          height: 100%;
+          width: 100%;
+          padding: 0 10px;
+          font-size: 18px;
+          text-align: center;
+        }
+      }
+      .inputInfo:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .textareaBox {
+      height: 140px;
+      padding: 8px 16px;
+      border-radius: 14px;
+      background-color: $themeColor1;
+
+      .textarea {
+        resize: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .commentBtns {
+      position: relative;
+      height: 46px;
+
+      .previewBtn {
+        @extend .btnBase;
+        right: 80px;
+      }
+      .sendBtn {
+        @extend .btnBase;
+        right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../../../../styles/base.scss';
+@import '../../../../../styles/style.scss';
+
+.emoji {
+  display: inline-block;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  user-select: none;
+  @extend .hover;
+}

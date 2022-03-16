@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Comment from '@/components/Comment';
 import Divider from '@/components/Divider';
 import Layout from '@/components/Layout';
 
@@ -12,6 +13,7 @@ const Msg: React.FC = () => {
     <Layout title={Title.Msg}>
       <MsgInfo />
       <Divider />
+      <Comment postTitle='' title='留言板' />
     </Layout>
   );
 };

@@ -27,8 +27,17 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-div {
+div,
+input {
   box-sizing: border-box;
+}
+
+input,
+textarea {
+  background: none;
+  outline: none;
+  border: none;
+  border-radius: 0;
 }
 
 img {
