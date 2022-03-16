@@ -1,6 +1,7 @@
 import './hljs.custom.scss';
 
 import { useMount } from 'ahooks';
+import classNames from 'classnames';
 import hljs from 'highlight.js';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -11,9 +12,10 @@ import s from './index.scss';
 
 interface Props {
   content: string;
+  className?: string;
 }
 
-const MarkDown: React.FC<Props> = ({ content }) => {
+const MarkDown: React.FC<Props> = ({ content, className }) => {
   useMount(() => {
     document
       .querySelectorAll('pre>code')
@@ -25,7 +27,7 @@ const MarkDown: React.FC<Props> = ({ content }) => {
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       linkTarget='_blank'
-      className={s.marked}
+      className={classNames(s.marked, className)}
     >
       {content}
     </ReactMarkdown>

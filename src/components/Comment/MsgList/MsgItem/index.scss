@@ -1,0 +1,93 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.commentItem {
+  display: flex;
+  margin-top: 20px;
+  position: relative;
+
+  .avatarBox {
+    width: 80px;
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+    }
+  }
+
+  .replyBtn {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    height: 28px;
+    width: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    @extend .hover;
+  }
+
+  .contentBox {
+    flex: 1;
+
+    .usrInfo {
+      height: 34px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      user-select: none;
+
+      .name {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        color: $hoverColor;
+        @extend .hover;
+        padding: 0 6px;
+        border-radius: 10px;
+        font-size: 18px;
+        margin-right: 4px;
+        font-weight: 700;
+      }
+      .name:hover {
+        color: $textColor;
+      }
+
+      .flag {
+        display: inline-block;
+        height: 22px;
+        line-height: 24px;
+        background-color: rgb(97, 147, 187);
+        font-size: 14px;
+        padding: 0 4px;
+        border-radius: 8px;
+        color: rgb(231, 231, 231);
+      }
+      .date {
+        margin-left: 10px;
+        font-size: 16px;
+      }
+    }
+
+    .content {
+      background-color: $themeColor1;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 18px;
+      word-break: break-all;
+
+      p,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        margin-left: 20px;
+      }
+    }
+  }
+}
