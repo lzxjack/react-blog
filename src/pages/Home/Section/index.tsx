@@ -1,11 +1,9 @@
-import './pagination.custom.scss';
-
 import { useRequest, useSafeState } from 'ahooks';
-import { Pagination } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 
+import MyPagination from '@/components/MyPagination';
 import { storeState } from '@/redux/interface';
 import { DB } from '@/utils/apis/dbConfig';
 import { getPageData } from '@/utils/apis/getPageData';
@@ -59,16 +57,12 @@ const Section: React.FC<Props> = ({ artSum }) => {
         ))
       )}
       <div className={classNames(s.box, 'pagination')}>
-        <Pagination
+        <MyPagination
           current={page}
-          total={artSum}
           defaultPageSize={homeSize}
-          showSizeChanger={false}
-          showTitle={false}
-          onChange={page => {
-            setPage(page);
-            window.scrollTo(0, document.body.clientHeight - 70);
-          }}
+          total={artSum}
+          setPage={setPage}
+          scrollToTop={70}
         />
       </div>
     </section>

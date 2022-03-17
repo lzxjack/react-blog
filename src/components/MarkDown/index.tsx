@@ -1,36 +1,37 @@
 import './hljs.custom.scss';
 
-import { useMount } from 'ahooks';
 import classNames from 'classnames';
 import hljs from 'highlight.js';
+import marked from 'marked';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import remarkGfm from 'remark-gfm';
 
 import s from './index.scss';
 
 interface Props {
-  content: string;
+  content?: string;
   className?: string;
 }
 
 const MarkDown: React.FC<Props> = ({ content, className }) => {
-  useMount(() => {
-    document
-      .querySelectorAll('pre>code')
-      .forEach(el => hljs.highlightElement(el as HTMLElement));
+  hljs.configure({
+    classPrefix: 'hljs-',
+    languages: ['CSS', 'HTML', 'JavaScript', 'TypeScript', 'Markdown']
+  });
+  marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: code => hljs.highlightAuto(code).value,
+    gfm: true, // 默认为true。 允许 Git Hub标准的markdown.
+    // tables: true, // 默认为true。 允许支持表格语法。该选项要求 gfm 为true。
+    breaks: true // 默认为false。 允许回车换行。该选项要求 gfm 为true。
   });
 
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
-      linkTarget='_blank'
+    <div
       className={classNames(s.marked, className)}
-    >
-      {content}
-    </ReactMarkdown>
+      dangerouslySetInnerHTML={{
+        __html: marked(content || '').replace(/<pre>/g, "<pre id='hljs'>")
+      }}
+    />
   );
 };
 

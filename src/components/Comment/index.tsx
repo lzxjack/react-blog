@@ -1,12 +1,10 @@
-import { useRequest } from 'ahooks';
+import { useRequest, useSafeState } from 'ahooks';
 import React from 'react';
 
-import { DB } from '@/utils/apis/dbConfig';
-import { getWhereOrderData } from '@/utils/apis/getWhereOrderData';
-import { defaultCommentAvatar, staleTime } from '@/utils/constant';
+import { getMsgReplys, getPageMsgs } from '@/utils/apis/getMsgs';
+import { msgSize } from '@/utils/constant';
 
 import EditBox from './EditBox';
-import s from './index.scss';
 import MsgList from './MsgList';
 
 interface Props {
@@ -15,26 +13,26 @@ interface Props {
 }
 
 const Comment: React.FC<Props> = ({ postTitle, title }) => {
-  const { data, loading } = useRequest(getWhereOrderData, {
-    defaultParams: [
-      {
-        dbName: DB.Msg,
-        where: {
-          postTitle
-        },
-        sortKey: 'date',
-        isAsc: false
-      }
-    ],
-    retryCount: 3,
-    cacheKey: `${DB.Msg}-${postTitle}`,
-    staleTime
+  const [page, setPage] = useSafeState(1);
+
+  const { data: msgs, loading: msgLoading } = useRequest(getPageMsgs, {
+    defaultParams: [postTitle, page, msgSize],
+    retryCount: 3
+  });
+
+  const { data: replys, loading: replyLoading } = useRequest(getMsgReplys, {
+    defaultParams: [postTitle],
+    retryCount: 3
   });
 
   return (
     <div>
       <EditBox />
-      <MsgList />
+      <MsgList
+        msgs={msgs?.data}
+        replys={replys?.data}
+        loading={msgLoading || replyLoading}
+      />
     </div>
   );
 };
