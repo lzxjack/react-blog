@@ -2,4 +2,9 @@
 
 .aside {
   width: $asideWidth;
+
+  .cardSticky {
+    position: sticky;
+    top: $navHeight + $space;
+  }
 }

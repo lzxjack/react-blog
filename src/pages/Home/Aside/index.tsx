@@ -17,8 +17,10 @@ const Aside: React.FC = () => {
       <DataCard />
       <NoticeCard />
       <ClockCard />
-      <TagCard />
-      <SiteCard />
+      <div className={s.cardSticky}>
+        <TagCard />
+        <SiteCard />
+      </div>
     </aside>
   );
 };
