@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import Loading from '../Loading';
 import s from './index.scss';
@@ -8,9 +8,10 @@ interface Props {
   className?: string;
   loading?: boolean;
   isStatic?: boolean;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const Card: React.FC<Props> = ({ children, className, loading, isStatic }) => {
+const Card: React.FC<Props> = ({ children, className, loading, isStatic, onClick }) => {
   return (
     <div
       className={classNames(
@@ -19,6 +20,7 @@ const Card: React.FC<Props> = ({ children, className, loading, isStatic }) => {
         { [s.active]: !isStatic },
         className
       )}
+      onClick={onClick}
     >
       {loading ? <Loading /> : children}
     </div>

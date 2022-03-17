@@ -40,6 +40,7 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
                 name={msg.name}
                 date={msg.date}
                 content={msg.content}
+                email={msg.email}
                 isReply={false}
               />
               {replys
@@ -53,6 +54,7 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
                     name={reply.name}
                     date={reply.date}
                     content={reply.content}
+                    email={reply.email}
                     isReply={true}
                   />
                 ))}

@@ -5,6 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
 
 import MarkDown from '@/components/MarkDown';
+import { myEmail } from '@/utils/constant';
 
 import s from './index.scss';
 
@@ -18,6 +19,7 @@ interface Props {
   name?: string;
   date?: number;
   content?: string;
+  email?: string;
   isReply?: boolean;
 }
 
@@ -29,6 +31,7 @@ const MsgItem: React.FC<Props> = ({
   name,
   date,
   content,
+  email,
   isReply
 }) => {
   return (
@@ -57,7 +60,7 @@ const MsgItem: React.FC<Props> = ({
           >
             {name}
           </a>
-          <span className={s.flag}>站长</span>
+          {email === myEmail && <span className={s.flag}>站长</span>}
           <span className={s.date}>{dayjs(date).fromNow()}</span>
         </div>
         <MarkDown content={content || ''} className={s.content} />

@@ -33,6 +33,7 @@
     "ahooks": "3.1.13",
     "antd": "4.19.0",
     "classnames": "2.3.1",
+    "copy-to-clipboard": "3.3.1",
     "dayjs": "1.10.8",
     "echarts": "^5.3.1",
     "echarts-for-react": "^3.0.2",

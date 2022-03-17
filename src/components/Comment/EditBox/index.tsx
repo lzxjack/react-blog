@@ -43,7 +43,7 @@ const EditBox: React.FC = () => {
         <div className={s.commentBtns}>
           <Emoji />
           <div className={s.previewBtn}>预览</div>
-          <div className={s.sendBtn}>发送</div>
+          <div className={s.sendBtn}>发布</div>
         </div>
       </div>
     </div>

@@ -1,4 +1,30 @@
 @import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.articleInfo {
+  display: inline-block;
+  font-size: 18px;
+  padding: 0 10px;
+  line-height: 40px;
+  margin-right: $space;
+  border-radius: 14px;
+  user-select: none;
+  background-color: $themeColor;
+  @extend .hover;
+}
+
+.postTitle {
+  align-items: flex-start;
+  user-select: text;
+
+  .articleClass {
+    cursor: pointer;
+    @extend .articleInfo;
+  }
+  .articleDate {
+    @extend .articleInfo;
+  }
+}
 
 .layoutCard {
   margin: auto;
