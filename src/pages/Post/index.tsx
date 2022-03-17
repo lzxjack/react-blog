@@ -11,6 +11,7 @@ import { staleTime } from '@/utils/constant';
 
 import CopyRight from './CopyRight';
 import s from './index.scss';
+import Navbar from './Navbar';
 import PostTags from './PostTags';
 
 const Post: React.FC = () => {
@@ -35,6 +36,7 @@ const Post: React.FC = () => {
       <PostTags tags={data?.data[0].tags} />
       <CopyRight title={data?.data[0].title} titleEng={data?.data[0].titleEng} />
       <Comment titleEng={search.title} />
+      <Navbar content={data?.data[0].content} />
     </Layout>
   );
 };
