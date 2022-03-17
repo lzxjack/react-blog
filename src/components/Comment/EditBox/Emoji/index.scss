@@ -1,0 +1,37 @@
+@import './../../../../styles/base.scss';
+@import './../../../../styles/style.scss';
+
+.emoji2 {
+  left: 46px;
+}
+.emoji3 {
+  left: 92px;
+}
+.emoji4 {
+  left: 138px;
+}
+.emoji5 {
+  left: 184px;
+}
+
+.emojiBtn {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  bottom: 0;
+  border-radius: $midRadius;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 18px;
+  background-color: $themeColor2;
+  @extend .hover;
+}
+
+.emojiContent {
+  width: 368px;
+  word-break: break-all;
+  font-size: 20px;
+}

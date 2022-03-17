@@ -10,3 +10,19 @@
 .hover:hover {
   background-color: $hoverColor !important;
 }
+
+.btnBase {
+  position: absolute;
+  width: 70px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  bottom: 0;
+  border-radius: 14px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: $themeColor2;
+  @extend .hover;
+}

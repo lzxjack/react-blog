@@ -2,9 +2,9 @@ import React from 'react';
 
 import Card from '@/components/Card';
 import { cardUrl } from '@/utils/constant';
+import { useTime } from '@/utils/hooks/useTime';
 
 import s from './index.scss';
-import { useTime } from './useTime';
 
 const BlogCard: React.FC = () => {
   const { timeText } = useTime();

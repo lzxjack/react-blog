@@ -1,0 +1,38 @@
+@import '../../../styles/base.scss';
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'yu100';
+  font-weight: 700;
+
+  .hoverText {
+    color: $hoverColor;
+  }
+
+  div {
+    margin-bottom: 10px;
+  }
+}
+
+.siteLink {
+  .link {
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .key {
+    color: $hoverColor;
+  }
+  .value {
+    color: $linkValue;
+    padding: 0 6px;
+    margin-left: 6px;
+  }
+}
+
+.hoverName {
+  color: $hoverColor;
+}

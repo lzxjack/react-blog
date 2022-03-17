@@ -1,7 +1,7 @@
-@import '../../../styles/base.scss';
-@import '../../../styles/style.scss';
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
 
-.pagination {
+#myPagination {
   .ant-pagination {
     color: $textColor;
     height: 100%;

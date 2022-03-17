@@ -18,16 +18,18 @@ module.exports = {
   rules: {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    '@typescript-eslint/no-require-imports': 0,
-    '@typescript-eslint/explicit-member-accessibility': 0,
-    '@typescript-eslint/member-ordering': 0,
     'default-case': 2,
     'guard-for-in': 2,
     'no-eval': 2,
     'no-implied-eval': 2,
     'no-lone-blocks': 2,
     'require-await': 2,
-    'no-param-reassign': 0,
-    'comma-dangle': 2
+    'comma-dangle': 2,
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-require-imports': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/member-ordering': 0,
+    'react/jsx-no-useless-fragment': 0,
+    'no-param-reassign': 0
   }
 };

@@ -1,7 +1,7 @@
 @import '../../../../styles/base.scss';
 @import '../../../../styles/style.scss';
 
-.btnBase {
+.tagBase {
   padding: 0 10px;
   border-radius: 10px;
   color: $textColor;
@@ -43,7 +43,7 @@
     height: 50px;
 
     .date {
-      @extend .btnBase;
+      @extend .tagBase;
       position: absolute;
       bottom: 0;
       display: flex;
@@ -59,7 +59,7 @@
       height: 30px;
 
       .tag {
-        @extend .btnBase;
+        @extend .tagBase;
         display: inline-block;
         margin-right: 20px;
         text-align: center;

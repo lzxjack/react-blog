@@ -20,7 +20,7 @@ const getCssLoaders = () => {
       options: {
         modules: {
           // 模块化类名，防止重复
-          localIdentName: '[local]--[hash:base64:5]'
+          localIdentName: '[local]--[hash:base64:10]'
         },
         sourceMap: isDevelopment
       }
