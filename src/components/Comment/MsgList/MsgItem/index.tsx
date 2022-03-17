@@ -1,4 +1,5 @@
 import { MessageOutlined } from '@ant-design/icons';
+import classNames from 'classnames';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
@@ -17,6 +18,7 @@ interface Props {
   name?: string;
   date?: number;
   content?: string;
+  isReply?: boolean;
 }
 
 const MsgItem: React.FC<Props> = ({
@@ -26,16 +28,24 @@ const MsgItem: React.FC<Props> = ({
   link,
   name,
   date,
-  content
+  content,
+  isReply
 }) => {
   return (
-    <div className={s.commentItem}>
+    <div
+      className={classNames(s.commentItem, {
+        [s.marginLeft]: isReply
+      })}
+    >
       <div className={s.avatarBox}>
         <img src={avatar} alt='avatar' className={s.avatar} />
       </div>
-      <div className={s.replyBtn} onClick={() => openReplyBox?.(_id)}>
-        <MessageOutlined />
-      </div>
+      {!isReply && (
+        <div className={s.replyBtn} onClick={() => openReplyBox?.(_id)}>
+          <MessageOutlined />
+        </div>
+      )}
+
       <div className={s.contentBox}>
         <div className={s.usrInfo}>
           <a

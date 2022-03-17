@@ -1,5 +1,4 @@
 import { useRequest, useSafeState } from 'ahooks';
-import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -56,15 +55,13 @@ const Section: React.FC<Props> = ({ artSum }) => {
           <PostCard key={_id} title={title} content={content} date={date} tags={tags} />
         ))
       )}
-      <div className={classNames(s.box, 'pagination')}>
-        <MyPagination
-          current={page}
-          defaultPageSize={homeSize}
-          total={artSum}
-          setPage={setPage}
-          scrollToTop={70}
-        />
-      </div>
+      <MyPagination
+        current={page}
+        defaultPageSize={homeSize}
+        total={artSum}
+        setPage={setPage}
+        scrollToTop={70}
+      />
     </section>
   );
 };

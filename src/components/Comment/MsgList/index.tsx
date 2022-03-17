@@ -21,7 +21,7 @@ interface Props {
   loading?: boolean;
 }
 
-const MsgList: React.FC<Props> = ({ msgs, loading }) => {
+const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
   const openReplyBox = (id: string) => {};
 
   return (
@@ -29,18 +29,36 @@ const MsgList: React.FC<Props> = ({ msgs, loading }) => {
       {loading ? (
         <LayoutLoading />
       ) : (
-        msgs?.map((msg: MsgType) => (
-          <MsgItem
-            key={msg._id}
-            _id={msg._id}
-            avatar={msg.avatar}
-            openReplyBox={openReplyBox}
-            link={msg.link}
-            name={msg.name}
-            date={msg.date}
-            content={msg.content}
-          />
-        ))
+        msgs?.map((msg: MsgType) => {
+          return (
+            <div key={msg._id}>
+              <MsgItem
+                _id={msg._id}
+                avatar={msg.avatar}
+                openReplyBox={openReplyBox}
+                link={msg.link}
+                name={msg.name}
+                date={msg.date}
+                content={msg.content}
+                isReply={false}
+              />
+              {replys
+                ?.filter(item => item.replyId === msg._id)
+                .map((reply: MsgType) => (
+                  <MsgItem
+                    key={reply._id}
+                    _id={reply._id}
+                    avatar={reply.avatar}
+                    link={reply.link}
+                    name={reply.name}
+                    date={reply.date}
+                    content={reply.content}
+                    isReply={true}
+                  />
+                ))}
+            </div>
+          );
+        })
       )}
     </>
   );

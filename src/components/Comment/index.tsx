@@ -4,7 +4,9 @@ import React from 'react';
 import { getMsgReplys, getPageMsgs } from '@/utils/apis/getMsgs';
 import { msgSize } from '@/utils/constant';
 
+import MyPagination from '../MyPagination';
 import EditBox from './EditBox';
+import { fetchData } from './fetchData';
 import MsgList from './MsgList';
 
 interface Props {
@@ -15,10 +17,13 @@ interface Props {
 const Comment: React.FC<Props> = ({ postTitle, title }) => {
   const [page, setPage] = useSafeState(1);
 
-  const { data: msgs, loading: msgLoading } = useRequest(getPageMsgs, {
-    defaultParams: [postTitle, page, msgSize],
-    retryCount: 3
-  });
+  const { data: msgsData, loading: msgLoading } = useRequest(
+    () => fetchData(postTitle, page, msgSize),
+    {
+      retryCount: 3,
+      refreshDeps: [page]
+    }
+  );
 
   const { data: replys, loading: replyLoading } = useRequest(getMsgReplys, {
     defaultParams: [postTitle],
@@ -29,9 +34,16 @@ const Comment: React.FC<Props> = ({ postTitle, title }) => {
     <div>
       <EditBox />
       <MsgList
-        msgs={msgs?.data}
+        msgs={msgsData?.msgs.data}
         replys={replys?.data}
         loading={msgLoading || replyLoading}
+      />
+      <MyPagination
+        current={page}
+        defaultPageSize={msgSize}
+        total={msgsData?.msgsSum.total}
+        setPage={setPage}
+        scrollToTop={126}
       />
     </div>
   );

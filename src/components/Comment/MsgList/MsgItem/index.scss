@@ -1,13 +1,19 @@
 @import '../../../../styles/base.scss';
 @import '../../../../styles/style.scss';
 
+$avatarBoxWidth: 80px;
+
+.marginLeft {
+  margin-left: $avatarBoxWidth;
+}
+
 .commentItem {
   display: flex;
-  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
 
   .avatarBox {
-    width: 80px;
+    width: $avatarBoxWidth;
 
     .avatar {
       width: 70px;

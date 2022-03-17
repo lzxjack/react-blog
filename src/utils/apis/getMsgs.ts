@@ -24,6 +24,7 @@ export const getMsgReplys = (postTitle: string) => {
       postTitle,
       replyId: _.neq('')
     })
+    .orderBy('date', 'asc')
     .get()
     .then(res => res)
     .catch(err => err);
