@@ -1,0 +1,15 @@
+@import '../../styles/style.scss';
+
+.tagsBox {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .tagItem {
+    @extend .tagBase;
+    font-size: 22px;
+    margin: 6px;
+  }
+}
