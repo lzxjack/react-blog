@@ -6,15 +6,5 @@
 }
 
 .tag {
-  display: inline-block;
-  padding: 0 10px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 18px;
-  user-select: none;
-  color: $textColor;
-  border-radius: $midRadius;
-  cursor: pointer;
-  @extend .hover;
+  @extend .tagBase;
 }
