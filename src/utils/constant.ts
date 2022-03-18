@@ -47,12 +47,13 @@ export const staleTime = 180000;
 export const homeSize = 8;
 export const msgSize = 10;
 
-// 个人友链信息
+// 个人信息
 export const myName = '飞鸟';
-export const myLink = 'https://lzxjack.top/';
+export const myLink = 'https://lzxjack.top';
 export const myAvatar =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 export const myDescr = '一只平凡的鸟罢了。';
+export const myEmail = '965555169@qq.com';
 
 // 默认评论头像（空头像）
 export const defaultCommentAvatar =

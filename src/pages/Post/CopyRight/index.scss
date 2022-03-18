@@ -1,0 +1,87 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.copyrightBox {
+  background-color: $themeColor1;
+  position: relative;
+  border-radius: 20px;
+  padding: 14px;
+  overflow: hidden;
+  color: $code;
+
+  .copyrightIcon {
+    position: absolute;
+    right: 40px;
+    width: 128px;
+    height: 128px;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    path {
+      fill: rgb(88, 88, 88);
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .urlBox {
+    font-size: 16px;
+    color: $code;
+    display: flex;
+
+    .url {
+      height: 24px;
+      line-height: 24px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: 6px;
+    }
+
+    .copyBtn {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      cursor: pointer;
+      @extend .hover;
+
+      .copyIcon {
+        width: 16px;
+        height: 16px;
+
+        path {
+          fill: $textColor;
+          @extend .trans;
+        }
+      }
+    }
+    .copyBtn:hover path {
+      fill: rgb(88, 88, 88);
+    }
+    .copyBtn:hover path {
+      fill: $textColor;
+    }
+  }
+
+  .text {
+    font-size: 16px;
+
+    .copyrightName {
+      display: inline-block;
+      padding: 0 4px;
+      height: 24px;
+      font-weight: 700;
+      line-height: 24px;
+      border-radius: 8px;
+      color: $textColor;
+      @extend .hover;
+    }
+  }
+}

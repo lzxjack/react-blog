@@ -1,24 +1,24 @@
 import { useRequest, useSafeState } from 'ahooks';
 import React from 'react';
 
-import { getMsgReplys, getPageMsgs } from '@/utils/apis/getMsgs';
+import { getMsgReplys } from '@/utils/apis/getMsgs';
 import { msgSize } from '@/utils/constant';
 
 import MyPagination from '../MyPagination';
+import Divider from './Divider';
 import EditBox from './EditBox';
 import { fetchData } from './fetchData';
 import MsgList from './MsgList';
 
 interface Props {
-  postTitle: string;
-  title: string;
+  titleEng?: string;
 }
 
-const Comment: React.FC<Props> = ({ postTitle, title }) => {
+const Comment: React.FC<Props> = ({ titleEng = '' }) => {
   const [page, setPage] = useSafeState(1);
 
   const { data: msgsData, loading: msgLoading } = useRequest(
-    () => fetchData(postTitle, page, msgSize),
+    () => fetchData(titleEng, page, msgSize),
     {
       retryCount: 3,
       refreshDeps: [page]
@@ -26,12 +26,13 @@ const Comment: React.FC<Props> = ({ postTitle, title }) => {
   );
 
   const { data: replys, loading: replyLoading } = useRequest(getMsgReplys, {
-    defaultParams: [postTitle],
+    defaultParams: [titleEng],
     retryCount: 3
   });
 
   return (
     <div>
+      <Divider />
       <EditBox />
       <MsgList
         msgs={msgsData?.msgs.data}

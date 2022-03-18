@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import Card from '@/components/Card';
 
@@ -10,11 +10,12 @@ interface Props {
   content?: string;
   date?: number;
   tags?: string[];
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const PostCard: React.FC<Props> = ({ title, content, date, tags }) => {
+const PostCard: React.FC<Props> = ({ title, content, date, tags, onClick }) => {
   return (
-    <Card className={s.card} isStatic={true}>
+    <Card className={s.card} isStatic={true} onClick={onClick}>
       <div className={s.title}>{title}</div>
       <p className={s.content}>
         {content!.replace(/<a(.*?)>(.*?)<\/a>/g, '$2').replace(/[# |**|`|>]/g, '')}

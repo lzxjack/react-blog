@@ -1,0 +1,20 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.articleTags {
+  margin-bottom: $space / 2;
+
+  .articleTag {
+    display: inline-block;
+    margin-right: 10px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    border-radius: $midRadius;
+    user-select: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: $themeColor1;
+    @extend .hover;
+  }
+}
