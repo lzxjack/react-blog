@@ -1,3 +1,5 @@
+import 'dayjs/locale/zh-cn';
+
 import { MessageOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -9,6 +11,7 @@ import { myEmail } from '@/utils/constant';
 
 import s from './index.scss';
 
+dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);
 
 interface Props {
