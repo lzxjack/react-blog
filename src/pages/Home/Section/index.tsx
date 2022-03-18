@@ -60,7 +60,7 @@ const Section: React.FC<Props> = ({ artSum }) => {
             content={content}
             date={date}
             tags={tags}
-            onClick={() => navigate(`/post?title=${titleEng}`)}
+            onClick={() => navigate(`/post?title=${encodeURIComponent(titleEng)}`)}
           />
         ))
       )}
