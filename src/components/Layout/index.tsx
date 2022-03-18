@@ -33,7 +33,7 @@ const Layout: React.FC<Props> = ({
   date,
   isPost = false
 }) => {
-  useTitle(`${siteTitle} | ${title}`);
+  useTitle(`${siteTitle} | ${title || ''}`);
   useTop(setNavShow!);
 
   return (

@@ -1,7 +1,6 @@
 {
-  "name": "react-blog",
+  "name": "blog-jack",
   "version": "2.0.0",
-  "main": "index.js",
   "sideEffects": [
     "*.css",
     "*.less",
