@@ -46,6 +46,7 @@ export const staleTime = 180000;
 // 首页文章分页，每页数据
 export const homeSize = 8;
 export const msgSize = 10;
+export const detailPostSize = 10;
 
 // 个人信息
 export const myName = '飞鸟';
