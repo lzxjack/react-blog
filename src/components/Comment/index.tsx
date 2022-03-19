@@ -9,6 +9,7 @@ import Divider from './Divider';
 import EditBox from './EditBox';
 import { fetchData } from './fetchData';
 import MsgList from './MsgList';
+import Placehold from './Placehold';
 
 interface Props {
   titleEng?: string;
@@ -34,6 +35,7 @@ const Comment: React.FC<Props> = ({ titleEng = '' }) => {
     <div>
       <Divider />
       <EditBox />
+      <Placehold msgCount={msgsData?.msgsSum.total} isMsg={!titleEng} />
       <MsgList
         msgs={msgsData?.msgs.data}
         replys={replys?.data}

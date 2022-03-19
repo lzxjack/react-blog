@@ -15,25 +15,29 @@ interface Props {
 
 const MyPagination: React.FC<Props> = ({
   current,
-  defaultPageSize,
-  total,
+  defaultPageSize = 8,
+  total = 0,
   setPage,
   scrollToTop
 }) => {
   return (
-    <div id='myPagination' className={s.pageBox}>
-      <Pagination
-        current={current}
-        total={total}
-        defaultPageSize={defaultPageSize}
-        showSizeChanger={false}
-        showTitle={false}
-        onChange={(page: number) => {
-          setPage?.(page);
-          window.scrollTo(0, document.body.clientHeight - (scrollToTop || 0));
-        }}
-      />
-    </div>
+    <>
+      {total > defaultPageSize ? (
+        <div id='myPagination' className={s.pageBox}>
+          <Pagination
+            current={current}
+            total={total}
+            defaultPageSize={defaultPageSize}
+            showSizeChanger={false}
+            showTitle={false}
+            onChange={(page: number) => {
+              setPage?.(page);
+              window.scrollTo(0, document.body.clientHeight - (scrollToTop || 0));
+            }}
+          />
+        </div>
+      ) : null}
+    </>
   );
 };
 

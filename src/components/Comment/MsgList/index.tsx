@@ -2,6 +2,7 @@ import React from 'react';
 
 import LayoutLoading from '@/components/LayoutLoading';
 
+import s from './index.scss';
 import MsgItem from './MsgItem';
 
 interface MsgType {
@@ -31,7 +32,7 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
       ) : (
         msgs?.map((msg: MsgType) => {
           return (
-            <div key={msg._id}>
+            <div key={msg._id} className={s.completeMsg}>
               <MsgItem
                 _id={msg._id}
                 avatar={msg.avatar}
