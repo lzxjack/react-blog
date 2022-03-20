@@ -8,16 +8,11 @@ import DisplayBar from '@/components/DisplayBar';
 import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
-import { getArtClassTag } from '@/utils/apis/getArtClassTag';
+import { getWhereOrderPageSum } from '@/utils/apis/getWhereOrderPageSum';
 import { db } from '@/utils/cloudBase';
 import { detailPostSize } from '@/utils/constant';
 
-interface ArtTagType {
-  _id: string;
-  title: string;
-  date: number;
-  titleEng: string;
-}
+import { ArticleType } from '../constant';
 
 const ArtDetail: React.FC = () => {
   const [query] = useUrlState();
@@ -38,7 +33,7 @@ const ArtDetail: React.FC = () => {
 
   const { data, loading } = useRequest(
     () =>
-      getArtClassTag({
+      getWhereOrderPageSum({
         dbName: DB.Article,
         where,
         page,
@@ -53,7 +48,7 @@ const ArtDetail: React.FC = () => {
 
   return (
     <Layout title={query.tag || query.class} loading={loading}>
-      {data?.articles.data.map((item: ArtTagType) => (
+      {data?.articles.data.map((item: ArticleType) => (
         <DisplayBar
           key={item._id}
           content={item.title}

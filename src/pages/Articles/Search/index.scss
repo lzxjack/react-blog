@@ -1,0 +1,27 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.searchBox {
+  display: flex;
+  margin-bottom: $space;
+
+  .search {
+    height: 50px;
+    border-radius: 14px;
+    background-color: $themeColor1;
+    flex: 1;
+    text-align: center;
+  }
+  .searchBtn {
+    height: 50px;
+    width: 50px;
+    border-radius: 14px;
+    background-color: $themeColor1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin-left: $space;
+    @extend .hover;
+  }
+}
