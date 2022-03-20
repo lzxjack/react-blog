@@ -33,7 +33,6 @@ const ArtTag: React.FC = () => {
         dbName: DB.Article,
         where: {
           tags: db.RegExp({
-            // TODO: C++查询错误
             regexp: `${query.tag}`,
             options: 'i'
           })
