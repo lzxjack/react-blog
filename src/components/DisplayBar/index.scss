@@ -1,0 +1,43 @@
+@import './../../styles/base.scss';
+@import './../../styles/style.scss';
+
+.displayBar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $themeColor1;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  overflow: hidden;
+  font-size: 24px;
+  padding: 0 20px;
+  height: 66px;
+  @extend .trans;
+  user-select: none;
+
+  .rightBar {
+    padding: 0 10px;
+    border-radius: 10px;
+    color: $textColor;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    @extend .hover;
+  }
+}
+
+.displayBar:hover {
+  transform: scale(1.02);
+}
+
+.displayBar:last-child {
+  margin-bottom: 0;
+}

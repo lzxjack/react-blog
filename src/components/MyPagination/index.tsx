@@ -32,6 +32,7 @@ const MyPagination: React.FC<Props> = ({
             showTitle={false}
             onChange={(page: number) => {
               setPage?.(page);
+              // TODO: 自主设定
               window.scrollTo(0, document.body.clientHeight - (scrollToTop || 0));
             }}
           />
