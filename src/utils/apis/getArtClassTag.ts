@@ -1,7 +1,7 @@
 import { getWhereOrderPageData } from '@/utils/apis/getWhereOrderPageData';
 import { getWhereSum } from '@/utils/apis/getWhereSum';
 
-export const fetchData = async (config: {
+export const getArtClassTag = async (config: {
   dbName: string;
   where: object;
   page: number;

@@ -9,8 +9,7 @@ import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
 import { getArtClassTag } from '@/utils/apis/getArtClassTag';
-import { db } from '@/utils/cloudBase';
-import { detailPostSize, siteTitle, staleTime } from '@/utils/constant';
+import { detailPostSize, siteTitle } from '@/utils/constant';
 
 interface ArtTagType {
   _id: string;
@@ -19,9 +18,9 @@ interface ArtTagType {
   titleEng: string;
 }
 
-const ArtTag: React.FC = () => {
+const ArtClass: React.FC = () => {
   const [query] = useUrlState();
-  useTitle(`${siteTitle} | ${query.tag || ''}`);
+  useTitle(`${siteTitle} | ${query.class || ''}`);
   const navigate = useNavigate();
 
   const [page, setPage] = useSafeState(1);
@@ -31,10 +30,7 @@ const ArtTag: React.FC = () => {
       getArtClassTag({
         dbName: DB.Article,
         where: {
-          tags: db.RegExp({
-            regexp: `${query.tag}`,
-            options: 'i'
-          })
+          classes: query.class
         },
         page,
         size: detailPostSize,
@@ -47,7 +43,7 @@ const ArtTag: React.FC = () => {
   );
 
   return (
-    <Layout title={query.tag} loading={loading}>
+    <Layout title={query.class} loading={loading}>
       {data?.articles.data.map((item: ArtTagType) => (
         <DisplayBar
           key={item._id}
@@ -67,4 +63,4 @@ const ArtTag: React.FC = () => {
   );
 };
 
-export default ArtTag;
+export default ArtClass;
