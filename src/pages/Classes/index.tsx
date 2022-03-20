@@ -33,7 +33,7 @@ const Classes: React.FC = () => {
           key={item._id}
           content={item.class}
           right={`${item.count}`}
-          onClick={() => navigate(`/artClass?class=${encodeURIComponent(item.class)}`)}
+          onClick={() => navigate(`/artDetail?class=${encodeURIComponent(item.class)}`)}
         />
       ))}
     </Layout>

@@ -32,7 +32,7 @@ const Tags: React.FC = () => {
         <span
           className={s.tagItem}
           key={item._id}
-          onClick={() => navigate(`/artTag?tag=${encodeURIComponent(item.tag)}`)}
+          onClick={() => navigate(`/artDetail?tag=${encodeURIComponent(item.tag)}`)}
         >
           {item.tag}
         </span>

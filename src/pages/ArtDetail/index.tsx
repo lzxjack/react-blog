@@ -1,5 +1,5 @@
 import useUrlState from '@ahooksjs/use-url-state';
-import { useRequest, useSafeState, useTitle } from 'ahooks';
+import { useRequest, useSafeState } from 'ahooks';
 import dayjs from 'dayjs';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +9,8 @@ import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
 import { getArtClassTag } from '@/utils/apis/getArtClassTag';
-import { detailPostSize, siteTitle } from '@/utils/constant';
+import { db } from '@/utils/cloudBase';
+import { detailPostSize } from '@/utils/constant';
 
 interface ArtTagType {
   _id: string;
@@ -18,20 +19,28 @@ interface ArtTagType {
   titleEng: string;
 }
 
-const ArtClass: React.FC = () => {
+const ArtDetail: React.FC = () => {
   const [query] = useUrlState();
-  useTitle(`${siteTitle} | ${query.class || ''}`);
   const navigate = useNavigate();
 
   const [page, setPage] = useSafeState(1);
+
+  const where = query.tag
+    ? {
+        tags: db.RegExp({
+          regexp: `${query.tag}`,
+          options: 'i'
+        })
+      }
+    : {
+        classes: query.class
+      };
 
   const { data, loading } = useRequest(
     () =>
       getArtClassTag({
         dbName: DB.Article,
-        where: {
-          classes: query.class
-        },
+        where,
         page,
         size: detailPostSize,
         sortKey: 'date'
@@ -43,7 +52,7 @@ const ArtClass: React.FC = () => {
   );
 
   return (
-    <Layout title={query.class} loading={loading}>
+    <Layout title={query.tag || query.class} loading={loading}>
       {data?.articles.data.map((item: ArtTagType) => (
         <DisplayBar
           key={item._id}
@@ -63,4 +72,4 @@ const ArtClass: React.FC = () => {
   );
 };
 
-export default ArtClass;
+export default ArtDetail;
