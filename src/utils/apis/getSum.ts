@@ -1,6 +1,6 @@
 import { db } from '../cloudBase';
 
-export const getNum = (dbName: string) =>
+export const getSum = (dbName: string) =>
   db
     .collection(dbName)
     .count()
