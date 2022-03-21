@@ -1,10 +1,24 @@
-import { getPageMsgs } from '@/utils/apis/getMsgs';
-import { getMsgsSum } from '@/utils/apis/getMsgsSum';
+import { getWhereOrderPageData } from '@/utils/apis/getWhereOrderPageData';
+import { getWhereSum } from '@/utils/apis/getWhereSum';
 
-export const fetchData = async (postTitle: string, page: number, msgSize: number) => {
+export const fetchData = async (config: {
+  dbName: string;
+  where: object;
+  page: number;
+  size: number;
+  sortKey: string;
+}) => {
+  const { dbName, where, page, size, sortKey } = config;
+
   const [msgs, msgsSum] = await Promise.all([
-    getPageMsgs(postTitle, page, msgSize),
-    getMsgsSum(postTitle)
+    getWhereOrderPageData({
+      dbName,
+      where,
+      page,
+      size,
+      sortKey
+    }),
+    getWhereSum(dbName, where)
   ]);
 
   return {

@@ -1,7 +1,9 @@
 import { useRequest, useSafeState } from 'ahooks';
 import React from 'react';
 
-import { getMsgReplys } from '@/utils/apis/getMsgs';
+import { DB } from '@/utils/apis/dbConfig';
+import { getWhereOrderData } from '@/utils/apis/getWhereOrderData';
+import { _ } from '@/utils/cloudBase';
 import { msgSize } from '@/utils/constant';
 
 import MyPagination from '../MyPagination';
@@ -18,16 +20,38 @@ interface Props {
 const Comment: React.FC<Props> = ({ titleEng = '' }) => {
   const [page, setPage] = useSafeState(1);
 
+  // 评论
   const { data: msgsData, loading: msgLoading } = useRequest(
-    () => fetchData(titleEng, page, msgSize),
+    () =>
+      fetchData({
+        dbName: DB.Msg,
+        where: {
+          postTitle: titleEng,
+          replyId: _.eq('')
+        },
+        page,
+        size: msgSize,
+        sortKey: 'date'
+      }),
     {
       retryCount: 3,
       refreshDeps: [page]
     }
   );
 
-  const { data: replys, loading: replyLoading } = useRequest(getMsgReplys, {
-    defaultParams: [titleEng],
+  // 回复
+  const { data: replys, loading: replyLoading } = useRequest(getWhereOrderData, {
+    defaultParams: [
+      {
+        dbName: DB.Msg,
+        where: {
+          postTitle: titleEng,
+          replyId: _.neq('')
+        },
+        sortKey: 'date',
+        isAsc: true
+      }
+    ],
     retryCount: 3
   });
 

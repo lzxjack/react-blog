@@ -6,7 +6,7 @@ import Comment from '@/components/Comment';
 import Layout from '@/components/Layout';
 import MarkDown from '@/components/MarkDown';
 import { DB } from '@/utils/apis/dbConfig';
-import { getThePost } from '@/utils/apis/getThePost';
+import { getWhereData } from '@/utils/apis/getWhereData';
 import { staleTime } from '@/utils/constant';
 
 import CopyRight from './CopyRight';
@@ -17,8 +17,8 @@ import PostTags from './PostTags';
 const Post: React.FC = () => {
   const [search] = useUrlState();
 
-  const { data, loading } = useRequest(getThePost, {
-    defaultParams: [search.title],
+  const { data, loading } = useRequest(getWhereData, {
+    defaultParams: [DB.Article, { titleEng: search.title }],
     retryCount: 3,
     cacheKey: `${DB.Article}-${search.title}`,
     staleTime

@@ -1,11 +1,11 @@
 import { DB } from '@/utils/apis/dbConfig';
-import { getNum } from '@/utils/apis/getNum';
+import { getSum } from '@/utils/apis/getSum';
 
 export const fetchData = async () => {
   const [articles, classes, tags] = await Promise.all([
-    getNum(DB.Article),
-    getNum(DB.Class),
-    getNum(DB.Tag)
+    getSum(DB.Article),
+    getSum(DB.Class),
+    getSum(DB.Tag)
   ]);
 
   return {

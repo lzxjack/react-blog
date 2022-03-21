@@ -13,12 +13,7 @@ import { staleTime } from '@/utils/constant';
 const Img: React.FC = () => {
   const [query] = useUrlState();
   const { data, loading } = useRequest(getWhereData, {
-    defaultParams: [
-      {
-        dbName: DB.Gallery,
-        where: { title: query.title }
-      }
-    ],
+    defaultParams: [DB.Gallery, { title: query.title }],
     retryCount: 3,
     cacheKey: `${DB.Gallery}-${query.title}`,
     staleTime
