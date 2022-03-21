@@ -1,78 +1,86 @@
 import { ArrowRightOutlined, RedoOutlined } from '@ant-design/icons';
-import { useGetState, useRequest, useSafeState } from 'ahooks';
-import React from 'react';
+import { useKeyPress, useSafeState } from 'ahooks';
+import { message } from 'antd';
+import React, { useRef } from 'react';
 
-import { DB } from '@/utils/apis/dbConfig';
-import { getWhereOrderPageSum } from '@/utils/apis/getWhereOrderPageSum';
 import { db } from '@/utils/cloudBase';
-import { detailPostSize } from '@/utils/constant';
 
 import s from './index.scss';
 
 interface Props {
   page: number;
-  setList: Function;
-  setTotal: Function;
+  setPage: Function;
+  where: object;
+  setWhere: Function;
+  setIsReset: Function;
+  run: Function;
 }
 
-const Search: React.FC<Props> = ({ page, setList, setTotal }) => {
+const Search: React.FC<Props> = ({ page, setPage, where, setWhere, setIsReset, run }) => {
   const [input, setInput] = useSafeState('');
-  const [where, setWhere, getWhere] = useGetState(() => ({}));
+  const inputRef = useRef(null);
 
-  const { data, loading, run } = useRequest(
-    () =>
-      getWhereOrderPageSum({
-        dbName: DB.Article,
-        where,
-        page,
-        size: detailPostSize,
-        sortKey: 'date'
-      }),
-    {
-      // manual: true,
-      retryCount: 3,
-      refreshDeps: [page],
-      onSuccess: () => {
-        console.log('成功');
-        setList(data?.articles.data);
-        setTotal(data?.sum.total);
-      }
+  const search = () => {
+    if (!input) {
+      message.info('请输入关键词再搜索!');
+      return;
     }
-  );
+    setTimeout(() => {
+      setWhere({
+        title: db.RegExp({
+          regexp: `${input}`,
+          options: 'i'
+        })
+      });
+      setPage(1);
+      run?.();
+    }, 0);
+  };
+
+  const reset = () => {
+    if (JSON.stringify(where) === '{}' && page === 1 && !input) {
+      message.info('无需重置!');
+      return;
+    }
+    if (JSON.stringify(where) === '{}' && page === 1) {
+      setInput('');
+      message.success('重置成功!');
+      return;
+    }
+    setTimeout(() => {
+      setIsReset(true);
+      setInput?.('');
+      setWhere({});
+      setPage(1);
+      run?.();
+    }, 0);
+  };
+
+  useKeyPress(13, search, {
+    target: inputRef
+  });
+
+  useKeyPress(27, reset, {
+    target: inputRef
+  });
 
   return (
     <div className={s.searchBox}>
       <input
+        ref={inputRef}
+        autoFocus
         type='text'
         placeholder='搜索文章标题...'
         className={s.search}
         value={input}
-        onChange={e => {
-          setInput?.(e.target.value);
-          if (e.target.value === '') {
-            setWhere({});
-          } else {
-            setWhere({
-              title: db.RegExp({
-                regexp: `${e.target.value}`,
-                options: 'i'
-              })
-            });
-          }
-        }}
+        onChange={e => setInput?.(e.target.value)}
       />
-      <div className={s.searchBtn} onClick={() => run?.()}>
+      {/* 搜索按钮 */}
+      <div className={s.searchBtn} onClick={search}>
         <ArrowRightOutlined />
       </div>
-      <div
-        className={s.searchBtn}
-        onClick={() => {
-          setInput?.('');
-          setWhere({});
-          console.log(getWhere());
-          run?.();
-        }}
-      >
+      {/* 重置按钮 */}
+      <div className={s.searchBtn} onClick={reset}>
         <RedoOutlined />
       </div>
     </div>
