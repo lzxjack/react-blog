@@ -2,8 +2,6 @@ import React from 'react';
 
 import MarkDown from '@/components/MarkDown';
 
-import s from './index.scss';
-
 interface Props {
   content?: string;
 }

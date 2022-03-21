@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 
 export const useEmoji = () => {
   const textRef = useRef<HTMLTextAreaElement>(null);
+  // eslint-disable-next-line no-unused-vars
   const [_, setStart, getStart] = useGetState(0);
   const [text, setText, getText] = useGetState('');
   useEffect(() => {

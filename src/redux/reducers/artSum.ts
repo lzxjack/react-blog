@@ -1,5 +1,3 @@
-import { homeSize } from '@/utils/constant';
-
 import { SET_ART_SUM } from '../constant';
 
 interface Action {

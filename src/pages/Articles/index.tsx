@@ -62,7 +62,8 @@ const Articles: React.FC = () => {
             defaultPageSize={detailPostSize}
             total={total}
             setPage={setPage}
-            // scrollToTop={126}
+            autoScroll={true}
+            scrollToTop={440}
           />
         </>
       )}

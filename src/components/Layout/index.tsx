@@ -1,7 +1,7 @@
 import { useTitle } from 'ahooks';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { setNavShow } from '@/redux/actions';

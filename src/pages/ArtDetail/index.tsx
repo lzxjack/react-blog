@@ -61,7 +61,8 @@ const ArtDetail: React.FC = () => {
         defaultPageSize={detailPostSize}
         total={data?.sum.total}
         setPage={setPage}
-        // scrollToTop={126}
+        autoScroll={true}
+        scrollToTop={440}
       />
     </Layout>
   );
