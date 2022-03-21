@@ -11,8 +11,11 @@ interface Props {
 const DisplayBar: React.FC<Props> = ({ content, right, onClick }) => {
   return (
     <div className={s.displayBar} onClick={onClick}>
-      {content}
-      <div className={s.rightBar}>{right}</div>
+      <div className={s.content}>{content}</div>
+
+      <div className={s.rightContent}>
+        <div className={s.rightBar}>{right}</div>
+      </div>
     </div>
   );
 };

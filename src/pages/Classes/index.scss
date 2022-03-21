@@ -1,0 +1,14 @@
+.classBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .classItem {
+    width: 49%;
+  }
+
+  .classItem:nth-last-child(1),
+  .classItem:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+}

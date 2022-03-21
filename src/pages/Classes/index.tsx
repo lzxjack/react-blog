@@ -2,13 +2,14 @@ import { useRequest } from 'ahooks';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import DisplayBar from '@/components/DisplayBar';
 import Layout from '@/components/Layout';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
 import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
+import ClassBar from './ClassBar';
+import s from './index.scss';
 
 interface ClassType {
   _id: string;
@@ -27,12 +28,13 @@ const Classes: React.FC = () => {
   });
 
   return (
-    <Layout title={Title.Classes} loading={loading}>
+    <Layout title={Title.Classes} loading={loading} className={s.classBox}>
       {data?.data.map((item: ClassType) => (
-        <DisplayBar
+        <ClassBar
+          className={s.classItem}
           key={item._id}
           content={item.class}
-          right={`${item.count}`}
+          num={item.count}
           onClick={() => navigate(`/artDetail?class=${encodeURIComponent(item.class)}`)}
         />
       ))}
