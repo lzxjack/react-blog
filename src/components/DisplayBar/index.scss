@@ -1,7 +1,7 @@
 @import './../../styles/base.scss';
 @import './../../styles/style.scss';
 
-$rightWidth: 140px;
+$rightWidth: 112px;
 
 .displayBar {
   display: flex;
@@ -14,7 +14,7 @@ $rightWidth: 140px;
   height: 60px;
   user-select: none;
   cursor: pointer;
-  @extend .trans;
+  @extend .hover;
 
   .content {
     width: calc(100% - #{$rightWidth});
@@ -31,21 +31,10 @@ $rightWidth: 140px;
     align-items: center;
 
     .rightBar {
-      padding: 0 8px;
-      border-radius: 10px;
       color: $textColor;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: 18px;
-      @extend .hover;
     }
   }
-}
-
-.displayBar:hover {
-  transform: scale(1.02);
 }
 
 .displayBar:last-child {
