@@ -26,7 +26,7 @@ const About: React.FC = () => {
     <Layout title={Title.About} loading={loading}>
       <Switch state={state} toggle={toggle} setLeft={setLeft} setRight={setRight} />
       {state ? (
-        <Suspense fallback={<LayoutLoading />}>
+        <Suspense fallback={<LayoutLoading rows={3} />}>
           <AboutMe content={data?.about.data[1].content} />
         </Suspense>
       ) : (

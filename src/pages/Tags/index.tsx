@@ -27,7 +27,7 @@ const Tags: React.FC = () => {
   });
 
   return (
-    <Layout title={Title.Tags} loading={loading} className={s.tagsBox}>
+    <Layout title={Title.Tags} loading={loading} className={s.tagsBox} rows={3}>
       {data?.data.map((item: TagType) => (
         <span
           className={s.tagItem}

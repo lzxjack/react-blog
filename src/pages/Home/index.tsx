@@ -33,13 +33,13 @@ const Home: React.FC<Props> = ({ setNavShow }) => {
   });
 
   return (
-    <div>
-      <PageTitle height='100vh' title={siteTitle} desc={poem || ''} />
+    <>
+      <PageTitle title={siteTitle} desc={poem || ''} className={s.homeTitle} />
       <div className={s.body}>
         <Section />
         <Aside />
       </div>
-    </div>
+    </>
   );
 };
 

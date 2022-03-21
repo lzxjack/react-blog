@@ -69,7 +69,8 @@ const Section: React.FC<Props> = ({ artSum }) => {
         defaultPageSize={homeSize}
         total={artSum}
         setPage={setPage}
-        scrollToTop={70}
+        autoScroll={true}
+        scrollToTop={document.body.clientHeight - 80}
       />
     </section>
   );

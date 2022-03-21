@@ -28,7 +28,7 @@ const Classes: React.FC = () => {
   });
 
   return (
-    <Layout title={Title.Classes} loading={loading} className={s.classBox}>
+    <Layout title={Title.Classes} loading={loading} className={s.classBox} rows={8}>
       {data?.data.map((item: ClassType) => (
         <ClassBar
           className={s.classItem}

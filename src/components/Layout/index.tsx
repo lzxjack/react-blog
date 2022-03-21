@@ -1,7 +1,7 @@
 import { useTitle } from 'ahooks';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { setNavShow } from '@/redux/actions';
@@ -21,6 +21,7 @@ interface Props {
   isPost?: boolean;
   classes?: string;
   date?: number;
+  rows?: number;
 }
 
 const Layout: React.FC<Props> = ({
@@ -31,7 +32,8 @@ const Layout: React.FC<Props> = ({
   children,
   classes,
   date,
-  isPost = false
+  isPost = false,
+  rows
 }) => {
   useTitle(`${siteTitle} | ${title || ''}`);
   useTop(setNavShow!);
@@ -49,7 +51,7 @@ const Layout: React.FC<Props> = ({
         )}
       </PageTitle>
       <Card isStatic={true} className={classNames(s.layoutCard, className)}>
-        {loading ? <LayoutLoading /> : children}
+        {loading ? <LayoutLoading rows={rows} /> : children}
       </Card>
     </>
   );

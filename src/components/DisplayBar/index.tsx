@@ -8,11 +8,10 @@ interface Props {
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const DisplayBar: React.FC<Props> = ({ content, right, onClick }) => {
+const DisplayBar: React.FC<Props> = ({ content = '', right = '', onClick }) => {
   return (
     <div className={s.displayBar} onClick={onClick}>
       <div className={s.content}>{content}</div>
-
       <div className={s.rightContent}>
         <div className={s.rightBar}>{right}</div>
       </div>

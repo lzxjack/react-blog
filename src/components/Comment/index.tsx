@@ -15,9 +15,15 @@ import Placehold from './Placehold';
 
 interface Props {
   titleEng?: string;
+  autoScroll?: boolean;
+  scrollToTop?: number;
 }
 
-const Comment: React.FC<Props> = ({ titleEng = '' }) => {
+const Comment: React.FC<Props> = ({
+  titleEng = '',
+  autoScroll = false,
+  scrollToTop = 0
+}) => {
   const [page, setPage] = useSafeState(1);
 
   // 评论
@@ -70,7 +76,8 @@ const Comment: React.FC<Props> = ({ titleEng = '' }) => {
         defaultPageSize={msgSize}
         total={msgsData?.msgsSum.total}
         setPage={setPage}
-        scrollToTop={126}
+        autoScroll={autoScroll}
+        scrollToTop={scrollToTop}
       />
     </div>
   );

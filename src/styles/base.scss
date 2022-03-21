@@ -4,6 +4,7 @@ $footerHeight: 120px;
 $centerWidth: 1200px;
 $asideWidth: 260px;
 $layoutWidth: 1000px;
+$topTitleHeight: 440px;
 
 // color
 // 主色
@@ -53,4 +54,5 @@ $space: 20px;
   space: $space;
   midRadius: $midRadius;
   hoverDeepColor: $hoverDeepColor;
+  topTitleHeight: $topTitleHeight;
 }

@@ -1,54 +1,64 @@
 @import '../../../styles/base.scss';
 @import '../../../styles/style.scss';
 
-.avatarBox {
-  width: 60px;
-  height: 60px;
+.sayItem {
+  min-height: 90px;
+  display: flex;
+  margin-bottom: $space;
 
-  .avatar {
+  .avatarBox {
     width: 60px;
     height: 60px;
-    border-radius: 14px;
-    -webkit-user-drag: none;
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      -webkit-user-drag: none;
+    }
+  }
+
+  .contentBox {
+    margin-left: 20px;
+    flex: 1;
+
+    .content {
+      border-radius: 14px;
+      display: flex;
+      min-height: 90px;
+      justify-content: flex-start;
+      align-items: center;
+      word-break: break-all;
+      padding: 20px 20px 44px;
+      position: relative;
+      background-color: $themeColor1;
+      user-select: text;
+      @extend .trans;
+    }
+    .content:hover {
+      transform: scale(1.02);
+    }
+
+    .date {
+      padding: 0 10px;
+      border-radius: 10px;
+      transition: all 0.2s;
+      color: $textColor;
+      height: 30px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      user-select: none;
+      background-color: $themeColor2;
+      @extend .hover;
+    }
   }
 }
 
-.contentBox {
-  margin-left: 20px;
-  flex: 1;
-
-  .content {
-    border-radius: 14px;
-    display: flex;
-    min-height: 90px;
-    justify-content: flex-start;
-    align-items: center;
-    word-break: break-all;
-    padding: 20px 20px 44px;
-    position: relative;
-    background-color: $themeColor1;
-    user-select: text;
-    @extend .trans;
-  }
-  .content:hover {
-    transform: scale(1.02);
-  }
-
-  .date {
-    padding: 0 10px;
-    border-radius: 10px;
-    transition: all 0.2s;
-    color: $textColor;
-    height: 30px;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    user-select: none;
-    background-color: $themeColor2;
-    @extend .hover;
-  }
+.sayItem:last-child {
+  margin-bottom: 0;
 }

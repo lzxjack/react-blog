@@ -1,4 +1,4 @@
-import { _, db } from '../cloudBase';
+import { db } from '../cloudBase';
 
 export const getWhereOrderData = (config: {
   dbName: string;

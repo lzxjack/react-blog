@@ -7,8 +7,13 @@ import { getOrderData } from '@/utils/apis/getOrderData';
 import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
-import s from './index.scss';
 import SayPop from './SayPop';
+
+interface SayType {
+  _id: string;
+  content: string;
+  date: number;
+}
 
 const Say: React.FC = () => {
   const { data, loading } = useRequest(getOrderData, {
@@ -20,11 +25,9 @@ const Say: React.FC = () => {
 
   return (
     <Layout title={Title.Say} loading={loading}>
-      {data?.data.map(
-        ({ _id, content, date }: { _id: string; content: string; date: number }) => (
-          <SayPop key={_id} content={content} date={date} className={s.sayItem} />
-        )
-      )}
+      {data?.data.map(({ _id, content, date }: SayType) => (
+        <SayPop key={_id} content={content} date={date} />
+      ))}
     </Layout>
   );
 };

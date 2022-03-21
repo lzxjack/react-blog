@@ -31,6 +31,7 @@ const Post: React.FC = () => {
       classes={data?.data[0].classes}
       date={data?.data[0].date}
       isPost={true}
+      rows={14}
     >
       <MarkDown content={data?.data[0].content} className={s.mb} />
       <PostTags tags={data?.data[0].tags} />
