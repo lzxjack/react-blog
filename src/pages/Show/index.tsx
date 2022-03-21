@@ -8,6 +8,7 @@ import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
 import s from './index.scss';
+import ShowItem from './ShowItem';
 
 interface ShowType {
   _id: string;
@@ -34,19 +35,13 @@ const Show: React.FC = () => {
   return (
     <Layout title={Title.Show} loading={loading} className={s.showBox}>
       {data?.data.map((item: ShowType) => (
-        <div
+        <ShowItem
           key={item._id}
-          style={{ backgroundImage: `url(${item.cover})` }}
-          className={s.item}
-        >
-          <a href={item.link} rel='noreferrer' target='_blank' className={s.link}>
-            <div className={s.title}>
-              <span>{item.name}</span>
-            </div>
-            <div className={s.descr}>{item.descr}</div>
-            <div className={s.mask} />
-          </a>
-        </div>
+          cover={item.cover}
+          link={item.link}
+          name={item.name}
+          descr={item.descr}
+        />
       ))}
     </Layout>
   );
