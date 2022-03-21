@@ -16,14 +16,18 @@ const ArtList: React.FC<Props> = ({ articles }) => {
 
   return (
     <>
-      {articles?.map((item: ArticleType) => (
-        <DisplayBar
-          key={item._id}
-          content={item.title}
-          right={dayjs(item.date).format('YYYY-MM-DD')}
-          onClick={() => navigate(`/post?title=${encodeURIComponent(item.titleEng)}`)}
-        />
-      ))}
+      {articles?.length ? (
+        articles?.map((item: ArticleType) => (
+          <DisplayBar
+            key={item._id}
+            content={item.title}
+            right={dayjs(item.date).format('YYYY-MM-DD')}
+            onClick={() => navigate(`/post?title=${encodeURIComponent(item.titleEng)}`)}
+          />
+        ))
+      ) : (
+        <div className={s.none}>暂时无相应文章 ~</div>
+      )}
     </>
   );
 };
