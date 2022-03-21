@@ -1,0 +1,18 @@
+@import '../../styles/base.scss';
+
+.loadingBar {
+  background-color: $themeColor1;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .placeHolder {
+    background-color: rgb(53, 53, 59);
+    height: 16px;
+    width: 70%;
+    border-radius: 4px;
+  }
+}

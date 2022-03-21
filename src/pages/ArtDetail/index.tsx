@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import ArtDetailLoading from '@/components/ArtDetailLoading';
 import DisplayBar from '@/components/DisplayBar';
 import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
@@ -47,15 +48,19 @@ const ArtDetail: React.FC = () => {
   );
 
   return (
-    <Layout title={query.tag || query.class} loading={loading}>
-      {data?.articles.data.map((item: ArticleType) => (
-        <DisplayBar
-          key={item._id}
-          content={item.title}
-          right={dayjs(item.date).format('YYYY-MM-DD')}
-          onClick={() => navigate(`/post?title=${encodeURIComponent(item.titleEng)}`)}
-        />
-      ))}
+    <Layout title={query.tag || query.class}>
+      {loading ? (
+        <ArtDetailLoading />
+      ) : (
+        data?.articles.data.map((item: ArticleType) => (
+          <DisplayBar
+            key={item._id}
+            content={item.title}
+            right={dayjs(item.date).format('YYYY-MM-DD')}
+            onClick={() => navigate(`/post?title=${encodeURIComponent(item.titleEng)}`)}
+          />
+        ))
+      )}
       <MyPagination
         current={page}
         defaultPageSize={detailPostSize}
