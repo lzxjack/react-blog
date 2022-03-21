@@ -1,3 +1,5 @@
+import './global.custom.scss';
+
 import React from 'react';
 
 import Footer from '@/components/Footer';
