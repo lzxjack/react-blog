@@ -60,6 +60,22 @@ export const myEmail = '965555169@qq.com';
 export const defaultCommentAvatar =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
 
+// 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
+export const defaultCommentAvatarArr = [
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221909.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221910.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221911.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221912.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221913.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221914.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221915.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221916.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221917.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221918.jpg'
+];
+
+export const avatarArrLen = defaultCommentAvatarArr.length;
+
 // emoji表情
 export const emojiPeople = [
   '😀',

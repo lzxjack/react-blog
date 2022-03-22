@@ -27,7 +27,11 @@ const Comment: React.FC<Props> = ({
   const [page, setPage] = useSafeState(1);
 
   // 评论
-  const { data: msgsData, loading: msgLoading } = useRequest(
+  const {
+    data: msgsData,
+    loading: msgLoading,
+    run: msgRun
+  } = useRequest(
     () =>
       fetchData({
         dbName: DB.Msg,
@@ -46,7 +50,11 @@ const Comment: React.FC<Props> = ({
   );
 
   // 回复
-  const { data: replys, loading: replyLoading } = useRequest(getWhereOrderData, {
+  const {
+    data: replys,
+    loading: replyLoading,
+    run: replyRun
+  } = useRequest(getWhereOrderData, {
     defaultParams: [
       {
         dbName: DB.Msg,
@@ -64,12 +72,13 @@ const Comment: React.FC<Props> = ({
   return (
     <div>
       <Divider />
-      <EditBox />
+      <EditBox msgRun={msgRun} titleEng={titleEng} />
       <Placehold msgCount={msgsData?.msgsSum.total} isMsg={!titleEng} />
       <MsgList
         msgs={msgsData?.msgs.data}
         replys={replys?.data}
         loading={msgLoading || replyLoading}
+        replyRun={replyRun}
       />
       <MyPagination
         current={page}

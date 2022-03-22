@@ -20,9 +20,10 @@ interface Props {
   msgs?: MsgType[];
   replys?: MsgType[];
   loading?: boolean;
+  replyRun?: Function;
 }
 
-const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
+const MsgList: React.FC<Props> = ({ msgs, replys, loading, replyRun }) => {
   const openReplyBox = (id: string) => {};
 
   return (
