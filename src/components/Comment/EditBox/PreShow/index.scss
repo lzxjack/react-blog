@@ -2,16 +2,13 @@
 @import '../../../../styles/style.scss';
 
 .preShow {
-  position: fixed;
-  height: 300px;
-  width: 700px;
+  position: relative;
+  height: 260px;
   border-radius: 20px;
   padding: 20px 50px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  box-shadow: 0 0 18px #000;
-  background-color: $themeColor;
+  box-shadow: 0 0 18px #000 inset;
+  background-color: $themeColor1;
+  margin-top: $space;
   @extend .trans;
 
   .closeBtn {
@@ -53,12 +50,12 @@
   }
 }
 
-.preMask {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
+// .preMask {
+//   width: 100vw;
+//   height: 100vh;
+//   position: fixed;
+//   background-color: rgba(0, 0, 0, 0.7);
+//   top: 0;
+//   left: 0;
+//   z-index: 99;
+// }

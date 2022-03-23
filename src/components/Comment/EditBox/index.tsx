@@ -1,9 +1,19 @@
-import { useKeyPress, useMemoizedFn, useMount, useSafeState } from 'ahooks';
+import useUrlState from '@ahooksjs/use-url-state';
+import {
+  useKeyPress,
+  useLocalStorageState,
+  useMemoizedFn,
+  useMount,
+  useSafeState
+} from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
 import React, { useRef } from 'react';
+import { connect } from 'react-redux';
 import sanitizeHtml from 'sanitize-html';
 
+import { setAvatar, setEmail, setLink, setName } from '@/redux/actions';
+import { storeState } from '@/redux/interface';
 import { DB } from '@/utils/apis/dbConfig';
 import { setData } from '@/utils/apis/setData';
 import { auth } from '@/utils/cloudBase';
@@ -24,24 +34,55 @@ import AdminBox from './AdminBox';
 import Emoji from './Emoji';
 import s from './index.scss';
 import PreShow from './PreShow';
-import { useEmoji } from './useEmoji';
 
 interface Props {
   msgRun?: Function;
-  titleEng?: string;
+  replyRun?: Function;
+  isReply?: boolean;
+  name?: string;
+  link?: string;
+  email?: string;
+  avatar?: string;
+  setAvatar?: Function;
+  setEmail?: Function;
+  setLink?: Function;
+  setName?: Function;
+  setShowReply?: Function;
+  className?: string;
+  replyName?: string;
+  replyId?: string;
 }
 
-const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
+const EditBox: React.FC<Props> = ({
+  msgRun,
+  replyRun,
+  isReply = false,
+  name,
+  link,
+  email,
+  avatar,
+  setAvatar,
+  setEmail,
+  setLink,
+  setName,
+  setShowReply,
+  replyName,
+  replyId,
+  className
+}) => {
+  const [search] = useUrlState();
+
   const nameRef = useRef(null);
 
   const [showAdmin, setShowAdmin] = useSafeState(false);
   const [showPre, setShowPre] = useSafeState(false);
 
-  const [name, setName] = useSafeState('');
-  const [email, setEmail] = useSafeState('');
-  const [link, setLink] = useSafeState('');
-  const [avatar, setAvatar] = useSafeState('');
-  const { textRef, text, setText, setStart } = useEmoji();
+  const [text, setText] = useSafeState('');
+
+  const [localName, setLocalName] = useLocalStorageState('name');
+  const [localEmail, setLocalEmail] = useLocalStorageState('email');
+  const [localLink, setLocalLink] = useLocalStorageState('link');
+  const [localAvatar, setLocalAvatar] = useLocalStorageState('avatar');
 
   const validateConfig = {
     name: {
@@ -80,7 +121,10 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
   const checkAdmin = useMemoizedFn(() => {
     if (
       !adminLogined() &&
-      (name === myName || name === QQ || email === myEmail || link.indexOf(myLink) !== -1)
+      (name === myName ||
+        name === QQ ||
+        email === myEmail ||
+        link?.indexOf(myLink) !== -1)
     ) {
       message.warning('未登录不可以使用管理员账户哦~');
       throw new Error('Not Admin');
@@ -94,16 +138,16 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
 
       const config = {
         DBName: DB.Msg,
-        name: sanitizeHtml(name),
-        email: sanitizeHtml(email),
-        link: sanitizeHtml(link),
+        name: sanitizeHtml(name!),
+        email: sanitizeHtml(email!),
+        link: sanitizeHtml(link!),
         content: sanitizeHtml(text),
         date: new Date().getTime(),
         avatar: avatar
           ? avatar
           : defaultCommentAvatarArr[getRandomNum(0, avatarArrLen - 1)],
-        postTitle: titleEng!,
-        replyId: ''
+        postTitle: search.title || '',
+        replyId: replyId || ''
       };
 
       const isTrue = await setData(config);
@@ -111,7 +155,9 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
       if (isTrue) {
         message.success('发布留言成功！');
         setText('');
-        msgRun?.();
+        isReply && setShowReply?.();
+        isReply && replyRun?.();
+        !isReply && msgRun?.();
       } else {
         message.error('发布失败，请重试！');
       }
@@ -127,45 +173,41 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
   useMount(() => {
     if (adminLogined()) {
       // 管理员已登录
-      setName(myName);
-      setEmail(myEmail);
-      setLink(myLink);
-      setAvatar(myAvatar);
+      setName?.(myName);
+      setEmail?.(myEmail);
+      setLink?.(myLink);
+      setAvatar?.(myAvatar);
       return;
     }
-    const uname = localStorage.getItem('name');
-    const uemail = localStorage.getItem('email');
-    const ulink = localStorage.getItem('link');
-    const uavatar = localStorage.getItem('avatar');
-    uname && uname !== myName && setName(uname);
-    uemail && uemail !== myEmail && setEmail(uemail);
-    ulink && ulink.indexOf(myLink) === -1 && setLink(ulink);
-    uavatar && setAvatar(uavatar);
+    localName && localName !== myName && setName?.(localName);
+    localEmail && localEmail !== myEmail && setEmail?.(localEmail);
+    localLink && localLink.indexOf(myLink) === -1 && setLink?.(localLink);
+    localAvatar && setAvatar?.(localAvatar);
   });
 
   const handleName = useMemoizedFn(() => {
     const regQQ = /[1-9][0-9]{4,11}/;
     if (name === 'admin') {
       setShowAdmin(true);
-      setName('');
+      setName?.('');
       return;
     }
     if (!adminLogined() && (name === myName || name === QQ)) {
       message.warning('未登录不可以使用管理员账户哦~');
-      setName('');
+      setName?.('');
       return;
     }
-    if (regQQ.test(name)) {
+    if (regQQ.test(name!)) {
       const avatarUrl = `https://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
       const QQEmail = `${name}@qq.com`;
-      setEmail(QQEmail);
-      setAvatar(avatarUrl);
-      localStorage.setItem('email', QQEmail);
-      localStorage.setItem('avatar', avatarUrl);
-      setName('');
+      setEmail?.(QQEmail);
+      setAvatar?.(avatarUrl);
+      setLocalEmail(QQEmail);
+      setLocalAvatar(avatarUrl);
+      setName?.('');
       return;
     }
-    localStorage.setItem('name', name);
+    setLocalName(name);
   });
 
   useKeyPress(13, handleName, {
@@ -173,88 +215,115 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
   });
 
   const openPreShow = useMemoizedFn(() => {
-    if (!text) {
+    if (!showPre && !text) {
       message.info('请写点什么再预览~');
       return;
     }
-    setShowPre(true);
+    setShowPre(showPre => !showPre);
   });
 
   return (
-    <div className={s.editBox}>
-      <AdminBox
-        showAdmin={showAdmin}
-        setShowAdmin={setShowAdmin}
-        setName={setName}
-        setEmail={setEmail}
-        setLink={setLink}
-        setAvatar={setAvatar}
-      />
-      <PreShow showPre={showPre} setShowPre={setShowPre} content={text} />
-
-      <div className={s.avatarBox}>
-        <img src={avatar || defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
-      </div>
-      <div className={s.editInputBox}>
-        <div className={s.inputBox}>
-          <div className={classNames(s.inputInfo, s.flex2)}>
-            <div className={s.inputKey}>昵称</div>
-            <input
-              ref={nameRef}
-              type='text'
-              className={s.inputValue}
-              placeholder='试试QQ号~'
-              value={name}
-              onChange={e => setName(e.target.value)}
-              onBlur={handleName}
-            />
-          </div>
-          <div className={classNames(s.inputInfo, s.flex3)}>
-            <div className={s.inputKey}>邮箱</div>
-            <input
-              type='text'
-              className={s.inputValue}
-              placeholder='必填'
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              onBlur={e => localStorage.setItem('email', e.target.value)}
-            />
-          </div>
-          <div className={classNames(s.inputInfo, s.flex3)}>
-            <div className={s.inputKey}>网址</div>
-            <input
-              type='text'
-              className={s.inputValue}
-              placeholder='选填'
-              value={link}
-              onChange={e => setLink(e.target.value)}
-              onBlur={e => localStorage.setItem('link', e.target.value)}
-            />
-          </div>
+    <div className={classNames(s.editBox, className)}>
+      {isReply && (
+        <div className={s.replyNameBox}>
+          回复给「<span>{replyName}</span>」：
         </div>
+      )}
+      <div className={s.flex}>
+        <AdminBox
+          showAdmin={showAdmin}
+          setShowAdmin={setShowAdmin}
+          setName={setName}
+          setEmail={setEmail}
+          setLink={setLink}
+          setAvatar={setAvatar}
+        />
 
-        <div className={s.textareaBox}>
-          <textarea
-            onSelect={() => setStart(textRef.current?.selectionStart as number)}
-            ref={textRef}
-            className={s.textarea}
-            value={text}
-            onChange={e => setText(e.target.value)}
-            placeholder='写点什么吗？&#10;可以在「昵称」处填写QQ号，自动获取「头像」和「QQ邮箱」！'
+        <div className={s.avatarBox}>
+          <img
+            src={avatar || defaultCommentAvatar}
+            alt='avatar'
+            className={s.editAvatar}
           />
         </div>
-        <div className={s.commentBtns}>
-          <Emoji />
-          <div className={s.previewBtn} onClick={openPreShow}>
-            预览
+        <div className={s.editInputBox}>
+          <div className={s.inputBox}>
+            <div className={classNames(s.inputInfo, s.flex2)}>
+              <div className={s.inputKey}>昵称</div>
+              <input
+                ref={nameRef}
+                type='text'
+                className={s.inputValue}
+                placeholder='试试QQ号~'
+                value={name}
+                onChange={e => setName?.(e.target.value)}
+                onBlur={handleName}
+              />
+            </div>
+            <div className={classNames(s.inputInfo, s.flex3)}>
+              <div className={s.inputKey}>邮箱</div>
+              <input
+                type='text'
+                className={s.inputValue}
+                placeholder='必填'
+                value={email}
+                onChange={e => setEmail?.(e.target.value)}
+                onBlur={e => setLocalEmail(e.target.value)}
+              />
+            </div>
+            <div className={classNames(s.inputInfo, s.flex3)}>
+              <div className={s.inputKey}>网址</div>
+              <input
+                type='text'
+                className={s.inputValue}
+                placeholder='选填'
+                value={link}
+                onChange={e => setLink?.(e.target.value)}
+                onBlur={e => setLocalLink(e.target.value)}
+              />
+            </div>
           </div>
-          <div className={s.sendBtn} onClick={submit}>
-            发布
+
+          <div className={s.textareaBox}>
+            <textarea
+              className={s.textarea}
+              value={text}
+              onChange={e => setText(e.target.value)}
+              placeholder='写点什么吗？&#10;可以在「昵称」处填写QQ号，自动获取「头像」和「QQ邮箱」！'
+            />
+          </div>
+          <div className={s.commentBtns}>
+            <Emoji />
+            {isReply && (
+              <div className={s.cancelBtn} onClick={() => setShowReply?.(false)}>
+                取消
+              </div>
+            )}
+            <div className={s.previewBtn} onClick={openPreShow}>
+              预览
+            </div>
+            <div className={s.sendBtn} onClick={submit}>
+              {isReply ? '回复' : ' 发布'}
+            </div>
           </div>
         </div>
       </div>
+      {showPre && <PreShow setShowPre={setShowPre} content={text} />}
     </div>
   );
 };
 
-export default EditBox;
+export default connect(
+  (state: storeState) => ({
+    name: state.name,
+    link: state.link,
+    email: state.email,
+    avatar: state.avatar
+  }),
+  {
+    setAvatar,
+    setEmail,
+    setLink,
+    setName
+  }
+)(EditBox);

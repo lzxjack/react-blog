@@ -54,9 +54,9 @@ const Comment: React.FC<Props> = ({
     data: replys,
     loading: replyLoading,
     run: replyRun
-  } = useRequest(getWhereOrderData, {
-    defaultParams: [
-      {
+  } = useRequest(
+    () =>
+      getWhereOrderData({
         dbName: DB.Msg,
         where: {
           postTitle: titleEng,
@@ -64,15 +64,16 @@ const Comment: React.FC<Props> = ({
         },
         sortKey: 'date',
         isAsc: true
-      }
-    ],
-    retryCount: 3
-  });
+      }),
+    {
+      retryCount: 3
+    }
+  );
 
   return (
     <div>
       <Divider />
-      <EditBox msgRun={msgRun} titleEng={titleEng} />
+      <EditBox msgRun={msgRun} />
       <Placehold msgCount={msgsData?.msgsSum.total} isMsg={!titleEng} />
       <MsgList
         msgs={msgsData?.msgs.data}

@@ -24,8 +24,6 @@ interface Props {
 }
 
 const MsgList: React.FC<Props> = ({ msgs, replys, loading, replyRun }) => {
-  const openReplyBox = (id: string) => {};
-
   return (
     <>
       {loading ? (
@@ -37,13 +35,13 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading, replyRun }) => {
               <MsgItem
                 _id={msg._id}
                 avatar={msg.avatar}
-                openReplyBox={openReplyBox}
                 link={msg.link}
                 name={msg.name}
                 date={msg.date}
                 content={msg.content}
                 email={msg.email}
                 isReply={false}
+                replyRun={replyRun}
               />
               {replys
                 ?.filter(item => item.replyId === msg._id)
@@ -58,6 +56,7 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading, replyRun }) => {
                     content={reply.content}
                     email={reply.email}
                     isReply={true}
+                    replyRun={replyRun}
                   />
                 ))}
             </div>
