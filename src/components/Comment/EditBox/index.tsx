@@ -1,7 +1,7 @@
-import { useEventTarget, useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
+import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 import { DB } from '@/utils/apis/dbConfig';
@@ -25,19 +25,12 @@ interface Props {
 
 const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
   const nameRef = useRef(null);
-  const [showAdmin, setShowAdmin] = useState(true);
+  const [showAdmin, setShowAdmin] = useSafeState(false);
   const { textRef, text, setText, setStart } = useEmoji();
 
-  const [name, { reset: clearName, onChange: nameChange }] = useEventTarget({
-    initialValue: ''
-  });
-  const [email, { reset: clearEmail, onChange: emailChange }] = useEventTarget({
-    initialValue: ''
-  });
-  const [link, { reset: clearLink, onChange: linkChange }] = useEventTarget({
-    initialValue: ''
-  });
-
+  const [name, setName] = useSafeState('');
+  const [email, setEmail] = useSafeState('');
+  const [link, setLink] = useSafeState('');
   const [avatar, setAvatar] = useSafeState('');
 
   const validateConfig = {
@@ -80,10 +73,10 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
 
       const config = {
         DBName: DB.Msg,
-        name: sanitizeHtml(name!),
-        email: sanitizeHtml(email!),
-        link: sanitizeHtml(link!),
-        content: sanitizeHtml(text!),
+        name: sanitizeHtml(name),
+        email: sanitizeHtml(email),
+        link: sanitizeHtml(link),
+        content: sanitizeHtml(text),
         date: new Date().getTime(),
         avatar: avatar
           ? avatar
@@ -96,6 +89,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
 
       if (isTrue) {
         message.success('发布留言成功！');
+        setText('');
         msgRun?.();
       } else {
         message.error('发布失败，请重试！');
@@ -115,9 +109,16 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
 
   return (
     <div className={s.editBox}>
-      <AdminBox showAdmin={showAdmin} setShowAdmin={setShowAdmin} />
+      <AdminBox
+        showAdmin={showAdmin}
+        setShowAdmin={setShowAdmin}
+        setName={setName}
+        setEmail={setEmail}
+        setLink={setLink}
+        setAvatar={setAvatar}
+      />
       <div className={s.avatarBox}>
-        <img src={defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
+        <img src={avatar || defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
       </div>
       <div className={s.editInputBox}>
         <div className={s.inputBox}>
@@ -129,7 +130,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               className={s.inputValue}
               placeholder='试试QQ号~'
               value={name}
-              onChange={nameChange}
+              onChange={e => setName(e.target.value)}
             />
           </div>
           <div className={classNames(s.inputInfo, s.flex3)}>
@@ -139,7 +140,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               className={s.inputValue}
               placeholder='必填'
               value={email}
-              onChange={emailChange}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className={classNames(s.inputInfo, s.flex3)}>
@@ -149,7 +150,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               className={s.inputValue}
               placeholder='选填'
               value={link}
-              onChange={linkChange}
+              onChange={e => setLink(e.target.value)}
             />
           </div>
         </div>
