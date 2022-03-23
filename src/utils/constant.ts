@@ -55,6 +55,8 @@ export const myAvatar =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 export const myDescr = '一只平凡的鸟罢了。';
 export const myEmail = '965555169@qq.com';
+export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
+export const QQ = '965555169';
 
 // 默认评论头像（空头像）
 export const defaultCommentAvatar =

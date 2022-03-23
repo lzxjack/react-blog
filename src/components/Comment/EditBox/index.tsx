@@ -1,15 +1,22 @@
-import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
+import { useKeyPress, useMemoizedFn, useMount, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import React, { lazy, useRef } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 import { DB } from '@/utils/apis/dbConfig';
 import { setData } from '@/utils/apis/setData';
+import { auth } from '@/utils/cloudBase';
 import {
+  adminUid,
   avatarArrLen,
   defaultCommentAvatar,
-  defaultCommentAvatarArr
+  defaultCommentAvatarArr,
+  myAvatar,
+  myEmail,
+  myLink,
+  myName,
+  QQ
 } from '@/utils/constant';
 import { getRandomNum } from '@/utils/function';
 
@@ -67,9 +74,20 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
     });
   });
 
+  const checkAdmin = useMemoizedFn(() => {
+    if (
+      !adminLogined() &&
+      (name === myName || name === QQ || email === myEmail || link.indexOf(myLink) !== -1)
+    ) {
+      message.warning('未登录不可以使用管理员账户哦~');
+      throw new Error('Not Admin');
+    }
+  });
+
   const submit = useMemoizedFn(async () => {
     try {
       validate();
+      checkAdmin();
 
       const config = {
         DBName: DB.Msg,
@@ -97,15 +115,59 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
     } catch {}
   });
 
-  useKeyPress(
-    13,
-    () => {
-      if (name === 'admin') setShowAdmin(true);
-    },
-    {
-      target: nameRef
+  const adminLogined = useMemoizedFn(() => {
+    if (!auth.hasLoginState()) return false;
+    if (auth.currentUser?.uid === adminUid) return true;
+    return false;
+  });
+
+  useMount(() => {
+    if (adminLogined()) {
+      // 管理员已登录
+      setName(myName);
+      setEmail(myEmail);
+      setLink(myLink);
+      setAvatar(myAvatar);
+      return;
     }
-  );
+    const uname = localStorage.getItem('name');
+    const uemail = localStorage.getItem('email');
+    const ulink = localStorage.getItem('link');
+    const uavatar = localStorage.getItem('avatar');
+    uname && uname !== myName && setName(uname);
+    uemail && uemail !== myEmail && setEmail(uemail);
+    ulink && ulink.indexOf(myLink) === -1 && setLink(ulink);
+    uavatar && setAvatar(uavatar);
+  });
+
+  const handleName = useMemoizedFn(() => {
+    const regQQ = /[1-9][0-9]{4,11}/;
+    if (name === 'admin') {
+      setShowAdmin(true);
+      setName('');
+      return;
+    }
+    if (!adminLogined() && (name === myName || name === QQ)) {
+      message.warning('未登录不可以使用管理员账户哦~');
+      setName('');
+      return;
+    }
+    if (regQQ.test(name)) {
+      const avatarUrl = `https://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
+      const QQEmail = `${name}@qq.com`;
+      setEmail(QQEmail);
+      setAvatar(avatarUrl);
+      localStorage.setItem('email', QQEmail);
+      localStorage.setItem('avatar', avatarUrl);
+      setName('');
+      return;
+    }
+    localStorage.setItem('name', name);
+  });
+
+  useKeyPress(13, handleName, {
+    target: nameRef
+  });
 
   return (
     <div className={s.editBox}>
@@ -117,6 +179,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
         setLink={setLink}
         setAvatar={setAvatar}
       />
+
       <div className={s.avatarBox}>
         <img src={avatar || defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
       </div>
@@ -131,6 +194,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               placeholder='试试QQ号~'
               value={name}
               onChange={e => setName(e.target.value)}
+              onBlur={handleName}
             />
           </div>
           <div className={classNames(s.inputInfo, s.flex3)}>
@@ -141,6 +205,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               placeholder='必填'
               value={email}
               onChange={e => setEmail(e.target.value)}
+              onBlur={e => localStorage.setItem('email', e.target.value)}
             />
           </div>
           <div className={classNames(s.inputInfo, s.flex3)}>
@@ -151,6 +216,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
               placeholder='选填'
               value={link}
               onChange={e => setLink(e.target.value)}
+              onBlur={e => localStorage.setItem('link', e.target.value)}
             />
           </div>
         </div>
