@@ -26,6 +26,7 @@ interface Props {
   email?: string;
   isReply?: boolean;
   replyRun?: Function;
+  title?: string;
 }
 
 const MsgItem: React.FC<Props> = ({
@@ -37,7 +38,8 @@ const MsgItem: React.FC<Props> = ({
   content,
   email,
   isReply,
-  replyRun
+  replyRun,
+  title
 }) => {
   const [showReply, setShowReply] = useSafeState(false);
 
@@ -86,6 +88,8 @@ const MsgItem: React.FC<Props> = ({
           replyName={name}
           replyId={_id}
           replyRun={replyRun}
+          title={title}
+          ownerEmail={email}
         />
       )}
     </div>

@@ -10,7 +10,7 @@ const Msg: React.FC = () => {
   return (
     <Layout title={Title.Msg}>
       <MsgInfo />
-      <Comment titleEng='' autoScroll={true} scrollToTop={440 + 370} />
+      <Comment titleEng='' autoScroll={true} scrollToTop={440 + 370} title='留言板' />
     </Layout>
   );
 };

@@ -36,7 +36,7 @@ const Post: React.FC = () => {
       <MarkDown content={data?.data[0].content} className={s.mb} />
       <PostTags tags={data?.data[0].tags} />
       <CopyRight title={data?.data[0].title} titleEng={data?.data[0].titleEng} />
-      <Comment titleEng={search.title} />
+      <Comment titleEng={search.title} title={data?.data[0].title} />
       <Navbar content={data?.data[0].content} />
     </Layout>
   );

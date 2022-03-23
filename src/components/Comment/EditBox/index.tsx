@@ -4,6 +4,7 @@ import {
   useLocalStorageState,
   useMemoizedFn,
   useMount,
+  useRequest,
   useSafeState
 } from 'ahooks';
 import { message } from 'antd';
@@ -14,6 +15,7 @@ import sanitizeHtml from 'sanitize-html';
 
 import { setAvatar, setEmail, setLink, setName } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
+import { axiosAPI } from '@/utils/apis/axios';
 import { DB } from '@/utils/apis/dbConfig';
 import { setData } from '@/utils/apis/setData';
 import { auth } from '@/utils/cloudBase';
@@ -22,6 +24,7 @@ import {
   avatarArrLen,
   defaultCommentAvatar,
   defaultCommentAvatarArr,
+  emailApi,
   myAvatar,
   myEmail,
   myLink,
@@ -51,6 +54,8 @@ interface Props {
   className?: string;
   replyName?: string;
   replyId?: string;
+  title?: string;
+  ownerEmail?: string;
 }
 
 const EditBox: React.FC<Props> = ({
@@ -68,7 +73,9 @@ const EditBox: React.FC<Props> = ({
   setShowReply,
   replyName,
   replyId,
-  className
+  className,
+  title,
+  ownerEmail
 }) => {
   const [search] = useUrlState();
 
@@ -126,7 +133,7 @@ const EditBox: React.FC<Props> = ({
         email === myEmail ||
         link?.indexOf(myLink) !== -1)
     ) {
-      message.warning('未登录不可以使用管理员账户哦~');
+      message.warning('未登录不可以使用管理员账户（昵称、邮箱、网址）哦~');
       throw new Error('Not Admin');
     }
   });
@@ -153,11 +160,15 @@ const EditBox: React.FC<Props> = ({
       const isTrue = await setData(config);
 
       if (isTrue) {
-        message.success('发布留言成功！');
-        setText('');
-        isReply && setShowReply?.();
-        isReply && replyRun?.();
-        !isReply && msgRun?.();
+        if (isReply) {
+          setShowReply?.();
+          replyRun?.();
+          email !== ownerEmail && informUser();
+          informAdminReply();
+        } else {
+          msgRun?.();
+          informAdminMsg();
+        }
       } else {
         message.error('发布失败，请重试！');
       }
@@ -221,6 +232,62 @@ const EditBox: React.FC<Props> = ({
     }
     setShowPre(showPre => !showPre);
   });
+
+  const { run: informAdminMsg } = useRequest(
+    () =>
+      axiosAPI(emailApi, 'POST', {
+        flag: 0,
+        name,
+        search: search.title || '',
+        content: text,
+        title
+      }),
+    {
+      manual: true,
+      onSuccess: () => {
+        setText('');
+        message.success(`发布${search.title ? '评论' : '留言'}成功！`);
+      }
+    }
+  );
+
+  const { run: informAdminReply } = useRequest(
+    () =>
+      axiosAPI(emailApi, 'POST', {
+        flag: 1,
+        owner: replyName,
+        name,
+        search: search.title || '',
+        content: text,
+        title
+      }),
+    {
+      manual: true,
+      onSuccess: () => {
+        setText('');
+        message.success('已通知站长！');
+      }
+    }
+  );
+
+  const { run: informUser } = useRequest(
+    () =>
+      axiosAPI(emailApi, 'POST', {
+        flag: 2,
+        owner: replyName,
+        email: ownerEmail,
+        name,
+        search: search.title || '',
+        content: text,
+        title
+      }),
+    {
+      manual: true,
+      onSuccess: () => {
+        message.success(`已通知${search.title ? '评论' : '留言'}者！`);
+      }
+    }
+  );
 
   return (
     <div className={classNames(s.editBox, className)}>

@@ -78,6 +78,10 @@ export const defaultCommentAvatarArr = [
 
 export const avatarArrLen = defaultCommentAvatarArr.length;
 
+// 评论回复时，发送邮件提醒的API地址
+export const emailApi =
+  'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/sendemail';
+
 // emoji表情
 export const emojiPeople = [
   '😀',

@@ -17,12 +17,14 @@ interface Props {
   titleEng?: string;
   autoScroll?: boolean;
   scrollToTop?: number;
+  title?: string;
 }
 
 const Comment: React.FC<Props> = ({
   titleEng = '',
   autoScroll = false,
-  scrollToTop = 0
+  scrollToTop = 0,
+  title
 }) => {
   const [page, setPage] = useSafeState(1);
 
@@ -73,13 +75,14 @@ const Comment: React.FC<Props> = ({
   return (
     <div>
       <Divider />
-      <EditBox msgRun={msgRun} />
+      <EditBox msgRun={msgRun} title={title} />
       <Placehold msgCount={msgsData?.msgsSum.total} isMsg={!titleEng} />
       <MsgList
         msgs={msgsData?.msgs.data}
         replys={replys?.data}
         loading={msgLoading || replyLoading}
         replyRun={replyRun}
+        title={title}
       />
       <MyPagination
         current={page}
