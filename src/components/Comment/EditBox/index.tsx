@@ -1,7 +1,7 @@
 import { useKeyPress, useMemoizedFn, useMount, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { lazy, useRef } from 'react';
+import React, { useRef } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 import { DB } from '@/utils/apis/dbConfig';
@@ -23,6 +23,7 @@ import { getRandomNum } from '@/utils/function';
 import AdminBox from './AdminBox';
 import Emoji from './Emoji';
 import s from './index.scss';
+import PreShow from './PreShow';
 import { useEmoji } from './useEmoji';
 
 interface Props {
@@ -32,13 +33,15 @@ interface Props {
 
 const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
   const nameRef = useRef(null);
+
   const [showAdmin, setShowAdmin] = useSafeState(false);
-  const { textRef, text, setText, setStart } = useEmoji();
+  const [showPre, setShowPre] = useSafeState(false);
 
   const [name, setName] = useSafeState('');
   const [email, setEmail] = useSafeState('');
   const [link, setLink] = useSafeState('');
   const [avatar, setAvatar] = useSafeState('');
+  const { textRef, text, setText, setStart } = useEmoji();
 
   const validateConfig = {
     name: {
@@ -169,6 +172,14 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
     target: nameRef
   });
 
+  const openPreShow = useMemoizedFn(() => {
+    if (!text) {
+      message.info('请写点什么再预览~');
+      return;
+    }
+    setShowPre(true);
+  });
+
   return (
     <div className={s.editBox}>
       <AdminBox
@@ -179,6 +190,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
         setLink={setLink}
         setAvatar={setAvatar}
       />
+      <PreShow showPre={showPre} setShowPre={setShowPre} content={text} />
 
       <div className={s.avatarBox}>
         <img src={avatar || defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
@@ -233,7 +245,9 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
         </div>
         <div className={s.commentBtns}>
           <Emoji />
-          <div className={s.previewBtn}>预览</div>
+          <div className={s.previewBtn} onClick={openPreShow}>
+            预览
+          </div>
           <div className={s.sendBtn} onClick={submit}>
             发布
           </div>
