@@ -1,0 +1,69 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.itemBoxBase {
+  height: 40px;
+  width: 320px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-size: 20px;
+  user-select: none;
+}
+
+.adminBox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: $themeColor1;
+  border-radius: 14px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @extend .trans;
+  box-shadow: 0 0 20px rgb(0, 0, 0) inset;
+
+  .itemBox {
+    @extend .itemBoxBase;
+
+    .adminKey {
+      height: 100%;
+      width: 70px;
+      background-color: $themeColor2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $textColor;
+      @extend .hover;
+    }
+    .adminValue {
+      width: 250px;
+      padding: 0 20px;
+      background-color: $themeColor;
+    }
+  }
+
+  .adminBtns {
+    @extend .itemBoxBase;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0;
+
+    .adminBtn {
+      width: 80px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $themeColor2;
+      color: $textColor;
+      border-radius: 20px;
+      @extend .hover;
+    }
+  }
+}

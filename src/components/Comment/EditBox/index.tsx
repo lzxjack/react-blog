@@ -1,7 +1,7 @@
-import { useEventTarget, useMemoizedFn, useSafeState } from 'ahooks';
+import { useEventTarget, useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import sanitizeHtml from 'sanitize-html';
 
 import { DB } from '@/utils/apis/dbConfig';
@@ -13,6 +13,7 @@ import {
 } from '@/utils/constant';
 import { getRandomNum } from '@/utils/function';
 
+import AdminBox from './AdminBox';
 import Emoji from './Emoji';
 import s from './index.scss';
 import { useEmoji } from './useEmoji';
@@ -23,6 +24,8 @@ interface Props {
 }
 
 const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
+  const nameRef = useRef(null);
+  const [showAdmin, setShowAdmin] = useState(true);
   const { textRef, text, setText, setStart } = useEmoji();
 
   const [name, { reset: clearName, onChange: nameChange }] = useEventTarget({
@@ -100,8 +103,19 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
     } catch {}
   });
 
+  useKeyPress(
+    13,
+    () => {
+      if (name === 'admin') setShowAdmin(true);
+    },
+    {
+      target: nameRef
+    }
+  );
+
   return (
     <div className={s.editBox}>
+      <AdminBox showAdmin={showAdmin} setShowAdmin={setShowAdmin} />
       <div className={s.avatarBox}>
         <img src={defaultCommentAvatar} alt='avatar' className={s.editAvatar} />
       </div>
@@ -110,6 +124,7 @@ const EditBox: React.FC<Props> = ({ msgRun, titleEng }) => {
           <div className={classNames(s.inputInfo, s.flex2)}>
             <div className={s.inputKey}>昵称</div>
             <input
+              ref={nameRef}
               type='text'
               className={s.inputValue}
               placeholder='试试QQ号~'
