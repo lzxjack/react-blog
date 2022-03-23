@@ -55,10 +55,32 @@ export const myAvatar =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20201204121004.jpg';
 export const myDescr = '一只平凡的鸟罢了。';
 export const myEmail = '965555169@qq.com';
+export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
+export const QQ = '965555169';
 
 // 默认评论头像（空头像）
 export const defaultCommentAvatar =
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
+
+// 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
+export const defaultCommentAvatarArr = [
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221909.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221910.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221911.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221912.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221913.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221914.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221915.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221916.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221917.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221918.jpg'
+];
+
+export const avatarArrLen = defaultCommentAvatarArr.length;
+
+// 评论回复时，发送邮件提醒的API地址
+export const emailApi =
+  'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/sendemail';
 
 // emoji表情
 export const emojiPeople = [

@@ -20,11 +20,11 @@ interface Props {
   msgs?: MsgType[];
   replys?: MsgType[];
   loading?: boolean;
+  replyRun?: Function;
+  title?: string;
 }
 
-const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
-  const openReplyBox = (id: string) => {};
-
+const MsgList: React.FC<Props> = ({ msgs, replys, loading, replyRun, title }) => {
   return (
     <>
       {loading ? (
@@ -36,13 +36,14 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
               <MsgItem
                 _id={msg._id}
                 avatar={msg.avatar}
-                openReplyBox={openReplyBox}
                 link={msg.link}
                 name={msg.name}
                 date={msg.date}
                 content={msg.content}
                 email={msg.email}
                 isReply={false}
+                replyRun={replyRun}
+                title={title}
               />
               {replys
                 ?.filter(item => item.replyId === msg._id)
@@ -57,6 +58,8 @@ const MsgList: React.FC<Props> = ({ msgs, replys, loading }) => {
                     content={reply.content}
                     email={reply.email}
                     isReply={true}
+                    replyRun={replyRun}
+                    title={title}
                   />
                 ))}
             </div>

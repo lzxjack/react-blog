@@ -17,17 +17,23 @@ interface Props {
   titleEng?: string;
   autoScroll?: boolean;
   scrollToTop?: number;
+  title?: string;
 }
 
 const Comment: React.FC<Props> = ({
   titleEng = '',
   autoScroll = false,
-  scrollToTop = 0
+  scrollToTop = 0,
+  title
 }) => {
   const [page, setPage] = useSafeState(1);
 
   // 评论
-  const { data: msgsData, loading: msgLoading } = useRequest(
+  const {
+    data: msgsData,
+    loading: msgLoading,
+    run: msgRun
+  } = useRequest(
     () =>
       fetchData({
         dbName: DB.Msg,
@@ -46,9 +52,13 @@ const Comment: React.FC<Props> = ({
   );
 
   // 回复
-  const { data: replys, loading: replyLoading } = useRequest(getWhereOrderData, {
-    defaultParams: [
-      {
+  const {
+    data: replys,
+    loading: replyLoading,
+    run: replyRun
+  } = useRequest(
+    () =>
+      getWhereOrderData({
         dbName: DB.Msg,
         where: {
           postTitle: titleEng,
@@ -56,20 +66,23 @@ const Comment: React.FC<Props> = ({
         },
         sortKey: 'date',
         isAsc: true
-      }
-    ],
-    retryCount: 3
-  });
+      }),
+    {
+      retryCount: 3
+    }
+  );
 
   return (
     <div>
       <Divider />
-      <EditBox />
+      <EditBox msgRun={msgRun} title={title} />
       <Placehold msgCount={msgsData?.msgsSum.total} isMsg={!titleEng} />
       <MsgList
         msgs={msgsData?.msgs.data}
         replys={replys?.data}
         loading={msgLoading || replyLoading}
+        replyRun={replyRun}
+        title={title}
       />
       <MyPagination
         current={page}

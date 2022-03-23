@@ -1,4 +1,5 @@
-import PubSub from 'pubsub-js';
+import { message } from 'antd';
+import copy from 'copy-to-clipboard';
 import React from 'react';
 
 import s from './index.scss';
@@ -15,7 +16,11 @@ const EmojiItem: React.FC<Props> = ({ emojiStr }) => {
           <div
             className={s.emoji}
             key={index}
-            onClick={() => PubSub.publish('getEmoji', item)}
+            onClick={() => {
+              if (copy(item)) {
+                message.success('复制到剪切板!');
+              }
+            }}
           >
             {item}
           </div>
