@@ -42,7 +42,9 @@ export const useOption = (classes: ClassType[], artSum: number) => {
           }
         },
         label: {
-          color: base.textColor,
+          // TODO: 单独更换颜色
+          // color: base.textColor,
+          color: '#fff',
           fontSize: 18,
           fontFamily: 'dengxian'
         }

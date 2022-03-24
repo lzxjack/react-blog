@@ -1,9 +1,9 @@
-import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
-import { useEventListener } from 'ahooks';
+import { BgColorsOutlined, HomeOutlined, SettingOutlined } from '@ant-design/icons';
+import { useEventListener, useMemoizedFn } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { setNavShow } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
@@ -30,6 +30,20 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
   const { navArr, secondNavArr } = useLinkList();
   const navigate = useNavigate();
 
+  const toggle = useMemoizedFn(() => {
+    const bodyStyle = window.document.getElementsByTagName('body')[0].style;
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+    bodyStyle.setProperty('--themeColor1', '#ffffff');
+  });
+
   return (
     <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
       <div className={s.navContent}>
@@ -43,6 +57,11 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <SettingOutlined />
         </a>
 
+        {/* 黑暗模式切换 */}
+        <div className={s.darkBen} onClick={toggle}>
+          <BgColorsOutlined />
+        </div>
+
         {/* 文章单独按钮 */}
         <div className={s.articlesBtn}>
           <div className={s.articelsSecond}>
@@ -52,7 +71,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
                   isActive ? s.sedActive : s.articelsSecondItem
                 }
                 to={item.to}
-                key={item.id}>
+                key={item.id}
+              >
                 {item.name}
               </NavLink>
             ))}
@@ -65,7 +85,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <NavLink
             className={({ isActive }) => (isActive ? s.navActive : s.navBtn)}
             to={item.to}
-            key={item.id}>
+            key={item.id}
+          >
             {item.name}
           </NavLink>
         ))}

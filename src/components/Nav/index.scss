@@ -60,6 +60,12 @@
       margin-right: 0;
     }
 
+    .darkBen {
+      @extend .homeAndAdmin;
+      right: 80px;
+      margin-right: 0;
+    }
+
     .navBtn {
       @extend .baseBtn;
     }

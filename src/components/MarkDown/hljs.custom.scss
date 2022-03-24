@@ -2,13 +2,13 @@
 
 #hljs {
   padding: 10px 20px;
-  color: $code;
-  background-color: $themeColor1;
+  color: $codeOther;
+  background-color: $codeBg;
   border-radius: 20px;
 
   // 代码片段
   code {
-    background-color: $themeColor1;
+    background-color: $codeBg;
     padding: 0;
     font-size: 16px;
     font-family: 'FiraCode', 'dengxian';
