@@ -37,7 +37,8 @@
     width: $asideWidth - 2 * $space;
     height: $asideWidth - 2 * $space;
     border-radius: 50%;
-    box-shadow: 0 0 24px #000 inset;
+    // box-shadow: 0 0 24px #000 inset;
+    background-color: $themeColor1;
     position: absolute;
 
     .zero {
@@ -69,7 +70,7 @@
       left: -6px;
       border-radius: 50%;
       z-index: 4;
-      background-color: $hoverColor;
+      background-color: $hoverDeepColor;
     }
 
     .clockMinuteLine {
@@ -90,7 +91,7 @@
 
     .clockSecondLine {
       @extend .clockLineBase;
-      background-color: $hoverColor;
+      background-color: $hoverDeepColor;
       width: 2px;
       height: 90px;
       border-radius: 1px;

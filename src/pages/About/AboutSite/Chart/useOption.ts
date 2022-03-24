@@ -1,5 +1,3 @@
-import base from '@/styles/base.scss';
-
 import { ClassType } from '..';
 
 const getChartData = (classes: ClassType[], artSum: number) => {
@@ -17,15 +15,24 @@ const getChartData = (classes: ClassType[], artSum: number) => {
   return res;
 };
 
-export const useOption = (classes: ClassType[], artSum: number) => {
+export const useOption = (classes: ClassType[], artSum: number, mode: number) => {
   const data = getChartData(classes!, artSum!);
+
+  // const labelColor = ['#fff', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
+  const labelColor = ['rgb(53, 53, 53)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
+  const backgroundColor = [
+    'rgb(194, 209, 223)',
+    'rgb(194, 209, 223)',
+    'rgb(194, 209, 223)'
+  ];
+
   return {
     tooltip: {
       trigger: 'item',
-      backgroundColor: base.themeColor2,
-      borderColor: base.themeColor2,
+      backgroundColor: backgroundColor[mode],
+      borderColor: backgroundColor[mode],
       textStyle: {
-        color: base.textColor
+        color: labelColor[mode]
       }
     },
     series: [
@@ -42,9 +49,7 @@ export const useOption = (classes: ClassType[], artSum: number) => {
           }
         },
         label: {
-          // TODO: 单独更换颜色
-          // color: base.textColor,
-          color: '#fff',
+          color: labelColor[mode],
           fontSize: 18,
           fontFamily: 'dengxian'
         }

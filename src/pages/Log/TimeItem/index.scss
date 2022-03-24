@@ -38,13 +38,9 @@
       }
     }
   }
-  .time:hover {
-    color: $hoverColor;
-  }
   .time:hover .dotIn {
     width: 22px;
     height: 22px;
-    background-color: $hoverColor;
   }
   .content {
     list-style: none;

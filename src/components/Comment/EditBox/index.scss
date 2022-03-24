@@ -15,7 +15,7 @@
     font-size: 18px;
 
     span {
-      color: $hoverColor;
+      color: $textColor2;
       font-weight: 700;
     }
   }
@@ -33,7 +33,7 @@
         width: 70px;
         height: 70px;
         border-radius: 14px;
-        background-color: $switchOff;
+        background-color: $themeColor1;
       }
     }
     .editInputBox {
@@ -82,6 +82,7 @@
         background-color: $themeColor1;
 
         .textarea {
+          font-size: 18px;
           resize: none;
           width: 100%;
           height: 100%;

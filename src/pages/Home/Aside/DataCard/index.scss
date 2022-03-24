@@ -30,11 +30,7 @@
   }
   .num {
     @extend .trans;
-    color: $hoverColor;
-    font-weight: 700;
-  }
-
-  .blogData:hover .num {
     color: $hoverDeepColor;
+    font-weight: 700;
   }
 }

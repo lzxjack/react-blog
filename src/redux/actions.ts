@@ -3,6 +3,7 @@ import {
   SET_AVATAR,
   SET_EMAIL,
   SET_LINK,
+  SET_MODE,
   SET_NAME,
   SET_NAV_SHOW
 } from './constant';
@@ -31,5 +32,10 @@ export const setLink = (data: string) => ({
 });
 export const setAvatar = (data: string) => ({
   type: SET_AVATAR,
+  data
+});
+
+export const setMode = (data: string) => ({
+  type: SET_MODE,
   data
 });

@@ -30,7 +30,7 @@ const MsgInfo: React.FC = () => {
             index
           ) => (
             <div key={index}>
-              <span className={s.key}>{item.key}:</span>
+              <span>{item.key}:</span>
               <span className={s.value}>{item.value}</span>
             </div>
           )

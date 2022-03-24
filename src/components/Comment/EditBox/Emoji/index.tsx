@@ -16,7 +16,7 @@ const Emoji: React.FC = () => {
       <Popover
         className={classNames(s.emojiBtn)}
         overlayClassName={s.emojiContent}
-        color={base.themeColor1}
+        // color={base.themeColor2}
         placement='bottom'
         content={<EmojiItem emojiStr={emojiPeople} />}
         trigger='click'
@@ -26,7 +26,7 @@ const Emoji: React.FC = () => {
       <Popover
         className={classNames(s.emojiBtn, s.emoji2)}
         overlayClassName={s.emojiContent}
-        color={base.themeColor1}
+        // color={base.themeColor2}
         placement='bottom'
         content={<EmojiItem emojiStr={emojiNature} />}
         trigger='click'
@@ -36,7 +36,7 @@ const Emoji: React.FC = () => {
       <Popover
         className={classNames(s.emojiBtn, s.emoji3)}
         overlayClassName={s.emojiContent}
-        color={base.themeColor1}
+        // color={base.themeColor2}
         placement='bottom'
         content={<EmojiItem emojiStr={emojiSymbol} />}
         trigger='click'
@@ -46,7 +46,7 @@ const Emoji: React.FC = () => {
       <Popover
         className={classNames(s.emojiBtn, s.emoji4)}
         overlayClassName={s.emojiContent}
-        color={base.themeColor1}
+        // color={base.themeColor2}
         placement='bottom'
         content={<EmojiItem emojiStr={emojiFood} />}
         trigger='click'

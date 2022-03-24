@@ -12,7 +12,7 @@ import BackToTop from './components/BackToTop';
 import { modeBg } from './utils/constant';
 
 const App: React.FC = () => {
-  const [mode, setMode] = useSafeState(0);
+  const [mode, setMode] = useSafeState(2);
 
   return (
     <div className={s.AppBox} style={{ backgroundImage: `url(${modeBg[mode]})` }}>

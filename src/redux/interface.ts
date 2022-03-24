@@ -5,4 +5,5 @@ export interface storeState {
   link: string;
   email: string;
   avatar: string;
+  mode: number;
 }

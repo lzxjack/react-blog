@@ -1,9 +1,11 @@
+@import '../../../../styles/base.scss';
+
 .ant-popover-arrow {
   display: none;
 }
 
 .ant-popover-inner {
-  box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   overflow: hidden;
+  background-color: $themeColor1;
 }

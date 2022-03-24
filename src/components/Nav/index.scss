@@ -23,11 +23,11 @@
 .nav {
   width: 100%;
   height: $navHeight;
-  background-color: $themeColor;
+  background-color: $themeColor1;
   position: fixed;
   top: 0;
   z-index: 10;
-  box-shadow: 0 0 18px #000;
+  box-shadow: 0 0 18px $footerBg;
   @extend .trans;
 
   .navContent {
@@ -77,9 +77,12 @@
 
       .articelsSecond {
         position: absolute;
-        z-index: -10;
-        top: -130px;
-        width: 100%;
+        top: -160px;
+        width: 90px;
+        background-color: $themeColor1;
+        border-radius: 14px;
+        padding: 10px;
+        z-index: 0;
         @extend .trans;
 
         .articelsSecondItem {
@@ -89,11 +92,14 @@
           align-items: center;
           font-size: 18px;
           height: 34px;
-          margin-top: 6px;
+          margin-bottom: 10px;
           border-radius: 10px;
           user-select: none;
           background-color: $themeColor;
           color: $textColor;
+        }
+        .articelsSecondItem:last-child {
+          margin-bottom: 0;
         }
         .sedActive {
           @extend .articelsSecondItem;
@@ -102,7 +108,7 @@
       }
     }
     .articlesBtn:hover .articelsSecond {
-      top: 50px;
+      top: 60px;
     }
 
     .modeBtn {
@@ -116,7 +122,7 @@
         top: -180px;
         transform: translate(-50%, 0);
         width: 80px;
-        background-color: $modeBg;
+        background-color: $themeColor1;
         border-radius: 14px;
         padding: 10px;
         z-index: 0;
