@@ -25,6 +25,8 @@ interface Props {
   setMode?: Function;
 }
 
+const bodyStyle = window.document.getElementsByTagName('body')[0].style;
+
 const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
   const navigate = useNavigate();
 
@@ -42,7 +44,6 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
   );
 
   useUpdateEffect(() => {
-    const bodyStyle = window.document.getElementsByTagName('body')[0].style;
     for (const type of modeMapArr) {
       bodyStyle.setProperty(type, modeMap[type as keyof typeof modeMap][mode!]);
     }

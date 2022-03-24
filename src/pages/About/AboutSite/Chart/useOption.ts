@@ -19,7 +19,7 @@ export const useOption = (classes: ClassType[], artSum: number, mode: number) =>
   const data = getChartData(classes!, artSum!);
 
   const labelColor = ['rgb(255, 255, 255)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
-  const backgroundColor = ['rgb(22, 54, 51)', 'rgb(194, 209, 223)', 'rgb(194, 209, 223)'];
+  const backgroundColor = ['rgb(22, 54, 51)', 'rgb(157, 222, 255)', 'rgb(194, 209, 223)'];
 
   return {
     tooltip: {
@@ -27,7 +27,9 @@ export const useOption = (classes: ClassType[], artSum: number, mode: number) =>
       backgroundColor: backgroundColor[mode],
       borderColor: backgroundColor[mode],
       textStyle: {
-        color: labelColor[mode]
+        color: labelColor[mode],
+        fontSize: 16,
+        fontFamily: 'dengxian'
       }
     },
     series: [

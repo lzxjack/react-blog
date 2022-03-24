@@ -30,27 +30,27 @@ export const cardUrl =
 // 博客运行起始日
 export const time = '2020-12-16 14:00:00';
 
-// 博客背景图片
-export const blogBackGroundImgs = [
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111500.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111501.png',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111502.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20211126190312.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241558769.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241604408.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627101.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627102.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627103.jpg'
-];
-// 背景图选择
-export const imgNum = 7;
+// // 博客背景图片
+// export const blogBackGroundImgs = [
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111500.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111501.png',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210818111502.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20211126190312.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241558769.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241604408.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627101.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627102.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627103.jpg'
+// ];
+// // 背景图选择
+// export const imgNum = 7;
 
-// 与模式相符合的背景图
-export const modeBg = [
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627101.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203242228220.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627103.jpg'
-];
+// // 与模式相符合的背景图
+// export const modeBg = [
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627101.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203242228220.jpg',
+//   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627103.jpg'
+// ];
 
 // 数据缓存时间
 export const staleTime = 180000;

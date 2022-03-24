@@ -1,5 +1,6 @@
 import './global.custom.scss';
 
+import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -11,7 +12,6 @@ import s from './App.scss';
 import BackToTop from './components/BackToTop';
 import { setMode } from './redux/actions';
 import { storeState } from './redux/interface';
-import { modeBg } from './utils/constant';
 
 interface Props {
   mode?: number;
@@ -19,8 +19,10 @@ interface Props {
 }
 
 const App: React.FC<Props> = ({ mode, setMode }) => {
+  const bgClasses = [s.bg0, s.bg1, s.bg2];
+
   return (
-    <div className={s.AppBox} style={{ backgroundImage: `url(${modeBg[mode!]})` }}>
+    <div className={classNames(s.AppBox, bgClasses[mode!])}>
       <Nav mode={mode} setMode={setMode!} />
       <Main />
       <Footer />
