@@ -113,14 +113,14 @@
       .modeOpions {
         position: absolute;
         left: 50%;
-        top: 60px;
+        top: -180px;
         transform: translate(-50%, 0);
         width: 80px;
-        // height: 100px;
         background-color: $modeBg;
         border-radius: 14px;
         padding: 10px;
-        z-index: -10;
+        z-index: 0;
+        @extend .trans;
 
         .modeItem {
           height: 40px;
@@ -147,6 +147,9 @@
           box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
         }
       }
+    }
+    .modeBtn:hover .modeOpions {
+      top: 60px;
     }
   }
 }
