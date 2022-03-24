@@ -3,13 +3,9 @@ import cloudbase from '@cloudbase/js-sdk';
 
 import { env } from './constant';
 
-export const app = cloudbase.init({
-  env
-});
+export const app = cloudbase.init({ env });
 
-export const auth = app.auth({
-  persistence: 'local'
-});
+export const auth = app.auth({ persistence: 'local' });
 
 export const db = app.database();
 
