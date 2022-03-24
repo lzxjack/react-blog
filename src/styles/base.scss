@@ -71,6 +71,7 @@ $code: var(--code, #c9d1d9);
 $tip: var(--tip, rgb(139, 139, 139));
 // App背景色
 $bodyColor: var(--bodyColor, rgb(0, 0, 0));
+$modeBg: var(--modeBg, rgb(57, 57, 75));
 
 // ---------白色-----------
 // 主色
@@ -100,18 +101,18 @@ $bodyColor: var(--bodyColor, rgb(0, 0, 0));
 // $bodyColor: var(--bodyColor, rgb(255, 255, 255));
 
 :export {
-  navHeight: $navHeight;
-  footerHeight: $footerHeight;
-  themeColor: $themeColor;
-  themeColor1: $themeColor1;
-  themeColor2: $themeColor2;
-  hoverColor: $hoverColor;
-  textColor: $textColor;
-  centerWidth: $centerWidth;
-  asideWidth: $asideWidth;
-  bigRadius: $bigRadius;
+  navheight: $navHeight;
+  footerheight: $footerHeight;
+  themecolor: $themeColor;
+  themecolor1: $themeColor1;
+  themecolor2: $themeColor2;
+  hovercolor: $hoverColor;
+  textcolor: $textColor;
+  centerwidth: $centerWidth;
+  asidewidth: $asideWidth;
+  bigradius: $bigRadius;
   space: $space;
-  midRadius: $midRadius;
-  hoverDeepColor: $hoverDeepColor;
-  topTitleHeight: $topTitleHeight;
+  midradius: $midRadius;
+  hoverdeepcolor: $hoverDeepColor;
+  toptitleheight: $topTitleHeight;
 }

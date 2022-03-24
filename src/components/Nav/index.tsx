@@ -1,5 +1,10 @@
-import { BgColorsOutlined, HomeOutlined, SettingOutlined } from '@ant-design/icons';
-import { useEventListener, useMemoizedFn } from 'ahooks';
+import {
+  BgColorsOutlined,
+  CheckOutlined,
+  HomeOutlined,
+  SettingOutlined
+} from '@ant-design/icons';
+import { useEventListener, useUpdateEffect } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -8,6 +13,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { setNavShow } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
 import { blogAdminUrl } from '@/utils/constant';
+import { modeMap, modeMapArr } from '@/utils/modeMap';
 
 import { useLinkList } from './config';
 import s from './index.scss';
@@ -15,9 +21,17 @@ import s from './index.scss';
 interface Props {
   navShow?: boolean;
   setNavShow?: Function;
+  mode?: number;
+  setMode?: Function;
 }
 
-const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
+const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
+  const navigate = useNavigate();
+
+  const { navArr, secondNavArr } = useLinkList();
+
+  const modeOptions = ['rgb(35, 35, 44)', 'skyblue', '#fff'];
+
   useEventListener(
     'mousewheel',
     event => {
@@ -27,22 +41,12 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
     { target: document.body }
   );
 
-  const { navArr, secondNavArr } = useLinkList();
-  const navigate = useNavigate();
-
-  const toggle = useMemoizedFn(() => {
+  useUpdateEffect(() => {
     const bodyStyle = window.document.getElementsByTagName('body')[0].style;
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-    bodyStyle.setProperty('--themeColor1', '#ffffff');
-  });
+    for (const type of modeMapArr) {
+      bodyStyle.setProperty(type, modeMap[type as keyof typeof modeMap][mode!]);
+    }
+  }, [mode]);
 
   return (
     <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
@@ -58,8 +62,20 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
         </a>
 
         {/* 黑暗模式切换 */}
-        <div className={s.darkBen} onClick={toggle}>
+        <div className={s.modeBtn}>
           <BgColorsOutlined />
+          <div className={s.modeOpions}>
+            {modeOptions.map((backgroundColor, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor }}
+                className={classNames(s.modeItem, s[`modeItem${index}`])}
+                onClick={() => setMode?.(index)}
+              >
+                {mode === index && <CheckOutlined />}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* 文章单独按钮 */}

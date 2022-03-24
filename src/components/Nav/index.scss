@@ -60,12 +60,6 @@
       margin-right: 0;
     }
 
-    .darkBen {
-      @extend .homeAndAdmin;
-      right: 80px;
-      margin-right: 0;
-    }
-
     .navBtn {
       @extend .baseBtn;
     }
@@ -109,6 +103,50 @@
     }
     .articlesBtn:hover .articelsSecond {
       top: 50px;
+    }
+
+    .modeBtn {
+      @extend .homeAndAdmin;
+      right: 80px;
+      margin-right: 0;
+
+      .modeOpions {
+        position: absolute;
+        left: 50%;
+        top: 60px;
+        transform: translate(-50%, 0);
+        width: 80px;
+        // height: 100px;
+        background-color: $modeBg;
+        border-radius: 14px;
+        padding: 10px;
+        z-index: -10;
+
+        .modeItem {
+          height: 40px;
+          background-color: $themeColor;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          @extend .trans;
+          color: #fff;
+        }
+        .modeItem1,
+        .modeItem2 {
+          color: #000;
+        }
+
+        .modeItem:last-child {
+          margin-bottom: 0;
+        }
+        .modeItem:hover {
+          transform: scale(1.07);
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+      }
     }
   }
 }
