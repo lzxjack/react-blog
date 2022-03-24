@@ -7,33 +7,6 @@ $layoutWidth: 1000px;
 $topTitleHeight: 440px;
 $btnWidth: 70px;
 
-// color
-// 主色
-$themeColor: rgb(35, 35, 44);
-// 副色1
-$themeColor1: rgb(19, 19, 26);
-// 副色2
-$themeColor2: rgb(69, 69, 88);
-// 按钮/字体高亮/hover
-$hoverColor: rgb(97, 147, 187);
-// hover基础上，对比色
-$hoverDeepColor: rgb(55, 85, 109);
-// 字体色
-$textColor: #fff;
-// 时间轴大圆
-$bigCircle: rgb(78, 78, 78);
-// 时间轴小圆
-$smallCircle: rgb(110, 110, 110);
-// 切换开关灰色
-$switchOff: rgb(105, 105, 105);
-// 友链强调色
-$linkValue: rgb(241, 241, 151);
-// 代码块位置别语句
-$code: #c9d1d9;
-$tip: rgb(139, 139, 139);
-// App背景色
-$bodyColor: #000;
-
 // 圆角
 $bigRadius: 20px;
 $midRadius: 12px;
@@ -41,19 +14,29 @@ $midRadius: 12px;
 // 间距
 $space: 20px;
 
-:export {
-  navHeight: $navHeight;
-  footerHeight: $footerHeight;
-  themeColor: $themeColor;
-  themeColor1: $themeColor1;
-  themeColor2: $themeColor2;
-  hoverColor: $hoverColor;
-  textColor: $textColor;
-  centerWidth: $centerWidth;
-  asideWidth: $asideWidth;
-  bigRadius: $bigRadius;
-  space: $space;
-  midRadius: $midRadius;
-  hoverDeepColor: $hoverDeepColor;
-  topTitleHeight: $topTitleHeight;
-}
+// 不变的颜色
+$codeOther: #c9d1d9;
+// 按钮/字体高亮/hover
+$hoverColor: var(--hoverColor, rgb(98, 164, 218));
+
+// ---------黑色-----------
+// 主色
+$themeColor: var(--themeColor, rgb(12, 29, 27));
+// 副色1
+$themeColor1: var(--themeColor1, rgb(22, 54, 51));
+// 副色2
+$themeColor2: var(--themeColor2, rgb(39, 95, 89));
+// 字体色
+$textColor: var(--textColor, rgb(255, 255, 255));
+// 切换开关灰色
+$switchOff: var(--switchOff, rgb(77, 77, 77));
+// placeholder
+$tip: var(--tip, rgb(116, 116, 116));
+// App背景色
+$bodyColor: var(--bodyColor, rgb(0, 0, 0));
+// footer透明背景色
+$footerBg: var(--footerBg, rgba(0, 0, 0, 0.3));
+// 代码块背景
+$codeBg: var(--codeBg, rgb(37, 43, 48));
+// 稍微不明显的字体颜色（版权信息页）
+$textColor2: var(--textColor2, rgb(167, 167, 167));

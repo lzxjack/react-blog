@@ -23,11 +23,11 @@
 .nav {
   width: 100%;
   height: $navHeight;
-  background-color: $themeColor;
+  background-color: $themeColor1;
   position: fixed;
   top: 0;
   z-index: 10;
-  box-shadow: 0 0 18px #000;
+  box-shadow: 0 0 18px $footerBg;
   @extend .trans;
 
   .navContent {
@@ -77,9 +77,12 @@
 
       .articelsSecond {
         position: absolute;
-        z-index: -10;
-        top: -130px;
-        width: 100%;
+        top: -160px;
+        width: 90px;
+        background-color: $themeColor1;
+        border-radius: 14px;
+        padding: 10px;
+        z-index: 0;
         @extend .trans;
 
         .articelsSecondItem {
@@ -89,11 +92,14 @@
           align-items: center;
           font-size: 18px;
           height: 34px;
-          margin-top: 6px;
+          margin-bottom: 10px;
           border-radius: 10px;
           user-select: none;
-          background-color: $themeColor;
+          background-color: $themeColor2;
           color: $textColor;
+        }
+        .articelsSecondItem:last-child {
+          margin-bottom: 0;
         }
         .sedActive {
           @extend .articelsSecondItem;
@@ -102,7 +108,54 @@
       }
     }
     .articlesBtn:hover .articelsSecond {
-      top: 50px;
+      top: 60px;
+    }
+
+    .modeBtn {
+      @extend .homeAndAdmin;
+      right: 80px;
+      margin-right: 0;
+
+      .modeOpions {
+        position: absolute;
+        left: 50%;
+        top: -180px;
+        transform: translate(-50%, 0);
+        width: 80px;
+        background-color: $themeColor1;
+        border-radius: 14px;
+        padding: 10px;
+        z-index: 0;
+        @extend .trans;
+
+        .modeItem {
+          height: 40px;
+          background-color: $themeColor;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 20px;
+          @extend .trans;
+          color: #fff;
+        }
+        .modeItem1,
+        .modeItem2 {
+          color: #000;
+        }
+
+        .modeItem:last-child {
+          margin-bottom: 0;
+        }
+        .modeItem:hover {
+          transform: scale(1.07);
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
+    .modeBtn:hover .modeOpions {
+      top: 60px;
     }
   }
 }

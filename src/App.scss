@@ -1,12 +1,4 @@
 @font-face {
-  font-family: 'yu100';
-  font-display: auto;
-  src: url(./fonts/yu100.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'FiraCode';
   font-display: auto;
   src: url(./fonts/FiraCode-Regular.ttf);
@@ -15,9 +7,19 @@
 }
 
 .AppBox {
-  font-family: 'yu100';
+  font-family: 'dengxian';
   background-position: center 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.bg0 {
+  background-image: url(./img/0.jpg);
+}
+.bg1 {
+  background-image: url(./img/1.jpg);
+}
+.bg2 {
+  background-image: url(./img/2.jpg);
 }

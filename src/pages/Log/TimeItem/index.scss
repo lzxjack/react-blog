@@ -24,7 +24,7 @@
       position: absolute;
       left: -18px;
       top: 14px;
-      background-color: $bigCircle;
+      background-color: $themeColor1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,19 +32,15 @@
       .dotIn {
         width: 14px;
         height: 14px;
-        background-color: $smallCircle;
+        background-color: $hoverColor;
         border-radius: 50%;
         @extend .trans;
       }
     }
   }
-  .time:hover {
-    color: $hoverColor;
-  }
   .time:hover .dotIn {
     width: 22px;
     height: 22px;
-    background-color: $hoverColor;
   }
   .content {
     list-style: none;

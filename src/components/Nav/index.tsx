@@ -1,13 +1,19 @@
-import { HomeOutlined, SettingOutlined } from '@ant-design/icons';
-import { useEventListener } from 'ahooks';
+import {
+  BgColorsOutlined,
+  CheckOutlined,
+  HomeOutlined,
+  SettingOutlined
+} from '@ant-design/icons';
+import { useEventListener, useUpdateEffect } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { setNavShow } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
 import { blogAdminUrl } from '@/utils/constant';
+import { modeMap, modeMapArr } from '@/utils/modeMap';
 
 import { useLinkList } from './config';
 import s from './index.scss';
@@ -15,9 +21,19 @@ import s from './index.scss';
 interface Props {
   navShow?: boolean;
   setNavShow?: Function;
+  mode?: number;
+  setMode?: Function;
 }
 
-const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
+const bodyStyle = window.document.getElementsByTagName('body')[0].style;
+
+const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
+  const navigate = useNavigate();
+
+  const { navArr, secondNavArr } = useLinkList();
+
+  const modeOptions = ['rgb(19, 38, 36)', 'rgb(110, 180, 214)', 'rgb(171, 194, 208)'];
+
   useEventListener(
     'mousewheel',
     event => {
@@ -27,8 +43,11 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
     { target: document.body }
   );
 
-  const { navArr, secondNavArr } = useLinkList();
-  const navigate = useNavigate();
+  useUpdateEffect(() => {
+    for (const type of modeMapArr) {
+      bodyStyle.setProperty(type, modeMap[type as keyof typeof modeMap][mode!]);
+    }
+  }, [mode]);
 
   return (
     <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
@@ -43,6 +62,23 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <SettingOutlined />
         </a>
 
+        {/* 黑暗模式切换 */}
+        <div className={s.modeBtn}>
+          <BgColorsOutlined />
+          <div className={s.modeOpions}>
+            {modeOptions.map((backgroundColor, index) => (
+              <div
+                key={index}
+                style={{ backgroundColor }}
+                className={classNames(s.modeItem, s[`modeItem${index}`])}
+                onClick={() => setMode?.(index)}
+              >
+                {mode === index && <CheckOutlined />}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* 文章单独按钮 */}
         <div className={s.articlesBtn}>
           <div className={s.articelsSecond}>
@@ -52,7 +88,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
                   isActive ? s.sedActive : s.articelsSecondItem
                 }
                 to={item.to}
-                key={item.id}>
+                key={item.id}
+              >
                 {item.name}
               </NavLink>
             ))}
@@ -65,7 +102,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow }) => {
           <NavLink
             className={({ isActive }) => (isActive ? s.navActive : s.navBtn)}
             to={item.to}
-            key={item.id}>
+            key={item.id}
+          >
             {item.name}
           </NavLink>
         ))}

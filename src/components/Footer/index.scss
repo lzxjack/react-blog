@@ -3,7 +3,7 @@
 
 .footer {
   height: $footerHeight;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: $footerBg;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -11,6 +11,7 @@
   color: $textColor;
   font-size: 16px;
   margin-top: 2 * $space;
+  font-weight: 700;
 
   .text {
     color: $textColor;

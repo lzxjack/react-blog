@@ -29,7 +29,7 @@
 
     span {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       z-index: 9;
     }
   }
@@ -52,14 +52,14 @@
     height: 100%;
     top: 0;
     transition: all 0.2s;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.2);
   }
 }
 .imgItem:hover {
   transform: scale(1.04);
 }
 .imgItem:hover .title {
-  border-bottom: 4px solid rgba(255, 255, 255, 1);
+  border-bottom: 4px solid #fff;
 }
 .imgItem:hover .descr {
   opacity: 1;

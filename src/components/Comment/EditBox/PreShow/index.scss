@@ -6,7 +6,7 @@
   height: 260px;
   border-radius: 20px;
   padding: 20px 50px;
-  box-shadow: 0 0 18px #000 inset;
+  // box-shadow: 0 0 18px #000 inset;
   background-color: $themeColor1;
   margin-top: $space;
   @extend .trans;
@@ -23,7 +23,7 @@
     user-select: none;
     border-radius: 50%;
     cursor: pointer;
-    background-color: $themeColor1;
+    background-color: $themeColor2;
     @extend .hover;
   }
 

@@ -1,6 +1,8 @@
 import './global.custom.scss';
 
+import classNames from 'classnames';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Footer from '@/components/Footer';
 import Main from '@/components/Main';
@@ -8,15 +10,20 @@ import Nav from '@/components/Nav';
 
 import s from './App.scss';
 import BackToTop from './components/BackToTop';
-import { blogBackGroundImgs, imgNum } from './utils/constant';
+import { setMode } from './redux/actions';
+import { storeState } from './redux/interface';
 
-const App: React.FC = () => {
+interface Props {
+  mode?: number;
+  setMode?: Function;
+}
+
+const App: React.FC<Props> = ({ mode, setMode }) => {
+  const bgClasses = [s.bg0, s.bg1, s.bg2];
+
   return (
-    <div
-      className={s.AppBox}
-      style={{ backgroundImage: `url(${blogBackGroundImgs[imgNum]})` }}
-    >
-      <Nav />
+    <div className={classNames(s.AppBox, bgClasses[mode!])}>
+      <Nav mode={mode} setMode={setMode!} />
       <Main />
       <Footer />
       <BackToTop />
@@ -24,4 +31,9 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default connect(
+  (state: storeState) => ({
+    mode: state.mode
+  }),
+  { setMode }
+)(App);

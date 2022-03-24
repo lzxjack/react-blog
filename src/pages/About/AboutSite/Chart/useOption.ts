@@ -1,5 +1,3 @@
-import base from '@/styles/base.scss';
-
 import { ClassType } from '..';
 
 const getChartData = (classes: ClassType[], artSum: number) => {
@@ -17,15 +15,21 @@ const getChartData = (classes: ClassType[], artSum: number) => {
   return res;
 };
 
-export const useOption = (classes: ClassType[], artSum: number) => {
+export const useOption = (classes: ClassType[], artSum: number, mode: number) => {
   const data = getChartData(classes!, artSum!);
+
+  const labelColor = ['rgb(255, 255, 255)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
+  const backgroundColor = ['rgb(22, 54, 51)', 'rgb(157, 222, 255)', 'rgb(194, 209, 223)'];
+
   return {
     tooltip: {
       trigger: 'item',
-      backgroundColor: base.themeColor2,
-      borderColor: base.themeColor2,
+      backgroundColor: backgroundColor[mode],
+      borderColor: backgroundColor[mode],
       textStyle: {
-        color: base.textColor
+        color: labelColor[mode],
+        fontSize: 16,
+        fontFamily: 'dengxian'
       }
     },
     series: [
@@ -42,7 +46,7 @@ export const useOption = (classes: ClassType[], artSum: number) => {
           }
         },
         label: {
-          color: base.textColor,
+          color: labelColor[mode],
           fontSize: 18,
           fontFamily: 'dengxian'
         }

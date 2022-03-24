@@ -1,7 +1,7 @@
+import { Skeleton } from 'antd';
 import classNames from 'classnames';
 import React, { MouseEventHandler } from 'react';
 
-import Loading from '../Loading';
 import s from './index.scss';
 
 interface Props {
@@ -22,7 +22,7 @@ const Card: React.FC<Props> = ({ children, className, loading, isStatic, onClick
       )}
       onClick={onClick}
     >
-      {loading ? <Loading /> : children}
+      {loading ? <Skeleton paragraph={{ rows: 1 }} /> : children}
     </div>
   );
 };

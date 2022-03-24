@@ -7,7 +7,7 @@
   border-radius: 20px;
   padding: 14px;
   overflow: hidden;
-  color: $code;
+  color: $textColor2;
 
   .copyrightIcon {
     position: absolute;
@@ -18,7 +18,7 @@
     transform: translate(0, -50%);
 
     path {
-      fill: rgb(88, 88, 88);
+      fill: $textColor2;
     }
   }
 
@@ -29,7 +29,6 @@
 
   .urlBox {
     font-size: 16px;
-    color: $code;
     display: flex;
 
     .url {
@@ -57,16 +56,10 @@
         height: 16px;
 
         path {
-          fill: $textColor;
+          fill: $textColor2;
           @extend .trans;
         }
       }
-    }
-    .copyBtn:hover path {
-      fill: rgb(88, 88, 88);
-    }
-    .copyBtn:hover path {
-      fill: $textColor;
     }
   }
 
@@ -74,13 +67,13 @@
     font-size: 16px;
 
     .copyrightName {
+      color: $textColor2;
       display: inline-block;
       padding: 0 4px;
       height: 24px;
       font-weight: 700;
       line-height: 24px;
       border-radius: 8px;
-      color: $textColor;
       @extend .hover;
     }
   }

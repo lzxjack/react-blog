@@ -53,7 +53,7 @@ $avatarBoxWidth: 80px;
           display: inline-block;
           height: 30px;
           line-height: 30px;
-          color: $hoverColor;
+          color: $textColor2;
           @extend .hover;
           padding: 0 6px;
           border-radius: 10px;
@@ -101,9 +101,7 @@ $avatarBoxWidth: 80px;
   }
 
   .replyBox {
-    background-color: rgb(54, 50, 61);
     padding: 14px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    padding-top: 2px;
   }
 }

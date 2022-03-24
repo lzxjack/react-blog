@@ -356,7 +356,7 @@ const EditBox: React.FC<Props> = ({
               className={s.textarea}
               value={text}
               onChange={e => setText(e.target.value)}
-              placeholder='写点什么吗？&#10;可以在「昵称」处填写QQ号，自动获取「头像」和「QQ邮箱」！'
+              placeholder='写点什么吗？支持markdown格式！&#10;可以在「昵称」处填写QQ号，自动获取「头像」和「QQ邮箱」！'
             />
           </div>
           <div className={s.commentBtns}>
