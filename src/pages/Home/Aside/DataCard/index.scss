@@ -30,7 +30,7 @@
   }
   .num {
     @extend .trans;
-    color: $hoverDeepColor;
+    color: $hoverColor;
     font-weight: 700;
   }
 }

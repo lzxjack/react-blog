@@ -1,18 +1,18 @@
 export const modeMap = {
-  '--modeBg': ['rgb(57, 57, 75)', '#ffffff', '#ffffff'],
-  '--themeColor': ['rgb(35, 35, 44)', '#ffffff', '#ffffff'],
-  '--themeColor1': ['rgb(19, 19, 26)', '#ffffff', '#ffffff'],
-  '--themeColor2': ['rgb(69, 69, 88)', '#ffffff', '#ffffff'],
-  '--hoverColor': ['rgb(97, 147, 187)', '#ffffff', '#ffffff'],
-  '--hoverDeepColor': ['rgb(55, 85, 109)', '#ffffff', '#ffffff'],
-  '--textColor': ['rgb(255, 255, 255)', '#ffffff', '#ffffff'],
-  '--bigCircle': ['rgb(78, 78, 78)', '#ffffff', '#ffffff'],
-  '--smallCircle': ['rgb(110, 110, 110)', '#ffffff', '#ffffff'],
-  '--switchOff': ['rgb(105, 105, 105)', '#ffffff', '#ffffff'],
-  '--linkValue': ['rgb(241, 241, 151)', '#ffffff', '#ffffff'],
-  '--code': ['#c9d1d9', '#ffffff', '#ffffff'],
-  '--tip': ['rgb(139, 139, 139)', '#ffffff', '#ffffff'],
-  '--bodyColor': ['rgb(0, 0, 0)', '#ffffff', '#ffffff']
+  '--themeColor': ['rgb(12, 29, 27)', 'rgb(185, 232, 255)', 'rgb(221, 239, 255)'],
+  '--themeColor1': ['rgb(22, 54, 51)', 'rgb(157, 222, 255)', 'rgb(194, 209, 223)'],
+  '--themeColor2': ['rgb(39, 95, 89)', 'rgb(110, 207, 255)', 'rgb(171, 185, 199)'],
+  '--textColor': ['rgb(255, 255, 255)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'],
+  '--switchOff': ['rgb(77, 77, 77)', 'rgb(179, 198, 207)', 'rgb(184, 198, 211)'],
+  '--tip': ['rgb(116, 116, 116)', 'rgb(180, 180, 180)', 'rgb(139, 139, 139)'],
+  '--bodyColor': ['rgb(0, 0, 0)', 'rgb(255, 255, 255)', 'rgb(255, 255, 255)'],
+  '--footerBg': [
+    'rgba(0, 0, 0, 0.3)',
+    'rgba(255, 255, 255, 0.4)',
+    'rgba(255, 255, 255, 0.3)'
+  ],
+  '--codeBg': ['rgb(37, 43, 48)', 'rgb(50, 57, 63)', 'rgb(50, 57, 63)'],
+  '--textColor2': ['rgb(167, 167, 167)', 'rgb(122, 122, 122)', 'rgb(104, 104, 104)']
 };
 
 export const modeMapArr = Object.keys(modeMap);

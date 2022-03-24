@@ -18,13 +18,8 @@ const getChartData = (classes: ClassType[], artSum: number) => {
 export const useOption = (classes: ClassType[], artSum: number, mode: number) => {
   const data = getChartData(classes!, artSum!);
 
-  // const labelColor = ['#fff', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
-  const labelColor = ['rgb(53, 53, 53)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
-  const backgroundColor = [
-    'rgb(194, 209, 223)',
-    'rgb(194, 209, 223)',
-    'rgb(194, 209, 223)'
-  ];
+  const labelColor = ['rgb(255, 255, 255)', 'rgb(53, 53, 53)', 'rgb(53, 53, 53)'];
+  const backgroundColor = ['rgb(22, 54, 51)', 'rgb(194, 209, 223)', 'rgb(194, 209, 223)'];
 
   return {
     tooltip: {

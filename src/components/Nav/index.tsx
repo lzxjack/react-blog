@@ -30,7 +30,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
 
   const { navArr, secondNavArr } = useLinkList();
 
-  const modeOptions = ['rgb(35, 35, 44)', 'skyblue', '#fff'];
+  const modeOptions = ['rgb(19, 38, 36)', 'rgb(110, 180, 214)', 'rgb(171, 194, 208)'];
 
   useEventListener(
     'mousewheel',

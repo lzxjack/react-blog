@@ -70,7 +70,7 @@
       left: -6px;
       border-radius: 50%;
       z-index: 4;
-      background-color: $hoverDeepColor;
+      background-color: $hoverColor;
     }
 
     .clockMinuteLine {
@@ -91,7 +91,7 @@
 
     .clockSecondLine {
       @extend .clockLineBase;
-      background-color: $hoverDeepColor;
+      background-color: $hoverColor;
       width: 2px;
       height: 90px;
       border-radius: 1px;

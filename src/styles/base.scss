@@ -16,83 +16,27 @@ $space: 20px;
 
 // 不变的颜色
 $codeOther: #c9d1d9;
+// 按钮/字体高亮/hover
+$hoverColor: var(--hoverColor, rgb(98, 164, 218));
 
 // ---------黑色-----------
-// // 主色
-// $themeColor: var(--themeColor, rgb(35, 35, 44));
-// // 副色1
-// $themeColor1: var(--themeColor1, rgb(19, 19, 26));
-// // 副色2
-// $themeColor2: var(--themeColor2, rgb(69, 69, 88));
-// // 按钮/字体高亮/hover
-// $hoverColor: var(--hoverColor, rgb(97, 147, 187));
-// // hover基础上，对比色
-// $hoverDeepColor: var(--hoverDeepColor, rgb(55, 85, 109));
-// // 字体色
-// $textColor: var(--textColor, rgb(255, 255, 255));
-// // 时间轴大圆
-// $bigCircle: var(--bigCircle, rgb(78, 78, 78));
-// // 时间轴小圆
-// $smallCircle: var(--smallCircle, rgb(110, 110, 110));
-// // 切换开关灰色
-// $switchOff: var(--switchOff, rgb(105, 105, 105));
-// // 友链强调色
-// $linkValue: var(--linkValue, rgb(241, 241, 151));
-// // 代码块位置别语句
-// $code: var(--code, #c9d1d9);
-// $tip: var(--tip, rgb(139, 139, 139));
-// // App背景色
-// $bodyColor: var(--bodyColor, rgb(0, 0, 0));
-// // 切换卡片背景
-// $modeBg: var(--modeBg, rgb(57, 57, 75));
-
-// ---------白色-----------
 // 主色
-$themeColor: var(--themeColor, rgb(221, 239, 255));
+$themeColor: var(--themeColor, rgb(12, 29, 27));
 // 副色1
-$themeColor1: var(--themeColor1, rgb(194, 209, 223));
+$themeColor1: var(--themeColor1, rgb(22, 54, 51));
 // 副色2
-$themeColor2: var(--themeColor2, rgb(171, 185, 199));
-// 按钮/字体高亮/hover
-$hoverColor: var(--hoverColor, skyblue);
-// hover基础上，对比色
-$hoverDeepColor: var(--hoverDeepColor, rgb(74, 130, 187));
+$themeColor2: var(--themeColor2, rgb(39, 95, 89));
 // 字体色
-$textColor: var(--textColor, rgb(53, 53, 53));
-// 时间轴大圆
-$bigCircle: var(--bigCircle, rgb(167, 180, 190));
-// 时间轴小圆
-$smallCircle: var(--smallCircle, rgb(253, 243, 148));
+$textColor: var(--textColor, rgb(255, 255, 255));
 // 切换开关灰色
-$switchOff: var(--switchOff, rgb(184, 198, 211));
-// placeHolder
-$tip: var(--tip, rgb(139, 139, 139));
+$switchOff: var(--switchOff, rgb(77, 77, 77));
+// placeholder
+$tip: var(--tip, rgb(116, 116, 116));
 // App背景色
-$bodyColor: var(--bodyColor, rgb(255, 255, 255));
-// 切换卡片背景
-// $modeBg: var(--modeBg, rgb(235, 240, 245));
+$bodyColor: var(--bodyColor, rgb(0, 0, 0));
 // footer透明背景色
-$footerBg: var(--footerBg, rgba(255, 255, 255, 0.3));
+$footerBg: var(--footerBg, rgba(0, 0, 0, 0.3));
 // 代码块背景
-$codeBg: var(--codeBg, rgb(50, 57, 63));
+$codeBg: var(--codeBg, rgb(37, 43, 48));
 // 稍微不明显的字体颜色（版权信息页）
-$textColor2: var(--textColor2, rgb(104, 104, 104));
-// 评论展开的回复框背景色
-$themeColor3: var(--themeColor2, rgb(208, 224, 236));
-
-:export {
-  navheight: $navHeight;
-  footerheight: $footerHeight;
-  themecolor: $themeColor;
-  themecolor1: $themeColor1;
-  themecolor2: $themeColor2;
-  hovercolor: $hoverColor;
-  textcolor: $textColor;
-  centerwidth: $centerWidth;
-  asidewidth: $asideWidth;
-  bigradius: $bigRadius;
-  space: $space;
-  midradius: $midRadius;
-  hoverdeepcolor: $hoverDeepColor;
-  toptitleheight: $topTitleHeight;
-}
+$textColor2: var(--textColor2, rgb(167, 167, 167));

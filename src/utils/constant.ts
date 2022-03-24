@@ -48,7 +48,7 @@ export const imgNum = 7;
 // 与模式相符合的背景图
 export const modeBg = [
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627101.jpg',
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627102.jpg',
+  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203242228220.jpg',
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203241627103.jpg'
 ];
 
