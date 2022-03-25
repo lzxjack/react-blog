@@ -11,7 +11,8 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
     "eslint": "eslint ./src/** --ignore-pattern *.jpg --ignore-pattern *.scss --ignore-pattern *.ttf --no-error-on-unmatched-pattern --quiet",
-    "commitlint": "commitlint --config .commitlintrc.js -e"
+    "commitlint": "commitlint --config .commitlintrc.js -e",
+    "deploy": "tcb hosting deploy build -e react-blog-dev-0gtd00jd4b27bc7e"
   },
   "browserslist": [
     ">0.2%",
