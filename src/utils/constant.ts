@@ -70,10 +70,6 @@ export const myEmail = '965555169@qq.com';
 export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
 export const QQ = '965555169';
 
-// 默认评论头像（空头像）
-export const defaultCommentAvatar =
-  'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210807103114.png';
-
 // 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
 export const defaultCommentAvatarArr = [
   'https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/20210826221909.jpg',

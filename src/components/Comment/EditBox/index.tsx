@@ -1,4 +1,5 @@
 import useUrlState from '@ahooksjs/use-url-state';
+import { UserOutlined } from '@ant-design/icons';
 import {
   useKeyPress,
   useLocalStorageState,
@@ -22,7 +23,6 @@ import { auth } from '@/utils/cloudBase';
 import {
   adminUid,
   avatarArrLen,
-  defaultCommentAvatar,
   defaultCommentAvatarArr,
   emailApi,
   myAvatar,
@@ -306,12 +306,14 @@ const EditBox: React.FC<Props> = ({
           setAvatar={setAvatar}
         />
 
-        <div className={s.avatarBox}>
-          <img
-            src={avatar || defaultCommentAvatar}
-            alt='avatar'
-            className={s.editAvatar}
-          />
+        <div className={s.avatarBoxCol}>
+          <div className={s.avatarBox}>
+            {avatar ? (
+              <img src={avatar} alt='avatar' className={s.editAvatar} />
+            ) : (
+              <UserOutlined className={s.noAvatar} />
+            )}
+          </div>
         </div>
         <div className={s.editInputBox}>
           <div className={s.inputBox}>

@@ -26,14 +26,27 @@
     overflow: hidden;
     margin-top: 4px;
 
-    .avatarBox {
+    .avatarBoxCol {
       width: 80px;
 
-      .editAvatar {
+      .avatarBox {
         width: 70px;
         height: 70px;
         border-radius: 14px;
+        overflow: hidden;
         background-color: $themeColor1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .editAvatar {
+          width: 100%;
+          height: 100%;
+        }
+        .noAvatar {
+          font-size: 40px;
+          color: $themeColor2;
+        }
       }
     }
     .editInputBox {

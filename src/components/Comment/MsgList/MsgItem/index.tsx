@@ -66,10 +66,10 @@ const MsgItem: React.FC<Props> = ({
           <div className={s.usrInfo}>
             <a
               href={link}
-              // target={item.link ? '_blank' : '_self'}
+              target={link ? '_blank' : '_self'}
               rel='noreferrer'
               className={s.name}
-              // style={{ cursor: item.link ? 'pointer' : 'default' }}
+              style={{ cursor: link ? 'pointer' : 'default' }}
             >
               {name}
             </a>
