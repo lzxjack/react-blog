@@ -10,7 +10,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { setNavShow } from '@/redux/actions';
+import { setMode, setNavShow } from '@/redux/actions';
 import { storeState } from '@/redux/interface';
 import { blogAdminUrl } from '@/utils/constant';
 import { modeMap, modeMapArr } from '@/utils/modeMap';
@@ -117,7 +117,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
 
 export default connect(
   (state: storeState) => ({
-    navShow: state.navShow
+    navShow: state.navShow,
+    mode: state.mode
   }),
-  { setNavShow }
+  { setNavShow, setMode }
 )(Nav);

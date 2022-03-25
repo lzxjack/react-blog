@@ -23,11 +23,15 @@ const App: React.FC<Props> = ({ mode, setMode }) => {
   const bgClasses = [s.bg0, s.bg1, s.bg2];
   const [localMode] = useLocalStorageState('localMode');
 
-  useMount(() => setMode?.(localMode));
+  useMount(() => {
+    if (localMode !== undefined) {
+      setMode?.(localMode);
+    }
+  });
 
   return (
     <div className={classNames(s.AppBox, bgClasses[mode!])}>
-      <Nav mode={mode} setMode={setMode!} />
+      <Nav />
       <Main />
       <Footer />
       <BackToTop />

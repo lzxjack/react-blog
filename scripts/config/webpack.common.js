@@ -13,8 +13,9 @@ const { myAntd } = require('../antd-theme');
 
 const getCssLoaders = () => {
   const cssLoaders = [
-    // 开发模式使用style-loader，生产模式MiniCssExtractPlugin.loader
-    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+    isDevelopment
+      ? 'style-loader'
+      : { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } },
     {
       loader: 'css-loader',
       options: {
@@ -54,8 +55,9 @@ const getCssLoaders = () => {
 
 const getCustomLoaders = () => {
   const cssLoaders = [
-    // 开发模式使用style-loader，生产模式MiniCssExtractPlugin.loader
-    isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+    isDevelopment
+      ? 'style-loader'
+      : { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } },
     {
       loader: 'css-loader',
       options: {
@@ -90,7 +92,9 @@ const getCustomLoaders = () => {
 };
 
 const getAntdLessLoaders = () => [
-  isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+  isDevelopment
+    ? 'style-loader'
+    : { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } },
   {
     loader: 'css-loader',
     options: {
