@@ -24,7 +24,7 @@ $title-level-margin: 24px;
     margin-bottom: 10px;
     font-size: 18px;
     word-break: break-all;
-    background-color: $themeColor;
+    background-color: $themeColor1;
     border-radius: 8px;
     @extend .hover;
   }
@@ -69,4 +69,15 @@ $title-level-margin: 24px;
 }
 .markdown-navigation.postNavBar::-webkit-scrollbar-thumb:hover {
   background-color: $hoverColor;
+}
+
+.ant-drawer-header-close-only {
+  display: none;
+}
+
+.ant-drawer-content {
+  background-color: $themeColor;
+  color: $textColor;
+  font-family: 'dengxian';
+  font-size: 18px;
 }

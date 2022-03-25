@@ -1,0 +1,37 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+$hoverBarSize: 50px;
+
+.hoverBar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
+  background-color: $themeColor1;
+  font-size: 24px;
+  width: $hoverBarSize;
+  height: $hoverBarSize;
+  border-radius: 14px;
+  display: none;
+  user-select: none;
+  text-align: center;
+  line-height: $hoverBarSize;
+  @extend .hover;
+}
+
+@media screen and (max-width: 1540px) {
+  .hoverBar {
+    display: block;
+  }
+
+  .navBar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .hoverBar {
+    display: none;
+  }
+}
