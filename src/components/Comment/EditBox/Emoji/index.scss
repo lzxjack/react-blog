@@ -10,9 +10,6 @@
 .emoji4 {
   left: 138px;
 }
-.emoji5 {
-  left: 184px;
-}
 
 .emojiBtn {
   position: absolute;
@@ -34,4 +31,28 @@
   width: 368px;
   word-break: break-all;
   font-size: 20px;
+}
+
+@media screen and (max-width: 1240px) {
+  .emoji2 {
+    left: 32rem;
+  }
+  .emoji3 {
+    left: 64rem;
+  }
+  .emoji4 {
+    left: 96rem;
+  }
+
+  .emojiBtn {
+    width: 26rem;
+    height: 26rem;
+    border-radius: 8rem;
+    font-size: 12rem;
+  }
+
+  .emojiContent {
+    width: 284rem;
+    font-size: 14rem;
+  }
 }

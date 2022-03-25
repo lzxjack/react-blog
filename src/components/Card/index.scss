@@ -21,3 +21,11 @@
   justify-content: center !important;
   align-items: center !important;
 }
+
+@media screen and (max-width: 1240px) {
+  .card {
+    margin-bottom: 10rem;
+    border-radius: 18rem;
+    padding: 10rem;
+  }
+}

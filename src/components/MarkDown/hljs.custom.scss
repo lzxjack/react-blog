@@ -131,3 +131,23 @@
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
+
+@media screen and (max-width: 1240px) {
+  #hljs {
+    padding: 5rem 10rem;
+    border-radius: 12rem;
+
+    // 代码片段
+    code {
+      font-size: 14rem;
+    }
+  }
+
+  #hljs::-webkit-scrollbar {
+    height: 8rem;
+  }
+  #hljs::-webkit-scrollbar-thumb {
+    border-bottom-left-radius: 8rem;
+    border-bottom-right-radius: 8rem;
+  }
+}

@@ -34,3 +34,25 @@
   line-height: 1.6em;
   user-select: text;
 }
+
+@media screen and (max-width: 1240px) {
+  .articleInfo {
+    font-size: 16rem;
+    padding: 0 8rem;
+    line-height: 30rem;
+    margin-right: 10rem;
+    border-radius: 10rem;
+  }
+
+  .postTitle {
+    padding: 0 10rem;
+    align-items: center;
+  }
+
+  .layoutCard {
+    width: 100vw;
+    padding: 20rem;
+    font-size: 18rem;
+    line-height: 1.5em;
+  }
+}
