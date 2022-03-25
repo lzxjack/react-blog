@@ -60,3 +60,16 @@ textarea {
 img {
   -webkit-user-drag: none;
 }
+
+::selection {
+  background: $themeColor2 !important;
+}
+
+// antd的message
+.ant-message-notice-content {
+  background-color: $themeColor1 !important;
+  border-radius: 14px !important;
+  font-family: 'dengxian' !important;
+  color: $textColor !important;
+  font-size: 18px !important;
+}
