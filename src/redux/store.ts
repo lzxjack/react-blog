@@ -3,6 +3,9 @@ import { createStore } from 'redux';
 
 import allReducers from './reducers';
 
-const enhancers = process.env.NODE_ENV === 'development' ? composeWithDevTools() : undefined;
+const store =
+  process.env.NODE_ENV === 'development'
+    ? createStore(allReducers, composeWithDevTools())
+    : createStore(allReducers);
 
-export default createStore(allReducers, enhancers);
+export default store;

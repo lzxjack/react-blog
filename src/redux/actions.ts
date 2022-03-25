@@ -35,7 +35,7 @@ export const setAvatar = (data: string) => ({
   data
 });
 
-export const setMode = (data: string) => ({
+export const setMode = (data: number) => ({
   type: SET_MODE,
   data
 });
