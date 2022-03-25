@@ -18,7 +18,7 @@ const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
     <MarkNav
       className='postNavBar'
       source={content || ''}
-      headingTopOffset={16}
+      headingTopOffset={10}
       ordered={false}
       onNavItemClick={() => setNavShow?.(false)}
     />
