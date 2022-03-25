@@ -70,3 +70,55 @@
 （3）点击表情插入到输入框相应的光标中
 
 通过`onSelect`事件，不断保存光标位置，拿到表情后，插入到光标位置处。
+
+（4）生产模式下，CSS引入的图片、字体等路径不正确，导致显示不出
+
+生产模式，使用的`MiniCssExtractPlugin.loader`代替`style-loader`，但图片、字体等资源文件输出路径设置不正确，webpack 配置如下：
+
+```javascript
+module.exports = merge(common, {
+  target: 'browserslist',
+  mode: 'production',
+  devtool: false,
+  output: {
+    path: path.resolve(ROOT_PATH, './build'),
+    publicPath: './',
+    filename: 'js/[name].[contenthash:8].js',
+    chunkFilename: 'js/[name].[contenthash:8].js',
+    // 资源
+    assetModuleFilename: 'assets/[name].[contenthash:8].[ext]'
+  },
+  plugins: [
+    // 生产模式使用了MiniCssExtractPlugin.loader，则需要使用MiniCssExtractPlugin
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].chunk.css'
+    })
+  // ...
+  ],
+  
+  // ...
+}
+```
+
+设置了`output.assetModuleFilename`在`assets`目录下，然而线上的路径却为：
+
+![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251231114.png)
+
+可以看到，线上的图片引入路径多了一个`css`目录，而打包出来的文件结构如下，图片资源确实是在`assets`目录下的：
+
+![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251232025.png)
+
+引入的路径应该往上跳出一层目录，才能正确地访问到图片。
+
+后来找到了解决办法，在 webpack 配置文件中，使用`MiniCssExtractPlugin.loader`时，配置一个`publicPath`，让其向上跳出一层目录：
+
+```javascript
+{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }
+```
+
+打包后的文件结构没有变化，线上的引入路径变为如下：
+
+![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251242487.png)
+
+与打包的文件结构相符，正确引入了图片。
