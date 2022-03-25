@@ -1,0 +1,25 @@
+@import './../../styles/base.scss';
+@import './../../styles/style.scss';
+
+.mobile-nav-box {
+  .ant-drawer-content-wrapper {
+    width: 90rem !important;
+    box-shadow: 0 0 20rem $footerBg !important;
+
+    .ant-drawer-header-close-only {
+      display: none;
+    }
+
+    .ant-drawer-content {
+      background-color: $themeColor;
+      color: $textColor;
+
+      .ant-drawer-body {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

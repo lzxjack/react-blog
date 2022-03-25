@@ -1,21 +1,36 @@
 export const useLinkList = () => {
   const navArr = [
-    { id: 0, name: '图库', to: '/gallery' },
-    { id: 1, name: '说说', to: '/say' },
-    { id: 2, name: '留言', to: '/msg' },
-    { id: 3, name: '友链', to: '/link' },
-    { id: 4, name: '作品', to: '/show' },
-    { id: 5, name: '建站', to: '/log' },
-    { id: 6, name: '关于', to: '/about' }
+    { name: '图库', to: '/gallery' },
+    { name: '说说', to: '/say' },
+    { name: '留言', to: '/msg' },
+    { name: '友链', to: '/link' },
+    { name: '作品', to: '/show' },
+    { name: '建站', to: '/log' },
+    { name: '关于', to: '/about' }
   ];
   const secondNavArr = [
-    { id: 0, name: '找文章', to: '/articles' },
-    { id: 1, name: '分类', to: '/classes' },
-    { id: 2, name: '标签', to: '/tags' }
+    { name: '找文章', to: '/articles' },
+    { name: '分类', to: '/classes' },
+    { name: '标签', to: '/tags' }
+  ];
+
+  const mobileNavArr = [
+    { name: '主页', to: '/' },
+    { name: '文章', to: '/articles' },
+    { name: '分类', to: '/classes' },
+    { name: '标签', to: '/tags' },
+    { name: '图库', to: '/gallery' },
+    { name: '说说', to: '/say' },
+    { name: '留言', to: '/msg' },
+    { name: '友链', to: '/link' },
+    { name: '作品', to: '/show' },
+    { name: '建站', to: '/log' },
+    { name: '关于', to: '/about' }
   ];
 
   return {
     navArr,
-    secondNavArr
+    secondNavArr,
+    mobileNavArr
   };
 };

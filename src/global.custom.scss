@@ -73,3 +73,10 @@ img {
   color: $textColor !important;
   font-size: 18px !important;
 }
+
+@media screen and (max-width: 1240px) {
+  body::-webkit-scrollbar,
+  div::-webkit-scrollbar {
+    display: none;
+  }
+}
