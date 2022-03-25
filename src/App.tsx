@@ -1,5 +1,6 @@
 import './global.custom.scss';
 
+import { useLocalStorageState, useMount } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -20,6 +21,9 @@ interface Props {
 
 const App: React.FC<Props> = ({ mode, setMode }) => {
   const bgClasses = [s.bg0, s.bg1, s.bg2];
+  const [localMode] = useLocalStorageState('localMode');
+
+  useMount(() => setMode?.(localMode));
 
   return (
     <div className={classNames(s.AppBox, bgClasses[mode!])}>

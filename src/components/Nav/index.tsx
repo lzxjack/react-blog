@@ -4,7 +4,7 @@ import {
   HomeOutlined,
   SettingOutlined
 } from '@ant-design/icons';
-import { useEventListener, useUpdateEffect } from 'ahooks';
+import { useEventListener, useLocalStorageState, useUpdateEffect } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -30,6 +30,8 @@ const bodyStyle = window.document.getElementsByTagName('body')[0].style;
 const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
   const navigate = useNavigate();
 
+  // eslint-disable-next-line no-unused-vars
+  const [_, setLocalMode] = useLocalStorageState('localMode');
   const { navArr, secondNavArr } = useLinkList();
 
   const modeOptions = ['rgb(19, 38, 36)', 'rgb(110, 180, 214)', 'rgb(171, 194, 208)'];
@@ -44,6 +46,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
   );
 
   useUpdateEffect(() => {
+    setLocalMode(mode);
     for (const type of modeMapArr) {
       bodyStyle.setProperty(type, modeMap[type as keyof typeof modeMap][mode!]);
     }
