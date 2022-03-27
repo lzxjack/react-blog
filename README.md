@@ -122,3 +122,7 @@ module.exports = merge(common, {
 ![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251242487.png)
 
 与打包的文件结构相符，正确引入了图片。
+
+（5）移动端`post`页面，滚动卡顿
+
+原因：使用了`markdown-navbar`自动生成目录的插件，默认配置项`updateHashAuto=true`，导致移动端（小米11）浏览器在该页面滚动时，一直刷新页面（手机上的刷新按钮一直在跳动），不断发送网络请求，卡顿。
