@@ -22,21 +22,25 @@ const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
 
   return (
     <>
-      <div className={s.hoverBar} onClick={() => setVisible(true)}>
-        <MenuFoldOutlined />
-      </div>
+      {/* 正常的目录 */}
       <MarkNav
         className={classNames('postNavBar', s.navBar)}
         source={content || ''}
         headingTopOffset={10}
         ordered={false}
+        updateHashAuto={false}
         onNavItemClick={() => setNavShow?.(false)}
       />
+      {/* 中屏显示的按钮 */}
+      <div className={s.hoverBar} onClick={() => setVisible(true)}>
+        <MenuFoldOutlined />
+      </div>
+      {/* 中屏抽屉 */}
       <Drawer
         placement='right'
         onClose={() => setVisible(false)}
         visible={visible}
-        className={s.drawer}
+        className={classNames(s.drawer, 'mobile-navBar-box')}
         width={340}
       >
         <MarkNav
@@ -44,6 +48,7 @@ const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
           source={content || ''}
           headingTopOffset={10}
           ordered={false}
+          updateHashAuto={false}
           onNavItemClick={() => setNavShow?.(false)}
         />
       </Drawer>

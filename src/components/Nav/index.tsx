@@ -131,7 +131,6 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
         onClose={() => setVisible(false)}
         visible={visible}
         className='mobile-nav-box'
-        width={340}
       >
         <div className={s.mobileNavBox}>
           {mobileNavArr.map((item, index) => (

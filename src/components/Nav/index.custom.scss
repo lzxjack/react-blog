@@ -2,9 +2,10 @@
 @import './../../styles/style.scss';
 
 .mobile-nav-box {
+  display: none;
+
   .ant-drawer-content-wrapper {
     width: 90rem !important;
-    box-shadow: 0 0 20rem $footerBg !important;
 
     .ant-drawer-header-close-only {
       display: none;
@@ -21,5 +22,11 @@
         align-items: center;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .mobile-nav-box {
+    display: block;
   }
 }
