@@ -60,12 +60,13 @@
           height: 36px;
           margin-right: 10px;
           display: flex;
+          justify-content: space-between;
           border-radius: 14px;
           overflow: hidden;
           background-color: $themeColor1;
 
           .inputKey {
-            width: 80px;
+            width: 56px;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -78,6 +79,7 @@
           .inputValue {
             height: 100%;
             width: 100%;
+            flex: 1;
             padding: 0 10px;
             font-size: 16px;
             text-align: center;
@@ -177,8 +179,8 @@
             border-radius: 8rem;
 
             .inputKey {
-              width: 60rem;
-              font-size: 13rem;
+              width: 32rem;
+              font-size: 12rem;
             }
             .inputValue {
               padding: 0 2rem;
