@@ -66,3 +66,36 @@
     }
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .itemBoxBase {
+    height: 30rem;
+    width: 280rem;
+    border-radius: 10rem;
+    margin-bottom: 16rem;
+    font-size: 16rem;
+  }
+
+  .adminBox {
+    border-radius: 8rem;
+
+    .itemBox {
+      .adminKey {
+        width: 60rem;
+      }
+      .adminValue {
+        width: 220rem;
+        padding: 0 10rem;
+      }
+    }
+
+    .adminBtns {
+      margin-bottom: 0;
+      .adminBtn {
+        width: 60rem;
+        height: 30rem;
+        border-radius: 10rem;
+      }
+    }
+  }
+}

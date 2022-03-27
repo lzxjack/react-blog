@@ -6,6 +6,7 @@
   border-left: 6px solid $themeColor1;
 
   .time {
+    position: relative;
     height: 58px;
     width: 190px;
     display: flex;
@@ -23,7 +24,8 @@
       border-radius: 50%;
       position: absolute;
       left: -18px;
-      top: 14px;
+      top: 50%;
+      transform: translate(0, -50%);
       background-color: $themeColor1;
       display: flex;
       justify-content: center;
@@ -61,5 +63,43 @@
   }
   .content:hover {
     transform: scale(1.02);
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .item {
+    border-left: 5rem solid $themeColor1;
+
+    .time {
+      height: 40rem;
+      width: 140rem;
+      padding-left: 16rem;
+      font-size: 20rem;
+
+      .dot {
+        width: 24rem;
+        height: 24rem;
+        left: -14.5rem;
+
+        .dotIn {
+          width: 10rem;
+          height: 10rem;
+        }
+      }
+    }
+    .time:hover .dotIn {
+      width: 16rem;
+      height: 16rem;
+    }
+    .content {
+      margin: 0 10rem;
+      border-radius: 12rem;
+      padding: 6rem 12rem;
+      font-size: 16rem;
+
+      .timeLi {
+        margin-bottom: 2rem;
+      }
+    }
   }
 }

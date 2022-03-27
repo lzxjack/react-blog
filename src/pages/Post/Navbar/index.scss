@@ -7,6 +7,7 @@ $hoverBarSize: 50px;
   position: fixed;
   top: 50%;
   right: 20px;
+  z-index: 99;
   transform: translate(0, -50%);
   background-color: $themeColor1;
   font-size: 24px;
