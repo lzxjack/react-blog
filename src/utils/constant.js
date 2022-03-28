@@ -24,14 +24,14 @@ export const adminQQEmail = '965555169@qq.com';
 export const adminUrl = 'https://lzxjack.top/';
 export const adminUrlCheck = 'lzxjack.top';
 // 头像
-export const avatarUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20201204121004.jpg';
+export const avatarUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20201204121004.jpg';
 
 // 博客背景图片
 export const blogBackGroundImgs = [
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210818111500.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210818111501.png',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210818111502.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20211126190312.jpg'
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210818111500.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210818111501.png',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210818111502.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20211126190312.jpg'
 ];
 // 背景图选择
 export const imgNum = 3;
@@ -39,24 +39,24 @@ export const imgNum = 3;
 // 个人友链信息
 export const myName = '飞鸟';
 export const myLink = 'https://lzxjack.top/';
-export const myAvatar = 'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20201204121004.jpg';
+export const myAvatar = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20201204121004.jpg';
 export const myDescr = '一只平凡的鸟罢了。';
 
 // 默认评论头像（空头像）
 export const defaultCommentAvatar =
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210807103114.png';
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210807103114.png';
 // 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
 export const defaultCommentAvatarArr = [
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221909.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221910.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221911.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221912.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221913.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221914.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221915.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221916.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221917.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210826221918.jpg'
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221909.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221910.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221911.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221912.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221913.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221914.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221915.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221916.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221917.jpg',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221918.jpg'
 ];
 
 // 评论回复时，发送邮件提醒的API地址
@@ -65,10 +65,10 @@ export const emailApi =
 
 // 微信二维码地址
 export const weChatQRCode =
-  'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210719213208.jpg';
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210719213208.jpg';
 
 // QQ二维码地址
-export const QQ_QRCode = 'https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210719214515.jpg';
+export const QQ_QRCode = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210719214515.jpg';
 
 // emoji表情
 export const emojiPeople =

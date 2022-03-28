@@ -24,7 +24,7 @@
 
 仓库地址：<a href="https://github.com/lzxjack/react-blog" target="_blank">「GitHub」</a>
 
-![](https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210907102912.png)
+![](https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210907102912.png)
 
 ## 2. 后台管理页面
 
@@ -34,7 +34,7 @@
 
 仓库地址：<a href="https://github.com/lzxjack/react-blog-admin" target="_blank">「GitHub」</a>
 
-![](https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210907102952.png)
+![](https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210907102952.png)
 
 # 3. 用到的技术/工具
 

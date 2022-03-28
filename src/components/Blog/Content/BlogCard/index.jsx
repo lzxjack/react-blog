@@ -32,7 +32,7 @@ const BlogCard = () => {
           我的<span className='theme-color-font blog-name'>个人博客</span>。
         </p>
         <img
-          src='https://cdn.jsdelivr.net/gh/lzxjack/img/img/20210718205847.PNG'
+          src='https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210718205847.PNG'
           alt=''
           className='avatar'
         />
