@@ -5,7 +5,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  align-content: space-around;
   padding-bottom: 20px !important;
 
   .ant-image {
@@ -34,4 +33,23 @@
 
 .ant-scrolling-effect {
   width: 100% !important;
+}
+
+@media screen and (max-width: 1240px) {
+  .imgsBox {
+    justify-content: space-between;
+    padding-bottom: 10rem !important;
+
+    .ant-image {
+      margin-bottom: 10rem;
+      border-radius: 10rem;
+      width: 48.81% !important;
+    }
+  }
+
+  .ant-image-preview-switch-left svg,
+  .ant-image-preview-switch-right svg {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
 }

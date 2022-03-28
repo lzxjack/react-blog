@@ -4,7 +4,6 @@
 .imgItem {
   overflow: hidden;
   position: relative;
-  list-style: none;
   margin-bottom: $space + 10px;
   width: 400px;
   height: 300px;
@@ -25,7 +24,7 @@
     width: 330px;
     @extend .trans;
     z-index: 9;
-    border-bottom: 4px solid rgba(255, 255, 255, 0);
+    border-bottom: 4px solid transparent;
 
     span {
       position: absolute;
@@ -41,7 +40,7 @@
     top: 100px;
     width: 320px;
     font-size: 24px;
-    transition: all 0.2s;
+    @extend .trans;
     word-wrap: break-word;
     opacity: 0;
   }
@@ -51,7 +50,7 @@
     width: 100%;
     height: 100%;
     top: 0;
-    transition: all 0.2s;
+    @extend .trans;
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
@@ -71,4 +70,36 @@
 .imgItem:nth-last-child(1),
 .imgItem:nth-last-child(2) {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .imgItem {
+    margin-bottom: 10rem;
+    width: 48.81%;
+    height: 160rem;
+    border-radius: 10rem;
+
+    .title {
+      font-size: 18rem;
+      height: 45rem;
+      width: 80%;
+      border-bottom: 2rem solid transparent;
+
+      span {
+        bottom: 2rem;
+      }
+    }
+
+    .descr {
+      left: 20rem;
+      top: 50rem;
+      width: 80%;
+      font-size: 14rem;
+      line-height: 24rem;
+    }
+  }
+
+  .imgItem:hover .title {
+    border-bottom: 2rem solid #fff;
+  }
 }
