@@ -71,7 +71,7 @@
 
 通过`onSelect`事件，不断保存光标位置，拿到表情后，插入到光标位置处。
 
-（4）生产模式下，CSS引入的图片、字体等路径不正确，导致显示不出
+（4）生产模式下，CSS 引入的图片、字体等路径不正确，导致显示不出
 
 生产模式，使用的`MiniCssExtractPlugin.loader`代替`style-loader`，但图片、字体等资源文件输出路径设置不正确，webpack 配置如下：
 
@@ -96,18 +96,18 @@ module.exports = merge(common, {
     })
   // ...
   ],
-  
+
   // ...
 }
 ```
 
 设置了`output.assetModuleFilename`在`assets`目录下，然而线上的路径却为：
 
-![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251231114.png)
+![](https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203251231114.png)
 
 可以看到，线上的图片引入路径多了一个`css`目录，而打包出来的文件结构如下，图片资源确实是在`assets`目录下的：
 
-![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251232025.png)
+![](https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203251232025.png)
 
 引入的路径应该往上跳出一层目录，才能正确地访问到图片。
 
@@ -119,10 +119,10 @@ module.exports = merge(common, {
 
 打包后的文件结构没有变化，线上的引入路径变为如下：
 
-![](https://jack-img.oss-cn-hangzhou.aliyuncs.com/img/202203251242487.png)
+![](https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203251242487.png)
 
 与打包的文件结构相符，正确引入了图片。
 
 （5）移动端`post`页面，滚动卡顿
 
-原因：使用了`markdown-navbar`自动生成目录的插件，默认配置项`updateHashAuto=true`，导致移动端（小米11）浏览器在该页面滚动时，一直刷新页面（手机上的刷新按钮一直在跳动），不断发送网络请求，卡顿。
+原因：使用了`markdown-navbar`自动生成目录的插件，默认配置项`updateHashAuto=true`，导致移动端（小米 11）浏览器在该页面滚动时，一直刷新页面（手机上的刷新按钮一直在跳动），不断发送网络请求，卡顿。
