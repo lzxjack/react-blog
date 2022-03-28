@@ -18,7 +18,11 @@ $hoverBarSize: 50px;
   justify-content: center;
   align-items: center;
   user-select: none;
-  @extend .hover;
+  @extend .trans;
+}
+
+.hoverBar:hover {
+  background-color: $hoverColor !important;
 }
 
 .drawer {
@@ -51,6 +55,10 @@ $hoverBarSize: 50px;
     position: fixed;
     top: 100rem;
     right: 0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+  }
+
+  .hoverBar:hover {
+    background-color: transparent !important;
   }
 }
