@@ -12,7 +12,7 @@ const NoticeCard: React.FC = () => {
   const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Notice }],
     retryCount: 3,
-    cacheKey: DB.Notice,
+    cacheKey: `NoticeCard-${DB.Notice}`,
     staleTime
   });
 

@@ -23,7 +23,7 @@ const Classes: React.FC = () => {
   const { data, loading } = useRequest(getData, {
     defaultParams: [DB.Class],
     retryCount: 3,
-    cacheKey: DB.Class,
+    cacheKey: `Classes-${DB.Class}`,
     staleTime
   });
 

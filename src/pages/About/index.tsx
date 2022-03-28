@@ -18,7 +18,7 @@ const About: React.FC = () => {
 
   const { data, loading } = useRequest(fetchData, {
     retryCount: 3,
-    cacheKey: DB.About,
+    cacheKey: `About-${DB.About}`,
     staleTime
   });
 

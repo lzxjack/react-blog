@@ -22,7 +22,7 @@ const Tags: React.FC = () => {
   const { data, loading } = useRequest(getData, {
     defaultParams: [DB.Tag],
     retryCount: 3,
-    cacheKey: DB.Tag,
+    cacheKey: `Tags-${DB.Tag}`,
     staleTime
   });
 

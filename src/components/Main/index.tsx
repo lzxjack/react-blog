@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
-import PageLoading from '@/components/PageLoading';
 
 import s from './index.scss';
 
@@ -26,7 +25,7 @@ const Main: React.FC = () => {
     <main className={s.main}>
       <div className={s.center}>
         <ErrorBoundary>
-          <Suspense fallback={<PageLoading />}>
+          <Suspense fallback={<></>}>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='articles' element={<Articles />} />

@@ -21,7 +21,7 @@ const Gallery: React.FC = () => {
   const { data, loading } = useRequest(getData, {
     defaultParams: [DB.Gallery],
     retryCount: 3,
-    cacheKey: DB.Gallery,
+    cacheKey: `Gallery-${DB.Gallery}`,
     staleTime
   });
 

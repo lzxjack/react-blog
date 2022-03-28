@@ -20,7 +20,7 @@ const Post: React.FC = () => {
   const { data, loading } = useRequest(getWhereData, {
     defaultParams: [DB.Article, { titleEng: search.title }],
     retryCount: 3,
-    cacheKey: `${DB.Article}-${search.title}`,
+    cacheKey: `Post-${DB.Article}-${search.title}`,
     staleTime
   });
 

@@ -19,7 +19,7 @@ const Say: React.FC = () => {
   const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Say, sortKey: 'date' }],
     retryCount: 3,
-    cacheKey: DB.Say,
+    cacheKey: `Say-${DB.Say}`,
     staleTime
   });
 

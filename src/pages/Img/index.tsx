@@ -15,7 +15,7 @@ const Img: React.FC = () => {
   const { data, loading } = useRequest(getWhereData, {
     defaultParams: [DB.Gallery, { title: query.title }],
     retryCount: 3,
-    cacheKey: `${DB.Gallery}-${query.title}`,
+    cacheKey: `Img-${DB.Gallery}-${query.title}`,
     staleTime
   });
 

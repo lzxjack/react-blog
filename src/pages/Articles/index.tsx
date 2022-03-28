@@ -7,7 +7,7 @@ import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
 import { getWhereOrderPageSum } from '@/utils/apis/getWhereOrderPageSum';
-import { detailPostSize } from '@/utils/constant';
+import { detailPostSize, staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
 import ArtList from './ArtList';
@@ -32,6 +32,8 @@ const Articles: React.FC = () => {
     {
       retryCount: 3,
       refreshDeps: [page],
+      cacheKey: `Articles-${DB.Article}-${JSON.stringify(where)}-${page}`,
+      staleTime,
       onSuccess: () => {
         setTotal(data?.sum.total);
         if (isReset) {

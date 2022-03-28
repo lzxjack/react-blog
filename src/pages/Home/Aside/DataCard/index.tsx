@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Card from '@/components/Card';
 import { setArtSum } from '@/redux/actions';
+import { DB } from '@/utils/apis/dbConfig';
 import { staleTime } from '@/utils/constant';
 
 import { fetchData } from './fetchData';
@@ -18,7 +19,7 @@ const DataCard: React.FC<Props> = ({ setArtSum }) => {
   const navigate = useNavigate();
   const { data, loading } = useRequest(fetchData, {
     retryCount: 3,
-    cacheKey: 'threeCount',
+    cacheKey: `DataCard-count-${DB.Article}-${DB.Class}-${DB.Tag}`,
     staleTime,
     onSuccess: data => setArtSum!(data?.articles.total)
   });

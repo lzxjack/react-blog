@@ -19,7 +19,7 @@ const Log: React.FC = () => {
   const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Log, sortKey: 'date' }],
     retryCount: 3,
-    cacheKey: DB.Log,
+    cacheKey: `Log-${DB.Log}`,
     staleTime
   });
 

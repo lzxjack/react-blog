@@ -28,7 +28,7 @@ const Show: React.FC = () => {
       }
     ],
     retryCount: 3,
-    cacheKey: DB.Show,
+    cacheKey: `Show-${DB.Show}`,
     staleTime
   });
 

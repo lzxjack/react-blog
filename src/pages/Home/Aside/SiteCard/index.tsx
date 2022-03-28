@@ -15,7 +15,7 @@ const SiteCard: React.FC = () => {
   const { data, loading } = useRequest(getOrderData, {
     defaultParams: [{ dbName: DB.Count }],
     retryCount: 3,
-    cacheKey: DB.Count,
+    cacheKey: `SiteCard-${DB.Count}`,
     staleTime
   });
 

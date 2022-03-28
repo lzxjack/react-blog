@@ -11,7 +11,7 @@ import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
 import { getWhereOrderPageSum } from '@/utils/apis/getWhereOrderPageSum';
 import { db } from '@/utils/cloudBase';
-import { detailPostSize } from '@/utils/constant';
+import { detailPostSize, staleTime } from '@/utils/constant';
 
 import { ArticleType } from '../constant';
 
@@ -43,7 +43,9 @@ const ArtDetail: React.FC = () => {
       }),
     {
       retryCount: 3,
-      refreshDeps: [page]
+      refreshDeps: [page],
+      cacheKey: `ArtDetail-${DB.Article}-${JSON.stringify(where)}-${page}`,
+      staleTime
     }
   );
 

@@ -22,7 +22,7 @@ const Link: React.FC = () => {
   const { data, loading } = useRequest(getData, {
     defaultParams: [DB.Link],
     retryCount: 3,
-    cacheKey: DB.Link,
+    cacheKey: `Link-${DB.Link}`,
     staleTime
   });
 

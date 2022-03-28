@@ -12,7 +12,7 @@ const TagCard: React.FC = () => {
   const { data, loading } = useRequest(getData, {
     defaultParams: [DB.Tag],
     retryCount: 3,
-    cacheKey: DB.Tag,
+    cacheKey: `TagCard-${DB.Tag}`,
     staleTime
   });
 
