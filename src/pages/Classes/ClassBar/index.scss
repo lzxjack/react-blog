@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: $space / 2;
   user-select: none;
   @extend .hover;
   cursor: pointer;
@@ -23,5 +22,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .classBar {
+    height: 40rem;
+    border-radius: 10rem;
+    font-size: 18rem;
+
+    .classNum {
+      right: 6rem;
+      width: 28rem;
+      font-size: 16rem;
+    }
   }
 }

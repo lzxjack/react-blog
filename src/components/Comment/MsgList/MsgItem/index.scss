@@ -8,6 +8,8 @@ $avatarBoxWidth: 80px;
 }
 
 .commentItem {
+  // 触发BFC
+  overflow: hidden;
   margin-bottom: 20px;
 
   .flex {
@@ -112,7 +114,7 @@ $avatarBoxWidth: 80px;
   }
 
   .commentItem {
-    margin-bottom: 10rem;
+    margin-bottom: 20rem;
 
     .flex {
       .avatarBox {

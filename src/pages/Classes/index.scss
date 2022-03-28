@@ -1,3 +1,5 @@
+@import '../../styles/base.scss';
+
 .classBox {
   display: flex;
   flex-wrap: wrap;
@@ -5,10 +7,24 @@
 
   .classItem {
     width: 49%;
+    margin-bottom: $space / 2;
   }
 
   .classItem:nth-last-child(1),
   .classItem:nth-last-child(2) {
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .classBox {
+    .classItem {
+      width: 100%;
+      margin-bottom: 10rem;
+    }
+
+    .classItem:nth-last-child(2) {
+      margin-bottom: 10rem;
+    }
   }
 }

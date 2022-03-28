@@ -26,3 +26,22 @@
     @extend .hover;
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .searchBox {
+    margin-bottom: 10rem;
+
+    .search {
+      height: 40rem;
+      border-radius: 10rem;
+      font-size: 18rem;
+      padding: 0 10rem;
+    }
+    .searchBtn {
+      height: 40rem;
+      width: 40rem;
+      border-radius: 10rem;
+      margin-left: 6rem;
+    }
+  }
+}

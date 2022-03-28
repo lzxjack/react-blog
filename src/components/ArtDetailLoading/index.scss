@@ -16,3 +16,19 @@
     border-radius: 4px;
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .loadingBar {
+    border-radius: 10rem;
+    margin-bottom: 10rem;
+    padding: 0 10rem;
+    font-size: 18rem;
+    height: 40rem;
+
+    .placeHolder {
+      height: 14rem;
+      width: 70%;
+      border-radius: 4rem;
+    }
+  }
+}
