@@ -160,9 +160,54 @@
   }
 }
 
-// .navBtn:hover,
-// .homeBtn:hover,
-// .adminBtn:hover,
-// .articelsSecondItem:hover {
-//   color: $textColor;
-// }
+// 手机端呼出导航的按钮
+.mobileNavBtn {
+  width: 50rem;
+  height: 50rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rem;
+  color: $textColor;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+}
+
+// 手机端导航
+.mobileNavBox {
+  .mobileNavItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: $textColor;
+    font-size: 18rem;
+    font-family: 'dengxian';
+    width: 60rem;
+    height: 34rem;
+    border-radius: 10rem;
+    margin-bottom: 16rem;
+  }
+  .mobileNavItem:last-child {
+    margin-bottom: 0;
+  }
+  .mobileNavActive {
+    @extend .mobileNavItem;
+    background-color: $hoverColor;
+  }
+  .modeItem {
+    @extend .mobileNavItem;
+    border: 2rem solid #ccc;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .nav {
+    display: none;
+  }
+  .mobileNavBtn {
+    display: flex;
+  }
+}

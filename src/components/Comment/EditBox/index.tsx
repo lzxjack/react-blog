@@ -323,7 +323,7 @@ const EditBox: React.FC<Props> = ({
                 ref={nameRef}
                 type='text'
                 className={s.inputValue}
-                placeholder='试试QQ号~'
+                placeholder='QQ号'
                 value={name}
                 onChange={e => setName?.(e.target.value)}
                 onBlur={handleName}

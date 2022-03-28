@@ -5,3 +5,11 @@
   background-size: 28px 3px;
   background-repeat: repeat-x;
 }
+
+@media screen and (max-width: 1240px) {
+  .divider {
+    margin: 14rem 0;
+    height: 2rem;
+    background-size: 28rem 2rem;
+  }
+}

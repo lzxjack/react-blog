@@ -11,7 +11,7 @@
 
   .box {
     height: 36px;
-    width: 70px;
+    width: 72px;
     border-radius: 20px;
     position: relative;
     background-color: $themeColor1;
@@ -53,5 +53,38 @@
 
   .titleOff {
     color: $switchOff;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .switch {
+    height: 24rem;
+    margin-bottom: 20rem;
+
+    .box {
+      height: 24rem;
+      width: 24rem * 2;
+      border-radius: 24rem / 2;
+
+      .btn {
+        height: 24rem;
+        width: 24rem;
+      }
+
+      .isMe {
+        left: 24rem;
+      }
+    }
+
+    .text {
+      font-size: 24rem;
+    }
+
+    .site {
+      margin-right: 10rem;
+    }
+    .me {
+      margin-left: 10rem;
+    }
   }
 }

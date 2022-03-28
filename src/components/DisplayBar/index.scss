@@ -40,3 +40,20 @@ $rightWidth: 112px;
 .displayBar:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 1240px) {
+  .displayBar {
+    border-radius: 10rem;
+    margin-bottom: 10rem;
+    padding: 0 10rem;
+    height: 40rem;
+
+    .content {
+      font-size: 17rem;
+      width: 100%;
+    }
+    .rightContent {
+      display: none;
+    }
+  }
+}

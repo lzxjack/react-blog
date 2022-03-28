@@ -1,10 +1,19 @@
+import './index.custom.scss';
+
 import {
   BgColorsOutlined,
   CheckOutlined,
   HomeOutlined,
+  MenuOutlined,
   SettingOutlined
 } from '@ant-design/icons';
-import { useEventListener, useLocalStorageState, useUpdateEffect } from 'ahooks';
+import {
+  useEventListener,
+  useLocalStorageState,
+  useSafeState,
+  useUpdateEffect
+} from 'ahooks';
+import { Drawer } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -32,7 +41,8 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
 
   // eslint-disable-next-line no-unused-vars
   const [_, setLocalMode] = useLocalStorageState('localMode');
-  const { navArr, secondNavArr } = useLinkList();
+  const { navArr, secondNavArr, mobileNavArr } = useLinkList();
+  const [visible, setVisible] = useSafeState(false);
 
   const modeOptions = ['rgb(19, 38, 36)', 'rgb(110, 180, 214)', 'rgb(171, 194, 208)'];
 
@@ -53,65 +63,100 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
   }, [mode]);
 
   return (
-    <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
-      <div className={s.navContent}>
-        {/* 主页 */}
-        <div className={s.homeBtn} onClick={() => navigate('/')}>
-          <HomeOutlined />
-        </div>
-
-        {/* 后台管理 */}
-        <a className={s.adminBtn} href={blogAdminUrl} target='_blank' rel='noreferrer'>
-          <SettingOutlined />
-        </a>
-
-        {/* 黑暗模式切换 */}
-        <div className={s.modeBtn}>
-          <BgColorsOutlined />
-          <div className={s.modeOpions}>
-            {modeOptions.map((backgroundColor, index) => (
-              <div
-                key={index}
-                style={{ backgroundColor }}
-                className={classNames(s.modeItem, s[`modeItem${index}`])}
-                onClick={() => setMode?.(index)}
-              >
-                {mode === index && <CheckOutlined />}
-              </div>
-            ))}
+    <>
+      <nav className={classNames(s.nav, { [s.hiddenNav]: !navShow })}>
+        <div className={s.navContent}>
+          {/* 主页 */}
+          <div className={s.homeBtn} onClick={() => navigate('/')}>
+            <HomeOutlined />
           </div>
-        </div>
 
-        {/* 文章单独按钮 */}
-        <div className={s.articlesBtn}>
-          <div className={s.articelsSecond}>
-            {secondNavArr.map(item => (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? s.sedActive : s.articelsSecondItem
-                }
-                to={item.to}
-                key={item.id}
-              >
-                {item.name}
-              </NavLink>
-            ))}
+          {/* 后台管理 */}
+          <a className={s.adminBtn} href={blogAdminUrl} target='_blank' rel='noreferrer'>
+            <SettingOutlined />
+          </a>
+
+          {/* 黑暗模式切换 */}
+          <div className={s.modeBtn}>
+            <BgColorsOutlined />
+            <div className={s.modeOpions}>
+              {modeOptions.map((backgroundColor, index) => (
+                <div
+                  key={index}
+                  style={{ backgroundColor }}
+                  className={classNames(s.modeItem, s[`modeItem${index}`])}
+                  onClick={() => setMode?.(index)}
+                >
+                  {mode === index && <CheckOutlined />}
+                </div>
+              ))}
+            </div>
           </div>
-          文章
-        </div>
 
-        {/* 其他按钮 */}
-        {navArr.map(item => (
-          <NavLink
-            className={({ isActive }) => (isActive ? s.navActive : s.navBtn)}
-            to={item.to}
-            key={item.id}
-          >
-            {item.name}
-          </NavLink>
-        ))}
+          {/* 文章单独按钮 */}
+          <div className={s.articlesBtn}>
+            <div className={s.articelsSecond}>
+              {secondNavArr.map((item, index) => (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? s.sedActive : s.articelsSecondItem
+                  }
+                  to={item.to}
+                  key={index}
+                >
+                  {item.name}
+                </NavLink>
+              ))}
+            </div>
+            文章
+          </div>
+
+          {/* 其他按钮 */}
+          {navArr.map((item, index) => (
+            <NavLink
+              className={({ isActive }) => (isActive ? s.navActive : s.navBtn)}
+              to={item.to}
+              key={index}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
+      <div className={s.mobileNavBtn} onClick={() => setVisible(true)}>
+        <MenuOutlined />
       </div>
-    </nav>
+      <Drawer
+        placement='right'
+        onClose={() => setVisible(false)}
+        visible={visible}
+        className='mobile-nav-box'
+      >
+        <div className={s.mobileNavBox}>
+          {mobileNavArr.map((item, index) => (
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? s.mobileNavActive : s.mobileNavItem
+              }
+              to={item.to}
+              key={index}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+          {modeOptions.map((backgroundColor, index) => (
+            <div
+              key={index}
+              style={{ backgroundColor }}
+              className={classNames(s.modeItem, s[`modeItem${index}`])}
+              onClick={() => setMode?.(index)}
+            >
+              {mode === index && <CheckOutlined />}
+            </div>
+          ))}
+        </div>
+      </Drawer>
+    </>
   );
 };
 

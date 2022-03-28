@@ -77,3 +77,22 @@
   transform: scale(1.02);
   cursor: pointer;
 }
+
+@media screen and (max-width: 1240px) {
+  .card {
+    .title {
+      height: 60rem;
+      font-size: 22rem;
+    }
+
+    .content {
+      height: 72rem;
+      text-indent: 2em;
+      font-size: 16rem;
+    }
+
+    .info {
+      display: none;
+    }
+  }
+}

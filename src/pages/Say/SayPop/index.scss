@@ -2,7 +2,6 @@
 @import '../../../styles/style.scss';
 
 .sayItem {
-  min-height: 90px;
   display: flex;
   margin-bottom: $space;
 
@@ -24,10 +23,6 @@
 
     .content {
       border-radius: 14px;
-      display: flex;
-      min-height: 90px;
-      justify-content: flex-start;
-      align-items: center;
       word-break: break-all;
       padding: 20px 20px 44px;
       position: relative;
@@ -42,7 +37,6 @@
     .date {
       padding: 0 10px;
       border-radius: 10px;
-      transition: all 0.2s;
       color: $textColor;
       height: 30px;
       position: absolute;
@@ -61,4 +55,40 @@
 
 .sayItem:last-child {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .sayItem {
+    margin-bottom: 12rem;
+
+    .avatarBox {
+      width: 45rem;
+      height: 45rem;
+
+      .avatar {
+        width: 45rem;
+        height: 45rem;
+        border-radius: 8rem;
+      }
+    }
+
+    .contentBox {
+      margin-left: 5rem;
+
+      .content {
+        border-radius: 10rem;
+        padding: 10rem 10rem 32rem;
+        font-size: 16rem;
+      }
+
+      .date {
+        padding: 0 6rem;
+        border-radius: 6rem;
+        height: 24rem;
+        right: 5rem;
+        bottom: 5rem;
+        font-size: 14rem;
+      }
+    }
+  }
 }

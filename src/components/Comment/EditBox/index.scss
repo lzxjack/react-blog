@@ -60,12 +60,13 @@
           height: 36px;
           margin-right: 10px;
           display: flex;
+          justify-content: space-between;
           border-radius: 14px;
           overflow: hidden;
           background-color: $themeColor1;
 
           .inputKey {
-            width: 80px;
+            width: 56px;
             height: 100%;
             display: flex;
             justify-content: center;
@@ -78,6 +79,7 @@
           .inputValue {
             height: 100%;
             width: 100%;
+            flex: 1;
             padding: 0 10px;
             font-size: 16px;
             text-align: center;
@@ -137,6 +139,98 @@
         .sendBtn {
           @extend .btnBase;
           right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .editBox {
+    margin: 10rem 0 20rem 0;
+
+    .replyNameBox {
+      font-size: 14rem;
+    }
+
+    .flex {
+      .avatarBoxCol {
+        width: 45rem;
+
+        .avatarBox {
+          width: 40rem;
+          height: 40rem;
+          border-radius: 8rem;
+
+          .noAvatar {
+            font-size: 26rem;
+          }
+        }
+      }
+      .editInputBox {
+        width: calc(100% - 45rem);
+
+        .inputBox {
+          height: 32rem;
+
+          .inputInfo {
+            height: 26rem;
+            margin-right: 4rem;
+            border-radius: 6rem;
+
+            .inputKey {
+              width: 32rem;
+              font-size: 12rem;
+            }
+            .inputValue {
+              padding: 0 2rem;
+              font-size: 12rem;
+            }
+          }
+        }
+
+        .textareaBox {
+          height: 100rem;
+          padding: 2rem 8rem;
+          border-radius: 8rem;
+
+          .textarea {
+            font-size: 13rem;
+          }
+
+          .textarea::-webkit-scrollbar {
+            width: 6rem;
+          }
+          .textarea::-webkit-scrollbar-thumb {
+            border-radius: 3rem;
+          }
+        }
+
+        .commentBtns {
+          height: 32rem;
+
+          .cancelBtn {
+            font-size: 13rem;
+            width: 44rem;
+            height: 26rem;
+            border-radius: 6rem;
+            right: (44rem + 6rem) * 2;
+          }
+
+          .previewBtn {
+            font-size: 13rem;
+            width: 44rem;
+            height: 26rem;
+            border-radius: 6rem;
+            right: 44rem + 6rem;
+          }
+          .sendBtn {
+            font-size: 13rem;
+            width: 44rem;
+            height: 26rem;
+            border-radius: 6rem;
+            right: 0;
+          }
         }
       }
     }

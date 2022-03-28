@@ -21,3 +21,18 @@
     font-size: 28px;
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .box {
+    width: 100vw;
+
+    .title {
+      font-size: 40rem;
+      text-shadow: 4rem 4rem 10rem $footerBg;
+    }
+
+    .desc {
+      font-size: 22rem;
+    }
+  }
+}

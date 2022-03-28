@@ -8,6 +8,8 @@ $avatarBoxWidth: 80px;
 }
 
 .commentItem {
+  // 触发BFC
+  overflow: hidden;
   margin-bottom: 20px;
 
   .flex {
@@ -103,5 +105,76 @@ $avatarBoxWidth: 80px;
   .replyBox {
     padding: 14px;
     padding-top: 2px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .marginLeft {
+    margin-left: 45rem;
+  }
+
+  .commentItem {
+    margin-bottom: 20rem;
+
+    .flex {
+      .avatarBox {
+        width: 50rem;
+
+        .avatar {
+          width: 45rem;
+          height: 45rem;
+          border-radius: 8rem;
+        }
+      }
+
+      .replyBtn {
+        top: 4rem;
+        height: 16rem;
+        width: 16rem;
+        font-size: 16rem;
+        border-radius: 8rem;
+      }
+
+      .contentBox {
+        .usrInfo {
+          height: 24rem;
+
+          .name {
+            height: 24rem;
+            line-height: 24rem;
+            padding: 0 4rem;
+            font-size: 16rem;
+            margin-right: 4rem;
+          }
+
+          .flag {
+            height: 20rem;
+            line-height: 22rem;
+            font-size: 12rem;
+            padding: 0 4rem;
+            border-radius: 7rem;
+          }
+          .date {
+            margin-left: 10rem;
+            font-size: 14rem;
+          }
+        }
+
+        .content {
+          padding: 4rem 10rem;
+          border-radius: 8rem;
+          font-size: 16rem;
+
+          li {
+            margin-left: 20rem;
+          }
+        }
+      }
+    }
+
+    .replyBox {
+      padding: 4rem;
+      padding-top: 0;
+    }
   }
 }

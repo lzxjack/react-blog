@@ -33,3 +33,16 @@
     margin-right: 0;
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .footer {
+    font-weight: 400;
+    height: 70rem;
+    font-size: 14rem;
+    margin-top: 20rem;
+
+    .siteFrame {
+      display: none;
+    }
+  }
+}

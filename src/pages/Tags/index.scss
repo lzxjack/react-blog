@@ -1,7 +1,6 @@
 @import '../../styles/style.scss';
 
 .tagsBox {
-  min-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,5 +10,14 @@
     @extend .tagBase;
     font-size: 22px;
     margin: 6px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .tagsBox {
+    .tagItem {
+      font-size: 18rem;
+      margin: 6rem;
+    }
   }
 }

@@ -18,3 +18,18 @@
     @extend .hover;
   }
 }
+
+@media screen and (max-width: 1240px) {
+  .articleTags {
+    margin-bottom: 7rem;
+
+    .articleTag {
+      margin-right: 6rem;
+      height: 28rem;
+      line-height: 28rem;
+      padding: 0 8rem;
+      border-radius: 8rem;
+      font-size: 14rem;
+    }
+  }
+}

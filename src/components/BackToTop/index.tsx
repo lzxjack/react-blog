@@ -1,3 +1,5 @@
+import './index.custom.scss';
+
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
 import { BackTop } from 'antd';
 import React from 'react';
