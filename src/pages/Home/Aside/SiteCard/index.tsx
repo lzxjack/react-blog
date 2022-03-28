@@ -3,8 +3,8 @@ import React from 'react';
 
 import Card from '@/components/Card';
 import { DB } from '@/utils/apis/dbConfig';
-import { getOrderData } from '@/utils/apis/getOrderData';
-import { staleTime } from '@/utils/constant';
+import { getSiteCount } from '@/utils/apis/getSiteCount';
+import { siteCountStale } from '@/utils/constant';
 
 import s from './index.scss';
 import { useRunTime } from './useRunTime';
@@ -12,11 +12,10 @@ import { useRunTime } from './useRunTime';
 const SiteCard: React.FC = () => {
   const { runTime } = useRunTime();
 
-  const { data, loading } = useRequest(getOrderData, {
-    defaultParams: [{ dbName: DB.Count }],
+  const { data, loading } = useRequest(getSiteCount, {
     retryCount: 3,
     cacheKey: `SiteCard-${DB.Count}`,
-    staleTime
+    staleTime: siteCountStale
   });
 
   return (

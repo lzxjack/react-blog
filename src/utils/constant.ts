@@ -16,6 +16,9 @@ export const githubUrl = 'https://github.com/lzxjack';
 // CSDN地址
 export const csdnUrl = 'https://blog.csdn.net/Jack_lzx';
 
+// siteCount ID
+export const count_id = 'cd045e756100126d005169f014931c65';
+
 // 微信二维码地址
 export const weChatQRCode =
   'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210719213208.jpg';
@@ -52,6 +55,7 @@ export const time = '2020-12-16 14:00:00';
 
 // 数据缓存时间
 export const staleTime = 180000;
+export const siteCountStale = 300000;
 
 // 首页文章分页，每页数据
 export const homeSize = 8;
