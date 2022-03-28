@@ -4,13 +4,14 @@
 .imgsBox {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding-bottom: 20px !important;
 
   .ant-image {
     overflow: hidden;
     margin-bottom: $space;
     border-radius: 20px;
+    width: 48.91% !important;
     @extend .trans;
 
     img {
@@ -37,7 +38,6 @@
 
 @media screen and (max-width: 1240px) {
   .imgsBox {
-    justify-content: space-between;
     padding-bottom: 10rem !important;
 
     .ant-image {
