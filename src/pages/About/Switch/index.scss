@@ -1,6 +1,8 @@
 @import '../../../styles/base.scss';
 @import '../../../styles/style.scss';
 
+$switchWidth: 36px;
+
 .switch {
   height: 50px;
   display: flex;
@@ -10,15 +12,15 @@
   margin-bottom: $space;
 
   .box {
-    height: 36px;
-    width: 72px;
-    border-radius: 20px;
+    height: $switchWidth;
+    width: $switchWidth * 2;
+    border-radius: $switchWidth / 2;
     position: relative;
     background-color: $themeColor1;
 
     .btn {
-      height: 36px;
-      width: 36px;
+      height: $switchWidth;
+      width: $switchWidth;
       border-radius: 50%;
       position: absolute;
       top: 50%;
@@ -29,7 +31,7 @@
     }
 
     .isMe {
-      left: 34px;
+      left: $switchWidth;
     }
   }
   .box:hover .btn {
