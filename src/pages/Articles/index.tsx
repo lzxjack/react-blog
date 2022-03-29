@@ -2,7 +2,6 @@ import { useRequest, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import React from 'react';
 
-import ArtDetailLoading from '@/components/ArtDetailLoading';
 import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
@@ -54,7 +53,7 @@ const Articles: React.FC = () => {
         run={run}
         setIsReset={setIsReset}
       />
-      {loading ? <ArtDetailLoading /> : <ArtList articles={data?.articles.data} />}
+      <ArtList articles={data?.articles.data} loading={loading} />
       <MyPagination
         current={page}
         defaultPageSize={detailPostSize}

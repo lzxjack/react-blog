@@ -9,9 +9,10 @@ import s from './index.scss';
 
 interface Props {
   articles?: ArticleType[];
+  loading?: boolean;
 }
 
-const ArtList: React.FC<Props> = ({ articles }) => {
+const ArtList: React.FC<Props> = ({ articles, loading }) => {
   const navigate = useNavigate();
 
   return (
@@ -23,6 +24,7 @@ const ArtList: React.FC<Props> = ({ articles }) => {
             content={item.title}
             right={dayjs(item.date).format('YYYY-MM-DD')}
             onClick={() => navigate(`/post?title=${encodeURIComponent(item.titleEng)}`)}
+            loading={loading}
           />
         ))
       ) : (
