@@ -1,0 +1,119 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+$title-level-margin: 18px;
+
+.markdown-navigation.postNavBar {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 10px;
+  width: 300px;
+  user-select: none;
+  padding: 10px;
+  max-height: 700px;
+  overflow-y: auto;
+  margin: 10px;
+
+  .title-anchor {
+    padding: 4px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    word-break: break-all;
+    background-color: $themeColor1;
+    border-radius: 8px;
+    @extend .hover;
+  }
+  .title-anchor:last-child {
+    margin-bottom: 0;
+  }
+
+  .title-level3 {
+    margin-left: $title-level-margin * 1;
+  }
+
+  .title-level4 {
+    margin-left: $title-level-margin * 2;
+  }
+
+  .title-level5 {
+    margin-left: $title-level-margin * 3;
+  }
+
+  .active {
+    background-color: $hoverColor;
+  }
+}
+
+/* 设置滚动条的样式 */
+.markdown-navigation.postNavBar::-webkit-scrollbar {
+  width: 12px;
+}
+/* 滚动槽 */
+.markdown-navigation.postNavBar::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+/* 滚动条滑块 */
+.markdown-navigation.postNavBar::-webkit-scrollbar-thumb {
+  /* 副色2 */
+  background-color: $themeColor2;
+  border-radius: 6px;
+}
+.markdown-navigation.postNavBar::-webkit-scrollbar-thumb:hover {
+  background-color: $hoverColor;
+}
+
+.ant-drawer-header-close-only {
+  display: none;
+}
+
+.ant-drawer-content {
+  background-color: $themeColor;
+  color: $textColor;
+  font-family: 'dengxian';
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1240px) {
+  // 抽屉
+  .mobile-navBar-box {
+    .ant-drawer-content-wrapper {
+      width: 200rem !important;
+
+      .ant-drawer-body {
+        padding: 0;
+      }
+    }
+  }
+
+  // 目录
+  .markdown-navigation.postNavBar {
+    right: 10rem;
+    width: 180rem;
+    padding: 0;
+    max-height: 80vh;
+    margin: 0;
+
+    .title-anchor {
+      padding: 2rem 8rem;
+      margin-bottom: 10rem;
+      font-size: 16rem;
+      border-radius: 8rem;
+    }
+
+    .title-level3 {
+      margin-left: 6rem * 1;
+    }
+
+    .title-level4 {
+      margin-left: 6rem * 2;
+    }
+
+    .title-level5 {
+      margin-left: 6rem * 3;
+    }
+  }
+}

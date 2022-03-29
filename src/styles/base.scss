@@ -1,0 +1,44 @@
+// size
+$navHeight: 60px;
+$footerHeight: 120px;
+$centerWidth: 1200px;
+$asideWidth: 260px;
+$layoutWidth: 1000px;
+$topTitleHeight: 440px;
+$btnWidth: 70px;
+
+// 圆角
+$bigRadius: 20px;
+$midRadius: 12px;
+
+// 间距
+$space: 20px;
+
+// 不变的颜色
+$codeOther: #c9d1d9;
+// 按钮/字体高亮/hover
+$hoverColor: var(--hoverColor, rgb(98, 164, 218));
+
+// ---------黑色-----------
+// 主色
+$themeColor: var(--themeColor, rgb(12, 29, 27));
+// 副色1
+$themeColor1: var(--themeColor1, rgb(22, 54, 51));
+// 副色2
+$themeColor2: var(--themeColor2, rgb(39, 95, 89));
+// 字体色
+$textColor: var(--textColor, rgb(255, 255, 255));
+// 切换开关灰色
+$switchOff: var(--switchOff, rgb(77, 77, 77));
+// placeholder
+$tip: var(--tip, rgb(116, 116, 116));
+// App背景色
+$bodyColor: var(--bodyColor, rgb(0, 0, 0));
+// footer透明背景色
+$footerBg: var(--footerBg, rgba(0, 0, 0, 0.3));
+// 代码块背景
+$codeBg: var(--codeBg, rgb(37, 43, 48));
+// 稍微不明显的字体颜色（版权信息页）
+$textColor2: var(--textColor2, rgb(167, 167, 167));
+// 行内代码
+$inlineCode: var(--inlineCode, rgb(29, 71, 67));

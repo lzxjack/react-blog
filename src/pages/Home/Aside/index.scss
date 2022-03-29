@@ -1,0 +1,16 @@
+@import '../../../styles/base.scss';
+
+.aside {
+  width: $asideWidth;
+
+  .cardSticky {
+    position: sticky;
+    top: $navHeight + $space;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .aside {
+    display: none;
+  }
+}

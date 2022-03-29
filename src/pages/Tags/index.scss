@@ -1,0 +1,23 @@
+@import '../../styles/style.scss';
+
+.tagsBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .tagItem {
+    @extend .tagBase;
+    font-size: 22px;
+    margin: 6px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .tagsBox {
+    .tagItem {
+      font-size: 18rem;
+      margin: 6rem;
+    }
+  }
+}

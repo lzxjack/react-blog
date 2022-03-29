@@ -1,0 +1,59 @@
+@import './../../styles/base.scss';
+@import './../../styles/style.scss';
+
+$rightWidth: 112px;
+
+.displayBar {
+  display: flex;
+  background-color: $themeColor1;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  overflow: hidden;
+  font-size: 22px;
+  height: 60px;
+  user-select: none;
+  cursor: pointer;
+  @extend .hover;
+
+  .content {
+    width: calc(100% - #{$rightWidth});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .rightContent {
+    width: $rightWidth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .rightBar {
+      color: $textColor;
+      font-size: 18px;
+    }
+  }
+}
+
+.displayBar:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .displayBar {
+    border-radius: 10rem;
+    margin-bottom: 10rem;
+    padding: 0 10rem;
+    height: 40rem;
+
+    .content {
+      font-size: 17rem;
+      width: 100%;
+    }
+    .rightContent {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../../styles/base.scss';
+
+.msgPlaceHoldBase {
+  user-select: none;
+  color: $tip;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hasMag {
+  @extend .msgPlaceHoldBase;
+  height: 60px;
+}
+
+.noMag {
+  @extend .msgPlaceHoldBase;
+  height: 120px;
+}
+
+@media screen and (max-width: 1240px) {
+  .hasMag {
+    height: 40rem;
+    font-size: 14rem;
+  }
+
+  .noMag {
+    height: 60rem;
+    font-size: 14rem;
+  }
+}

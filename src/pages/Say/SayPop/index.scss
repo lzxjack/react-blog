@@ -1,0 +1,94 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.sayItem {
+  display: flex;
+  margin-bottom: $space;
+
+  .avatarBox {
+    width: 60px;
+    height: 60px;
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      -webkit-user-drag: none;
+    }
+  }
+
+  .contentBox {
+    margin-left: 20px;
+    flex: 1;
+
+    .content {
+      border-radius: 14px;
+      word-break: break-all;
+      padding: 20px 20px 44px;
+      position: relative;
+      background-color: $themeColor1;
+      user-select: text;
+      @extend .trans;
+    }
+    .content:hover {
+      transform: scale(1.02);
+    }
+
+    .date {
+      padding: 0 10px;
+      border-radius: 10px;
+      color: $textColor;
+      height: 30px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      user-select: none;
+      background-color: $themeColor2;
+      @extend .hover;
+    }
+  }
+}
+
+.sayItem:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .sayItem {
+    margin-bottom: 12rem;
+
+    .avatarBox {
+      width: 45rem;
+      height: 45rem;
+
+      .avatar {
+        width: 45rem;
+        height: 45rem;
+        border-radius: 8rem;
+      }
+    }
+
+    .contentBox {
+      margin-left: 5rem;
+
+      .content {
+        border-radius: 10rem;
+        padding: 10rem 10rem 32rem;
+        font-size: 16rem;
+      }
+
+      .date {
+        padding: 0 6rem;
+        border-radius: 6rem;
+        height: 24rem;
+        right: 5rem;
+        bottom: 5rem;
+        font-size: 14rem;
+      }
+    }
+  }
+}

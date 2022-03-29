@@ -1,0 +1,55 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.imgsBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 20px !important;
+
+  .ant-image {
+    overflow: hidden;
+    margin-bottom: $space;
+    border-radius: 20px;
+    width: 48.91% !important;
+    @extend .trans;
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+  }
+
+  .ant-image .ant-image:hover {
+    transform: scale(1.04);
+  }
+}
+
+.ant-image-preview-switch-left svg,
+.ant-image-preview-switch-right svg {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.ant-scrolling-effect {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 1240px) {
+  .imgsBox {
+    padding-bottom: 10rem !important;
+
+    .ant-image {
+      margin-bottom: 10rem;
+      border-radius: 10rem;
+      width: 48.81% !important;
+    }
+  }
+
+  .ant-image-preview-switch-left svg,
+  .ant-image-preview-switch-right svg {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
+}

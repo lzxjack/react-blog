@@ -1,0 +1,105 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.imgItem {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: $space + 10px;
+  width: 47.83%;
+  height: 330px;
+  color: #fff;
+  background-size: cover;
+  border-radius: 20px;
+  user-select: none;
+  @extend .trans;
+  cursor: pointer;
+
+  .title {
+    box-sizing: content-box;
+    position: relative;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto;
+    height: 90px;
+    width: 330px;
+    @extend .trans;
+    z-index: 9;
+    border-bottom: 4px solid transparent;
+
+    span {
+      position: absolute;
+      bottom: 10px;
+      z-index: 9;
+    }
+  }
+
+  .descr {
+    position: absolute;
+    z-index: 9;
+    left: 40px;
+    top: 100px;
+    width: 320px;
+    font-size: 24px;
+    @extend .trans;
+    word-wrap: break-word;
+    opacity: 0;
+  }
+
+  .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    @extend .trans;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+.imgItem:hover {
+  transform: scale(1.04);
+}
+.imgItem:hover .title {
+  border-bottom: 4px solid #fff;
+}
+.imgItem:hover .descr {
+  opacity: 1;
+}
+.imgItem:hover .mask {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.imgItem:nth-last-child(1),
+.imgItem:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .imgItem {
+    margin-bottom: 10rem;
+    width: 48.81%;
+    height: 160rem;
+    border-radius: 10rem;
+
+    .title {
+      font-size: 18rem;
+      height: 45rem;
+      width: 80%;
+      border-bottom: 2rem solid transparent;
+
+      span {
+        bottom: 2rem;
+      }
+    }
+
+    .descr {
+      left: 20rem;
+      top: 50rem;
+      width: 80%;
+      font-size: 14rem;
+      line-height: 24rem;
+    }
+  }
+
+  .imgItem:hover .title {
+    border-bottom: 2rem solid #fff;
+  }
+}

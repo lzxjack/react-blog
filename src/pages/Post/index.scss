@@ -1,0 +1,11 @@
+@import '../../styles/base.scss';
+
+.mb {
+  margin-bottom: 3 * $space;
+}
+
+@media screen and (max-width: 1540px) {
+  .navBar {
+    display: none;
+  }
+}

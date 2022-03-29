@@ -1,0 +1,128 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.copyrightBox {
+  background-color: $themeColor1;
+  position: relative;
+  border-radius: 20px;
+  padding: 14px;
+  overflow: hidden;
+  color: $textColor2;
+
+  .copyrightIcon {
+    position: absolute;
+    right: 40px;
+    width: 128px;
+    height: 128px;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    path {
+      fill: $textColor2;
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .urlBox {
+    font-size: 16px;
+    display: flex;
+
+    .url {
+      height: 24px;
+      line-height: 24px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-right: 6px;
+    }
+
+    .copyBtn {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      cursor: pointer;
+      @extend .hover;
+
+      .copyIcon {
+        width: 16px;
+        height: 16px;
+
+        path {
+          fill: $textColor2;
+          @extend .trans;
+        }
+      }
+    }
+  }
+
+  .text {
+    font-size: 16px;
+
+    .copyrightName {
+      color: $textColor2;
+      display: inline-block;
+      padding: 0 4px;
+      height: 24px;
+      font-weight: 700;
+      line-height: 24px;
+      border-radius: 8px;
+      @extend .hover;
+    }
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .copyrightBox {
+    border-radius: 12rem;
+    padding: 4rem 8rem;
+
+    .copyrightIcon {
+      display: none;
+    }
+
+    .title {
+      font-size: 16rem;
+    }
+
+    .urlBox {
+      font-size: 16rem;
+
+      .url {
+        height: 24rem;
+        line-height: 24rem;
+        margin-right: 3rem;
+      }
+
+      .copyBtn {
+        width: 24rem;
+        height: 24rem;
+        border-radius: 6rem;
+
+        .copyIcon {
+          width: 16rem;
+          height: 16rem;
+        }
+      }
+    }
+
+    .text {
+      font-size: 14rem;
+
+      .copyrightName {
+        padding: 0 4rem;
+        height: 16rem;
+        line-height: 16rem;
+        border-radius: 4rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

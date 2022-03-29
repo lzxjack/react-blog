@@ -1,0 +1,47 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.searchBox {
+  display: flex;
+  margin-bottom: $space;
+
+  .search {
+    height: 50px;
+    border-radius: 14px;
+    background-color: $themeColor1;
+    flex: 1;
+    text-align: center;
+    padding: 0 $space;
+  }
+  .searchBtn {
+    height: 50px;
+    width: 50px;
+    border-radius: 14px;
+    background-color: $themeColor1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    margin-left: $space;
+    @extend .hover;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .searchBox {
+    margin-bottom: 10rem;
+
+    .search {
+      height: 40rem;
+      border-radius: 10rem;
+      font-size: 18rem;
+      padding: 0 10rem;
+    }
+    .searchBtn {
+      height: 40rem;
+      width: 40rem;
+      border-radius: 10rem;
+      margin-left: 6rem;
+    }
+  }
+}

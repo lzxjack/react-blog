@@ -1,0 +1,40 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.classBar {
+  position: relative;
+  background-color: $themeColor1;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  @extend .hover;
+  cursor: pointer;
+
+  .classNum {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .classBar {
+    height: 40rem;
+    border-radius: 10rem;
+    font-size: 18rem;
+
+    .classNum {
+      right: 6rem;
+      width: 28rem;
+      font-size: 16rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../styles//base.scss';
+@import '../../styles//style.scss';
+
+.backTop {
+  height: 50px;
+  width: 50px;
+  border-radius: 14px;
+  color: $textColor;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $themeColor1;
+  @extend .hover;
+}

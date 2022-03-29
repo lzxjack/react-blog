@@ -1,0 +1,14 @@
+@import '../../../styles/base.scss';
+
+.section {
+  width: calc(100% - #{$asideWidth});
+  padding-right: $space;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1240px) {
+  .section {
+    width: 100vw;
+    padding: 0 10rem;
+  }
+}

@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'FiraCode';
+  font-display: auto;
+  src: url(./fonts/FiraCode-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+.AppBox {
+  font-family: 'dengxian';
+  background-position: center 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg0 {
+  background-image: url(./imgs/bg0.webp);
+}
+.bg1 {
+  background-image: url(./imgs/bg1.webp);
+}
+.bg2 {
+  background-image: url(./imgs/bg2.webp);
+}

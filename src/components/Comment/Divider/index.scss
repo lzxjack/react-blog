@@ -1,0 +1,15 @@
+.divider {
+  margin: 24px 0;
+  height: 3px;
+  background-image: linear-gradient(to right, rgb(134, 134, 134) 50%, transparent 50%);
+  background-size: 28px 3px;
+  background-repeat: repeat-x;
+}
+
+@media screen and (max-width: 1240px) {
+  .divider {
+    margin: 14rem 0;
+    height: 2rem;
+    background-size: 28rem 2rem;
+  }
+}

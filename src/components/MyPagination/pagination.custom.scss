@@ -1,0 +1,84 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+#myPagination {
+  .ant-pagination {
+    color: $textColor;
+    height: 100%;
+  }
+
+  .ant-pagination .ant-pagination-prev,
+  .ant-pagination .ant-pagination-next {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ant-pagination .ant-pagination-item-link,
+  .ant-pagination .ant-pagination-item,
+  .ant-pagination .ant-pagination-jump-prev,
+  .ant-pagination .ant-pagination-jump-next {
+    background-color: $themeColor1;
+    border: none;
+    border-radius: $midRadius;
+    cursor: default;
+    color: $textColor;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    @extend .trans;
+  }
+
+  .ant-pagination .ant-pagination-item a {
+    @extend .trans;
+    cursor: default;
+    color: $textColor;
+  }
+  .ant-pagination .ant-pagination-item a:hover,
+  .ant-pagination-item-active a,
+  .ant-pagination-item-ellipsis {
+    color: $textColor !important;
+  }
+
+  .ant-pagination .ant-pagination-item-link:hover,
+  .ant-pagination .ant-pagination-item:hover,
+  .ant-pagination-item-active:hover,
+  .ant-pagination .ant-pagination-jump-prev:hover,
+  .ant-pagination .ant-pagination-jump-next:hover,
+  .ant-pagination-item-active {
+    background-color: $hoverColor !important;
+    color: $textColor !important;
+  }
+
+  .ant-pagination-item-link-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: $textColor;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  #myPagination {
+    .ant-pagination .ant-pagination-prev,
+    .ant-pagination .ant-pagination-next {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    .ant-pagination .ant-pagination-item-link,
+    .ant-pagination .ant-pagination-item,
+    .ant-pagination .ant-pagination-jump-prev,
+    .ant-pagination .ant-pagination-jump-next {
+      width: 30rem;
+      height: 30rem;
+      font-size: 14rem;
+      line-height: 30rem;
+      border-radius: 8rem;
+    }
+
+    .ant-pagination-item-link-icon svg {
+      width: 14rem;
+      height: 14rem;
+    }
+  }
+}

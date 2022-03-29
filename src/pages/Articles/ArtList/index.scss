@@ -1,0 +1,17 @@
+@import '../../../styles/base.scss';
+
+.none {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $tip;
+  user-select: none;
+}
+
+@media screen and (max-width: 1240px) {
+  .none {
+    height: 220rem;
+    font-size: 16rem;
+  }
+}

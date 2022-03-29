@@ -1,0 +1,13 @@
+@import '../../Gallery/ImgCard/index.scss';
+
+.showItem {
+  @extend .imgItem;
+
+  .link {
+    color: #fff;
+  }
+
+  .link:hover {
+    color: #fff;
+  }
+}

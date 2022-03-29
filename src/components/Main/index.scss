@@ -1,0 +1,20 @@
+@import '../../styles/base.scss';
+
+.main {
+  min-height: calc(100vh - #{$footerHeight + 2 * $space});
+
+  .center {
+    width: $centerWidth;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .main {
+    min-height: calc(100vh - 70rem - 20rem);
+
+    .center {
+      width: 100vw;
+    }
+  }
+}

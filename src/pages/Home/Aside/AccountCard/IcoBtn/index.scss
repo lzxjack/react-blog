@@ -1,0 +1,27 @@
+@import '../../../../../styles/base.scss';
+@import '../../../../../styles/style.scss';
+
+.socialBtn {
+  color: $textColor;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $midRadius;
+  @extend .hover;
+}
+.socialBtn:hover {
+  color: $textColor;
+}
+
+.card {
+  border-radius: $bigRadius;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 0 14px $footerBg;
+
+  span {
+    display: none;
+  }
+}

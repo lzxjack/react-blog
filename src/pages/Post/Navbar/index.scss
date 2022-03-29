@@ -1,0 +1,64 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+$hoverBarSize: 50px;
+
+.hoverBar {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  z-index: 99;
+  transform: translate(0, -50%);
+  background-color: $themeColor1;
+  font-size: 24px;
+  width: $hoverBarSize;
+  height: $hoverBarSize;
+  border-radius: 14px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  @extend .trans;
+}
+
+.hoverBar:hover {
+  background-color: $hoverColor !important;
+}
+
+.drawer {
+  display: none;
+}
+
+@media screen and (max-width: 1540px) {
+  .hoverBar {
+    display: flex;
+  }
+
+  .navBar {
+    display: none;
+  }
+
+  .drawer {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .hoverBar {
+    width: 50rem;
+    height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rem;
+    color: $textColor;
+    position: fixed;
+    top: 100rem;
+    right: 0;
+    background-color: transparent;
+  }
+
+  .hoverBar:hover {
+    background-color: transparent !important;
+  }
+}

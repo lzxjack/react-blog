@@ -1,0 +1,48 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.footer {
+  height: $footerHeight;
+  background-color: $footerBg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: $textColor;
+  font-size: 16px;
+  margin-top: 2 * $space;
+  font-weight: 700;
+
+  .text {
+    color: $textColor;
+    @extend .trans;
+  }
+  .text:hover {
+    color: $hoverColor;
+  }
+
+  .siteFrame {
+    background-color: $themeColor;
+    padding: 2px 8px;
+    margin-right: 10px;
+    border-radius: 6px;
+    user-select: none;
+    @extend .hover;
+  }
+  .siteFrame:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .footer {
+    font-weight: 400;
+    height: 70rem;
+    font-size: 14rem;
+    margin-top: 20rem;
+
+    .siteFrame {
+      display: none;
+    }
+  }
+}

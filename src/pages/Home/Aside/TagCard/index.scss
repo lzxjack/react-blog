@@ -1,0 +1,10 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.card {
+  padding: 10px;
+}
+
+.tag {
+  @extend .tagBase;
+}

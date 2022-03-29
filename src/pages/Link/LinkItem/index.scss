@@ -1,0 +1,99 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.item {
+  width: 300px;
+  height: 90px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: $space;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  background-color: $themeColor1;
+  @extend .hover;
+
+  .link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+    }
+    .right {
+      width: calc(100% - 70px);
+
+      .title {
+        padding: 0 10px;
+        font-weight: 700;
+        height: 28px;
+        color: $hoverColor;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .descr {
+        padding-left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        line-height: 20px;
+        color: $textColor;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.item:hover .title {
+  color: $textColor;
+}
+
+.item:nth-last-child(1),
+.item:nth-last-child(2),
+.item:nth-last-child(3) {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1240px) {
+  .item {
+    width: 48.81%;
+    height: 60rem;
+    border-radius: 10rem;
+    padding: 5rem;
+    margin-bottom: 10rem;
+
+    .link {
+      .avatar {
+        width: 50rem;
+        height: 50rem;
+        border-radius: 8rem;
+      }
+      .right {
+        width: calc(100% - 50rem);
+
+        .title {
+          padding: 0 10rem;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 16rem;
+          line-height: 16rem;
+        }
+
+        .descr {
+          display: none;
+        }
+      }
+    }
+  }
+}

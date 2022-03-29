@@ -1,0 +1,54 @@
+@import '../../../styles/base.scss';
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+
+  div {
+    margin-bottom: 10px;
+  }
+}
+
+.siteLink {
+  .link {
+    font-size: 26px;
+    font-weight: 700;
+    color: $textColor2;
+  }
+
+  .value {
+    padding: 0 6px;
+    margin-left: 6px;
+  }
+}
+
+.hoverName {
+  color: $hoverColor;
+}
+
+@media screen and (max-width: 1240px) {
+  .info {
+    font-size: 22rem;
+
+    div {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .siteLink {
+    .link {
+      font-size: 18rem;
+    }
+    .value {
+      padding: 0 4rem;
+      margin-left: 4rem;
+    }
+    span {
+      font-size: 16rem;
+    }
+  }
+}
