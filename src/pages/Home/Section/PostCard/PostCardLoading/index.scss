@@ -1,0 +1,28 @@
+@import '../../../../../styles/base.scss';
+
+.postCardLoading {
+  height: 50px + 80px +80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .bar {
+    width: 85%;
+    height: 20px;
+    background-color: $themeColor1;
+    border-radius: 6px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .postCardLoading {
+    height: 50rem+ 72rem;
+
+    .bar {
+      width: 85%;
+      height: 14rem;
+      border-radius: 4rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../../styles/base.scss';
+
+.displayBarLoading {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bar {
+    height: 18px;
+    width: 80%;
+    background-color: $themeColor2;
+    border-radius: 6px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .displayBarLoading {
+    .bar {
+      height: 14rem;
+      border-radius: 5rem;
+    }
+  }
+}

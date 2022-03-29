@@ -11,7 +11,6 @@ import { homeSize, staleTime } from '@/utils/constant';
 
 import s from './index.scss';
 import PostCard from './PostCard';
-import PostLoading from './PostLoading';
 
 interface theAtc {
   classes: string;
@@ -52,20 +51,17 @@ const Section: React.FC<Props> = ({ artSum }) => {
 
   return (
     <section className={s.section}>
-      {loading ? (
-        <PostLoading />
-      ) : (
-        data?.data.map(({ _id, title, content, date, tags, titleEng }: theAtc) => (
-          <PostCard
-            key={_id}
-            title={title}
-            content={content}
-            date={date}
-            tags={tags}
-            onClick={() => navigate(`/post?title=${encodeURIComponent(titleEng)}`)}
-          />
-        ))
-      )}
+      {data?.data.map(({ _id, title, content, date, tags, titleEng }: theAtc) => (
+        <PostCard
+          key={_id}
+          title={title}
+          content={content}
+          date={date}
+          tags={tags}
+          loading={loading}
+          onClick={() => navigate(`/post?title=${encodeURIComponent(titleEng)}`)}
+        />
+      ))}
       <MyPagination
         current={page}
         defaultPageSize={homeSize}
