@@ -34,6 +34,7 @@
         color: $hoverColor;
         text-align: center;
         overflow: hidden;
+        @extend .trans;
       }
 
       .descr {
@@ -54,7 +55,7 @@
 }
 
 .item:hover .title {
-  color: $textColor;
+  color: #fff !important;
 }
 
 .item:nth-last-child(1),
