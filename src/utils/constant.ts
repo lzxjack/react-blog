@@ -21,12 +21,13 @@ export const count_id = 'cd045e756100126d005169f014931c65';
 
 // 微信二维码地址
 export const weChatQRCode =
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210719213208.jpg';
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291842734.webp';
 // QQ二维码地址
-export const QQ_QRCode = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210719214515.jpg';
+export const QQ_QRCode =
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291842377.webp';
 
 // 透明头像
-export const cardUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210718205847.PNG';
+export const cardUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291841073.webp';
 
 // 博客运行起始日
 export const time = '2020-12-16 14:00:00';
@@ -73,16 +74,16 @@ export const QQ = '965555169';
 
 // 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
 export const defaultCommentAvatarArr = [
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221909.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221910.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221911.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221912.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221913.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221914.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221915.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221916.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221917.jpg',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20210826221918.jpg'
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919101.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919102.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919103.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919104.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919105.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919106.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919107.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919108.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919109.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919110.webp'
 ];
 
 export const avatarArrLen = defaultCommentAvatarArr.length;

@@ -9,45 +9,50 @@ import { emojiFood, emojiNature, emojiPeople, emojiSymbol } from '@/utils/consta
 import EmojiItem from './EmojiItem';
 import s from './index.scss';
 
+interface EmojiType {
+  className: string;
+  emojiStr: string[];
+  show: string;
+}
+
 const Emoji: React.FC = () => {
+  const emojiData: EmojiType[] = [
+    {
+      className: '',
+      emojiStr: emojiPeople,
+      show: '😜'
+    },
+    {
+      className: s.emoji2,
+      emojiStr: emojiNature,
+      show: '✉️'
+    },
+    {
+      className: s.emoji3,
+      emojiStr: emojiSymbol,
+      show: '🆗'
+    },
+    {
+      className: s.emoji4,
+      emojiStr: emojiFood,
+      show: '🍎'
+    }
+  ];
+
   return (
     <>
-      <Popover
-        className={classNames(s.emojiBtn)}
-        overlayClassName={s.emojiContent}
-        placement='bottom'
-        content={<EmojiItem emojiStr={emojiPeople} />}
-        trigger='click'
-      >
-        <div>😜</div>
-      </Popover>
-      <Popover
-        className={classNames(s.emojiBtn, s.emoji2)}
-        overlayClassName={s.emojiContent}
-        placement='bottom'
-        content={<EmojiItem emojiStr={emojiNature} />}
-        trigger='click'
-      >
-        <div>✉️</div>
-      </Popover>
-      <Popover
-        className={classNames(s.emojiBtn, s.emoji3)}
-        overlayClassName={s.emojiContent}
-        placement='bottom'
-        content={<EmojiItem emojiStr={emojiSymbol} />}
-        trigger='click'
-      >
-        <div>🆗</div>
-      </Popover>
-      <Popover
-        className={classNames(s.emojiBtn, s.emoji4)}
-        overlayClassName={s.emojiContent}
-        placement='bottom'
-        content={<EmojiItem emojiStr={emojiFood} />}
-        trigger='click'
-      >
-        <div>🍎</div>
-      </Popover>
+      {emojiData.map((item, index) => (
+        <Popover
+          key={index}
+          className={classNames(s.emojiBtn, item.className)}
+          overlayClassName={s.emojiContent}
+          placement='bottom'
+          content={<EmojiItem emojiStr={item.emojiStr} />}
+          trigger='click'
+        >
+          <div>{item.show}</div>
+        </Popover>
+      ))}
     </>
   );
 };
