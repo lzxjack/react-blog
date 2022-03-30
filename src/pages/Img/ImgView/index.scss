@@ -1,0 +1,32 @@
+.view {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+
+  .img {
+    height: 100%;
+  }
+}
+
+.show {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 1240px) {
+  .view {
+    .img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

@@ -2,11 +2,10 @@
 @import '../../../styles/style.scss';
 
 .imgItem {
-  margin-bottom: $space + 10px;
   width: 47.83%;
-  height: 330px;
-  background-size: cover;
   border-radius: 20px;
+  margin-bottom: $space + 10px;
+  background-size: cover;
   @extend .trans;
   cursor: pointer;
 }
@@ -22,9 +21,8 @@
 
 @media screen and (max-width: 1240px) {
   .imgItem {
-    margin-bottom: 10rem;
     width: 48.81%;
-    height: 160rem;
+    margin-bottom: 10rem;
     border-radius: 10rem;
   }
 }
