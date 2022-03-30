@@ -15,9 +15,9 @@ const LinkItem: React.FC<Props> = ({ link, avatar, name, descr }) => {
   const { imgRef, imgUrl } = useLazyImg(avatar!);
 
   return (
-    <div className={s.item} ref={imgRef}>
+    <div className={s.item}>
       <a href={link} rel='noreferrer' target='_blank' className={s.link}>
-        <img src={imgUrl} alt='avatar' className={s.avatar} />
+        <img ref={imgRef} src={imgUrl} className={s.avatar} />
         <div className={s.right}>
           <div className={s.title}>{name}</div>
           <div className={s.descr}>{descr}</div>

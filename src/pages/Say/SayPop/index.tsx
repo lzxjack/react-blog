@@ -13,7 +13,7 @@ interface Props {
 const SayPop: React.FC<Props> = ({ content, date }) => (
   <div className={s.sayItem}>
     <div className={s.avatarBox}>
-      <img src={myAvatar} alt='avatar' className={s.avatar} />
+      <img src={myAvatar} className={s.avatar} />
     </div>
 
     <div className={s.contentBox}>

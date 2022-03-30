@@ -3,9 +3,11 @@
 
 .imgItem {
   width: 47.83%;
+  height: 360px;
   border-radius: 20px;
   margin-bottom: $space + 10px;
   background-size: cover;
+  background-position: 50% 50%;
   @extend .trans;
   cursor: pointer;
 }
@@ -22,6 +24,7 @@
 @media screen and (max-width: 1240px) {
   .imgItem {
     width: 48.81%;
+    height: 160rem;
     margin-bottom: 10rem;
     border-radius: 10rem;
   }

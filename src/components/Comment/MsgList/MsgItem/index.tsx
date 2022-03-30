@@ -53,7 +53,7 @@ const MsgItem: React.FC<Props> = ({
     >
       <div className={s.flex}>
         <div className={s.avatarBox}>
-          <img ref={imgRef} src={imgUrl} alt='avatar' className={s.avatar} />
+          <img ref={imgRef} src={imgUrl} className={s.avatar} />
         </div>
         {!isReply && (
           <div

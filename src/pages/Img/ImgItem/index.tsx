@@ -12,7 +12,14 @@ interface Props {
 const ImgItem: React.FC<Props> = ({ url, onClick }) => {
   const { imgRef, imgUrl } = useLazyImg(url!);
 
-  return <img ref={imgRef} className={s.imgItem} src={imgUrl} onClick={onClick!} />;
+  return (
+    <div
+      ref={imgRef}
+      className={s.imgItem}
+      style={{ backgroundImage: `url(${imgUrl})` }}
+      onClick={onClick!}
+    />
+  );
 };
 
 export default ImgItem;

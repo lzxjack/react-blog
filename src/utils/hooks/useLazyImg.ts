@@ -3,14 +3,17 @@ import { useEffect, useRef } from 'react';
 
 export const useLazyImg = (avatar: string) => {
   const imgRef = useRef(null);
-  const [inViewport] = useInViewport(imgRef);
+  // eslint-disable-next-line no-unused-vars
+  const [_, ratio] = useInViewport(imgRef, {
+    threshold: [1]
+  });
 
   const [imgUrl, setImgUrl] = useSafeState('');
 
   useEffect(() => {
-    if (!inViewport) return;
+    if (ratio !== 1) return;
     setImgUrl(avatar);
-  }, [inViewport]);
+  }, [ratio]);
 
   return { imgRef, imgUrl };
 };
