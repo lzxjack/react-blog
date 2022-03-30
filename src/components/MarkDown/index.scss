@@ -2,17 +2,40 @@
 @import '../../styles/style.scss';
 
 .marked {
-  h1,
   h2,
   h3,
   h4,
-  h5,
-  h6 {
+  h5 {
     margin-top: 0;
     margin-bottom: 15px;
     color: $textColor;
     font-weight: 700;
   }
+  h5 {
+    font-size: 22px;
+  }
+  h4 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h2:before {
+    content: '✒️';
+  }
+  h3:before {
+    content: '✏️';
+  }
+  h4:before {
+    content: '📌';
+  }
+  h5:before {
+    content: '🏷️';
+  }
+
   p {
     margin-bottom: 20px;
   }
@@ -80,18 +103,21 @@
     h2,
     h3,
     h4,
-    h5,
-    h6 {
+    h5 {
       margin-bottom: 8rem;
     }
-    h2 {
-      font-size: 24rem;
-    }
-    h3 {
-      font-size: 22rem;
+
+    h5 {
+      font-size: 20rem;
     }
     h4 {
-      font-size: 20rem;
+      font-size: 22rem;
+    }
+    h3 {
+      font-size: 24rem;
+    }
+    h2 {
+      font-size: 26rem;
     }
 
     p {
