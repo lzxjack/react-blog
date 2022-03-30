@@ -9,6 +9,7 @@ import React from 'react';
 
 import MarkDown from '@/components/MarkDown';
 import { myEmail } from '@/utils/constant';
+import { useLazyImg } from '@/utils/hooks/useLazyImg';
 
 import EditBox from '../../EditBox';
 import s from './index.scss';
@@ -42,6 +43,7 @@ const MsgItem: React.FC<Props> = ({
   title
 }) => {
   const [showReply, setShowReply] = useSafeState(false);
+  const { imgRef, imgUrl } = useLazyImg(avatar!);
 
   return (
     <div
@@ -51,7 +53,7 @@ const MsgItem: React.FC<Props> = ({
     >
       <div className={s.flex}>
         <div className={s.avatarBox}>
-          <img src={avatar} alt='avatar' className={s.avatar} />
+          <img ref={imgRef} src={imgUrl} alt='avatar' className={s.avatar} />
         </div>
         {!isReply && (
           <div
