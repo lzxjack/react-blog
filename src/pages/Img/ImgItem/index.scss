@@ -1,0 +1,30 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.imgItem {
+  margin-bottom: $space + 10px;
+  width: 47.83%;
+  height: 330px;
+  background-size: cover;
+  border-radius: 20px;
+  @extend .trans;
+  cursor: pointer;
+}
+
+.imgItem:nth-last-child(1),
+.imgItem:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+.imgItem:hover {
+  transform: scale(1.04);
+}
+
+@media screen and (max-width: 1240px) {
+  .imgItem {
+    margin-bottom: 10rem;
+    width: 48.81%;
+    height: 160rem;
+    border-radius: 10rem;
+  }
+}
