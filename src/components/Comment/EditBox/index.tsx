@@ -25,7 +25,7 @@ import {
   avatarArrLen,
   defaultCommentAvatarArr,
   emailApi,
-  myAvatar,
+  myAvatar70,
   myEmail,
   myLink,
   myName,
@@ -187,7 +187,7 @@ const EditBox: React.FC<Props> = ({
       setName?.(myName);
       setEmail?.(myEmail);
       setLink?.(myLink);
-      setAvatar?.(myAvatar);
+      setAvatar?.(myAvatar70);
       return;
     }
     localName && localName !== myName && setName?.(localName);
@@ -209,7 +209,7 @@ const EditBox: React.FC<Props> = ({
       return;
     }
     if (regQQ.test(name!)) {
-      const avatarUrl = `https://q1.qlogo.cn/g?b=qq&nk=${name}&s=640`;
+      const avatarUrl = `https://q1.qlogo.cn/g?b=qq&nk=${name}&s=100`;
       const QQEmail = `${name}@qq.com`;
       setEmail?.(QQEmail);
       setAvatar?.(avatarUrl);

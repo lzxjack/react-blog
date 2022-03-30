@@ -70,24 +70,28 @@ export const detailPostSize = 10;
 // 个人信息
 export const myName = '飞鸟';
 export const myLink = 'https://lzxjack.top';
-export const myAvatar = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/20201204121004.jpg';
+export const myAvatar =
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302154224.webp';
 export const myDescr = '一只平凡的鸟罢了。';
 export const myEmail = '965555169@qq.com';
 export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
 export const QQ = '965555169';
 
+export const myAvatar70 =
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302156259.webp';
+
 // 默认头像集合（若用户没获取QQ头像，则随机显示此数组中的头像）
 export const defaultCommentAvatarArr = [
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919101.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919102.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919103.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919104.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919105.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919106.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919107.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919108.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919109.webp',
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291919110.webp'
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148474.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148475.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148476.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148477.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148478.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148479.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148480.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148481.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148482.webp',
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302148483.webp'
 ];
 
 export const avatarArrLen = defaultCommentAvatarArr.length;

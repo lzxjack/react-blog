@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { useRef } from 'react';
 
 import { authLogin } from '@/utils/apis/authLogin';
-import { myAvatar, myEmail, myLink, myName } from '@/utils/constant';
+import { myAvatar70, myEmail, myLink, myName } from '@/utils/constant';
 
 import s from './index.scss';
 
@@ -42,7 +42,7 @@ const AdminBox: React.FC<Props> = ({
       setName?.(myName);
       setEmail?.(myEmail);
       setLink?.(myLink);
-      setAvatar?.(myAvatar);
+      setAvatar?.(myAvatar70);
       hideAdmin();
     } else {
       message.error('登陆失败，请重试！');
