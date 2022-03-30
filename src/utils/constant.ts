@@ -29,6 +29,10 @@ export const QQ_QRCode =
 // 透明头像
 export const cardUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291841073.webp';
 
+// loading
+export const smallLoadingUrl =
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302022741.webp';
+
 // 博客运行起始日
 export const time = '2020-12-16 14:00:00';
 

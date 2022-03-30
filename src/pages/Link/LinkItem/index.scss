@@ -19,11 +19,27 @@
     height: 100%;
     display: flex;
 
-    .avatar {
+    .left {
       width: 70px;
       height: 70px;
       border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $themeColor;
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading {
+        width: 60%;
+        height: 60%;
+      }
     }
+
     .right {
       width: calc(100% - 70px);
 

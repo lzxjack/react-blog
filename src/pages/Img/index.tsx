@@ -1,14 +1,15 @@
-import './index.custom.scss';
-
 import useUrlState from '@ahooksjs/use-url-state';
-import { useRequest } from 'ahooks';
-import { Image } from 'antd';
+import { useRequest, useSafeState } from 'ahooks';
 import React from 'react';
 
 import Layout from '@/components/Layout';
 import { DB } from '@/utils/apis/dbConfig';
 import { getWhereData } from '@/utils/apis/getWhereData';
 import { staleTime } from '@/utils/constant';
+
+import ImgItem from './ImgItem';
+import ImgView from './ImgView';
+import s from './index.scss';
 
 const Img: React.FC = () => {
   const [query] = useUrlState();
@@ -19,13 +20,22 @@ const Img: React.FC = () => {
     staleTime
   });
 
+  const [viewUrl, setViewUrl] = useSafeState('');
+  const [isViewShow, setIsViewShow] = useSafeState(false);
+
   return (
-    <Layout title={query.title} className='imgsBox' loading={loading}>
-      <Image.PreviewGroup>
-        {data?.data[0].pics.map((url: string, index: number) => (
-          <Image width={360} src={url} key={index} loading='lazy' alt='img' />
-        ))}
-      </Image.PreviewGroup>
+    <Layout title={query.title} className={s.imgBox} loading={loading}>
+      <ImgView viewUrl={viewUrl} isViewShow={isViewShow} setIsViewShow={setIsViewShow} />
+      {data?.data[0].pics.map((url: string, index: number) => (
+        <ImgItem
+          key={index}
+          url={url}
+          onClick={() => {
+            setViewUrl(url);
+            setIsViewShow(true);
+          }}
+        />
+      ))}
     </Layout>
   );
 };

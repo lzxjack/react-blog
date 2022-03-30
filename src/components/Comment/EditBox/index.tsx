@@ -309,7 +309,7 @@ const EditBox: React.FC<Props> = ({
         <div className={s.avatarBoxCol}>
           <div className={s.avatarBox}>
             {avatar ? (
-              <img src={avatar} alt='avatar' className={s.editAvatar} />
+              <img src={avatar} className={s.editAvatar} />
             ) : (
               <UserOutlined className={s.noAvatar} />
             )}

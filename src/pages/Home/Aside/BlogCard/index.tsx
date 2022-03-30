@@ -18,7 +18,7 @@ const BlogCard: React.FC = () => {
         <br />
         我的<span className={s.color}>个人博客</span>。
       </p>
-      <img src={cardUrl} alt='' className={s.avatar} />
+      <img src={cardUrl} className={s.avatar} />
     </Card>
   );
 };
