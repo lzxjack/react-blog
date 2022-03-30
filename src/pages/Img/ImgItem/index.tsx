@@ -1,5 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 
+import { smallLoadingUrl } from '@/utils/constant';
 import { useLazyImg } from '@/utils/hooks/useLazyImg';
 
 import s from './index.scss';
@@ -10,13 +11,16 @@ interface Props {
 }
 
 const ImgItem: React.FC<Props> = ({ url, onClick }) => {
-  const { imgRef, imgUrl } = useLazyImg(url!);
+  const { imgRef, imgUrl } = useLazyImg(url!, smallLoadingUrl);
 
   return (
     <div
       ref={imgRef}
       className={s.imgItem}
-      style={{ backgroundImage: `url(${imgUrl})` }}
+      style={{
+        backgroundImage: `url(${imgUrl})`,
+        backgroundSize: imgUrl === smallLoadingUrl ? 'auto' : 'cover'
+      }}
       onClick={onClick!}
     />
   );

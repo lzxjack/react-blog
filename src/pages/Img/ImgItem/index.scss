@@ -6,10 +6,14 @@
   height: 360px;
   border-radius: 20px;
   margin-bottom: $space + 10px;
-  background-size: cover;
-  background-position: 50% 50%;
-  @extend .trans;
+  background: no-repeat 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $textColor;
+  font-size: 100px;
   cursor: pointer;
+  @extend .trans;
 }
 
 .imgItem:nth-last-child(1),

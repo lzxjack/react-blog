@@ -8,7 +8,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import React from 'react';
 
 import MarkDown from '@/components/MarkDown';
-import { myEmail } from '@/utils/constant';
+import { myEmail, smallLoadingUrl } from '@/utils/constant';
 import { useLazyImg } from '@/utils/hooks/useLazyImg';
 
 import EditBox from '../../EditBox';
@@ -43,7 +43,7 @@ const MsgItem: React.FC<Props> = ({
   title
 }) => {
   const [showReply, setShowReply] = useSafeState(false);
-  const { imgRef, imgUrl } = useLazyImg(avatar!);
+  const { imgRef, imgUrl } = useLazyImg(avatar!, smallLoadingUrl);
 
   return (
     <div
@@ -52,8 +52,14 @@ const MsgItem: React.FC<Props> = ({
       })}
     >
       <div className={s.flex}>
-        <div className={s.avatarBox}>
-          <img ref={imgRef} src={imgUrl} className={s.avatar} />
+        <div ref={imgRef} className={s.avatarBox}>
+          <img
+            src={imgUrl}
+            className={classNames({
+              [s.avatar]: imgUrl !== smallLoadingUrl,
+              [s.loading]: imgUrl === smallLoadingUrl
+            })}
+          />
         </div>
         {!isReply && (
           <div

@@ -1,10 +1,10 @@
 @import '../../../../styles/base.scss';
 @import '../../../../styles/style.scss';
 
-$avatarBoxWidth: 80px;
+$avatarWidth: 70px;
 
 .marginLeft {
-  margin-left: $avatarBoxWidth;
+  margin-left: $avatarWidth + 10px;
 }
 
 .commentItem {
@@ -17,12 +17,24 @@ $avatarBoxWidth: 80px;
     position: relative;
 
     .avatarBox {
-      width: $avatarBoxWidth;
+      width: $avatarWidth;
+      height: $avatarWidth;
+      margin-right: 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $themeColor1;
 
       .avatar {
-        width: 70px;
-        height: 70px;
-        border-radius: 14px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading {
+        width: 60%;
+        height: 60%;
       }
     }
 

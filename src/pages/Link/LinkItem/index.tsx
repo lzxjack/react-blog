@@ -1,5 +1,7 @@
+import classNames from 'classnames';
 import React from 'react';
 
+import { smallLoadingUrl } from '@/utils/constant';
 import { useLazyImg } from '@/utils/hooks/useLazyImg';
 
 import s from './index.scss';
@@ -12,12 +14,20 @@ interface Props {
 }
 
 const LinkItem: React.FC<Props> = ({ link, avatar, name, descr }) => {
-  const { imgRef, imgUrl } = useLazyImg(avatar!);
+  const { imgRef, imgUrl } = useLazyImg(avatar!, smallLoadingUrl);
 
   return (
     <div className={s.item}>
       <a href={link} rel='noreferrer' target='_blank' className={s.link}>
-        <img ref={imgRef} src={imgUrl} className={s.avatar} />
+        <div ref={imgRef} className={s.left}>
+          <img
+            src={imgUrl}
+            className={classNames({
+              [s.avatar]: imgUrl !== smallLoadingUrl,
+              [s.loading]: imgUrl === smallLoadingUrl
+            })}
+          />
+        </div>
         <div className={s.right}>
           <div className={s.title}>{name}</div>
           <div className={s.descr}>{descr}</div>
