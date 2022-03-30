@@ -21,13 +21,13 @@ export const count_id = 'cd045e756100126d005169f014931c65';
 
 // 微信二维码地址
 export const weChatQRCode =
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291842734.webp';
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302344287.webp';
 // QQ二维码地址
 export const QQ_QRCode =
-  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291842377.webp';
+  'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302344487.webp';
 
 // 透明头像
-export const cardUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203291841073.webp';
+export const cardUrl = 'https://cdn.jsdelivr.net/gh/lzxjack/cdn/img/202203302348298.webp';
 
 // loading
 export const smallLoadingUrl =
