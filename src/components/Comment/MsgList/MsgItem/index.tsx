@@ -1,7 +1,7 @@
 import 'dayjs/locale/zh-cn';
 
 import { MessageOutlined } from '@ant-design/icons';
-import { useSafeState } from 'ahooks';
+import { useBoolean } from 'ahooks';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -42,7 +42,7 @@ const MsgItem: React.FC<Props> = ({
   replyRun,
   title
 }) => {
-  const [showReply, setShowReply] = useSafeState(false);
+  const [showReply, { toggle: toggleReply, setFalse: closeReply }] = useBoolean(false);
   const { imgRef, imgUrl } = useLazyImg(avatar!, smallLoadingUrl);
 
   return (
@@ -62,10 +62,7 @@ const MsgItem: React.FC<Props> = ({
           />
         </div>
         {!isReply && (
-          <div
-            className={s.replyBtn}
-            onClick={() => setShowReply(showReply => !showReply)}
-          >
+          <div className={s.replyBtn} onClick={toggleReply}>
             <MessageOutlined />
           </div>
         )}
@@ -90,7 +87,7 @@ const MsgItem: React.FC<Props> = ({
 
       {showReply && (
         <EditBox
-          setShowReply={setShowReply}
+          closeReply={closeReply}
           isReply={true}
           className={s.replyBox}
           replyName={name}

@@ -1,6 +1,7 @@
 import useUrlState from '@ahooksjs/use-url-state';
 import { UserOutlined } from '@ant-design/icons';
 import {
+  useBoolean,
   useKeyPress,
   useLocalStorageState,
   useMemoizedFn,
@@ -10,7 +11,8 @@ import {
 } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import PubSub from 'pubsub-js';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import sanitizeHtml from 'sanitize-html';
 
@@ -32,6 +34,7 @@ import {
   QQ
 } from '@/utils/constant';
 import { getRandomNum } from '@/utils/function';
+import { ADD_EMOJI } from '@/utils/pubsub';
 
 import AdminBox from './AdminBox';
 import Emoji from './Emoji';
@@ -50,7 +53,7 @@ interface Props {
   setEmail?: Function;
   setLink?: Function;
   setName?: Function;
-  setShowReply?: Function;
+  closeReply?: Function;
   className?: string;
   replyName?: string;
   replyId?: string;
@@ -70,7 +73,7 @@ const EditBox: React.FC<Props> = ({
   setEmail,
   setLink,
   setName,
-  setShowReply,
+  closeReply,
   replyName,
   replyId,
   className,
@@ -82,7 +85,7 @@ const EditBox: React.FC<Props> = ({
   const nameRef = useRef(null);
 
   const [showAdmin, setShowAdmin] = useSafeState(false);
-  const [showPre, setShowPre] = useSafeState(false);
+  const [showPre, { toggle: togglePre, setFalse: closePre }] = useBoolean(false);
 
   const [text, setText] = useSafeState('');
 
@@ -161,7 +164,7 @@ const EditBox: React.FC<Props> = ({
 
       if (isTrue) {
         if (isReply) {
-          setShowReply?.();
+          closeReply?.();
           replyRun?.();
           email !== ownerEmail && informUser();
           informAdminReply();
@@ -230,7 +233,7 @@ const EditBox: React.FC<Props> = ({
       message.info('请写点什么再预览~');
       return;
     }
-    setShowPre(showPre => !showPre);
+    togglePre();
   });
 
   const { run: informAdminMsg } = useRequest(
@@ -288,6 +291,15 @@ const EditBox: React.FC<Props> = ({
       }
     }
   );
+
+  useEffect(() => {
+    const subEmoji = PubSub.subscribe(ADD_EMOJI, (_, emoji) => {
+      setText(text => `${text}${emoji}`);
+    });
+    return () => {
+      PubSub.unsubscribe(subEmoji);
+    };
+  }, []);
 
   return (
     <div className={classNames(s.editBox, className)}>
@@ -364,7 +376,7 @@ const EditBox: React.FC<Props> = ({
           <div className={s.commentBtns}>
             <Emoji />
             {isReply && (
-              <div className={s.cancelBtn} onClick={() => setShowReply?.(false)}>
+              <div className={s.cancelBtn} onClick={() => closeReply?.()}>
                 取消
               </div>
             )}
@@ -377,7 +389,7 @@ const EditBox: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      {showPre && <PreShow setShowPre={setShowPre} content={text} />}
+      {showPre && <PreShow closePre={closePre} content={text} />}
     </div>
   );
 };

@@ -4,10 +4,9 @@ import { Popover } from 'antd';
 import classNames from 'classnames';
 import React from 'react';
 
-import { emojiFood, emojiNature, emojiPeople, emojiSymbol } from '@/utils/constant';
-
 import EmojiItem from './EmojiItem';
 import s from './index.scss';
+import { useEmoji } from './useEmoji';
 
 interface EmojiType {
   className: string;
@@ -16,6 +15,8 @@ interface EmojiType {
 }
 
 const Emoji: React.FC = () => {
+  const { emojiPeople, emojiNature, emojiSymbol, emojiFood } = useEmoji();
+
   const emojiData: EmojiType[] = [
     {
       className: '',
