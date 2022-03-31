@@ -15,34 +15,29 @@
   cursor: pointer;
 
   .title {
-    box-sizing: content-box;
     position: relative;
+    padding-top: 46px;
     font-size: 36px;
     font-weight: 700;
     margin: 0 auto;
     height: 90px;
-    width: 330px;
+    width: 75%;
     @extend .trans;
-    z-index: 9;
+    z-index: 2;
     border-bottom: 4px solid transparent;
-
-    span {
-      position: absolute;
-      bottom: 10px;
-      z-index: 9;
-    }
   }
 
   .descr {
-    position: absolute;
-    z-index: 9;
-    left: 40px;
-    top: 100px;
-    width: 320px;
+    position: relative;
+    z-index: 2;
+    padding-top: 10px;
+    width: 75%;
+    margin: 0 auto;
     font-size: 24px;
     @extend .trans;
     word-wrap: break-word;
     opacity: 0;
+    line-height: 1.5;
   }
 
   .mask {
@@ -80,22 +75,16 @@
     border-radius: 10rem;
 
     .title {
+      padding-top: 20rem;
       font-size: 18rem;
-      height: 45rem;
-      width: 80%;
-      border-bottom: 2rem solid transparent;
-
-      span {
-        bottom: 2rem;
-      }
+      height: 48rem;
+      border-bottom: 4px solid transparent;
     }
 
     .descr {
-      left: 20rem;
-      top: 50rem;
-      width: 80%;
-      font-size: 14rem;
-      line-height: 24rem;
+      padding-top: 4rem;
+      width: 75%;
+      font-size: 13rem;
     }
   }
 
