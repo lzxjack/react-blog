@@ -19,7 +19,7 @@ const ImgItem: React.FC<Props> = ({ url, onClick }) => {
       className={s.imgItem}
       style={{
         backgroundImage: `url(${imgUrl})`,
-        backgroundSize: imgUrl === smallLoadingUrl ? 'auto' : 'cover'
+        backgroundSize: imgUrl === smallLoadingUrl ? '30%' : 'cover'
       }}
       onClick={onClick!}
     />
