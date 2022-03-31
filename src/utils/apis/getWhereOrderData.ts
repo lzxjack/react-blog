@@ -12,6 +12,7 @@ export const getWhereOrderData = (config: {
     .collection(dbName)
     .where(where)
     .orderBy(sortKey, isAsc ? 'asc' : 'desc')
+    .limit(1000)
     .get()
     .then(res => res)
     .catch(err => err);
