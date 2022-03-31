@@ -10,7 +10,8 @@ import {
 } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import PubSub from 'pubsub-js';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import sanitizeHtml from 'sanitize-html';
 
@@ -32,6 +33,7 @@ import {
   QQ
 } from '@/utils/constant';
 import { getRandomNum } from '@/utils/function';
+import { ADD_EMOJI } from '@/utils/pubsub';
 
 import AdminBox from './AdminBox';
 import Emoji from './Emoji';
@@ -288,6 +290,15 @@ const EditBox: React.FC<Props> = ({
       }
     }
   );
+
+  useEffect(() => {
+    const subEmoji = PubSub.subscribe(ADD_EMOJI, (_, emoji) => {
+      setText(text => `${text}${emoji}`);
+    });
+    return () => {
+      PubSub.unsubscribe(subEmoji);
+    };
+  }, []);
 
   return (
     <div className={classNames(s.editBox, className)}>
