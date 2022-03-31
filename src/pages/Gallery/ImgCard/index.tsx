@@ -18,9 +18,7 @@ const ImgCard: React.FC<Props> = ({ cover, title, descr }) => {
       onClick={() => navigate(`/img?title=${encodeURIComponent(title!)}`)}
       className={s.imgItem}
     >
-      <div className={s.title}>
-        <span>{title}</span>
-      </div>
+      <div className={s.title}>{title}</div>
       <div className={s.descr}>{descr}</div>
       <div className={s.mask} />
     </div>
