@@ -26,6 +26,7 @@
   justify-content: center;
   align-items: center;
   @extend .trans;
+  transform: translate(0, 100%);
 
   .itemBox {
     @extend .itemBoxBase;
@@ -65,6 +66,10 @@
       @extend .hover;
     }
   }
+}
+
+.showAdmin {
+  transform: translate(0, 0);
 }
 
 @media screen and (max-width: 1240px) {

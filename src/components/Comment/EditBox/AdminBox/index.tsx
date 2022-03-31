@@ -49,12 +49,12 @@ const AdminBox: React.FC<Props> = ({
     }
   });
 
-  useKeyPress(13, () => adminLogin(), {
+  useKeyPress(13, adminLogin, {
     target: pwdRef
   });
 
   return (
-    <div className={s.adminBox} style={{ top: showAdmin ? '0' : '100%' }}>
+    <div className={classNames(s.adminBox, { [s.showAdmin]: showAdmin })}>
       <div className={s.itemBox}>
         <div className={s.adminKey}>邮箱</div>
         <input
