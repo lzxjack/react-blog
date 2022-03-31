@@ -1,20 +1,17 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import s from './index.scss';
 
 interface Props {
   viewUrl?: string;
   isViewShow?: boolean;
-  setIsViewShow?: Function;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-const ImgView: React.FC<Props> = ({ viewUrl, isViewShow, setIsViewShow }) => {
+const ImgView: React.FC<Props> = ({ viewUrl, isViewShow, onClick }) => {
   return (
-    <div
-      className={classNames(s.view, { [s.show]: isViewShow })}
-      onClick={() => setIsViewShow?.(false)}
-    >
+    <div className={classNames(s.view, { [s.show]: isViewShow })} onClick={onClick!}>
       <img className={s.img} src={viewUrl} />
     </div>
   );
