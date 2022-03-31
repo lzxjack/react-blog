@@ -13,7 +13,7 @@ export const modeMap = {
   ],
   '--codeBg': ['rgb(37, 43, 48)', 'rgb(50, 57, 63)', 'rgb(50, 57, 63)'],
   '--textColor2': ['rgb(167, 167, 167)', 'rgb(122, 122, 122)', 'rgb(104, 104, 104)'],
-  '--inlineCode': ['rgb(29, 71, 67)', 'rgb(136, 215, 255)', 'rgb(194, 209, 223)']
+  '--inlineCode': ['rgb(29, 71, 67)', 'rgb(136, 215, 255)', 'rgb(205, 219, 233)']
 };
 
 export const modeMapArr = Object.keys(modeMap);

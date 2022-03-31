@@ -1,7 +1,7 @@
 import './index.custom.scss';
 
 import { MenuFoldOutlined } from '@ant-design/icons';
-import { useSafeState } from 'ahooks';
+import { useBoolean } from 'ahooks';
 import { Drawer } from 'antd';
 import classNames from 'classnames';
 import MarkNav from 'markdown-navbar';
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
-  const [visible, setVisible] = useSafeState(false);
+  const [visible, { setTrue: openDrawer, setFalse: closeDrawer }] = useBoolean(false);
 
   return (
     <>
@@ -26,19 +26,19 @@ const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
       <MarkNav
         className={classNames('postNavBar', s.navBar)}
         source={content || ''}
-        headingTopOffset={10}
+        headingTopOffset={15}
         ordered={false}
         updateHashAuto={false}
         onNavItemClick={() => setNavShow?.(false)}
       />
       {/* 中屏显示的按钮 */}
-      <div className={s.hoverBar} onClick={() => setVisible(true)}>
+      <div className={s.hoverBar} onClick={openDrawer}>
         <MenuFoldOutlined />
       </div>
       {/* 中屏抽屉 */}
       <Drawer
         placement='right'
-        onClose={() => setVisible(false)}
+        onClose={closeDrawer}
         visible={visible}
         className={classNames(s.drawer, 'mobile-navBar-box')}
         width={340}
@@ -46,10 +46,10 @@ const Navbar: React.FC<Props> = ({ content, setNavShow }) => {
         <MarkNav
           className='postNavBar'
           source={content || ''}
-          headingTopOffset={10}
+          headingTopOffset={15 + 60}
           ordered={false}
           updateHashAuto={false}
-          onNavItemClick={() => setNavShow?.(false)}
+          onNavItemClick={() => setNavShow?.(true)}
         />
       </Drawer>
     </>

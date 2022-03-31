@@ -20,6 +20,17 @@ interface Props {
   title?: string;
 }
 
+export interface MsgType {
+  avatar?: string;
+  content?: string;
+  date?: number;
+  email?: string;
+  link?: string;
+  name?: string;
+  replyId?: string;
+  _id?: string;
+}
+
 const Comment: React.FC<Props> = ({
   titleEng = '',
   autoScroll = false,
@@ -47,7 +58,10 @@ const Comment: React.FC<Props> = ({
       }),
     {
       retryCount: 3,
-      refreshDeps: [page]
+      refreshDeps: [page],
+      onSuccess: () => {
+        replyRun();
+      }
     }
   );
 
@@ -62,12 +76,13 @@ const Comment: React.FC<Props> = ({
         dbName: DB.Msg,
         where: {
           postTitle: titleEng,
-          replyId: _.neq('')
+          replyId: _.in(msgsData?.msgs.data.map((item: MsgType) => item._id))
         },
         sortKey: 'date',
         isAsc: true
       }),
     {
+      manual: true,
       retryCount: 3
     }
   );

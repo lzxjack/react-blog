@@ -2,19 +2,9 @@ import React from 'react';
 
 import LayoutLoading from '@/components/LayoutLoading';
 
+import { MsgType } from '..';
 import s from './index.scss';
 import MsgItem from './MsgItem';
-
-interface MsgType {
-  avatar?: string;
-  content?: string;
-  date?: number;
-  email?: string;
-  link?: string;
-  name?: string;
-  replyId?: string;
-  _id?: string;
-}
 
 interface Props {
   msgs?: MsgType[];
