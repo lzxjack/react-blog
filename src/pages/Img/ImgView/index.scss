@@ -2,9 +2,9 @@
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100vw;
+  height: 100vh;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -18,8 +18,7 @@
 }
 
 .show {
-  width: 100vw;
-  height: 100vh;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @media screen and (max-width: 1240px) {
