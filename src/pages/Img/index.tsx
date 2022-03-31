@@ -1,5 +1,5 @@
 import useUrlState from '@ahooksjs/use-url-state';
-import { useRequest, useSafeState } from 'ahooks';
+import { useBoolean, useKeyPress, useRequest, useSafeState } from 'ahooks';
 import React from 'react';
 
 import Layout from '@/components/Layout';
@@ -21,18 +21,21 @@ const Img: React.FC = () => {
   });
 
   const [viewUrl, setViewUrl] = useSafeState('');
-  const [isViewShow, setIsViewShow] = useSafeState(false);
+  const [isViewShow, { setTrue: openViewShow, setFalse: closeViewShow }] =
+    useBoolean(false);
+
+  useKeyPress(27, closeViewShow);
 
   return (
     <Layout title={query.title} className={s.imgBox} loading={loading}>
-      <ImgView viewUrl={viewUrl} isViewShow={isViewShow} setIsViewShow={setIsViewShow} />
+      <ImgView viewUrl={viewUrl} isViewShow={isViewShow} onClick={closeViewShow} />
       {data?.data[0].pics.map((url: string, index: number) => (
         <ImgItem
           key={index}
           url={url}
           onClick={() => {
             setViewUrl(url);
-            setIsViewShow(true);
+            openViewShow();
           }}
         />
       ))}
