@@ -14,7 +14,6 @@ import Search from './Search';
 
 const Articles: React.FC = () => {
   const [page, setPage] = useSafeState(1);
-  const [total, setTotal] = useSafeState(0);
 
   const [isReset, setIsReset] = useSafeState(false);
   const [where, setWhere] = useSafeState(() => ({}));
@@ -34,7 +33,6 @@ const Articles: React.FC = () => {
       cacheKey: `Articles-${DB.Article}-${JSON.stringify(where)}-${page}`,
       staleTime,
       onSuccess: () => {
-        setTotal(data?.sum.total);
         if (isReset) {
           setIsReset(false);
           message.success('重置成功!');
@@ -57,7 +55,7 @@ const Articles: React.FC = () => {
       <MyPagination
         current={page}
         defaultPageSize={detailPostSize}
-        total={total}
+        total={data?.sum.total}
         setPage={setPage}
         autoScroll={true}
         scrollToTop={440}
