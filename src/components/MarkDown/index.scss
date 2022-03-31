@@ -2,6 +2,8 @@
 @import '../../styles/style.scss';
 
 .marked {
+  word-break: break-all;
+
   h2,
   h3,
   h4,
