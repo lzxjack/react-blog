@@ -25,9 +25,9 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].chunk.css'
-    })
+    }),
     // 查看打包体积大小，启用一个本地服务器
-    // new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ],
 
   // 专门存放优化打包的配置
