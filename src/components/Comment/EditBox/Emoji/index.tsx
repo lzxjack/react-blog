@@ -2,7 +2,7 @@ import './index.custom.scss';
 
 import { Popover } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
+import React, { memo } from 'react';
 
 import EmojiItem from './EmojiItem';
 import s from './index.scss';
@@ -58,4 +58,4 @@ const Emoji: React.FC = () => {
   );
 };
 
-export default Emoji;
+export default memo(Emoji);

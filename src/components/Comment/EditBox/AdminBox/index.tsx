@@ -1,7 +1,7 @@
 import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 
 import { authLogin } from '@/utils/apis/authLogin';
 import { myAvatar70, myEmail, myLink, myName } from '@/utils/constant';
@@ -86,4 +86,4 @@ const AdminBox: React.FC<Props> = ({
   );
 };
 
-export default AdminBox;
+export default memo(AdminBox);

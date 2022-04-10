@@ -85,18 +85,16 @@ const MsgItem: React.FC<Props> = ({
         </div>
       </div>
 
-      {showReply && (
-        <EditBox
-          closeReply={closeReply}
-          isReply={true}
-          className={s.replyBox}
-          replyName={name}
-          replyId={_id}
-          replyRun={replyRun}
-          title={title}
-          ownerEmail={email}
-        />
-      )}
+      <EditBox
+        closeReply={closeReply}
+        isReply={true}
+        className={classNames(s.replyBox, { [s.replyHidden]: !showReply })}
+        replyName={name}
+        replyId={_id}
+        replyRun={replyRun}
+        title={title}
+        ownerEmail={email}
+      />
     </div>
   );
 };

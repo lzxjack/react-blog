@@ -87,7 +87,7 @@ const Nav: React.FC<Props> = ({ navShow, setNavShow, mode, setMode }) => {
                   className={classNames(s.modeItem, s[`modeItem${index}`])}
                   onClick={() => setMode?.(index)}
                 >
-                  {mode === index && <CheckOutlined />}
+                  <CheckOutlined style={{ display: mode === index ? 'block' : 'none' }} />
                 </div>
               ))}
             </div>

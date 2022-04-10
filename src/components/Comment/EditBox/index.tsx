@@ -11,8 +11,7 @@ import {
 } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
-import PubSub from 'pubsub-js';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import sanitizeHtml from 'sanitize-html';
 
@@ -34,7 +33,6 @@ import {
   QQ
 } from '@/utils/constant';
 import { getRandomNum } from '@/utils/function';
-import { ADD_EMOJI } from '@/utils/pubsub';
 
 import AdminBox from './AdminBox';
 import Emoji from './Emoji';
@@ -236,6 +234,10 @@ const EditBox: React.FC<Props> = ({
     togglePre();
   });
 
+  const handleCloseReply = useMemoizedFn(() => {
+    closeReply?.();
+  });
+
   const { run: informAdminMsg } = useRequest(
     () =>
       axiosAPI(emailApi, 'POST', {
@@ -291,15 +293,6 @@ const EditBox: React.FC<Props> = ({
       }
     }
   );
-
-  useEffect(() => {
-    const subEmoji = PubSub.subscribe(ADD_EMOJI, (_, emoji) => {
-      setText(text => `${text}${emoji}`);
-    });
-    return () => {
-      PubSub.unsubscribe(subEmoji);
-    };
-  }, []);
 
   return (
     <div className={classNames(s.editBox, className)}>
@@ -376,7 +369,7 @@ const EditBox: React.FC<Props> = ({
           <div className={s.commentBtns}>
             <Emoji />
             {isReply && (
-              <div className={s.cancelBtn} onClick={() => closeReply?.()}>
+              <div className={s.cancelBtn} onClick={handleCloseReply}>
                 取消
               </div>
             )}
@@ -389,7 +382,11 @@ const EditBox: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      {showPre && <PreShow closePre={closePre} content={text} />}
+      <PreShow
+        closePre={closePre}
+        content={text}
+        className={classNames({ [s.preShowHidden]: !showPre })}
+      />
     </div>
   );
 };

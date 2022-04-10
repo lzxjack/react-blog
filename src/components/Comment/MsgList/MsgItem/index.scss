@@ -118,6 +118,10 @@ $avatarWidth: 70px;
     padding: 14px;
     padding-top: 2px;
   }
+
+  .replyHidden {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1240px) {
