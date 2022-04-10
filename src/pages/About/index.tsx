@@ -1,17 +1,16 @@
 import { useRequest, useToggle } from 'ahooks';
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 
 import Layout from '@/components/Layout';
-import LayoutLoading from '@/components/LayoutLoading';
 import { DB } from '@/utils/apis/dbConfig';
 import { staleTime } from '@/utils/constant';
 
 import { Title } from '../titleConfig';
+import AboutMe from './AboutMe';
 import AboutSite from './AboutSite';
 import { fetchData } from './fetchData';
+import s from './index.scss';
 import Switch from './Switch';
-
-const AboutMe = lazy(() => import(/* webpackPrefetch:true */ './AboutMe'));
 
 const About: React.FC = () => {
   const [state, { toggle, setLeft, setRight }] = useToggle();
@@ -25,17 +24,13 @@ const About: React.FC = () => {
   return (
     <Layout title={Title.About} loading={loading}>
       <Switch state={state} toggle={toggle} setLeft={setLeft} setRight={setRight} />
-      {state ? (
-        <Suspense fallback={<LayoutLoading rows={3} />}>
-          <AboutMe content={data?.about.data[1].content} />
-        </Suspense>
-      ) : (
-        <AboutSite
-          content={data?.about.data[0].content}
-          classes={data?.classes.data}
-          artSum={data?.artSum.total}
-        />
-      )}
+      <AboutMe className={state ? '' : s.hidden} content={data?.about.data[1].content} />
+      <AboutSite
+        className={state ? s.hidden : ''}
+        content={data?.about.data[0].content}
+        classes={data?.classes.data}
+        artSum={data?.artSum.total}
+      />
     </Layout>
   );
 };

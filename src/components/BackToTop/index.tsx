@@ -14,13 +14,12 @@ interface Props {
 }
 
 const BackToTop: React.FC<Props> = ({ setNavShow }) => {
+  const backTop = () => {
+    setNavShow?.(true);
+  };
+
   return (
-    <BackTop
-      duration={700}
-      visibilityHeight={300}
-      onClick={() => setNavShow?.(true)}
-      className='BackTop'
-    >
+    <BackTop duration={700} visibilityHeight={300} onClick={backTop} className='BackTop'>
       <div className={s.backTop}>
         <VerticalAlignTopOutlined />
       </div>

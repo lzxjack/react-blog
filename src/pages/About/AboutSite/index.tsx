@@ -14,14 +14,15 @@ interface Props {
   content?: string;
   classes?: ClassType[];
   artSum?: number;
+  className?: string;
 }
 
-const AboutSite: React.FC<Props> = ({ content, classes, artSum }) => {
+const AboutSite: React.FC<Props> = ({ content, classes, artSum, className }) => {
   return (
-    <>
+    <div className={className}>
       <Chart classes={classes} artSum={artSum} />
       <AboutText content={content} />
-    </>
+    </div>
   );
 };
 
