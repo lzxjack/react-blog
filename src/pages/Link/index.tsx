@@ -5,6 +5,7 @@ import Layout from '@/components/Layout';
 import { DB } from '@/utils/apis/dbConfig';
 import { getData } from '@/utils/apis/getData';
 import { staleTime } from '@/utils/constant';
+import { shuffleArray } from '@/utils/function';
 
 import { Title } from '../titleConfig';
 import s from './index.scss';
@@ -28,7 +29,7 @@ const Link: React.FC = () => {
 
   return (
     <Layout title={Title.Link} loading={loading} className={s.box}>
-      {data?.data.map((item: linkType) => (
+      {shuffleArray(data?.data).map((item: linkType) => (
         <LinkItem
           key={item._id}
           link={item.link}
