@@ -2,6 +2,7 @@ import { ArrowRightOutlined, RedoOutlined } from '@ant-design/icons';
 import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import React, { useRef } from 'react';
+import { flushSync } from 'react-dom';
 
 import { db } from '@/utils/cloudBase';
 
@@ -25,16 +26,20 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, setIsReset, r
       message.info('请输入关键词再搜索!');
       return;
     }
-    setTimeout(() => {
+    flushSync(() => {
       setWhere({
         title: db.RegExp({
           regexp: `${input}`,
           options: 'i'
         })
       });
+    });
+    flushSync(() => {
       setPage(1);
+    });
+    flushSync(() => {
       run?.();
-    }, 0);
+    });
   });
 
   const reset = useMemoizedFn(() => {
@@ -47,13 +52,21 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, setIsReset, r
       message.success('重置成功!');
       return;
     }
-    setTimeout(() => {
+    flushSync(() => {
       setIsReset(true);
+    });
+    flushSync(() => {
       setInput?.('');
+    });
+    flushSync(() => {
       setWhere({});
+    });
+    flushSync(() => {
       setPage(1);
+    });
+    flushSync(() => {
       run?.();
-    }, 0);
+    });
   });
 
   useKeyPress(13, search, {

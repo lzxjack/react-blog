@@ -87,10 +87,10 @@ const EditBox: React.FC<Props> = ({
 
   const [text, setText] = useSafeState('');
 
-  const [localName, setLocalName] = useLocalStorageState('name');
-  const [localEmail, setLocalEmail] = useLocalStorageState('email');
-  const [localLink, setLocalLink] = useLocalStorageState('link');
-  const [localAvatar, setLocalAvatar] = useLocalStorageState('avatar');
+  const [localName, setLocalName] = useLocalStorageState<string>('name');
+  const [localEmail, setLocalEmail] = useLocalStorageState<string>('email');
+  const [localLink, setLocalLink] = useLocalStorageState<string>('link');
+  const [localAvatar, setLocalAvatar] = useLocalStorageState<string>('avatar');
 
   const validateConfig = {
     name: {
@@ -219,7 +219,7 @@ const EditBox: React.FC<Props> = ({
       setName?.('');
       return;
     }
-    setLocalName(name);
+    setLocalName(name || '');
   });
 
   useKeyPress(13, handleName, {
