@@ -12,11 +12,10 @@ interface Props {
   setPage: Function;
   where: object;
   setWhere: Function;
-  setIsReset: Function;
   run: Function;
 }
 
-const Search: React.FC<Props> = ({ page, setPage, where, setWhere, setIsReset, run }) => {
+const Search: React.FC<Props> = ({ page, setPage, where, setWhere, run }) => {
   const [input, setInput] = useSafeState('');
   const inputRef = useRef(null);
 
@@ -44,11 +43,9 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, setIsReset, r
     }
     if (JSON.stringify(where) === '{}' && page === 1) {
       setInput('');
-      message.success('重置成功!');
       return;
     }
     setTimeout(() => {
-      setIsReset(true);
       setInput?.('');
       setWhere({});
       setPage(1);

@@ -1,5 +1,4 @@
 import { useRequest, useSafeState } from 'ahooks';
-import { message } from 'antd';
 import React from 'react';
 
 import Layout from '@/components/Layout';
@@ -15,7 +14,6 @@ import Search from './Search';
 const Articles: React.FC = () => {
   const [page, setPage] = useSafeState(1);
 
-  const [isReset, setIsReset] = useSafeState(false);
   const [where, setWhere] = useSafeState(() => ({}));
 
   const { data, loading, run } = useRequest(
@@ -31,26 +29,13 @@ const Articles: React.FC = () => {
       retryCount: 3,
       refreshDeps: [page],
       cacheKey: `Articles-${DB.Article}-${JSON.stringify(where)}-${page}`,
-      staleTime,
-      onSuccess: () => {
-        if (isReset) {
-          setIsReset(false);
-          message.success('重置成功!');
-        }
-      }
+      staleTime
     }
   );
 
   return (
     <Layout title={Title.Articles}>
-      <Search
-        page={page}
-        setPage={setPage}
-        where={where}
-        setWhere={setWhere}
-        run={run}
-        setIsReset={setIsReset}
-      />
+      <Search page={page} setPage={setPage} where={where} setWhere={setWhere} run={run} />
       <ArtList articles={data?.articles.data} loading={loading} />
       <MyPagination
         current={page}
