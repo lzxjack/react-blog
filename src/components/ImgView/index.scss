@@ -1,3 +1,5 @@
+@import '../../styles/style.scss';
+
 .view {
   position: fixed;
   left: 50%;
@@ -10,10 +12,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s;
+  @extend .trans;
 
   .img {
-    height: 100%;
+    width: 100%;
   }
 }
 

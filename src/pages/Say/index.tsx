@@ -1,6 +1,7 @@
 import { useRequest } from 'ahooks';
-import React from 'react';
+import React, { useState } from 'react';
 
+import ImgView from '@/components/ImgView';
 import Layout from '@/components/Layout';
 import { DB } from '@/utils/apis/dbConfig';
 import { getOrderData } from '@/utils/apis/getOrderData';
@@ -13,6 +14,7 @@ interface SayType {
   _id: string;
   content: string;
   date: number;
+  imgs: string[];
 }
 
 const Say: React.FC = () => {
@@ -20,14 +22,37 @@ const Say: React.FC = () => {
     defaultParams: [{ dbName: DB.Say, sortKey: 'date' }],
     retryCount: 3,
     cacheKey: `Say-${DB.Say}`,
-    staleTime
+    staleTime,
+    onSuccess: res => {
+      console.log(res.data);
+    }
   });
+
+  const [url, setUrl] = useState('');
+  const [showPreView, setShowPreView] = useState(false);
+
+  const handlePreView = (url: string) => {
+    setShowPreView(true);
+    setUrl(url);
+  };
 
   return (
     <Layout title={Title.Say} loading={loading}>
-      {data?.data.map(({ _id, content, date }: SayType) => (
-        <SayPop key={_id} content={content} date={date} />
+      {data?.data.map(({ _id, content, date, imgs }: SayType) => (
+        <SayPop
+          key={_id}
+          content={content}
+          date={date}
+          imgs={imgs}
+          handlePreView={handlePreView}
+        />
       ))}
+
+      <ImgView
+        viewUrl={url}
+        isViewShow={showPreView}
+        onClick={() => setShowPreView(false)}
+      />
     </Layout>
   );
 };

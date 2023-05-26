@@ -29,6 +29,38 @@
       background-color: $themeColor1;
       user-select: text;
       @extend .trans;
+
+      .sayImgsBox {
+        margin: 5px 0;
+        height: 120px;
+
+        .sayImg {
+          display: inline-block;
+          height: 100%;
+          width: calc((100% - 3 * 6px) / 4);
+          margin-right: 6px;
+          border-radius: 6px;
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          @extend .trans;
+
+          img {
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+          }
+        }
+
+        .sayImg:last-child {
+          margin-right: 0;
+        }
+
+        .sayImg:hover {
+          transform: scale(1.03);
+        }
+      }
     }
     .content:hover {
       transform: scale(1.02);
