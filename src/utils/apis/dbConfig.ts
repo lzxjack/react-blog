@@ -5,7 +5,6 @@ export enum DB {
   Article = 'articles',
   Class = 'classes',
   Drafe = 'drafts',
-  Gallery = 'galleries',
   Link = 'links',
   Log = 'logs',
   Notice = 'notice',

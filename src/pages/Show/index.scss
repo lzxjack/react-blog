@@ -1,5 +1,12 @@
-@import '../Gallery/index.scss';
+// @import '../../styles/style.scss';
+// @import '../../styles/base.scss';
+
+// .imgBox {
+
+// }
 
 .showBox {
-  @extend .imgBox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
