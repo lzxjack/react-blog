@@ -9,7 +9,7 @@ import Layout from '@/components/Layout';
 import MyPagination from '@/components/MyPagination';
 import { DB } from '@/utils/apis/dbConfig';
 import { getWhereOrderPageSum } from '@/utils/apis/getWhereOrderPageSum';
-import { db } from '@/utils/cloudBase';
+import { _, db } from '@/utils/cloudBase';
 import { detailPostSize, staleTime } from '@/utils/constant';
 
 import { ArticleType } from '../constant';
@@ -35,7 +35,7 @@ const ArtDetail: React.FC = () => {
     () =>
       getWhereOrderPageSum({
         dbName: DB.Article,
-        where,
+        where: { ...where, post: _.eq(true) },
         page,
         size: detailPostSize,
         sortKey: 'date'

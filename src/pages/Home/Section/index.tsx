@@ -7,6 +7,7 @@ import MyPagination from '@/components/MyPagination';
 import { storeState } from '@/redux/interface';
 import { DB } from '@/utils/apis/dbConfig';
 import { getPageData } from '@/utils/apis/getPageData';
+import { _ } from '@/utils/cloudBase';
 import { homeSize, staleTime } from '@/utils/constant';
 
 import s from './index.scss';
@@ -36,6 +37,7 @@ const Section: React.FC<Props> = ({ artSum }) => {
     () =>
       getPageData({
         dbName: DB.Article,
+        where: { post: _.eq(true) },
         sortKey: 'date',
         isAsc: false,
         page,

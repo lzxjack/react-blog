@@ -7,6 +7,7 @@ import Layout from '@/components/Layout';
 import MarkDown from '@/components/MarkDown';
 import { DB } from '@/utils/apis/dbConfig';
 import { getWhereData } from '@/utils/apis/getWhereData';
+import { _ } from '@/utils/cloudBase';
 import { staleTime } from '@/utils/constant';
 
 import CopyRight from './CopyRight';
@@ -18,7 +19,7 @@ const Post: React.FC = () => {
   const [search] = useUrlState();
 
   const { data, loading } = useRequest(getWhereData, {
-    defaultParams: [DB.Article, { titleEng: search.title }],
+    defaultParams: [DB.Article, { titleEng: _.eq(search.title), post: _.eq(true) }],
     retryCount: 3,
     cacheKey: `Post-${DB.Article}-${search.title}`,
     staleTime

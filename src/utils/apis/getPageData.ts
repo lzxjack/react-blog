@@ -6,11 +6,13 @@ export const getPageData = (config: {
   isAsc: boolean;
   page: number;
   size: number;
+  where?: object;
 }) => {
-  const { dbName, sortKey, isAsc, page, size } = config;
+  const { dbName, sortKey, isAsc, page, size, where = {} } = config;
 
   return db
     .collection(dbName)
+    .where(where)
     .orderBy(sortKey, isAsc ? 'asc' : 'desc')
     .skip((page - 1) * size)
     .limit(size)
