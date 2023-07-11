@@ -11,8 +11,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
     "eslint": "eslint ./src/** --ignore-pattern *.jpg --ignore-pattern *.webp --ignore-pattern *.scss --ignore-pattern *.ttf --no-error-on-unmatched-pattern --quiet",
-    "commitlint": "commitlint --config .commitlintrc.js -e",
-    "go": "tcb hosting deploy build -e react-blog-3g0q7m8vac22c4f6"
+    "commitlint": "commitlint --config .commitlintrc.js -e"
   },
   "browserslist": [
     ">0.2%",
@@ -78,6 +77,7 @@
     "cross-env": "7.0.3",
     "css-loader": "6.6.0",
     "css-minimizer-webpack-plugin": "3.4.1",
+    "dart-sass": "^1.25.0",
     "eslint": "8.10.0",
     "eslint-config-alloy": "4.5.1",
     "eslint-plugin-react": "7.29.3",
@@ -88,7 +88,6 @@
     "less": "4.1.2",
     "less-loader": "10.2.0",
     "mini-css-extract-plugin": "2.5.3",
-    "node-sass": "7.0.1",
     "postcss-loader": "6.2.1",
     "postcss-preset-env": "7.4.1",
     "sass-loader": "12.6.0",
