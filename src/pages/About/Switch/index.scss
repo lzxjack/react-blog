@@ -14,7 +14,7 @@ $switchWidth: 36px;
   .box {
     height: $switchWidth;
     width: $switchWidth * 2;
-    border-radius: $switchWidth / 2;
+    border-radius: calc($switchWidth / 2);
     position: relative;
     background-color: $themeColor1;
 

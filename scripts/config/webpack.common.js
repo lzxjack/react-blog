@@ -189,7 +189,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('dart-sass'),
+              implementation: require('sass'),
               sourceMap: isDevelopment
             }
           }
@@ -202,7 +202,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('dart-sass'),
+              implementation: require('sass'),
               sourceMap: isDevelopment
             }
           }

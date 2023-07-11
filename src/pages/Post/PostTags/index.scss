@@ -2,7 +2,7 @@
 @import '../../../styles/style.scss';
 
 .articleTags {
-  margin-bottom: $space / 2;
+  margin-bottom: calc($space / 2);
 
   .articleTag {
     display: inline-block;
