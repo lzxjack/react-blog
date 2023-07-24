@@ -19,7 +19,7 @@ const getPoem = require('jinrishici');
 
 const Home: React.FC<Props> = ({ setNavShow }) => {
   useTitle(siteTitle);
-  setNavShow && useTop(setNavShow);
+  useTop(setNavShow);
 
   const [poem, setPoem] = useSafeState('');
   useMount(() => {

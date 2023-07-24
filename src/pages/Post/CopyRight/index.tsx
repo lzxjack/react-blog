@@ -1,3 +1,4 @@
+import { useMemoizedFn } from 'ahooks';
 import { message } from 'antd';
 import copy from 'copy-to-clipboard';
 import React from 'react';
@@ -16,11 +17,11 @@ interface Props {
 const CopyRight: React.FC<Props> = ({ titleEng, title }) => {
   const url = `${myLink}/post?title=${titleEng}`;
 
-  const copyUrl = () => {
+  const copyUrl = useMemoizedFn(() => {
     if (copy(url)) {
       message.success('复制成功!');
     }
-  };
+  });
 
   return (
     <div className={s.copyrightBox}>

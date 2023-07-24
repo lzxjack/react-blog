@@ -1,4 +1,4 @@
-import { useRequest } from 'ahooks';
+import { useMemoizedFn, useRequest } from 'ahooks';
 import React, { useState } from 'react';
 
 import ImgView from '@/components/ImgView';
@@ -22,19 +22,16 @@ const Say: React.FC = () => {
     defaultParams: [{ dbName: DB.Say, sortKey: 'date' }],
     retryCount: 3,
     cacheKey: `Say-${DB.Say}`,
-    staleTime,
-    onSuccess: res => {
-      console.log(res.data);
-    }
+    staleTime
   });
 
   const [url, setUrl] = useState('');
   const [showPreView, setShowPreView] = useState(false);
 
-  const handlePreView = (url: string) => {
+  const handlePreView = useMemoizedFn((url: string) => {
     setShowPreView(true);
     setUrl(url);
-  };
+  });
 
   return (
     <Layout title={Title.Say} loading={loading}>
