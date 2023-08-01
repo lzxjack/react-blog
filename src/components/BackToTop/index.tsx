@@ -1,7 +1,6 @@
 import './index.custom.scss';
 
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import { useMemoizedFn } from 'ahooks';
 import { BackTop } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -15,9 +14,9 @@ interface Props {
 }
 
 const BackToTop: React.FC<Props> = ({ setNavShow }) => {
-  const backTop = useMemoizedFn(() => {
+  const backTop = () => {
     setNavShow?.(true);
-  });
+  };
 
   return (
     <BackTop duration={700} visibilityHeight={300} onClick={backTop} className='BackTop'>
