@@ -22,7 +22,7 @@ const SayPop: React.FC<Props> = ({ content, date, imgs, handlePreView }) => (
       <div className={s.content}>
         {content}
         <span className={s.date}>{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</span>
-        {!!imgs.length && (
+        {!!imgs?.length && (
           <div className={s.sayImgsBox}>
             {imgs.map((img, index) => (
               <div key={index} className={s.sayImg} onClick={() => handlePreView(img)}>
