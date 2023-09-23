@@ -1,5 +1,5 @@
 // 博客的云环境ID
-export const env = 'react-blog-admin-8fo571wf24c87f9';
+export const env = 'react-blog-admin-test-1a3424a4e2';
 
 export const source_github = 'https://github.com/lzxjack/react-blog';
 
@@ -92,4 +92,4 @@ export const avatarArrLen = defaultCommentAvatarArr.length;
 
 // 评论回复时，发送邮件提醒的API地址
 export const emailApi =
-  'https://react-blog-admin-8fo571wf24c87f9-1304393382.ap-shanghai.app.tcloudbase.com/sendemail';
+  'https://react-blog-admin-test-1a3424a4e2-1304393382.ap-shanghai.app.tcloudbase.com/email';
