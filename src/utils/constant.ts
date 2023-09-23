@@ -69,7 +69,7 @@ export const myLink = 'https://lzxjack.top';
 export const myAvatar = 'https://img.lzxjack.top:99/202203302154224.webp';
 export const myDescr = '一只平凡的鸟罢了。';
 export const myEmail = '965555169@qq.com';
-export const adminUid = 'dbee9976b3c14448a06f2006a4795cf2';
+export const adminUid = '41fcc65978324a8db4048993dfc0a9df';
 export const QQ = '965555169';
 
 export const myAvatar70 = 'https://img.lzxjack.top:99/202203302156259.webp';
