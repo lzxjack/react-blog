@@ -4,7 +4,6 @@ import {
   useBoolean,
   useKeyPress,
   useLocalStorageState,
-  useMemoizedFn,
   useMount,
   useRequest,
   useSafeState
@@ -115,7 +114,7 @@ const EditBox: React.FC<Props> = ({
     }
   };
 
-  const validate = useMemoizedFn(() => {
+  const validate = () => {
     Object.keys(validateConfig).forEach(item => {
       const { check, errText, content } =
         validateConfig[item as keyof typeof validateConfig];
@@ -124,9 +123,9 @@ const EditBox: React.FC<Props> = ({
         throw new Error('breakForEach');
       }
     });
-  });
+  };
 
-  const checkAdmin = useMemoizedFn(() => {
+  const checkAdmin = () => {
     if (
       !adminLogined() &&
       (name === myName ||
@@ -137,9 +136,9 @@ const EditBox: React.FC<Props> = ({
       message.warning('未登录不可以使用管理员账户（昵称、邮箱、网址）哦~');
       throw new Error('Not Admin');
     }
-  });
+  };
 
-  const submit = useMemoizedFn(async () => {
+  const submit = async () => {
     try {
       validate();
       checkAdmin();
@@ -174,13 +173,13 @@ const EditBox: React.FC<Props> = ({
         message.error('发布失败，请重试！');
       }
     } catch {}
-  });
+  };
 
-  const adminLogined = useMemoizedFn(() => {
+  const adminLogined = () => {
     if (!auth.hasLoginState()) return false;
     if (auth.currentUser?.uid === adminUid) return true;
     return false;
-  });
+  };
 
   useMount(() => {
     if (adminLogined()) {
@@ -197,7 +196,7 @@ const EditBox: React.FC<Props> = ({
     localAvatar && setAvatar?.(localAvatar);
   });
 
-  const handleName = useMemoizedFn(() => {
+  const handleName = () => {
     const regQQ = /[1-9][0-9]{4,11}/;
     if (name === 'admin') {
       setShowAdmin(true);
@@ -220,23 +219,23 @@ const EditBox: React.FC<Props> = ({
       return;
     }
     setLocalName(name);
-  });
+  };
 
   useKeyPress(13, handleName, {
     target: nameRef
   });
 
-  const openPreShow = useMemoizedFn(() => {
+  const openPreShow = () => {
     if (!showPre && !text) {
       message.info('请写点什么再预览~');
       return;
     }
     togglePre();
-  });
+  };
 
-  const handleCloseReply = useMemoizedFn(() => {
+  const handleCloseReply = () => {
     closeReply?.();
-  });
+  };
 
   const { run: informAdminMsg } = useRequest(
     () =>

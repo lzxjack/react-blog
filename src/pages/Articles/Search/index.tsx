@@ -1,5 +1,5 @@
 import { ArrowRightOutlined, RedoOutlined } from '@ant-design/icons';
-import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
+import { useKeyPress, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import React, { useRef } from 'react';
 
@@ -19,7 +19,7 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, run }) => {
   const [input, setInput] = useSafeState('');
   const inputRef = useRef(null);
 
-  const search = useMemoizedFn(() => {
+  const search = () => {
     if (!input) {
       message.info('请输入关键词再搜索!');
       return;
@@ -34,9 +34,9 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, run }) => {
       setPage(1);
       run?.();
     }, 0);
-  });
+  };
 
-  const reset = useMemoizedFn(() => {
+  const reset = () => {
     if (JSON.stringify(where) === '{}' && page === 1 && !input) {
       message.info('无需重置!');
       return;
@@ -51,7 +51,7 @@ const Search: React.FC<Props> = ({ page, setPage, where, setWhere, run }) => {
       setPage(1);
       run?.();
     }, 0);
-  });
+  };
 
   useKeyPress(13, search, {
     target: inputRef

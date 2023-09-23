@@ -1,4 +1,4 @@
-import { useKeyPress, useMemoizedFn, useSafeState } from 'ahooks';
+import { useKeyPress, useSafeState } from 'ahooks';
 import { message } from 'antd';
 import classNames from 'classnames';
 import React, { memo, useRef } from 'react';
@@ -30,13 +30,13 @@ const AdminBox: React.FC<Props> = ({
   const [adminEmail, setAdminEmail] = useSafeState('');
   const [adminPwd, setAdminPwd] = useSafeState('');
 
-  const hideAdmin = useMemoizedFn(() => {
+  const hideAdmin = () => {
     setShowAdmin?.(false);
     setAdminEmail('');
     setAdminPwd('');
-  });
+  };
 
-  const adminLogin = useMemoizedFn(async () => {
+  const adminLogin = async () => {
     if (await authLogin(adminEmail!, adminPwd!)) {
       message.success('登陆成功！');
       setName?.(myName);
@@ -47,7 +47,7 @@ const AdminBox: React.FC<Props> = ({
     } else {
       message.error('登陆失败，请重试！');
     }
-  });
+  };
 
   useKeyPress(13, adminLogin, {
     target: pwdRef

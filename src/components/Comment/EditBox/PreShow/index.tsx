@@ -1,4 +1,3 @@
-import { useMemoizedFn } from 'ahooks';
 import classNames from 'classnames';
 import React from 'react';
 import sanitizeHtml from 'sanitize-html';
@@ -14,7 +13,7 @@ interface Props {
 }
 
 const PreShow: React.FC<Props> = ({ closePre, content, className }) => {
-  const handleClose = useMemoizedFn(() => closePre?.());
+  const handleClose = () => closePre?.();
 
   return (
     <div className={classNames(s.preShow, className)}>

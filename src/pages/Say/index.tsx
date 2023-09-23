@@ -1,4 +1,4 @@
-import { useMemoizedFn, useRequest } from 'ahooks';
+import { useRequest } from 'ahooks';
 import React, { useState } from 'react';
 
 import ImgView from '@/components/ImgView';
@@ -28,10 +28,10 @@ const Say: React.FC = () => {
   const [url, setUrl] = useState('');
   const [showPreView, setShowPreView] = useState(false);
 
-  const handlePreView = useMemoizedFn((url: string) => {
+  const handlePreView = (url: string) => {
     setShowPreView(true);
     setUrl(url);
-  });
+  };
 
   return (
     <Layout title={Title.Say} loading={loading}>
